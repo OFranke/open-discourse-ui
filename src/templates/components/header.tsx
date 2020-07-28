@@ -55,6 +55,7 @@ export const Header: React.FC = () => {
         <NavItem href="/methodik">Methodik</NavItem>
         <NavItem href="/about">About</NavItem>
         <NavItem href="/tools-und-daten">Tools und Daten</NavItem>
+        <NavItem href="/suche">Protokolle durchsuchen</NavItem>
       </Box>
 
       {/* <Box

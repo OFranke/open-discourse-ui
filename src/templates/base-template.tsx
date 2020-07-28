@@ -14,7 +14,9 @@ export const BaseTemplate: React.FC = ({ children }) => {
       <ColorModeProvider>
         <Flex direction="column">
           <Header />
-          <Flex padding="1.5rem">{children}</Flex>
+          <Flex padding="1.5rem" direction="column">
+            {children}
+          </Flex>
         </Flex>
       </ColorModeProvider>
     </ThemeProvider>

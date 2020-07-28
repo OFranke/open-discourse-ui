@@ -51,7 +51,6 @@ const Search: React.FC = () => {
     <BaseTemplate>
       <Flex direction="column">
         <Heading>test</Heading>
-        {/* <Image src="https://bit.ly/sage-adebayo" alt="Segun Adebayo" /> */}
 
         <Flex flex={1} p={4}>
           {/* {process.browser && ( */}
