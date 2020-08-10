@@ -6,32 +6,42 @@ import React from "react";
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
-      <Stack spacing="3">
-        <Image
-          src="/images/reichstagsgebaeude.png"
-          alt="Reichstagsgebäude"
-          width="100%"
-        />
-        <Heading as="h1" size="xl">
-          Um was geht es bei OD?
-        </Heading>
-        <Text fontSize="l">
-          Seit 1949 wird jedes gesprochene Wort im Bundestag protokolliert, aber
-          was geschieht eigentlich mit den Protokollen sobald sie archiviert
-          wurden? In den letzten 70 Jahren Bundestag wurden diese Protokolle
-          tatsächlich kaum analysiert, da der Großteil nicht maschinell
-          auswertbar ist. Open Discourse hat nun alle Plenarprotokolle
-          maschinenlesbar gemacht und darüber hinaus mit Metainformation in eine
-          Datenbank überführt. Da nicht nur die Redebeiträge in den Protokollen
-          festgehalten werden sondern auch die Reaktionen einzelner
-          PolitikerInnen oder Fraktionen, können auch diese ausgewertet werden.
-          Somit ermöglicht Open Discourse umfassende Analysen der Sprache und
-          Reaktionen des Bundestags von 1949 bis heute und holt so den
-          politischen Diskurs ins 21. Jahrhundert. Mittels moderner Methoden aus
-          Deep-und Machine Learning können die Protokolle nun auf Muster
-          untersucht werden und so die Debatten für die Allgemeinheit zugänglich
-          machen.
-        </Text>
+      <Stack spacing="5">
+        <Stack
+          direction="row"
+          spacing="3"
+          marginX="-1.5rem"
+          marginTop="-1.5rem"
+          backgroundColor="gray.200"
+        >
+          <Image
+            src="/images/reichstagsgebaeude.png"
+            alt="Reichstagsgebäude"
+            width="50%"
+          />
+          <Stack padding="2rem">
+            <Heading as="h1" size="xl">
+              Um was geht es bei OD?
+            </Heading>
+            <Text fontSize="l">
+              Seit 1949 wird jedes gesprochene Wort im Bundestag protokolliert,
+              aber was geschieht eigentlich mit den Protokollen sobald sie
+              archiviert wurden? In den letzten 70 Jahren Bundestag wurden diese
+              Protokolle tatsächlich kaum analysiert, da der Großteil nicht
+              maschinell auswertbar ist. Open Discourse hat nun alle
+              Plenarprotokolle maschinenlesbar gemacht und darüber hinaus mit
+              Metainformation in eine Datenbank überführt. Da nicht nur die
+              Redebeiträge in den Protokollen festgehalten werden sondern auch
+              die Reaktionen einzelner PolitikerInnen oder Fraktionen, können
+              auch diese ausgewertet werden. Somit ermöglicht Open Discourse
+              umfassende Analysen der Sprache und Reaktionen des Bundestags von
+              1949 bis heute und holt so den politischen Diskurs ins 21.
+              Jahrhundert. Mittels moderner Methoden aus Deep-und Machine
+              Learning können die Protokolle nun auf Muster untersucht werden
+              und so die Debatten für die Allgemeinheit zugänglich machen.
+            </Text>
+          </Stack>
+        </Stack>
         <Heading as="h2" size="lg">
           Auswertungen
         </Heading>
