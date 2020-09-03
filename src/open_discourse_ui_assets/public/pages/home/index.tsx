@@ -1,9 +1,9 @@
-import Head from "next/head";
-import { BaseTemplate } from "../templates/base-template";
+
+import { BaseTemplate } from "../../templates/base-template";
 import { Heading, Image, Flex, Stack, Text } from "@chakra-ui/core";
 import React from "react";
 
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   return (
     <BaseTemplate>
       <Stack spacing="5">
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
           backgroundColor="gray.200"
         >
           <Image
-            src="/images/reichstagsgebaeude.png"
+            src="/reichstagsgebaeude.png"
             alt="Reichstagsgebäude"
             width="50%"
           />
@@ -131,5 +131,3 @@ const Home: React.FC = () => {
     </BaseTemplate>
   );
 };
-
-export default Home;

@@ -1,13 +1,14 @@
-import Head from "next/head";
-import { BaseTemplate } from "../templates/base-template";
-import { Heading, Image, Text } from "@chakra-ui/core";
 
-const Home: React.FC = () => {
+import { BaseTemplate } from "../../templates/base-template";
+import { Heading, Image, Text } from "@chakra-ui/core";
+import React from "react";
+
+export const About: React.FC = () => {
   return (
     <BaseTemplate>
       <Heading as="h1">Wir sind Limebit</Heading>
       <Image
-        src="/images/wir_sind_limebit.png"
+        src="/assets/wir_sind_limebit.png"
         alt="Limebit Team"
         width="100%"
       />
@@ -72,5 +73,3 @@ const Home: React.FC = () => {
     </BaseTemplate>
   );
 };
-
-export default Home;

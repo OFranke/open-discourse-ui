@@ -1,13 +1,11 @@
-import Head from "next/head";
-import { BaseTemplate } from "../templates/base-template";
+import { BaseTemplate } from "../../templates/base-template";
 import { Heading } from "@chakra-ui/core";
+import React from "react";
 
-const Home: React.FC = () => {
+export const ToolsUndDaten: React.FC = () => {
   return (
     <BaseTemplate>
       <Heading>Tools und Daten</Heading>
     </BaseTemplate>
   );
 };
-
-export default Home;

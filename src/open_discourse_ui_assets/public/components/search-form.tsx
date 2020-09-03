@@ -1,7 +1,7 @@
 import queryString from "query-string";
 import { Stack, Input, Select, Button } from "@chakra-ui/core";
-import { useState, useEffect, FormEvent } from "react";
-import { useRouter } from "next/router";
+import React, { useState, useEffect, FormEvent } from "react";
+import { useHistory as useRouter, useLocation } from "react-router-dom";
 
 export interface FormParams {
   contentQuery?: string | null;
@@ -14,7 +14,7 @@ export interface FormParams {
 export const SearchForm: React.FC<FormParams> = () => {
   const [formParams, setFormParams] = useState<FormParams>({});
 
-  console.log("\x1b[33m%s\x1b[0m", ">> formParams", formParams);
+  const router = useRouter();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     // do not refresh entire page
@@ -32,15 +32,16 @@ export const SearchForm: React.FC<FormParams> = () => {
     );
   };
 
-  const router = useRouter();
+  const query = new URLSearchParams(useLocation().search);
+
+  const contentQuery = query.get("contentQuery");
+  const nameQuery = query.get("nameQuery");
+  const positionQuery = query.get("positionQuery");
+  const fromDate = query.get("fromDate");
+  const toDate = query.get("toDate");
+  const suche = query.get("suche");
+  
   useEffect(() => {
-    const {
-      contentQuery,
-      nameQuery,
-      positionQuery,
-      fromDate,
-      toDate,
-    } = router.query;
     setFormParams({
       contentQuery: contentQuery as string,
       nameQuery: nameQuery as string,
@@ -48,8 +49,8 @@ export const SearchForm: React.FC<FormParams> = () => {
       fromDate: fromDate as string,
       toDate: toDate as string,
     });
-  }, [router.query]);
-
+  }, [contentQuery, nameQuery, positionQuery, fromDate, toDate, suche]);
+  
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -59,11 +60,6 @@ export const SearchForm: React.FC<FormParams> = () => {
               value={formParams?.nameQuery || ""}
               placeholder="Name des Politikers"
               onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
-                console.log(
-                  "\x1b[33m%s\x1b[0m",
-                  ">> event.target.value",
-                  event.target.value
-                );
                 setFormParams({
                   ...formParams,
                   nameQuery: event.target.value,

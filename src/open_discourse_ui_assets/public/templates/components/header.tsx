@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Flex, Heading, Box, Text, Button, Link } from "@chakra-ui/core";
+import { Flex, Heading, Box, Text } from "@chakra-ui/core";
+import { Link } from 'react-router-dom'
 
 interface NavItemProps {
   href: string;
 }
 const NavItem: React.FC<NavItemProps> = ({ href, children }) => (
-  <Link href={href}>
+  <Link to={href}>
     <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
       {children}
     </Text>
@@ -57,15 +58,6 @@ export const Header: React.FC = () => {
         <NavItem href="/tools-und-daten">Tools und Daten</NavItem>
         <NavItem href="/suche">Protokolle durchsuchen</NavItem>
       </Box>
-
-      {/* <Box
-        display={{ sm: show ? "block" : "none", md: "block" }}
-        mt={{ base: 4, md: 0 }}
-      >
-        <Button bg="transparent" border="1px">
-          Create account
-        </Button>
-      </Box> */}
     </Flex>
   );
 };

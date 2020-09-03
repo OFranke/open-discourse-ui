@@ -1,8 +1,6 @@
-import { Flex, Stack } from "@chakra-ui/core";
-import { FormParams } from "./search-form";
-import { useEffect, useState } from "react";
-import queryString from "query-string";
-import { useRouter } from "next/router";
+import { Stack } from "@chakra-ui/core";
+import React, { useEffect, useState } from "react";
+import { useHistory as useRouter, useLocation } from "react-router-dom";
 
 import {
   Link,
@@ -134,26 +132,44 @@ const columns = [
 export const SearchResult: React.FC = () => {
   const [data, setData] = useState<{ ftSearchSpeeches: SearchResultRow[] }>();
   // const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  console.log("\x1b[33m%s\x1b[0m", ">> router", router);
+  const query = new URLSearchParams(useLocation().search);
+
+  const queryParams = {
+    contentQuery: query.get("contentQuery"),
+    nameQuery: query.get("nameQuery"),
+    positionQuery: query.get("positionQuery"),
+    fromDate: query.get("fromDate"),
+    toDate: query.get("toDate"),
+  };
+
+  const contentQuery = query.get("contentQuery");
+  const nameQuery = query.get("nameQuery");
+  const positionQuery = query.get("positionQuery");
+  const fromDate = query.get("fromDate");
+  const toDate = query.get("toDate");
+
   useEffect(() => {
     const callApiAsync = async () => {
-      // if (loading) {
-      // setLoading(false);
-      const searchApiEndpoint = `/api/suche${window.location.search}`;
 
-      const searchResult = await fetch(searchApiEndpoint, {
+      const result = await fetch("https://od-graphql.herokuapp.com/graphql", {
+        method: "POST",
+        mode: "cors",
         headers: { "Content-Type": "application/json" },
-      }).then((response) => response.json());
-      console.log("\x1b[33m%s\x1b[0m", ">> searchResult async", searchResult);
+        body: `{"operationName":"Search","variables":{"first":50,"contentQuery":"${
+          contentQuery || ""
+        }","positionQuery":"${positionQuery || ""}","nameQuery":"${
+          nameQuery || ""
+        }"${fromDate ? `,"fromDate":"${fromDate}"` : ""}${
+          toDate ? `,"toDate":"${toDate}"` : ""
+        }},"query":"query Search($nameQuery: String, $contentQuery: String, $positionQuery: String, $fromDate: Date, $toDate: Date, $first: Int!) {\\n  ftSearchSpeeches(first: $first, nameQuery: $nameQuery, contentQuery: $contentQuery, positionQuery: $positionQuery, fromDate: $fromDate, toDate: $toDate) {\\n    rank\\n    id\\n    firstName\\n    lastName\\n    position\\n    date\\n    documentUrl\\n    speechContent\\n    __typename\\n  }\\n}\\n"}`,
+      });
+      const searchResult = await result.json();
       setData(searchResult.data);
-      // }
     };
 
     callApiAsync();
-  }, [router.query]);
+  }, [contentQuery, nameQuery, positionQuery, fromDate, toDate]);
 
-  console.log("\x1b[33m%s\x1b[0m", ">> SearchResult data", data);
   return (
     <>
       <Stack direction="row" spacing="3">

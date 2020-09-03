@@ -6,6 +6,7 @@ import {
 } from "@chakra-ui/core";
 import { theme } from "@chakra-ui/core";
 import { Header } from "./components/header";
+import React from "react";
 
 export const BaseTemplate: React.FC = ({ children }) => {
   return (

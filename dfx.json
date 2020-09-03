@@ -1,0 +1,45 @@
+{
+  "start": {
+    "port": 8000,
+    "address": "127.0.0.1",
+    "serve_root": "src/open_discourse_ui_assets/public/"
+  },
+  "canisters": {
+    "open_discourse_ui": {
+      "main": "src/open_discourse_ui/main.mo",
+      "type": "motoko"
+    },
+    "open_discourse_ui_assets": {
+      "dependencies": [
+        "open_discourse_ui"
+      ],
+      "frontend": {
+        "entrypoint": "src/open_discourse_ui_assets/public/index.tsx"
+      },
+      "source": [
+        "src/open_discourse_ui_assets/assets",
+        "dist/open_discourse_ui_assets/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "dfx": "0.6.4",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "tungsten": {
+      "providers": [
+        "https://gw.dfinity.network"
+      ],
+      "type": "persistent"
+    }
+  },
+  "version": 1
+}
