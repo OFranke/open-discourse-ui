@@ -1,30 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# open_discourse_ui
 
-## Getting Started
+## The Idea behind Open Discourse
 
-First, run the development server:
+Starting in 1949, every single spoken word in the Bundestag has been recorded - but what happens to those Protocols once they are archived? In fact, they haven't been analyzed in the past 70 years because they mostly can't be read by computers.
+
+Open Discourse took the challenge and made every plenary protocol computer-readable and parsed the data - including meta information - into a database. Because not only the speeches are recored but also reactions by politicians or factions, we can analyze them as well.
+
+Therefore Open Discourse opens up new possibilities for analyzing the work of the Bundestag since 1949 and hence propels the analytical possibilities of political discourse in Germany into the 21st Century. Using modern Methods like Deep- and Machine-Learning, protocols can now be examined for patterns and made available to the whole public.
+
+## Project setup
+
+### Start the local IC and install the project
 
 ```bash
-npm run dev
-# or
-yarn dev
+make all
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Get Frontend canister id
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+make get_frontend_canister_id
+```
 
-## Learn More
+### Learn details aubout Dfinity
 
-To learn more about Next.js, take a look at the following resources:
+- [Quick Start](https://sdk.dfinity.org/docs/quickstart/quickstart.html)
+- [SDK Developer Tools](https://sdk.dfinity.org/docs/developers-guide/sdk-guide.html)
+- [Motoko Programming Language Guide](https://sdk.dfinity.org/docs/language-guide/motoko.html)
+- [Motoko Language Quick Reference](https://sdk.dfinity.org/docs/language-guide/language-manual.html)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+dfx help
+dfx config --help
+```
