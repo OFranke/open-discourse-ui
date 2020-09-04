@@ -2,14 +2,22 @@ all: webpack start_local_ic create_canister build_canister install_canister
 
 reinstall: build_canister install_canister
 
+reinstall_tungsten: build_canister_tungsten install_canister_tungsten
+
 build_canister:
 	dfx build
+
+build_canister_tungsten:
+	dfx build --network tungsten
 
 create_canister:
 	dfx canister create --all
 	
 install_canister:
 	dfx canister install --all -m reinstall
+
+install_canister_tungsten:
+	dfx canister --network tungsten install --all -m reinstall
 
 get_frontend_canister_id:
 	dfx canister id open_discourse_ui_assets
