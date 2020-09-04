@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Flex, Heading, Box, Text } from "@chakra-ui/core";
-import { Link } from 'react-router-dom'
+import { Flex, Box, Text, Image } from "@chakra-ui/core";
+import { theming } from "../theming";
+import { Link } from "react-router-dom";
 
 interface NavItemProps {
   href: string;
 }
+
 const NavItem: React.FC<NavItemProps> = ({ href, children }) => (
   <Link to={href}>
     <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
@@ -16,7 +18,6 @@ const NavItem: React.FC<NavItemProps> = ({ href, children }) => (
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
-
   return (
     <Flex
       as="nav"
@@ -24,16 +25,17 @@ export const Header: React.FC = () => {
       justify="space-between"
       wrap="wrap"
       padding="1.5rem"
-      bg="teal.500"
+      bg={theming.backgroundYellow}
       color="white"
       width="100%"
     >
       <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
-          Open Discourse
-        </Heading>
+        <Image
+          src="https://www.opendiscourse.de/logo/full_od_white.png"
+          alt="White Open Discourse Logo"
+          height="50px"
+        />
       </Flex>
-
       <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
         <svg
           fill="white"
@@ -45,7 +47,6 @@ export const Header: React.FC = () => {
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
         </svg>
       </Box>
-
       <Box
         display={{ sm: show ? "block" : "none", md: "flex" }}
         width={{ sm: "full", md: "auto" }}
