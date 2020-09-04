@@ -15,7 +15,7 @@ export const Home: React.FC = () => {
           backgroundColor="gray.200"
         >
           <Image
-            src="/reichstagsgebaeude.png"
+            src="https://open-discourse-ui.vercel.app/images/reichstagsgebaeude.png"
             alt="Reichstagsgebäude"
             width="50%"
           />
@@ -50,12 +50,12 @@ export const Home: React.FC = () => {
           angefertigt haben.
         </Text>
         <Image
-          src="/images/wer_kommt_zu_wort.png"
+          src="https://open-discourse-ui.vercel.app/images/wer_kommt_zu_wort.png"
           alt="Wer kommt zu Wort - Männer oder Frauen?"
           width="100%"
         />
         <Image
-          src="/images/umfang_verschiedener_plenarprotokoll_korpora.png"
+          src="https://open-discourse-ui.vercel.app/images/umfang_verschiedener_plenarprotokoll_korpora.png"
           alt="Umfang verschiedener Plenarprotokoll-Korpora"
           width="100%"
         />

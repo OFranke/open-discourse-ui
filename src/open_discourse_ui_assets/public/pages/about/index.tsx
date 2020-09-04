@@ -8,7 +8,7 @@ export const About: React.FC = () => {
     <BaseTemplate>
       <Heading as="h1">Wir sind Limebit</Heading>
       <Image
-        src="/assets/wir_sind_limebit.png"
+        src="https://open-discourse-ui.vercel.app/images/wir_sind_limebit.png"
         alt="Limebit Team"
         width="100%"
       />
