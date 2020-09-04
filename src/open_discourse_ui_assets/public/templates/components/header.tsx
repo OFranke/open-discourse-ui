@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
         </svg>
       </Box>
-      <Box
+      {/* <Box
         display={{ sm: show ? "block" : "none", md: "flex" }}
         width={{ sm: "full", md: "auto" }}
         alignItems="center"
@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
         <NavItem href="/about">About</NavItem>
         <NavItem href="/tools-und-daten">Tools und Daten</NavItem>
         <NavItem href="/suche">Protokolle durchsuchen</NavItem>
-      </Box>
+      </Box> */}
     </Flex>
   );
 };

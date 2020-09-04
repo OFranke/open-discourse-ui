@@ -328,8 +328,8 @@ export const Home: React.FC = () => {
                 <Text>Adresse</Text>
                 <Divider color="white" alignSelf="left" maxW="2rem"></Divider>
                 <Text>Limebit GmbH</Text>
-                <Text>Rathenower Straße 38</Text>
-                <Text>D-10559 Berlin</Text>
+                <Text>Prinz-Eugen-Straße 17a</Text>
+                <Text>D-13347 Berlin</Text>
                 <Link href="https://limebit.de/impressum">Impressum</Link>
                 <Link href="https://limebit.de/datenschutz">Datenschutz</Link>
               </Stack>

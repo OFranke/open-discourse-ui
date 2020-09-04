@@ -19,14 +19,6 @@ export const SearchResult: React.FC = () => {
   }>();
   const query = new URLSearchParams(useLocation().search);
 
-  const queryParams = {
-    contentQuery: query.get("contentQuery"),
-    nameQuery: query.get("nameQuery"),
-    positionQuery: query.get("positionQuery"),
-    fromDate: query.get("fromDate"),
-    toDate: query.get("toDate"),
-  };
-
   const contentQuery = query.get("contentQuery");
   const nameQuery = query.get("nameQuery");
   const positionQuery = query.get("positionQuery");
@@ -52,10 +44,9 @@ export const SearchResult: React.FC = () => {
     };
 
     callApiAsync();
-  }, [contentQuery, nameQuery, positionQuery, fromDate, toDate]);
+  }, [contentQuery, nameQuery, positionQuery, fromDate, toDate, useLocation().search]);
 
   if (tableData) {
-    console.log(tableData.ftSearchSpeeches);
     return <TableComponent tableData={tableData.ftSearchSpeeches} />;
   }
   return null;

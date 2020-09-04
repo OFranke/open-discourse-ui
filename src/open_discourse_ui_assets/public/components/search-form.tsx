@@ -25,11 +25,9 @@ export const SearchForm: React.FC<FormParams> = () => {
       (key) =>
         searchValues[key] === (undefined || "") && delete searchValues[key]
     );
-    router.push(
-      `/suche?${queryString.stringify(
-        JSON.parse(JSON.stringify(searchValues))
-      )}`
-    );
+    router.push(`/?${queryString.stringify(
+      JSON.parse(JSON.stringify(searchValues))
+    )}`);
   };
 
   const query = new URLSearchParams(useLocation().search);
@@ -40,7 +38,7 @@ export const SearchForm: React.FC<FormParams> = () => {
   const fromDate = query.get("fromDate");
   const toDate = query.get("toDate");
   const suche = query.get("suche");
-  
+
   useEffect(() => {
     setFormParams({
       contentQuery: contentQuery as string,
@@ -50,7 +48,7 @@ export const SearchForm: React.FC<FormParams> = () => {
       toDate: toDate as string,
     });
   }, [contentQuery, nameQuery, positionQuery, fromDate, toDate, suche]);
-  
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -131,7 +129,7 @@ export const SearchForm: React.FC<FormParams> = () => {
           </Stack>
         </Stack>
         <Button mt={3} variantColor="teal" type="submit">
-          Suchen
+          Suchen (You may have to refresh the page)
         </Button>
       </form>
     </>
