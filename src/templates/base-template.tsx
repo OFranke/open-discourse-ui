@@ -21,67 +21,11 @@ const customTheme = extendTheme({ fonts });
 export const BaseTemplate: React.FC = ({ children }) => {
   return (
     <ChakraProvider theme={customTheme}>
-      <Text fontSize="40px" color="rebeccapurple" fontFamily="Source Code Pro">
-        Regular Style
-      </Text>
-      <Text
-        fontSize="40px"
-        color="rebeccapurple"
-        fontFamily="Source Code Pro"
-        fontStyle="italic"
-      >
-        Italic Style
-      </Text>
-      <Text
-        fontSize="40px"
-        color="rebeccapurple"
-        fontFamily="Source Code Pro"
-        fontWeight="700"
-      >
-        Bold Style Regular Style
-      </Text>
-      <Text
-        fontSize="40px"
-        color="rebeccapurple"
-        fontFamily="Source Code Pro"
-        fontWeight="bold"
-        fontStyle="italic"
-      >
-        Bold Italic
-      </Text>
-      <Text fontSize="40px" color="rebeccapurple" fontFamily="Source Sans Pro">
-        Regular Style
-      </Text>
-      <Text
-        fontSize="40px"
-        color="rebeccapurple"
-        fontFamily="Source Sans Pro"
-        fontStyle="italic"
-      >
-        Italic Style
-      </Text>
-      <Text
-        fontSize="40px"
-        color="rebeccapurple"
-        fontFamily="Source Sans Pro"
-        fontWeight="700"
-      >
-        Bold Style Regular Style
-      </Text>
-      <Text
-        fontSize="40px"
-        color="rebeccapurple"
-        fontFamily="Source Sans Pro"
-        fontWeight="bold"
-        fontStyle="italic"
-      >
-        Bold Italic
-      </Text>
       <Flex direction="column">
         <Header />
-        <Flex padding="1.5rem" direction="column">
-          {children}
-        </Flex>
+        {/* <Flex padding="1.5rem" direction="column"> */}
+        {children}
+        {/* </Flex> */}
       </Flex>
     </ChakraProvider>
   );
