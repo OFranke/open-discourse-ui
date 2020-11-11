@@ -41,16 +41,12 @@ const extendedTheme = {
 };
 
 const customTheme = extendTheme(extendedTheme);
-// font-family: 'Source Code Pro', monospace;
-// font-family: 'Source Sans Pro', sans-serif;
 export const BaseTemplate: React.FC = ({ children }) => {
   return (
     <ChakraProvider theme={customTheme}>
       <Flex direction="column">
         <Header />
-        {/* <Flex padding="1.5rem" direction="column"> */}
         {children}
-        {/* </Flex> */}
       </Flex>
     </ChakraProvider>
   );

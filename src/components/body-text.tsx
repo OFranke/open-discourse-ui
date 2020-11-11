@@ -1,4 +1,4 @@
-import { useColorModeValue, Text, Heading } from "@chakra-ui/core";
+import { Text, Heading } from "@chakra-ui/core";
 
 export const BodyText: React.FC = ({ children }) => {
   return (
