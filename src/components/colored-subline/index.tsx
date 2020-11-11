@@ -8,9 +8,16 @@ export const ColoredSubline: React.FC = ({ children }) => {
     lg: "3xl",
     xl: "4xl",
   });
+  const marginBottom = useBreakpointValue({
+    base: "4",
+    sm: "10",
+    md: "10",
+    lg: "14",
+    xl: "14",
+  });
   return (
     <Text
-      marginBottom="1"
+      marginBottom={marginBottom}
       fontFamily="Source Code Pro"
       textTransform="uppercase"
       fontWeight="bold"

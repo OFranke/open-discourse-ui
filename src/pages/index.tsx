@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         <DefaultContainer size="l">
           <DefaultHeadline size="s">
             Open Discourse — Analyse von Plenarprotokollen für Mensch und
-            Maschiene
+            Maschine
           </DefaultHeadline>
           <ColoredSubline>
             Künstliche Intelligenz wird unsere Zukunft verändern. Wir begleiten
@@ -40,66 +40,6 @@ const Home: React.FC = () => {
             Diskurs, für mehr Einsicht, für eine wissenschaftliche
             Auseinandersetzung mit politischer Sprache.
           </DefaultText>
-        </DefaultContainer>
-        <DefaultContainer size="xl">
-          <Heading>
-            Open Discourse Open Discourse Open Discourse Open Discourse Open
-            Discourse Open Discourse Open Discourse
-          </Heading>
-          <Text>
-            Analyse von politischer Sprache in Deutschland Analyse von
-            politischer Sprache in Deutschland Analyse von politischer Sprache
-            in Deutschland Analyse von politischer Sprache in Deutschland
-            Analyse von politischer Sprache in Deutschland Analyse von
-            politischer Sprache in Deutschland Analyse von politischer Sprache
-            in Deutschland Analyse von politischer Sprache in Deutschland
-            Analyse von politischer Sprache in Deutschland
-          </Text>
-        </DefaultContainer>
-        <DefaultContainer size="l">
-          <Heading>
-            Open Discourse Open Discourse Open Discourse Open Discourse Open
-            Discourse Open Discourse Open Discourse
-          </Heading>
-          <Text>
-            Analyse von politischer Sprache in Deutschland Analyse von
-            politischer Sprache in Deutschland Analyse von politischer Sprache
-            in Deutschland Analyse von politischer Sprache in Deutschland
-            Analyse von politischer Sprache in Deutschland Analyse von
-            politischer Sprache in Deutschland Analyse von politischer Sprache
-            in Deutschland Analyse von politischer Sprache in Deutschland
-            Analyse von politischer Sprache in Deutschland
-          </Text>
-        </DefaultContainer>
-        <DefaultContainer size="m">
-          <Heading>
-            Open Discourse Open Discourse Open Discourse Open Discourse Open
-            Discourse Open Discourse Open Discourse
-          </Heading>
-          <Text>
-            Analyse von politischer Sprache in Deutschland Analyse von
-            politischer Sprache in Deutschland Analyse von politischer Sprache
-            in Deutschland Analyse von politischer Sprache in Deutschland
-            Analyse von politischer Sprache in Deutschland Analyse von
-            politischer Sprache in Deutschland Analyse von politischer Sprache
-            in Deutschland Analyse von politischer Sprache in Deutschland
-            Analyse von politischer Sprache in Deutschland
-          </Text>
-        </DefaultContainer>
-        <DefaultContainer size="s">
-          <Heading>
-            Open Discourse Open Discourse Open Discourse Open Discourse Open
-            Discourse Open Discourse Open Discourse
-          </Heading>
-          <Text>
-            Analyse von politischer Sprache in Deutschland Analyse von
-            politischer Sprache in Deutschland Analyse von politischer Sprache
-            in Deutschland Analyse von politischer Sprache in Deutschland
-            Analyse von politischer Sprache in Deutschland Analyse von
-            politischer Sprache in Deutschland Analyse von politischer Sprache
-            in Deutschland Analyse von politischer Sprache in Deutschland
-            Analyse von politischer Sprache in Deutschland
-          </Text>
         </DefaultContainer>
       </Section>
     </BaseTemplate>
