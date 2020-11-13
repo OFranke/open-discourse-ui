@@ -8059,6 +8059,11 @@ react-focus-lock@2.4.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
+react-intersection-observer@8.30.2:
+  version "8.30.2"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.30.2.tgz#f16d8298675917f5494ee934fdf242e2e639cca7"
+  integrity sha512-aC+5XKIPv3fLwycpupksG6MYqoJZnutpbXgFPzs+AJfNSeAfvOTg0tqCUxFJZBPcGe1Ev8VsQ/0wqv6/aPllGA==
+
 react-is@16.13.1, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"

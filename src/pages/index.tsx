@@ -1,6 +1,14 @@
 import Head from "next/head";
 import { BaseTemplate } from "../templates/base-template";
-import { Heading, Image, Flex, Stack, Text, Box } from "@chakra-ui/core";
+import {
+  Heading,
+  Image,
+  Flex,
+  Stack,
+  Text,
+  Box,
+  Progress,
+} from "@chakra-ui/core";
 import React from "react";
 import { BodyText } from "../components/body-text";
 import { HeroWithCta } from "../components/hero-with-cta";
@@ -9,6 +17,8 @@ import { ColoredSubline } from "../components/colored-subline";
 import { Section } from "../components/section";
 import { DefaultHeadline } from "../components/default-headline";
 import { DefaultText } from "../components/default-text";
+import { AnimatedCountUp } from "../components/animated-count-up";
+import { AnimatedProgress } from "../components/animated-progress";
 
 const Home: React.FC = () => {
   return (
@@ -40,6 +50,38 @@ const Home: React.FC = () => {
             Diskurs, für mehr Einsicht, für eine wissenschaftliche
             Auseinandersetzung mit politischer Sprache.
           </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <Stack
+            direction={{ base: "column", md: "row" }}
+            justifyContent="space-between"
+            spacing="5"
+          >
+            <Box>
+              <AnimatedCountUp
+                from={100000}
+                to={331197}
+                subline="Seiten Text"
+              ></AnimatedCountUp>
+            </Box>
+
+            <Box>
+              <AnimatedCountUp
+                from={100000}
+                to={846628}
+                subline="Redebeiträge"
+              ></AnimatedCountUp>
+            </Box>
+            <Box>
+              <AnimatedCountUp
+                from={1000000}
+                to={2255102}
+                subline="Reaktionen & Zwischenrufe"
+              ></AnimatedCountUp>
+            </Box>
+          </Stack>
         </DefaultContainer>
       </Section>
     </BaseTemplate>
