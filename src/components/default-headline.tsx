@@ -24,8 +24,6 @@ export const DefaultHeadline: React.FC<DefaultHeadlineProps> = ({
   };
   const marginBottomSize = useBreakpointValue(headingMarginBottom[size]);
   const theme = useTheme();
-  console.log("\x1b[33m%s\x1b[0m", "%c >> variant", headingSize);
-  console.log("\x1b[33m%s\x1b[0m", "%c >> theme", theme);
   return (
     <Heading
       as={as}

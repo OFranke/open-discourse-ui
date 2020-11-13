@@ -19,6 +19,8 @@ import { DefaultHeadline } from "../components/default-headline";
 import { DefaultText } from "../components/default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { AnimatedProgress } from "../components/animated-progress";
+import { Card } from "../components/card";
+import { Statistic } from "../components/statistic/index";
 
 const Home: React.FC = () => {
   return (
@@ -82,6 +84,17 @@ const Home: React.FC = () => {
               ></AnimatedCountUp>
             </Box>
           </Stack>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <Statistic
+            headline="Statistik"
+            subline="Wer kommt zu Wort – Männer oder Frauen?"
+            description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
+            descriptionHighlight="Für mehr Wachstum und Effektivität."
+            imagePath="/images/statistics/wer_kommt_zu_wort.png"
+          />
         </DefaultContainer>
       </Section>
     </BaseTemplate>

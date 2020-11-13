@@ -77,6 +77,13 @@ class MyDocument extends Document {
                     }
                     @font-face {
                         font-family: 'Source Sans Pro';
+                        font-weight: 600;
+                        font-display: auto;
+                        font-style: semibold;
+                        src: url('/fonts/SourceSansPro-SemiBold.ttf');
+                    }
+                    @font-face {
+                        font-family: 'Source Sans Pro';
                         font-weight: bold;
                         font-display: auto;
                         font-style: italic;
