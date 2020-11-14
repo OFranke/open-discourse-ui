@@ -1,6 +1,5 @@
-import Head from "next/head";
 import { BaseTemplate } from "../templates/base-template";
-import { Heading, Image, Text } from "@chakra-ui/core";
+import { Heading, Image, Text } from "@chakra-ui/react";
 
 const Home: React.FC = () => {
   return (

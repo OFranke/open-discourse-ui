@@ -1,15 +1,5 @@
-import Head from "next/head";
 import { BaseTemplate } from "../templates/base-template";
-import {
-  Heading,
-  Image,
-  Flex,
-  FormControl,
-  Stack,
-  Input,
-  Select,
-  Button,
-} from "@chakra-ui/core";
+import { Heading, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import queryString from "query-string";

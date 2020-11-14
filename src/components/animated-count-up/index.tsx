@@ -1,4 +1,4 @@
-import { Text, useBreakpointValue, Box } from "@chakra-ui/core";
+import { Text, useBreakpointValue, Box } from "@chakra-ui/react";
 import { animate } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { DefaultText } from "../default-text";

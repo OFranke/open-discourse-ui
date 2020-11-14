@@ -1,10 +1,10 @@
-import { Flex, Text } from "@chakra-ui/core";
-import { theme } from "@chakra-ui/core";
+import { Flex, Text } from "@chakra-ui/react";
+import { theme } from "@chakra-ui/react";
 import { Header } from "./components/header";
-import { ChakraProvider } from "@chakra-ui/core";
+import { ChakraProvider } from "@chakra-ui/react";
 
 // 1. Import the extendTheme util - it will merge with the default theme.
-import { extendTheme } from "@chakra-ui/core";
+import { extendTheme } from "@chakra-ui/react";
 
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 
@@ -23,21 +23,11 @@ const extendedTheme = {
     heading: "Source Sans Pro",
     body: "Source Sans Pro",
   },
-  // textStyles: {
-  //   h1: {
-  //     // you can also use responsive styles
-  //     fontSize: ["48px", "72px"],
-  //     fontWeight: "bold",
-  //     lineHeight: "110%",
-  //     letterSpacing: "-2%",
-  //   },
-  //   h2: {
-  //     fontSize: ["36px", "48px"],
-  //     fontWeight: "semibold",
-  //     lineHeight: "110%",
-  //     letterSpacing: "-1%",
-  //   },
-  // },
+  colors: {
+    pink: {
+      500: "#EB558A",
+    },
+  },
 };
 
 const customTheme = extendTheme(extendedTheme);

@@ -1,4 +1,4 @@
-import { Text, Heading } from "@chakra-ui/core";
+import { Text, Heading } from "@chakra-ui/react";
 
 export const BodyText: React.FC = ({ children }) => {
   return (

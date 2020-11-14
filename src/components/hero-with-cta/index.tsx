@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/core";
+import { Box, Flex } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 import { DefaultContainer } from "../default-container";
 import { DefaultButton } from "../default-button";

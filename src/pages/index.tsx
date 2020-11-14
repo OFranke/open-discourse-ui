@@ -1,16 +1,6 @@
-import Head from "next/head";
 import { BaseTemplate } from "../templates/base-template";
-import {
-  Heading,
-  Image,
-  Flex,
-  Stack,
-  Text,
-  Box,
-  Progress,
-} from "@chakra-ui/core";
+import { Stack, Box } from "@chakra-ui/react";
 import React from "react";
-import { BodyText } from "../components/body-text";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "../components/default-container";
 import { ColoredSubline } from "../components/colored-subline";
@@ -18,8 +8,6 @@ import { Section } from "../components/section";
 import { DefaultHeadline } from "../components/default-headline";
 import { DefaultText } from "../components/default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
-import { AnimatedProgress } from "../components/animated-progress";
-import { Card } from "../components/card";
 import { Statistic } from "../components/statistic/index";
 
 const Home: React.FC = () => {

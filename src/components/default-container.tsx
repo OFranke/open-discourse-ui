@@ -1,4 +1,8 @@
-import { Container, ContainerProps, useBreakpointValue } from "@chakra-ui/core";
+import {
+  Container,
+  ContainerProps,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 
 interface DefaultContainerProps extends ContainerProps {
   size: "s" | "m" | "l" | "xl";

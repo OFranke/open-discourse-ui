@@ -1,6 +1,6 @@
-import { Heading, HeadingProps, useBreakpointValue } from "@chakra-ui/core";
+import { Heading, HeadingProps, useBreakpointValue } from "@chakra-ui/react";
 
-import { useTheme } from "@chakra-ui/core";
+import { useTheme } from "@chakra-ui/react";
 interface DefaultHeadlineProps extends HeadingProps {
   size: "s" | "m" | "l";
 }
