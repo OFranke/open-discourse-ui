@@ -88,13 +88,26 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <Statistic
-            headline="Statistik"
-            subline="Wer kommt zu Wort – Männer oder Frauen?"
-            description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
-            descriptionHighlight="Für mehr Wachstum und Effektivität."
-            imagePath="/images/statistics/wer_kommt_zu_wort.png"
-          />
+          <Stack spacing={{ base: "10", md: "20", lg: "32" }}>
+            <Statistic
+              headline="Statistik"
+              subline="Wer kommt zu Wort – Männer oder Frauen?"
+              description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
+              descriptionHighlight="Für mehr Wachstum und Effektivität."
+              imagePath="/images/statistics/wer_kommt_zu_wort.png"
+              imagePosition="right"
+              imageAlt="Statistik"
+            />
+            <Statistic
+              headline="Statistik"
+              subline="Wer kommt zu Wort – Männer oder Frauen?"
+              description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
+              descriptionHighlight="Für mehr Wachstum und Effektivität."
+              imagePath="/images/statistics/wer_kommt_zu_wort.png"
+              imagePosition="left"
+              imageAlt="Statistik"
+            />
+          </Stack>
         </DefaultContainer>
       </Section>
     </BaseTemplate>
