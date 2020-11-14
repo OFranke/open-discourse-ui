@@ -9,6 +9,7 @@ import { DefaultHeadline } from "../components/default-headline";
 import { DefaultText } from "../components/default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { Statistic } from "../components/statistic/index";
+import { Quote } from "../components/quote";
 
 const Home: React.FC = () => {
   return (
@@ -22,7 +23,7 @@ const Home: React.FC = () => {
             Open Discourse — Analyse von Plenarprotokollen für Mensch und
             Maschine
           </DefaultHeadline>
-          <ColoredSubline>
+          <ColoredSubline backgroundColor="pink.500">
             Künstliche Intelligenz wird unsere Zukunft verändern. Wir begleiten
             Sie auf den Weg der digitalen Transformation.
           </ColoredSubline>
@@ -72,6 +73,54 @@ const Home: React.FC = () => {
               ></AnimatedCountUp>
             </Box>
           </Stack>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s">
+            Um was geht es bei Open Discourse?
+          </DefaultHeadline>
+          <ColoredSubline backgroundColor="#D8D8D8">
+            Open Discourse ist ein forschungsbasiertes Datenprojekt an der
+            Schnittstelle zwischen Politikwissenschaft und Data Science.
+          </ColoredSubline>
+          <DefaultText>
+            Mit unserer aufbereiteten Datenbank können die Plenarprotokolle des
+            Deutschen Bundestags seit 1949 nun frei zugänglich analysiert und
+            auf Muster untersucht werden.
+            <br />
+            <br />
+            Nutze unsere Volltextsuche, um den politischen Diskurs im Bundestag
+            nachzuverfolgen und zu untersuchen oder downloade den Datensatz, um
+            eigene umfassende Analysen der Sprache und Reaktionen des Bundestags
+            von 1949 bis heute durchzuführen.
+          </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section background="pink.500" color="white">
+        <DefaultContainer size="s">
+          <Quote
+            text="Open Discourse ermöglicht einzigartige Einblicke in die Herzkammer der deutschen Politik und holt so den politischen Diskurs ins 21. Jahrhundert."
+            author="Philipp Koch"
+            authorSubtext="Gründer von Limebit"
+          />
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s">
+            Open Discourse steht der Öffentlichkeit frei zur Verfügung.
+          </DefaultHeadline>
+          <ColoredSubline backgroundColor="#D8D8D8">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+          </ColoredSubline>
+          <DefaultText>
+            Das Open Discourse Korpus steht Akteuren aus Politik,
+            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
+            freien Verfügung. Wir freuen, uns dass der Datensatz bereits für
+            unterschiedlichen Analysen genutzt werden konnte und Open Discourse
+            es sogar in die Medien geschafft hat.
+          </DefaultText>
         </DefaultContainer>
       </Section>
       <Section>
