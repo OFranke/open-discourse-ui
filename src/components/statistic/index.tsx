@@ -78,30 +78,30 @@ const Header: React.FC<HeaderProps> = ({ subline }) => {
 
 interface StatisticImageProps {
   imagePath: string;
+  imageAlt: string;
 }
-const StatisticImage: React.FC<StatisticImageProps> = ({ imagePath }) => {
+const StatisticImage: React.FC<StatisticImageProps> = ({
+  imagePath,
+  imageAlt,
+}) => {
   return (
-    <Box
-      width={{ md: "100%" }}
-      backgroundImage="linear-gradient(135deg, rgba(229,229,229,1) 0%, rgba(255,255,255,1) 100%)"
-      marginX="-8px"
-    >
-      <Image
-        src={imagePath}
-        alt="Picture of the author"
-        layout="responsive"
-        width="1024px"
-        height="512px"
-        quality="100"
-      />
-    </Box>
+    <Image
+      src={imagePath}
+      alt={imageAlt}
+      layout="responsive"
+      width="1024px"
+      height="512px"
+      quality="75"
+    />
   );
 };
 
 interface StatisticProps
   extends DescriptionProps,
     HeaderProps,
-    StatisticImageProps {}
+    StatisticImageProps {
+  imagePosition: "left" | "right";
+}
 
 export const Statistic: React.FC<StatisticProps> = ({
   headline,
@@ -109,6 +109,8 @@ export const Statistic: React.FC<StatisticProps> = ({
   description,
   descriptionHighlight,
   imagePath,
+  imagePosition,
+  imageAlt,
 }) => {
   const isDesktop = useBreakpointValue({
     base: false,
@@ -118,10 +120,14 @@ export const Statistic: React.FC<StatisticProps> = ({
   return (
     <Card>
       {isDesktop ? (
-        <Flex padding="4">
+        <Flex
+          padding="4"
+          flexDirection={imagePosition == "right" ? "row-reverse" : "initial"}
+        >
           <Flex
             direction="column"
-            paddingRight="4"
+            paddingRight={imagePosition == "left" ? "4" : "0"}
+            paddingLeft={imagePosition == "right" ? "4" : "0"}
             width="35%"
             justifyContent="center"
           >
@@ -131,12 +137,23 @@ export const Statistic: React.FC<StatisticProps> = ({
               descriptionHighlight={descriptionHighlight}
             />
           </Flex>
-          <StatisticImage imagePath={imagePath} />
+          <Box
+            width={{ md: "100%" }}
+            backgroundImage="linear-gradient(135deg, rgba(229,229,229,1) 0%, rgba(255,255,255,1) 100%)"
+          >
+            <StatisticImage imagePath={imagePath} imageAlt={imageAlt} />
+          </Box>
         </Flex>
       ) : (
         <Flex direction="column" p="2">
-          <Header headline={headline} subline={subline} />
-          <StatisticImage imagePath={imagePath} />
+          <Header headline={headline} subline={subline} />{" "}
+          <Box
+            width={{ md: "100%" }}
+            backgroundImage="linear-gradient(135deg, rgba(229,229,229,1) 0%, rgba(255,255,255,1) 100%)"
+            marginX="-8px"
+          >
+            <StatisticImage imagePath={imagePath} imageAlt={imageAlt} />
+          </Box>
           <Description
             description={description}
             descriptionHighlight={descriptionHighlight}
