@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { Stack, Input, Select, Button } from "@chakra-ui/core";
+import { Stack, Input, Select, Button } from "@chakra-ui/react";
 import { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/router";
 

@@ -1,7 +1,5 @@
-import { Flex, Stack } from "@chakra-ui/core";
-import { FormParams } from "./search-form";
+import { Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import queryString from "query-string";
 import { useRouter } from "next/router";
 
 import {
@@ -17,7 +15,7 @@ import {
   ModalHeader,
   ModalOverlay,
   useDisclosure,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 
 interface SearchResultRow {
   date: string;

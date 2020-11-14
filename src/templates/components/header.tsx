@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Flex, Heading, Box, Text, Button, Link } from "@chakra-ui/core";
+import {
+  Flex,
+  Heading,
+  Box,
+  Text,
+  Button,
+  Link,
+  useColorMode,
+} from "@chakra-ui/react";
 
 interface NavItemProps {
   href: string;
@@ -15,6 +23,7 @@ const NavItem: React.FC<NavItemProps> = ({ href, children }) => (
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Flex
@@ -57,7 +66,9 @@ export const Header: React.FC = () => {
         <NavItem href="/tools-und-daten">Tools und Daten</NavItem>
         <NavItem href="/suche">Protokolle durchsuchen</NavItem>
       </Box>
-
+      <Button onClick={toggleColorMode}>
+        Toggle {colorMode === "light" ? "Dark" : "Light"}
+      </Button>
       {/* <Box
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}

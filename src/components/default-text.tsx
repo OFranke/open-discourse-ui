@@ -1,4 +1,4 @@
-import { Text, TextProps, useBreakpointValue } from "@chakra-ui/core";
+import { Text, TextProps, useBreakpointValue } from "@chakra-ui/react";
 export const DefaultText: React.FC<TextProps> = ({ children, ...props }) => {
   const textSize = useBreakpointValue({
     base: "sm",

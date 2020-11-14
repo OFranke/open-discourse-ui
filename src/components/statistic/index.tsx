@@ -1,5 +1,5 @@
 import { Card } from "../card";
-import { Stack, Flex, useBreakpointValue, Text, Box } from "@chakra-ui/core";
+import { Flex, useBreakpointValue, Text, Box } from "@chakra-ui/react";
 import { DefaultHeadline } from "../default-headline";
 import React from "react";
 import { DefaultText } from "../default-text";
@@ -36,7 +36,7 @@ const Description: React.FC<DescriptionProps> = ({
       </DefaultText>
       <DefaultText
         textTransform="uppercase"
-        color="#EB558A"
+        color="pink.500"
         fontWeight="bold"
         fontSize={descriptionSize}
       >

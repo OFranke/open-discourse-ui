@@ -1,4 +1,4 @@
-import { useBreakpointValue, Box, BoxProps } from "@chakra-ui/core";
+import { useBreakpointValue, Box, BoxProps } from "@chakra-ui/react";
 
 export const Section: React.FC<BoxProps> = ({ children, ...props }) => {
   const marginBottomSize = useBreakpointValue({

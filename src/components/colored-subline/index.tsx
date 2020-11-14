@@ -1,4 +1,4 @@
-import { Text, useBreakpointValue } from "@chakra-ui/core";
+import { Text, useBreakpointValue } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 export const ColoredSubline: React.FC = ({ children }) => {
   const textSize = useBreakpointValue({
@@ -25,12 +25,9 @@ export const ColoredSubline: React.FC = ({ children }) => {
       fontStyle="italic"
       fontSize={textSize}
     >
-      <span
-        style={{ background: "#EB558A" }}
-        className={styles.insertWhitespace}
-      >
+      <Text as="span" background="pink.500" className={styles.insertWhitespace}>
         {children}
-      </span>
+      </Text>
     </Text>
   );
 };

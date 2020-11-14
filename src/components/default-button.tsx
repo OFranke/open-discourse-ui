@@ -1,4 +1,4 @@
-import { Button, ButtonProps, useBreakpointValue } from "@chakra-ui/core";
+import { Button, ButtonProps, useBreakpointValue } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 interface DefaultButtonProps extends ButtonProps {
