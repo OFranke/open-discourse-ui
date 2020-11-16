@@ -1,5 +1,5 @@
-import { Text, useBreakpointValue } from "@chakra-ui/core";
-export const DefaultText: React.FC = ({ children }) => {
+import { Text, TextProps, useBreakpointValue } from "@chakra-ui/react";
+export const DefaultText: React.FC<TextProps> = ({ children, ...props }) => {
   const textSize = useBreakpointValue({
     base: "sm",
     sm: "xl",
@@ -7,5 +7,9 @@ export const DefaultText: React.FC = ({ children }) => {
     lg: "3xl",
     xl: "4xl",
   });
-  return <Text fontSize={textSize}>{children}</Text>;
+  return (
+    <Text fontSize={textSize} {...props}>
+      {children}
+    </Text>
+  );
 };

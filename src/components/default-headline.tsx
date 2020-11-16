@@ -1,6 +1,6 @@
-import { Heading, HeadingProps, useBreakpointValue } from "@chakra-ui/core";
+import { Heading, HeadingProps, useBreakpointValue } from "@chakra-ui/react";
 
-import { useTheme } from "@chakra-ui/core";
+import { useTheme } from "@chakra-ui/react";
 interface DefaultHeadlineProps extends HeadingProps {
   size: "s" | "m" | "l";
 }
@@ -24,8 +24,6 @@ export const DefaultHeadline: React.FC<DefaultHeadlineProps> = ({
   };
   const marginBottomSize = useBreakpointValue(headingMarginBottom[size]);
   const theme = useTheme();
-  console.log("\x1b[33m%s\x1b[0m", "%c >> variant", headingSize);
-  console.log("\x1b[33m%s\x1b[0m", "%c >> theme", theme);
   return (
     <Heading
       as={as}

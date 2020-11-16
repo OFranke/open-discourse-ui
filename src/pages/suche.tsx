@@ -1,5 +1,5 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Heading, Flex } from "@chakra-ui/core";
+import { Heading, Flex } from "@chakra-ui/react";
 import { FullTextSearch } from "../components/full-text-search";
 
 const Search: React.FC = () => {
