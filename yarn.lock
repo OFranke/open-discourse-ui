@@ -1084,6 +1084,40 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@bit/limebit.chakra-ui-recipes.error-toast@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.error-toast/-/limebit.chakra-ui-recipes.error-toast-0.0.1.tgz#554c9c686553b62368cd2e3a6c15d2f8d2bb694c"
+  integrity sha1-VUycaGVTtiNozS46bBXS+NK7aUw=
+
+"@bit/limebit.chakra-ui-recipes.loading-spinner@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.loading-spinner/-/limebit.chakra-ui-recipes.loading-spinner-0.0.1.tgz#ed613c92368c46af862bd6c0f7b89ddf642b0d0f"
+  integrity sha1-7WE8kjaMRq+GK9bA97id32QrDQ8=
+
+"@bit/limebit.chakra-ui-recipes.react-table@^0.0.2":
+  version "0.0.2"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.react-table/-/limebit.chakra-ui-recipes.react-table-0.0.2.tgz#ab188707f10503ee6f1b5322c846141e149c63b8"
+  integrity sha1-qxiHB/EFA+5vG1MiyEYUHhScY7g=
+  dependencies:
+    "@apollo/react-common" "3.1.3"
+    "@bit/limebit.chakra-ui-recipes.table" "0.0.1"
+    "@types/react-table" "7.0.19"
+    react-feather "2.0.8"
+    react-responsive "8.1.0"
+    react-table "7.2.2"
+
+"@bit/limebit.chakra-ui-recipes.select-input@^0.0.5":
+  version "0.0.5"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.select-input/-/limebit.chakra-ui-recipes.select-input-0.0.5.tgz#3e8ae7f1fe069fc2f971c7c88b1999e3739dcc91"
+  integrity sha1-Porn8f4Gn8L5ccfIixmZ43OdzJE=
+  dependencies:
+    csstype "3.0.3"
+
+"@bit/limebit.chakra-ui-recipes.table@0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.table/-/limebit.chakra-ui-recipes.table-0.0.1.tgz#df2ba35ed02a9b5348a5492d8e76f1447c6109c1"
+  integrity sha1-3yujXtAqm1NIpUktjnbxRHxhCcE=
+
 "@chakra-ui/accordion@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@chakra-ui/accordion/-/accordion-1.0.0.tgz#f34c324f923f1ee657962a9e8368c4e5b14d20c9"
@@ -3435,9 +3469,9 @@ camelcase@^6.0.0:
   integrity sha512-c7wVvbw3f37nuobQNtgsgG9POC9qMbNuMQmTCqZv23b6MIz0fcYpBiOlv9gEN/hdLdnZTDQhg6e9Dq5M1vKvfg==
 
 caniuse-lite@^1.0.30001093, caniuse-lite@^1.0.30001113, caniuse-lite@^1.0.30001157:
-  version "1.0.30001157"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001157.tgz#2d11aaeb239b340bc1aa730eca18a37fdb07a9ab"
-  integrity sha512-gOerH9Wz2IRZ2ZPdMfBvyOi3cjaz4O4dgNwPGzx8EhqAs4+2IL/O+fJsbt+znSigujoZG8bVcIAUM/I/E5K3MA==
+  version "1.0.30001158"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001158.tgz#fce86d321369603c2bc855ee0e901a7f49f8310b"
+  integrity sha512-s5loVYY+yKpuVA3HyW8BarzrtJvwHReuzugQXlv1iR3LKSReoFXRm86mT6hT7PEF5RxW+XQZg+6nYjlywYzQ+g==
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -4030,9 +4064,9 @@ cssnano-simple@1.2.0:
     postcss "^7.0.32"
 
 csso@^4.0.2:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/csso/-/csso-4.1.0.tgz#1d31193efa99b87aa6bad6c0cef155e543d09e8b"
-  integrity sha512-h+6w/W1WqXaJA4tb1dk7r5tVbOm97MsKxzwnvOR04UQ6GILroryjMWu3pmCCtL2mLaEStQ0fZgeGiy99mo7iyg==
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/csso/-/csso-4.1.1.tgz#e0cb02d6eb3af1df719222048e4359efd662af13"
+  integrity sha512-Rvq+e1e0TFB8E8X+8MQjHSY6vtol45s5gxtLI/018UsAn2IBMmwNEZRM/h+HVnAJRHjasLIKKUO3uvoMM28LvA==
   dependencies:
     css-tree "^1.0.0"
 
