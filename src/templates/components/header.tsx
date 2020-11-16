@@ -7,8 +7,11 @@ import {
   Button,
   Link,
   useColorMode,
+  IconButton,
 } from "@chakra-ui/react";
 
+import { HamburgerIcon } from "@chakra-ui/icons";
+import Image from "next/image";
 interface NavItemProps {
   href: string;
 }
@@ -32,31 +35,36 @@ export const Header: React.FC = () => {
       justify="space-between"
       wrap="wrap"
       padding="1.5rem"
-      bg="teal.500"
-      color="white"
+      // bg="teal.500"
+      // color="white"
       width="100%"
     >
       <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
-          Open Discourse
-        </Heading>
+        <Box width="120px">
+          <Image
+            src={"/images/logos/open_discourse.png"}
+            alt={"Open Discourse Logo"}
+            layout="responsive"
+            width="1250px"
+            height="400px"
+            quality="75"
+          />
+        </Box>
       </Flex>
 
       <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
-        <svg
-          fill="white"
-          width="12px"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
+        <IconButton
+          variant="ghost"
+          // colorScheme="white"
+          aria-label="Open Menu"
+          size="lg"
+          icon={<HamburgerIcon w="8" h="8" />}
+        />
       </Box>
 
       <Box
-        display={{ sm: show ? "block" : "none", md: "flex" }}
-        width={{ sm: "full", md: "auto" }}
+        display={{ base: show ? "block" : "none", md: "flex" }}
+        width={{ base: "full", md: "auto" }}
         alignItems="center"
         flexGrow={1}
         justifyContent="flex-end"
@@ -66,9 +74,9 @@ export const Header: React.FC = () => {
         <NavItem href="/tools-und-daten">Tools und Daten</NavItem>
         <NavItem href="/suche">Protokolle durchsuchen</NavItem>
       </Box>
-      <Button onClick={toggleColorMode}>
+      {/* <Button onClick={toggleColorMode}>
         Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
+      </Button> */}
       {/* <Box
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
