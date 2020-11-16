@@ -1,5 +1,5 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Stack, Box } from "@chakra-ui/react";
+import { Stack, Box, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "../components/default-container";
@@ -9,6 +9,8 @@ import { DefaultHeadline } from "../components/default-headline";
 import { DefaultText } from "../components/default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { Statistic } from "../components/statistic/index";
+import Image from "next/image";
+import { ProjectCard } from "../components/project-card";
 import { Quote } from "../components/quote";
 
 const Home: React.FC = () => {
@@ -145,6 +147,51 @@ const Home: React.FC = () => {
               imageAlt="Statistik"
             />
           </Stack>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <Image
+          src={"/images/sample/team_outside.png"}
+          alt={"Team draußen"}
+          layout="responsive"
+          width="1440px"
+          height="700px"
+          quality="75"
+        />
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s">Lorem ipsum dolor sit amet</DefaultHeadline>
+          <ColoredSubline backgroundColor="pink.500">
+            Künstliche Intelligenz wird unsere Zukunft verändern. Wir begleiten
+            Sie auf den Weg der digitalen Transformation.
+          </ColoredSubline>
+          <SimpleGrid columns={{ base: 1, lg: 3 }} spacing="10">
+            <ProjectCard
+              headline="FOM"
+              subline="Hypothetische Reden"
+              description='Der Datensatz wurde von Masterstudentinnen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittel Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
+              linkText="Link zu FOM"
+              imagePath="/images/logos/fom_logo.png"
+              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
+            />
+            <ProjectCard
+              headline="FOM"
+              subline="Hypothetische Reden"
+              description='Der Datensatz wurde von Masterstudentinnen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittel Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
+              linkText="Link zu FOM"
+              imagePath="/images/logos/fom_logo.png"
+              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
+            />
+            <ProjectCard
+              headline="FOM"
+              subline="Hypothetische Reden"
+              description='Der Datensatz wurde von Masterstudentinnen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittel Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
+              linkText="Link zu FOM"
+              imagePath="/images/logos/fom_logo.png"
+              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
+            />
+          </SimpleGrid>
         </DefaultContainer>
       </Section>
     </BaseTemplate>
