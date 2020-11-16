@@ -1,5 +1,5 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Stack, Box, Flex, Spacer } from "@chakra-ui/react";
+import { Stack, Box, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "../components/default-container";
@@ -10,8 +10,8 @@ import { DefaultText } from "../components/default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { Statistic } from "../components/statistic/index";
 import Image from "next/image";
-import { Card } from "../components/card";
 import { ProjectCard } from "../components/project-card";
+import { Quote } from "../components/quote";
 
 const Home: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
             Open Discourse — Analyse von Plenarprotokollen für Mensch und
             Maschine
           </DefaultHeadline>
-          <ColoredSubline>
+          <ColoredSubline backgroundColor="pink.500">
             Künstliche Intelligenz wird unsere Zukunft verändern. Wir begleiten
             Sie auf den Weg der digitalen Transformation.
           </ColoredSubline>
@@ -79,6 +79,54 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
+          <DefaultHeadline size="s">
+            Um was geht es bei Open Discourse?
+          </DefaultHeadline>
+          <ColoredSubline backgroundColor="#D8D8D8">
+            Open Discourse ist ein forschungsbasiertes Datenprojekt an der
+            Schnittstelle zwischen Politikwissenschaft und Data Science.
+          </ColoredSubline>
+          <DefaultText>
+            Mit unserer aufbereiteten Datenbank können die Plenarprotokolle des
+            Deutschen Bundestags seit 1949 nun frei zugänglich analysiert und
+            auf Muster untersucht werden.
+            <br />
+            <br />
+            Nutze unsere Volltextsuche, um den politischen Diskurs im Bundestag
+            nachzuverfolgen und zu untersuchen oder downloade den Datensatz, um
+            eigene umfassende Analysen der Sprache und Reaktionen des Bundestags
+            von 1949 bis heute durchzuführen.
+          </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section background="pink.500" color="white">
+        <DefaultContainer size="s">
+          <Quote
+            text="Open Discourse ermöglicht einzigartige Einblicke in die Herzkammer der deutschen Politik und holt so den politischen Diskurs ins 21. Jahrhundert."
+            author="Philipp Koch"
+            authorSubtext="Gründer von Limebit"
+          />
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s">
+            Open Discourse steht der Öffentlichkeit frei zur Verfügung.
+          </DefaultHeadline>
+          <ColoredSubline backgroundColor="#D8D8D8">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+          </ColoredSubline>
+          <DefaultText>
+            Das Open Discourse Korpus steht Akteuren aus Politik,
+            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
+            freien Verfügung. Wir freuen, uns dass der Datensatz bereits für
+            unterschiedlichen Analysen genutzt werden konnte und Open Discourse
+            es sogar in die Medien geschafft hat.
+          </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
           <Stack spacing={{ base: "10", md: "20", lg: "32" }}>
             <Statistic
               headline="Statistik"
@@ -114,11 +162,11 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s">Lorem ipsum dolor sit amet</DefaultHeadline>
-          <ColoredSubline>
+          <ColoredSubline backgroundColor="pink.500">
             Künstliche Intelligenz wird unsere Zukunft verändern. Wir begleiten
             Sie auf den Weg der digitalen Transformation.
           </ColoredSubline>
-          <Flex spacing="10">
+          <SimpleGrid columns={{ base: 1, lg: 3 }} spacing="10">
             <ProjectCard
               headline="FOM"
               subline="Hypothetische Reden"
@@ -127,7 +175,6 @@ const Home: React.FC = () => {
               imagePath="/images/logos/fom_logo.png"
               imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
             />
-            <Spacer />
             <ProjectCard
               headline="FOM"
               subline="Hypothetische Reden"
@@ -136,7 +183,6 @@ const Home: React.FC = () => {
               imagePath="/images/logos/fom_logo.png"
               imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
             />
-            <Spacer />
             <ProjectCard
               headline="FOM"
               subline="Hypothetische Reden"
@@ -145,7 +191,7 @@ const Home: React.FC = () => {
               imagePath="/images/logos/fom_logo.png"
               imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
             />
-          </Flex>
+          </SimpleGrid>
         </DefaultContainer>
       </Section>
     </BaseTemplate>
