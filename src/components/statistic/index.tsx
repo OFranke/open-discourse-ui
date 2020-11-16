@@ -121,7 +121,6 @@ export const Statistic: React.FC<StatisticProps> = ({
     <Card>
       {isDesktop ? (
         <Flex
-          padding="4"
           flexDirection={imagePosition == "right" ? "row-reverse" : "initial"}
         >
           <Flex
@@ -145,7 +144,7 @@ export const Statistic: React.FC<StatisticProps> = ({
           </Box>
         </Flex>
       ) : (
-        <Flex direction="column" p="2">
+        <Flex direction="column">
           <Header headline={headline} subline={subline} />{" "}
           <Box
             width={{ md: "100%" }}

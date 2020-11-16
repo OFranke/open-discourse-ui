@@ -1,8 +1,9 @@
 import { Card } from "./card";
-import { Text, useBreakpointValue, Stack, Box } from "@chakra-ui/react";
+import { Text, useBreakpointValue, Stack, Box, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import { DefaultHeadline } from "./default-headline";
 import { DefaultText } from "./default-text";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 interface ProjectCardProps {
   headline: string;
@@ -39,29 +40,39 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <Card>
-      <Stack>
-        <Box width="60px" height="60px">
-          <Image
-            src={imagePath}
-            alt={imageAlt}
-            layout="responsive"
-            width="60px"
-            height="60px"
-            quality="75"
-          />
-        </Box>
-        <DefaultHeadline
-          size="m"
-          fontFamily="Source Code Pro"
-          textTransform="none"
-          marginBottom="0"
+      <Stack spacing="3">
+        <Flex
+          direction={{ base: "row", lg: "column" }}
+          alignItems={{ base: "center", lg: "unset" }}
         >
-          {headline}
-        </DefaultHeadline>
-        <Text fontWeight="semibold" fontSize={sublineSize}>
-          {subline}
-        </Text>
-
+          <Box width={{ base: "60px", sm: "80px", md: "100px", lg: "140px" }}>
+            <Image
+              src={imagePath}
+              alt={imageAlt}
+              layout="responsive"
+              width="60px"
+              height="60px"
+              quality="75"
+            />
+          </Box>
+          <Flex
+            direction="column"
+            paddingTop={{ base: "0", lg: "6" }}
+            paddingLeft={{ base: "2", sm: "3", md: "4", lg: "0" }}
+          >
+            <DefaultHeadline
+              size="m"
+              fontFamily="Source Code Pro"
+              textTransform="none"
+              marginBottom="0"
+            >
+              {headline}
+            </DefaultHeadline>
+            <Text fontWeight="semibold" fontSize={sublineSize}>
+              {subline}
+            </Text>
+          </Flex>
+        </Flex>
         <DefaultText fontSize={descriptionSize}>{description}</DefaultText>
         <DefaultText
           textTransform="uppercase"
@@ -69,6 +80,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           fontWeight="bold"
           fontSize={descriptionSize}
         >
+          <ArrowForwardIcon marginRight="2" />
           {linkText}
         </DefaultText>
       </Stack>
