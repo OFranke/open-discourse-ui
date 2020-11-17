@@ -1,5 +1,13 @@
 import queryString from "query-string";
-import { Stack, Input, Button } from "@chakra-ui/core";
+import {
+  Stack,
+  Input,
+  InputGroup,
+  InputLeftAddon,
+  InputRightElement,
+  Button,
+} from "@chakra-ui/react";
+import { CalendarIcon } from "@chakra-ui/icons";
 import { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/router";
 import { useGetData } from "./hooks/use-get-data";
@@ -47,7 +55,9 @@ export const SearchForm: React.FC<FormParams> = () => {
         searchValues[key] === (undefined || "") && delete searchValues[key]
     );
     router.push(
-      `/?${queryString.stringify(JSON.parse(JSON.stringify(searchValues)))}`
+      `tools-und-daten/?${queryString.stringify(
+        JSON.parse(JSON.stringify(searchValues))
+      )}`
     );
   };
 
@@ -99,76 +109,11 @@ export const SearchForm: React.FC<FormParams> = () => {
     return (
       <>
         <form onSubmit={handleSubmit}>
-          <Stack spacing={3}>
-            <SelectInput
-              placeholder="Nach Politiker Filtern"
-              rawData={convertedPoliticians}
-              onSelect={(element) => {
-                setFormParams({
-                  ...formParams,
-                  politicianIdQuery: element?.key,
-                });
-              }}
-              width="100%"
-              boxHoverColor="gray.200"
-              boxColor="gray.100"
-              iconHoverColor="gray.200"
-              iconColor="gray.500"
-              initialValue={
-                formParams.politicianIdQuery
-                  ? convertedPoliticians.find(
-                      (politician) =>
-                        politician.key == formParams.politicianIdQuery
-                    )
-                  : undefined
-              }
-            />
-            <SelectInput
-              placeholder="Nach Fraktion Filtern"
-              rawData={convertedFactions}
-              onSelect={(element) => {
-                setFormParams({
-                  ...formParams,
-                  factionIdQuery: element?.key,
-                });
-              }}
-              boxHoverColor="gray.200"
-              boxColor="gray.100"
-              iconHoverColor="gray.200"
-              iconColor="gray.500"
-              initialValue={
-                formParams.factionIdQuery
-                  ? convertedFactions.find(
-                      (faction) => faction.key == formParams.factionIdQuery
-                    )
-                  : undefined
-              }
-            />
-            <SelectInput
-              placeholder="Nach Position Filtern"
-              rawData={positions}
-              onSelect={(element) => {
-                setFormParams({
-                  ...formParams,
-                  positionShortQuery: element?.key,
-                });
-              }}
-              boxHoverColor="gray.200"
-              boxColor="gray.100"
-              iconHoverColor="gray.200"
-              iconColor="gray.500"
-              initialValue={
-                formParams.positionShortQuery
-                  ? positions.find(
-                      (position) =>
-                        position.key == formParams.positionShortQuery
-                    )
-                  : undefined
-              }
-            />
+          <Stack spacing={{ base: 2, md: 3 }}>
             <Input
               value={formParams?.contentQuery || ""}
               placeholder="Redeinhalt Durchsuchen"
+              focusBorderColor="pink.500"
               onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
                 setFormParams({
                   ...formParams,
@@ -176,32 +121,153 @@ export const SearchForm: React.FC<FormParams> = () => {
                 })
               }
             />
-            <Stack isInline>
-              <Input
-                value={formParams?.fromDate || ""}
-                placeholder="Von"
-                type="date"
-                onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
+            <Stack direction={{ base: "column", md: "row" }}>
+              <SelectInput
+                width="100%"
+                placeholder="Nach Politiker Filtern"
+                rawData={convertedPoliticians}
+                onSelect={(element) => {
                   setFormParams({
                     ...formParams,
-                    fromDate: event.target.value,
-                  })
+                    politicianIdQuery: element?.key,
+                  });
+                }}
+                InputProps={{
+                  focusBorderColor: "pink.500",
+                }}
+                BoxProps={{
+                  backgroundColor: "white",
+                  borderWidth: "1px",
+                  borderColor: "gray.200",
+                }}
+                ButtonProps={{
+                  textColor: "black",
+                  rounded: "0px",
+                  _hover: { backgroundColor: "gray.200" },
+                }}
+                iconColor="pink.500"
+                iconHoverColor="pink.100"
+                initialValue={
+                  formParams.politicianIdQuery
+                    ? convertedPoliticians.find(
+                        (politician) =>
+                          politician.key == formParams.politicianIdQuery
+                      )
+                    : undefined
                 }
               />
-              <Input
-                value={formParams?.toDate || ""}
-                placeholder="Bis"
-                type="date"
-                onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
+              <SelectInput
+                width="100%"
+                placeholder="Nach Fraktion Filtern"
+                rawData={convertedFactions}
+                onSelect={(element) => {
                   setFormParams({
                     ...formParams,
-                    toDate: event.target.value,
-                  })
+                    factionIdQuery: element?.key,
+                  });
+                }}
+                InputProps={{
+                  focusBorderColor: "pink.500",
+                }}
+                BoxProps={{
+                  backgroundColor: "white",
+                  borderWidth: "1px",
+                  borderColor: "gray.200",
+                }}
+                ButtonProps={{
+                  textColor: "black",
+                  rounded: "0px",
+                  _hover: { backgroundColor: "gray.200" },
+                }}
+                iconColor="pink.500"
+                iconHoverColor="pink.100"
+                initialValue={
+                  formParams.factionIdQuery
+                    ? convertedFactions.find(
+                        (faction) => faction.key == formParams.factionIdQuery
+                      )
+                    : undefined
+                }
+              />
+              <SelectInput
+                width="100%"
+                placeholder="Nach Position Filtern"
+                rawData={positions}
+                onSelect={(element) => {
+                  setFormParams({
+                    ...formParams,
+                    positionShortQuery: element?.key,
+                  });
+                }}
+                InputProps={{
+                  focusBorderColor: "pink.500",
+                }}
+                BoxProps={{
+                  backgroundColor: "white",
+                  borderWidth: "1px",
+                  borderColor: "gray.200",
+                }}
+                ButtonProps={{
+                  textColor: "black",
+                  rounded: "0px",
+                  _hover: { backgroundColor: "gray.200" },
+                }}
+                iconColor="pink.500"
+                iconHoverColor="pink.100"
+                initialValue={
+                  formParams.positionShortQuery
+                    ? positions.find(
+                        (position) =>
+                          position.key == formParams.positionShortQuery
+                      )
+                    : undefined
                 }
               />
             </Stack>
+            <Stack direction={{ base: "column", md: "row" }}>
+              <InputGroup>
+                <InputLeftAddon children={"Von:"} />
+                <Input
+                  value={formParams?.fromDate || ""}
+                  placeholder="YYYY-MM-DD"
+                  type="date"
+                  focusBorderColor="pink.500"
+                  onChange={(
+                    event: React.ChangeEvent<HTMLInputElement>
+                  ): void =>
+                    setFormParams({
+                      ...formParams,
+                      fromDate: event.target.value,
+                    })
+                  }
+                />
+                <InputRightElement
+                  children={<CalendarIcon color="pink.500" />}
+                />
+              </InputGroup>
+              <InputGroup>
+                <InputLeftAddon children={"Bis:"} />
+                <Input
+                  value={formParams?.toDate || ""}
+                  placeholder="YYYY-MM-DD"
+                  type="date"
+                  focusBorderColor="pink.500"
+                  onChange={(
+                    event: React.ChangeEvent<HTMLInputElement>
+                  ): void =>
+                    setFormParams({
+                      ...formParams,
+                      toDate: event.target.value,
+                    })
+                  }
+                />
+                <InputRightElement
+                  children={<CalendarIcon color="pink.500" />}
+                />
+              </InputGroup>
+            </Stack>
           </Stack>
-          <Button mt={3} colorScheme="teal" type="submit">
+          <Button mt={3} colorScheme="pink" type="submit" marginY="30px">
             Suchen
           </Button>
         </form>

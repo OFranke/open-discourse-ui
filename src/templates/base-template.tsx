@@ -27,6 +27,11 @@ const extendedTheme = {
     pink: {
       500: "#EB558A",
     },
+    gray: {
+      100: "#F2F2F2",
+      200: "#E9E9E9",
+      300: "#CCCCCC",
+    },
   },
 };
 

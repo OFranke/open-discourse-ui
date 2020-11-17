@@ -12,11 +12,11 @@ import {
   useDisclosure,
   Checkbox,
   Flex,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { ReactTable } from "@bit/limebit.chakra-ui-recipes.react-table";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import React, { useReducer } from "react";
-import { SearchResultRow } from "./hooks/use-manage-data";
+import { SearchResultRow } from "../hooks/use-manage-data";
 import { DownloadButton } from "./download-button";
 
 interface ResultTableProps {
@@ -74,6 +74,8 @@ export const ResultTable = ({ data }: ResultTableProps) => {
         if (row.values.downloadId) {
           return (
             <Checkbox
+              colorScheme="pink"
+              borderColor="pink.500"
               isChecked={selected[row.values.downloadId]}
               onChange={() => {
                 dispatchSelected({
@@ -111,8 +113,8 @@ export const ResultTable = ({ data }: ResultTableProps) => {
       Cell: ({ row }: { row: Row }) => {
         if (row.values.documentUrl) {
           return (
-            <Link href={row.values.documentUrl} isExternal>
-              Protokoll <ExternalLinkIcon mx="2px" />
+            <Link href={row.values.documentUrl} isExternal fontWeight="bold">
+              Protokoll
             </Link>
           );
         }
@@ -127,15 +129,19 @@ export const ResultTable = ({ data }: ResultTableProps) => {
         if (row.values.speechContent) {
           return (
             <>
-              <Text>
-                <Link onClick={onOpen}>{"anzeigen"}</Link>
-              </Text>
+              <Link onClick={onOpen} fontWeight="bold">
+                anzeigen
+              </Link>
 
               <Modal isOpen={isOpen} onClose={onClose} size={"6xl"}>
                 <ModalOverlay>
                   <ModalContent>
                     <ModalHeader>Redebeitrag</ModalHeader>
-                    <ModalCloseButton />
+                    <ModalCloseButton
+                      bg="pink.500"
+                      color="white"
+                      _hover={{ bg: "pink.600" }}
+                    />
 
                     <ModalBody>
                       <Text mb="0.8rem">
@@ -158,7 +164,7 @@ export const ResultTable = ({ data }: ResultTableProps) => {
                     </ModalBody>
 
                     <ModalFooter>
-                      <Button colorScheme="blue" mr={3} onClick={onClose}>
+                      <Button colorScheme="pink" mr={3} onClick={onClose}>
                         Schließen
                       </Button>
                     </ModalFooter>
@@ -182,6 +188,7 @@ export const ResultTable = ({ data }: ResultTableProps) => {
           };
         })}
         pageSize={10}
+        colors={{ evenColor: "gray.200", tableHeadColor: "gray.200" }}
       />
       <Flex>
         <DownloadButton data={data} text={"Alles Herunterladen"} />

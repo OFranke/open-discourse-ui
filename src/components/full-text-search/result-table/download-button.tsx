@@ -1,5 +1,5 @@
-import { SearchResultRow } from "./hooks/use-manage-data";
-import { Button } from "@chakra-ui/core";
+import { SearchResultRow } from "../hooks/use-manage-data";
+import { Button } from "@chakra-ui/react";
 
 export interface DownloadButtonProps {
   data: SearchResultRow[];
@@ -8,7 +8,6 @@ export interface DownloadButtonProps {
 
 export const DownloadButton = ({ data, text }: DownloadButtonProps) => (
   <a
-    style={{ margin: "5px" }}
     download={"OpenDiscourseData.csv"}
     href={`data:text/csv;base64,${btoa(
       unescape(
@@ -32,6 +31,6 @@ export const DownloadButton = ({ data, text }: DownloadButtonProps) => (
       )
     )}`}
   >
-    <Button colorScheme="teal">{text}</Button>
+    <Button colorScheme="pink">{text}</Button>
   </a>
 );
