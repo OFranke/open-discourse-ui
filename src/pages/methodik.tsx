@@ -5,7 +5,7 @@ import { DefaultContainer } from "../components/default-container";
 import { DefaultHeadline } from "../components/default-headline";
 import { ColoredSubline } from "../components/colored-subline/index";
 import { DefaultText } from "../components/default-text";
-import { Link } from "@chakra-ui/react";
+import { Link, ListItem, UnorderedList } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import { Quote } from "../components/quote";
@@ -125,6 +125,106 @@ const Home: React.FC = () => {
             Das Open Discourse-Korpus basiert auf drei verschiedenen unten
             aufgeführten Datenquellen. Ein XML-Umwandlung der Dokumenten war
             erforderlich, um die Dokumente maschienenlesbar zu nutzen:
+            <br />
+            <br />
+          </DefaultText>
+          <UnorderedList>
+            <DefaultText>
+              <ListItem>
+                Kerndatenquelle: Parlamentsprotokolle vom Deutschen Bundestag
+              </ListItem>
+              <UnorderedList>
+                <ListItem>
+                  Die Protokolle von der ersten bis zur 18. Wahlperiode werden
+                  als komprimiertes Archiv mit separaten XML-Dateien für jede
+                  Parlamentssitzung bereitgestellt. Die Protokolle der aktuellen
+                  19. Periode werden als separate Dateien bereitgestellt.
+                </ListItem>
+              </UnorderedList>
+              <ListItem>
+                Metainformationen über die Mitglieder des Parlaments, die
+                Vorsitzenden und die Mitglieder des Kabinetts
+                <UnorderedList>
+                  <ListItem>
+                    Die Metainformationen stammen aus den Stammdaten aller MdBs
+                    (Stammdaten aller Abgeordneten seit 1949). Diese Daten
+                    werden vom Bundestag zur Verfügung gestellt und gepflegt.
+                  </ListItem>
+                  <ListItem>
+                    Es gibt seltene Fälle, in denen Politiker Mitglied der
+                    Regierung (MG) sind und nie ein Mandat als Abgeordneter
+                    hatten. Diese Politiker sind in den oben genannten
+                    Stammdaten nicht enthalten. Daher werden die Namen aller MG
+                    aus der deutschen Wikipedia gestrichen und mit den
+                    Stammdaten zusammengeführt.
+                  </ListItem>
+                </UnorderedList>
+              </ListItem>
+              <br />
+            </DefaultText>
+          </UnorderedList>
+          <DefaultText>
+            Neben Open Discourse möchten wir noch zwei weitere Projekte
+            hervorstellen, die sich mit den Korpora des Deutschen Bundestags
+            beschäftigt haben:
+            <Link
+              color="pink.500"
+              href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
+              isExternal
+            >
+              {" "}
+              GermaParl und ParlSpeech. <ExternalLinkIcon mx="2px" />
+            </Link>{" "}
+            <br />
+            <br />
+            Im direkten Vergleich ist erkennbar, dass das Korpus von Open
+            Discourse bereits frühere Legislaturperioden umfasst und somit eine
+            umfassende, nahezu vollständige Maschienenlesbarkeit ermöglicht:
+            <br />
+            <br />
+          </DefaultText>
+          <Image
+            src={"/images/statistics/wer_kommt_zu_wort.png"}
+            alt={"imageAlt"}
+            layout="responsive"
+            width="1024px"
+            height="512px"
+            quality="75"
+          />
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline as="h2" size="s">
+            Vorgehen
+          </DefaultHeadline>
+          <DefaultText>
+            In der Vorbereitung wurden alle Plenarprotokolle und die Stammdaten
+            aller Abgeordneten abgerufen. Die Protokolle sind entweder nach
+            Regex-Mustern oder nach XML-Tags (nur 19. Wahlperiode) in
+            Inhaltsverzeichnis, gesprochenen Inhalt (die eigentliche
+            Dokumentation der gehaltenen Reden) und Anhang unterteilt. Der
+            gesprochene Inhalt jedes Dokuments wird extrahiert und vorübergehend
+            gespeichert. Zusätzlich wird die Stammdaten-XML-Datei transformiert
+            und in einen Datenrahmen reduziert und auch vorübergehend
+            gespeichert.
+            <br />
+            <br />
+            Im nächsten Schritt wurden eine die Fraktionstabelle, eine
+            Politikerinnentabelle und eine Tabelle mit den gesprochenen Inhalten
+            erstellt und extrahiert. Mit umfangreichen Regex-Muster können die
+            Reden, die Person, die die Rede hält, die assoziierte Partei und
+            Interjektionen durch das Plenum extrahieren werden. Ab der elften
+            Wahlperiode werden Tagesordnungspunkte in den Protokollen verwendet,
+            um den Rohtext aufzuteilen. Diese Unterteilung des Textes erhöht die
+            Genauigkeit der angewendeten Regex-Muster. Der letzte
+            Verarbeitungsschritt ist die Erstellung der Beitragstabelle.
+            <br />
+            <br />
+            Aufgrund dieser Datengrundlage können wir nun Algorithmen aus den
+            Bereichen NLP (Natural Language Processing), Machine Learning, Deep
+            Learning etc. auf die Daten anwenden, um Fragen zu beantworten, die
+            bisher nicht (ohne großen Aufwand) beantwortbar waren.
           </DefaultText>
         </DefaultContainer>
       </Section>
