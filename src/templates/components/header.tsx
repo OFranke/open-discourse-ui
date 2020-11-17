@@ -1,83 +1,133 @@
 import React, { useState } from "react";
 import {
   Flex,
-  Heading,
   Box,
   Text,
-  Button,
   Link,
   useColorMode,
   IconButton,
+  useColorModeValue,
 } from "@chakra-ui/react";
+
+import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
+import { DefaultText } from "../../components/default-text";
+import { useBreakpointValue } from "@chakra-ui/react";
+import { DefaultContainer } from "../../components/default-container";
 interface NavItemProps {
   href: string;
 }
-const NavItem: React.FC<NavItemProps> = ({ href, children }) => (
-  <Link href={href}>
-    <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
-      {children}
-    </Text>
-  </Link>
-);
+const NavItem: React.FC<NavItemProps> = ({ href, children }) => {
+  const textSize = useBreakpointValue({
+    base: "sm",
+    sm: "md",
+    md: "md",
+    lg: "xl",
+    xl: "4xl",
+  });
+  return (
+    <Link href={href}>
+      <DefaultText
+        marginTop={{ base: 4, md: 0 }}
+        marginRight={{ base: 6, lg: 10, xl: 14 }}
+        display="block"
+        fontSize={textSize}
+      >
+        {children}
+      </DefaultText>
+    </Link>
+  );
+};
 
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
   const { colorMode, toggleColorMode } = useColorMode();
+  const text = useColorModeValue("dark", "light");
+  const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
   return (
-    <Flex
-      as="nav"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      padding="1.5rem"
-      // bg="teal.500"
-      // color="white"
-      width="100%"
-    >
-      <Flex align="center" mr={5}>
-        <Box width="120px">
-          <Image
-            src={"/images/logos/open_discourse.png"}
-            alt={"Open Discourse Logo"}
-            layout="responsive"
-            width="1250px"
-            height="400px"
-            quality="75"
+    <DefaultContainer size="l">
+      <Flex
+        as="nav"
+        align="center"
+        justify="space-between"
+        wrap="wrap"
+        paddingY={{ base: "2", lg: "4" }}
+        // bg="teal.500"
+        // color="white"
+        width="100%"
+      >
+        <Flex align="center" mr={5}>
+          <Box
+            width={{
+              base: "120px",
+              sm: "120px",
+              md: "150px",
+              lg: "150px",
+              xl: "240px",
+            }}
+          >
+            <Image
+              src={"/images/logos/open_discourse.png"}
+              alt={"Open Discourse Logo"}
+              layout="responsive"
+              width="1250px"
+              height="400px"
+              quality="75"
+            />
+          </Box>
+        </Flex>
+
+        <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+          <IconButton
+            variant="ghost"
+            // colorScheme="white"
+            aria-label="Open Menu"
+            size="lg"
+            icon={<HamburgerIcon w="8" h="8" />}
           />
         </Box>
-      </Flex>
 
-      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
-        <IconButton
-          variant="ghost"
-          // colorScheme="white"
-          aria-label="Open Menu"
-          size="lg"
-          icon={<HamburgerIcon w="8" h="8" />}
-        />
-      </Box>
-
-      <Box
-        display={{ base: show ? "block" : "none", md: "flex" }}
-        width={{ base: "full", md: "auto" }}
-        alignItems="center"
-        flexGrow={1}
-        justifyContent="flex-end"
-      >
-        <NavItem href="/methodik">Methodik</NavItem>
-        <NavItem href="/about">About</NavItem>
-        <NavItem href="/tools-und-daten">Tools und Daten</NavItem>
-        <NavItem href="/suche">Protokolle durchsuchen</NavItem>
-      </Box>
-      {/* <Button onClick={toggleColorMode}>
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button> */}
-      {/* <Box
+        <Box
+          display={{ base: show ? "block" : "none", md: "flex" }}
+          width={{ base: "full", md: "auto" }}
+          alignItems="center"
+          flexGrow={1}
+          justifyContent="flex-end"
+        >
+          <NavItem href="/methodik">Methodik</NavItem>
+          <NavItem href="/tools-und-daten">Tools und Daten</NavItem>
+          <NavItem href="/suche">Analyse</NavItem>
+          <NavItem href="/about">About</NavItem>
+          <Box>
+            <IconButton
+              justifyContent={{ base: "left", md: "center" }}
+              marginRight={{ base: 6, lg: 10, xl: 14 }}
+              fontSize={{ base: "md", md: "xl", xl: "4xl" }}
+              variant="ghost"
+              aria-label="GitHub"
+              href="https://github.com/open-discourse/open-discourse"
+              target="__blank"
+              icon={<FaGithub />}
+            />
+          </Box>
+          <Box>
+            <IconButton
+              marginRight={{ base: 6, lg: 10, xl: 14 }}
+              justifyContent={{ base: "left", md: "center" }}
+              fontSize={{ base: "md", md: "xl", xl: "4xl" }}
+              aria-label={`Switch to ${text} mode`}
+              variant="ghost"
+              color="current"
+              onClick={toggleColorMode}
+              icon={<SwitchIcon />}
+            />
+          </Box>
+        </Box>
+        {/* <Box
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
@@ -85,6 +135,7 @@ export const Header: React.FC = () => {
           Create account
         </Button>
       </Box> */}
-    </Flex>
+      </Flex>
+    </DefaultContainer>
   );
 };
