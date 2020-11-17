@@ -1,5 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
-import { theme } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { Header } from "./components/header";
 import { ChakraProvider } from "@chakra-ui/react";
 

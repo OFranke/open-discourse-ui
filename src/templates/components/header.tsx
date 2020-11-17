@@ -6,6 +6,7 @@ import {
   useColorMode,
   IconButton,
   useColorModeValue,
+  Theme,
 } from "@chakra-ui/react";
 
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
@@ -58,7 +59,7 @@ export const Header: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
-  const theme = useTheme();
+  const theme: any = useTheme();
   return (
     <DefaultContainer size="l">
       <Flex
