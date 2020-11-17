@@ -12,10 +12,15 @@ import { Statistic } from "../components/statistic/index";
 import Image from "next/image";
 import { ProjectCard } from "../components/project-card";
 import { Quote } from "../components/quote";
+import SEO from "../components/seo";
 
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
+      <SEO
+        title="Plenarprotokolle des deutschen Bundestages seit 1949"
+        description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
+      />
       <Section>
         <HeroWithCta />
       </Section>
@@ -103,8 +108,8 @@ const Home: React.FC = () => {
         <DefaultContainer size="s">
           <Quote
             text="Open Discourse ermöglicht einzigartige Einblicke in die Herzkammer der deutschen Politik und holt so den politischen Diskurs ins 21. Jahrhundert."
-            author="Philipp Koch"
-            authorSubtext="Gründer von Limebit"
+            author="Florian Richter"
+            authorSubtext="Initiator von Open Discourse"
           />
         </DefaultContainer>
       </Section>
