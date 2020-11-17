@@ -10,10 +10,10 @@ import { createBreakpoints } from "@chakra-ui/theme-tools";
 
 // Then add your custom breakpoints as key-value pairs
 const breakpoints = createBreakpoints({
-  sm: "30em", // 30*16 = up to 480px --> Mobile
-  md: "48em", // 48*16 = from 481px to 768px --> Mobile Landscape & Tablet
-  lg: "85em", // 85*16 = from 769px to 1360px --> HD Ready
-  xl: "120em", // 120*16 = from 1361px to 1920px --> Full HD
+  sm: "480px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1920px",
 });
 
 // 2. Extend the theme to include custom colors, fonts, etc.

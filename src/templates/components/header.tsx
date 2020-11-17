@@ -30,7 +30,7 @@ const NavItem: React.FC<NavItemProps> = ({ href, children }) => {
   return (
     <Link href={href}>
       <DefaultText
-        marginTop={{ base: 4, md: 0 }}
+        marginTop={{ base: 4, lg: 0 }}
         marginRight={{ base: 6, lg: 10, xl: 14 }}
         display="block"
         fontSize={textSize}
@@ -61,27 +61,29 @@ export const Header: React.FC = () => {
         width="100%"
       >
         <Flex align="center" mr={5}>
-          <Box
-            width={{
-              base: "120px",
-              sm: "120px",
-              md: "150px",
-              lg: "150px",
-              xl: "240px",
-            }}
-          >
-            <Image
-              src={"/images/logos/open_discourse.png"}
-              alt={"Open Discourse Logo"}
-              layout="responsive"
-              width="1250px"
-              height="400px"
-              quality="75"
-            />
-          </Box>
+          <Link href={"/"}>
+            <Box
+              width={{
+                base: "120px",
+                sm: "120px",
+                md: "150px",
+                lg: "150px",
+                xl: "240px",
+              }}
+            >
+              <Image
+                src={"/images/logos/open_discourse.png"}
+                alt={"Open Discourse Logo"}
+                layout="responsive"
+                width="1250px"
+                height="400px"
+                quality="75"
+              />
+            </Box>
+          </Link>
         </Flex>
 
-        <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+        <Box display={{ base: "block", lg: "none" }} onClick={handleToggle}>
           <IconButton
             variant="ghost"
             // colorScheme="white"
@@ -92,8 +94,8 @@ export const Header: React.FC = () => {
         </Box>
 
         <Box
-          display={{ base: show ? "block" : "none", md: "flex" }}
-          width={{ base: "full", md: "auto" }}
+          display={{ base: show ? "block" : "none", lg: "flex" }}
+          width={{ base: "full", lg: "auto" }}
           alignItems="center"
           flexGrow={1}
           justifyContent="flex-end"
@@ -104,7 +106,7 @@ export const Header: React.FC = () => {
           <NavItem href="/about">About</NavItem>
           <Box>
             <IconButton
-              justifyContent={{ base: "left", md: "center" }}
+              justifyContent={{ base: "left", lg: "center" }}
               marginRight={{ base: 6, lg: 10, xl: 14 }}
               fontSize={{ base: "md", md: "xl", xl: "4xl" }}
               variant="ghost"
@@ -117,7 +119,7 @@ export const Header: React.FC = () => {
           <Box>
             <IconButton
               marginRight={{ base: 6, lg: 10, xl: 14 }}
-              justifyContent={{ base: "left", md: "center" }}
+              justifyContent={{ base: "left", lg: "center" }}
               fontSize={{ base: "md", md: "xl", xl: "4xl" }}
               aria-label={`Switch to ${text} mode`}
               variant="ghost"
