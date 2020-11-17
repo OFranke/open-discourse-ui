@@ -13,7 +13,7 @@ const breakpoints = createBreakpoints({
   sm: "480px",
   md: "768px",
   lg: "1024px",
-  xl: "1920px",
+  xl: "2560px",
 });
 
 // 2. Extend the theme to include custom colors, fonts, etc.
