@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Flex,
   Box,
-  Text,
   Link,
   useColorMode,
   IconButton,
@@ -16,10 +15,16 @@ import Image from "next/image";
 import { DefaultText } from "../../components/default-text";
 import { useBreakpointValue } from "@chakra-ui/react";
 import { DefaultContainer } from "../../components/default-container";
+import { useTheme } from "@emotion/react";
 interface NavItemProps {
   href: string;
+  underlineColor: string;
 }
-const NavItem: React.FC<NavItemProps> = ({ href, children }) => {
+const NavItem: React.FC<NavItemProps> = ({
+  href,
+  underlineColor,
+  children,
+}) => {
   const textSize = useBreakpointValue({
     base: "sm",
     sm: "md",
@@ -28,15 +33,21 @@ const NavItem: React.FC<NavItemProps> = ({ href, children }) => {
     xl: "4xl",
   });
   return (
-    <Link href={href}>
-      <DefaultText
-        marginTop={{ base: 4, lg: 0 }}
-        marginRight={{ base: 6, lg: 10, xl: 14 }}
-        display="block"
-        fontSize={textSize}
-      >
-        {children}
-      </DefaultText>
+    <Link href={href} _hover={{ textDecoration: "none" }}>
+      <Box>
+        <DefaultText
+          marginTop={{ base: 4, lg: 0 }}
+          marginRight={{ base: 6, lg: 10, xl: 14 }}
+          display="inline-block"
+          fontSize={textSize}
+          _hover={{
+            textDecoration: "none",
+            borderBottom: `${underlineColor} 4px solid`,
+          }}
+        >
+          {children}
+        </DefaultText>
+      </Box>
     </Link>
   );
 };
@@ -47,7 +58,7 @@ export const Header: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
-
+  const theme = useTheme();
   return (
     <DefaultContainer size="l">
       <Flex
@@ -100,10 +111,21 @@ export const Header: React.FC = () => {
           flexGrow={1}
           justifyContent="flex-end"
         >
-          <NavItem href="/methodik">Methodik</NavItem>
-          <NavItem href="/tools-und-daten">Tools und Daten</NavItem>
-          <NavItem href="/suche">Analyse</NavItem>
-          <NavItem href="/about">About</NavItem>
+          <NavItem href="/methodik" underlineColor="black">
+            Methodik
+          </NavItem>
+          <NavItem
+            underlineColor={theme.colors.pink[500]}
+            href="/tools-und-daten"
+          >
+            Tools und Daten
+          </NavItem>
+          <NavItem href="/suche" underlineColor={theme.additionalColors.yellow}>
+            Analyse
+          </NavItem>
+          <NavItem href="/about" underlineColor="black">
+            About
+          </NavItem>
           <Box>
             <IconButton
               justifyContent={{ base: "left", lg: "center" }}
@@ -129,14 +151,6 @@ export const Header: React.FC = () => {
             />
           </Box>
         </Box>
-        {/* <Box
-        display={{ sm: show ? "block" : "none", md: "block" }}
-        mt={{ base: 4, md: 0 }}
-      >
-        <Button bg="transparent" border="1px">
-          Create account
-        </Button>
-      </Box> */}
       </Flex>
     </DefaultContainer>
   );

@@ -28,6 +28,7 @@ const extendedTheme = {
       500: "#EB558A",
     },
   },
+  additionalColors: { yellow: "#FFF78E" },
 };
 
 const customTheme = extendTheme(extendedTheme);
