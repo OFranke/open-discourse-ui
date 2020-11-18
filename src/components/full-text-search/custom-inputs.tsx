@@ -1,16 +1,11 @@
-import queryString from "query-string";
 import {
-  Stack,
   Input,
   InputGroup,
   InputLeftAddon,
   InputRightElement,
-  Button,
 } from "@chakra-ui/react";
 import { CalendarIcon } from "@chakra-ui/icons";
-import { useState, useEffect, FormEvent, SetStateAction } from "react";
-import { useRouter } from "next/router";
-import { useGetData } from "./hooks/use-get-data";
+import { SetStateAction } from "react";
 import {
   DataProps,
   SelectInput,

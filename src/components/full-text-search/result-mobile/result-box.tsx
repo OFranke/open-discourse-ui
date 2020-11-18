@@ -1,19 +1,9 @@
 import { SearchResultRow } from "../hooks/use-manage-data";
 import {
-  Box,
-  Text,
   useBreakpointValue,
   Stack,
   Button,
   useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalHeader,
-  ModalContent,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  Link,
 } from "@chakra-ui/react";
 import React from "react";
 import { DefaultText } from "../../default-text";
