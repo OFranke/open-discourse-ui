@@ -4,7 +4,7 @@ export const DefaultText: React.FC<TextProps> = ({ children, ...props }) => {
     base: "sm",
     sm: "xl",
     md: "2xl",
-    lg: "3xl",
+    lg: "2xl",
     xl: "4xl",
   });
   return (

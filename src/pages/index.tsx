@@ -13,6 +13,8 @@ import Image from "next/image";
 import { ProjectCard } from "../components/project-card";
 import { Quote } from "../components/quote";
 import SEO from "../components/seo";
+import { Tagline } from "../components/tagline";
+import { DefaultButton } from "../components/default-button";
 
 const Home: React.FC = () => {
   return (
@@ -197,6 +199,62 @@ const Home: React.FC = () => {
               imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
             />
           </SimpleGrid>
+          <DefaultButton
+            colorScheme="pink"
+            marginTop={{ base: "6", md: "10", lg: "14", xl: "20" }}
+          >
+            Analysen und Projekte
+          </DefaultButton>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <Tagline>Warum ist das wichtig?</Tagline>
+          <DefaultHeadline size="s">Lorem ipsum dolor sit amet</DefaultHeadline>
+          <ColoredSubline backgroundColor="#D8D8D8">
+            Open Discourse ist ein forschungsbasiertes Datenprojekt an der
+            Schnittstelle zwischen Politikwissenschaft und Data Science.
+          </ColoredSubline>
+          <DefaultText>
+            In seiner über 70 jährigen Geschichte war der Bundestag immer eins:
+            Ein Ort der lebhaften Debatte und parlamentarischer Marktplatz
+            unserer Demokratie. Egal ob Grundsätzliches oder Tagesaktuelles,
+            ziemlich jedes Thema wurde besprochen, kritisiert oder beklatscht.
+            Praktisch alle Dinge in der täglichen Lebenswelt haben eine
+            politische Dimension, insbesondere eine bundespolitische. Im
+            Grundgesetz ist definiert, dass die Abgeordneten die Vertreter_Innen
+            des gesamten Volkes sind und dass der Bundestag öffentlich
+            verhandelt. Wir alle haben somit das Recht, die Inhalte und Vorgänge
+            im Parlament transparent mitverfolgen zu dürfen.
+            <br />
+            <br />
+          </DefaultText>
+          <DefaultHeadline size="xs" as="h3">
+            Für einen offenen Diskurs mit den technologischen Mitteln des 21.
+            Jahrhunderts.
+          </DefaultHeadline>
+          <DefaultText>
+            In seiner über 70 jährigen Geschichte war der Bundestag immer eins:
+            Ein Ort der lebhaften Debatte und parlamentarischer Marktplatz
+            unserer Demokratie. Egal ob Grundsätzliches oder Tagesaktuelles,
+            ziemlich jedes Thema wurde besprochen, kritisiert oder beklatscht.
+            Praktisch alle Dinge in der täglichen Lebenswelt haben eine
+            politische Dimension, insbesondere eine bundespolitische. Im
+            Grundgesetz ist definiert, dass die Abgeordneten die Vertreter_Innen
+            des gesamten Volkes sind und dass der Bundestag öffentlich
+            verhandelt. Wir alle haben somit das Recht, die Inhalte und Vorgänge
+            im Parlament transparent mitverfolgen zu dürfen.
+            <br />
+            <br />
+            Bisher lagen die Protokolle zwar auf den Serven des Bundestags, aber
+            die Einsicht in die Dokumenten ist umständlich und das Format der
+            Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
+            Open Discourse können Bürger_Innen, Journalist_Innen und
+            Wissenschaftler_Innen jetzt zugänglich und kostenfrei über die Tools
+            und Daten der Plattform die Plenarprotokolle nach Stichworten,
+            Politiker_Innen und Ämtern durchsuchen und die Ergebnisse für Ihre
+            Arbeit, Forschung und natürlich für das eigene Interesse nutzen.
+          </DefaultText>
         </DefaultContainer>
       </Section>
     </BaseTemplate>
