@@ -1,23 +1,10 @@
-import {
-  Link,
-  Text,
-  Button,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  useDisclosure,
-  Checkbox,
-  Flex,
-} from "@chakra-ui/react";
+import { Link, Text, useDisclosure, Checkbox, Flex } from "@chakra-ui/react";
 import { ReactTable } from "@bit/limebit.chakra-ui-recipes.react-table";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 import React, { useReducer } from "react";
 import { SearchResultRow } from "../hooks/use-manage-data";
 import { DownloadButton } from "./download-button";
+import { positions } from "../search-form";
+import { SpeechModal } from "../speech-modal";
 
 interface ResultTableProps {
   data: SearchResultRow[];
@@ -33,23 +20,8 @@ type SelectedAction = {
   id: number;
 };
 
-const convertPosition = (position: string) => {
-  switch (position) {
-    case "Member of Parliament":
-      return "Mitglied des Bundestages";
-    case "Presidium of Parliament":
-      return "Mitglied des Präsidiums";
-    case "Guest":
-      return "Gast";
-    case "Chancellor":
-      return "Kanzerl_in";
-    case "Minister":
-      return "Minister_in";
-    case "Secretary of State":
-      return "Staatssekretär_in";
-    default:
-      return "Nicht gefunden";
-  }
+export const convertPosition = (position: string) => {
+  return positions.find((element) => element.key == position)?.label || "";
 };
 
 export const ResultTable = ({ data }: ResultTableProps) => {
@@ -132,45 +104,11 @@ export const ResultTable = ({ data }: ResultTableProps) => {
               <Link onClick={onOpen} fontWeight="bold">
                 anzeigen
               </Link>
-
-              <Modal isOpen={isOpen} onClose={onClose} size={"6xl"}>
-                <ModalOverlay>
-                  <ModalContent>
-                    <ModalHeader>Redebeitrag</ModalHeader>
-                    <ModalCloseButton
-                      bg="pink.500"
-                      color="white"
-                      _hover={{ bg: "pink.600" }}
-                    />
-
-                    <ModalBody>
-                      <Text mb="0.8rem">
-                        {row.values.documentUrl && (
-                          <Link href={row.values.documentUrl} isExternal>
-                            Zum Plenarprotokoll <ExternalLinkIcon mx="2px" />
-                          </Link>
-                        )}
-                      </Text>
-                      <Text fontWeight="bold" mb="0.5rem">
-                        {row.values.firstName} {row.values.lastName} (
-                        {row.values.abbreviation}),{" "}
-                        {row.values.date &&
-                          new Date(row.values.date).toLocaleDateString()}
-                        :
-                      </Text>
-                      <Text whiteSpace="pre-line">
-                        {row.values.speechContent}
-                      </Text>
-                    </ModalBody>
-
-                    <ModalFooter>
-                      <Button colorScheme="pink" mr={3} onClick={onClose}>
-                        Schließen
-                      </Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </ModalOverlay>
-              </Modal>
+              <SpeechModal
+                data={row.values}
+                isOpen={isOpen}
+                onClose={onClose}
+              />
             </>
           );
         }
@@ -184,13 +122,17 @@ export const ResultTable = ({ data }: ResultTableProps) => {
         data={data.map((element) => {
           return {
             ...element,
+            abbreviation:
+              element.abbreviation == "not found"
+                ? "Ohne Zurodnung"
+                : element.abbreviation,
             positionShort: convertPosition(element.positionShort),
           };
         })}
         pageSize={10}
         colors={{ evenColor: "gray.200", tableHeadColor: "gray.200" }}
       />
-      <Flex>
+      <Flex justifyContent="space-between">
         <DownloadButton data={data} text={"Alles Herunterladen"} />
         {Object.entries(selected).some(([_id, state]) => state) ? (
           <DownloadButton

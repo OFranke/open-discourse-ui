@@ -15,6 +15,7 @@ import {
   ChevronsLeft,
   ChevronsRight,
 } from "react-feather";
+import { convertPosition } from "../result-table/index";
 
 interface ResultMobileProps {
   data: SearchResultRow[];
@@ -45,13 +46,13 @@ export const TableIconButton: React.FC<TableIconButtonProps> = ({
   return (
     <IconButton
       size="sm"
-      {...rest}
       icon={icon}
       borderWidth={1}
       onClick={onClick}
       colorScheme={colorScheme}
       isDisabled={isDisabled}
       aria-label="Table Icon button"
+      {...rest}
     >
       {children}
     </IconButton>
@@ -84,7 +85,17 @@ export const ResultMobile = ({
             pageState.pageIndex * pageState.pageSize + pageState.pageSize
           )
           .map((row) => (
-            <ResultBox data={row} key={row.id} />
+            <ResultBox
+              data={{
+                ...row,
+                abbreviation:
+                  row.abbreviation == "not found"
+                    ? "Ohne Zurodnung"
+                    : row.abbreviation,
+                positionShort: convertPosition(row.positionShort),
+              }}
+              key={row.id}
+            />
           ))}
       </SimpleGrid>
       <Flex
@@ -159,5 +170,3 @@ export const ResultMobile = ({
     </Stack>
   );
 };
-
-export default ResultMobile;

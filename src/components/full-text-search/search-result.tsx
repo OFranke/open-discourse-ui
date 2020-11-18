@@ -29,5 +29,3 @@ export const SearchResult = (): React.ReactElement | null => {
     )
   ) : null;
 };
-
-export default SearchResult;

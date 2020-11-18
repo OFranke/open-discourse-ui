@@ -1,5 +1,6 @@
 import { SearchResultRow } from "../hooks/use-manage-data";
-import { Button } from "@chakra-ui/react";
+import { DownloadIcon } from "@chakra-ui/icons";
+import { DefaultButton } from "../../default-button";
 
 export interface DownloadButtonProps {
   data: SearchResultRow[];
@@ -31,6 +32,8 @@ export const DownloadButton = ({ data, text }: DownloadButtonProps) => (
       )
     )}`}
   >
-    <Button colorScheme="pink">{text}</Button>
+    <DefaultButton rightIcon={<DownloadIcon />} colorScheme="pink">
+      {text}
+    </DefaultButton>
   </a>
 );

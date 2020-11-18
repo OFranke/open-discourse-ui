@@ -34,8 +34,6 @@ export const Callout: React.FC<CalloutProps> = ({ calloutText, ...props }) => {
         backgroundColor="gray.200"
         borderWidth={borderWidth}
         rounded="md"
-        overflow="hidden"
-        position="relative"
         marginY={marginY}
         {...props}
       >

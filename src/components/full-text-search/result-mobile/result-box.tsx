@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { DefaultText } from "../../default-text";
+import { SpeechModal } from "../speech-modal";
 
 interface ResultBoxProps {
   data: SearchResultRow;
@@ -60,41 +61,7 @@ export const ResultBox = ({ data }: ResultBoxProps) => {
           Mehr
         </Button>
       </Stack>
-      <Modal isOpen={isOpen} onClose={onClose} size={"6xl"}>
-        <ModalOverlay>
-          <ModalContent>
-            <ModalHeader>Redebeitrag</ModalHeader>
-            <ModalCloseButton
-              bg="pink.500"
-              color="white"
-              _hover={{ bg: "pink.600" }}
-            />
-
-            <ModalBody>
-              <Text mb="0.8rem">
-                {data.documentUrl && (
-                  <Link href={data.documentUrl} isExternal>
-                    Zum Plenarprotokoll
-                  </Link>
-                )}
-              </Text>
-              <Text fontWeight="bold" mb="0.5rem">
-                {data.firstName} {data.lastName} ({data.abbreviation}),{" "}
-                {datestring}:
-              </Text>
-              <Text whiteSpace="pre-line">{data.speechContent}</Text>
-            </ModalBody>
-
-            <ModalFooter>
-              <Button colorScheme="pink" mr={3} onClick={onClose}>
-                Schließen
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </ModalOverlay>
-      </Modal>
+      <SpeechModal data={data} isOpen={isOpen} onClose={onClose} />
     </>
   );
 };
-
-export default ResultBox;
