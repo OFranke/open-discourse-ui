@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SearchResultRow } from "../hooks/use-manage-data";
 import { ResultBox } from "./result-box";
+import { SimpleGrid } from "@chakra-ui/react";
 import {
   Stack,
   Flex,
@@ -76,7 +77,7 @@ export const ResultMobile = ({
   });
   return (
     <Stack>
-      <Stack direction="column" spacing="3">
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: "4", md: "8" }}>
         {data
           .slice(
             pageState.pageIndex * pageState.pageSize,
@@ -85,7 +86,7 @@ export const ResultMobile = ({
           .map((row) => (
             <ResultBox data={row} key={row.id} />
           ))}
-      </Stack>
+      </SimpleGrid>
       <Flex
         paddingY="2rem"
         justifyContent="space-between"

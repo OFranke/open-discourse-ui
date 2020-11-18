@@ -17,6 +17,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import React from "react";
+import { DefaultText } from "../../default-text";
 
 interface ResultBoxProps {
   data: SearchResultRow;
@@ -33,11 +34,12 @@ export const ResultBox = ({ data }: ResultBoxProps) => {
   });
   const slicePoint = useBreakpointValue({ base: 40, sm: 80, md: 120 });
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const datestring = data.date && new Date(data.date).toLocaleDateString();
   return (
     <>
-      <Box
-        width="100%"
-        boxShadow="0 5px 25px -12px rgba(0,0,0,0.25)"
+      <Stack
+        maxWidth={{ base: "100%", md: "47vw" }}
+        justifyContent="space-between"
         bg="gray.100"
         rounded="md"
         padding={padding}
@@ -45,30 +47,20 @@ export const ResultBox = ({ data }: ResultBoxProps) => {
         backgroundColor="gray.200"
         borderWidth="1px"
       >
-        <Flex alignItems="center" justifyContent="space-between">
-          <Stack direction="column">
-            <Text fontWeight="bold">
-              {data.firstName + " " + data.lastName}
-            </Text>
-            <Text>{data.positionShort}</Text>
-            <Text>{data.abbreviation}</Text>
-          </Stack>
-          <Text
-            background="gray.100"
-            borderColor="gray.300"
-            borderWidth="1px"
-            padding="5px"
-            margin="10px"
-            borderRadius="5px"
-            textAlign="center"
-          >
-            {data.speechContent.slice(0, slicePoint) + "..."}
-          </Text>
-          <Button colorScheme="pink" onClick={onOpen}>
-            Mehr
-          </Button>
-        </Flex>
-      </Box>
+        <DefaultText fontWeight="bold">
+          {" "}
+          {data.firstName + " " + data.lastName} ({data.abbreviation}) -{" "}
+          {data.positionShort}
+          {datestring ? <>, am {datestring}</> : null}:
+        </DefaultText>
+        <DefaultText noOfLines={{ base: 4, md: 6 }}>
+          {data.speechContent}
+        </DefaultText>
+
+        <Button colorScheme="pink" onClick={onOpen}>
+          Mehr
+        </Button>
+      </Stack>
       <Modal isOpen={isOpen} onClose={onClose} size={"6xl"}>
         <ModalOverlay>
           <ModalContent>
@@ -89,7 +81,7 @@ export const ResultBox = ({ data }: ResultBoxProps) => {
               </Text>
               <Text fontWeight="bold" mb="0.5rem">
                 {data.firstName} {data.lastName} ({data.abbreviation}),{" "}
-                {data.date && new Date(data.date).toLocaleDateString()}:
+                {datestring}:
               </Text>
               <Text whiteSpace="pre-line">{data.speechContent}</Text>
             </ModalBody>
