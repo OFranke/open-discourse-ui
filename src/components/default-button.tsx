@@ -15,6 +15,8 @@ export const DefaultButton: React.FC<DefaultButtonProps> = ({
     <Button
       colorScheme={colorScheme}
       size={buttonSize}
+      fontSize={{ xl: "2xl" }}
+      padding={{ xl: "8" }}
       textTransform="uppercase"
       rightIcon={<ArrowForwardIcon />}
       {...props}
