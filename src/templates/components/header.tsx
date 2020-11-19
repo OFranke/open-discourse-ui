@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const theme: any = useTheme();
   return (
-    <DefaultContainer size="l">
+    <DefaultContainer size="l" bg="white" boxShadow="base">
       <Flex
         as="nav"
         align="center"
@@ -121,8 +121,11 @@ export const Header: React.FC = () => {
           >
             Tools und Daten
           </NavItem>
-          <NavItem href="/suche" underlineColor={theme.additionalColors.yellow}>
-            Analyse
+          <NavItem
+            href="/analysen"
+            underlineColor={theme.additionalColors.yellow}
+          >
+            Analysen
           </NavItem>
           <NavItem href="/about" underlineColor="black">
             About
