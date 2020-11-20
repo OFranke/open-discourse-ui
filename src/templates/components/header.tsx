@@ -123,7 +123,10 @@ export const Header: React.FC = () => {
           >
             Tools und Daten
           </NavItem>
-          <NavItem href="/suche" underlineColor={theme.additionalColors.yellow}>
+          <NavItem
+            href="/analysen"
+            underlineColor={theme.additionalColors.yellow}
+          >
             Analyse
           </NavItem>
           <NavItem href="/about" underlineColor="black">

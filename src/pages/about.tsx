@@ -8,6 +8,7 @@ import { DefaultHeadline } from "../components/default-headline";
 import { ColoredSubline } from "../components/colored-subline";
 import { Quote } from "../components/quote";
 import { DefaultText } from "../components/default-text";
+import { ContactForm } from "../components/contact-form";
 
 const Home: React.FC = () => {
   return (
@@ -66,6 +67,11 @@ const Home: React.FC = () => {
             unterstützen wollt, kontaktiert uns immer gerne. Wir freuen uns auf
             euch!.
           </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <ContactForm />
         </DefaultContainer>
       </Section>
     </BaseTemplate>
