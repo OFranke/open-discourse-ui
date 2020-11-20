@@ -29,25 +29,26 @@ const Home: React.FC = () => {
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
           <DefaultHeadline size="s">
-            Open Discourse — Analyse von Plenarprotokollen für Mensch und
-            Maschine
+            Analyse von Plenarprotokollen für Mensch und Machine
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Künstliche Intelligenz wird unsere Zukunft verändern. Wir begleiten
-            Sie auf den Weg der digitalen Transformation.
+            Wie Data Science den Weg zu politischen Diskurs demokratisiert
           </ColoredSubline>
           <DefaultText>
             Open Discourse hat die Plenarprotokolle des deutschen Bundestags
-            seit 1949 analysierbar gemacht - und zwar für Mensch und Maschinen.
-            Die Plattform erleichtert den Zugang zu den über 800.000
-            Redebeiträgen der letzten 70 Jahre und demokratisiert die Analyse
-            von politischen Debatten im Parlament.
+            seit 1949 aufgebrochen und analysierbar gemacht - und zwar für
+            Mensch und Maschinen. Die Plattform erleichtert den Zugang und die
+            Recherche in den über 800.000 Redebeiträgen der letzten 70 Jahre.
             <br />
             <br />
-            Open Discourse ist die erste strukturierte und die umfassendste
-            Aufbereitung jedes jemals gesprochenen Wortes in den
-            Parlamentssitzungen des deutschen Bundestages. Für einen offenen
-            Diskurs, für mehr Einsicht, für eine wissenschaftliche
+            Die Datenbank hinter Open Discourse ist die erste granulare,
+            umfassende und maschinenlesbare Aufbereitung jedes jemals
+            gesprochenen Wortes in den Parlamentssitzungen des deutschen
+            Bundestages und ermöglicht gefilterte Recherchen in in den Reden,
+            Zwischenrufe und Anfragen der PolitkerInnen und Fraktionen.
+            <br />
+            <br />
+            Für einen offenen Diskurs und eine wissenschaftliche
             Auseinandersetzung mit politischer Sprache.
           </DefaultText>
         </DefaultContainer>
@@ -87,11 +88,12 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s">
-            Um was geht es bei Open Discourse?
+            An der Schnittstelle zwischen Politikwissenschaft und Data Science
           </DefaultHeadline>
-          <ColoredSubline backgroundColor="#D8D8D8">
-            Open Discourse ist ein forschungsbasiertes Datenprojekt an der
-            Schnittstelle zwischen Politikwissenschaft und Data Science.
+          <ColoredSubline backgroundColor="pink.500">
+            Open Discourse erleichtet den Zugang zu über 800.000 Reden seit 1949
+            und ermöglicht eine strukturierte Stichwortrecherche auf der
+            Grundlage von Politikern, Koalitionen und Positionen.
           </ColoredSubline>
           <DefaultText>
             Mit unserer aufbereiteten Datenbank können die Plenarprotokolle des
