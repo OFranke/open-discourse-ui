@@ -7,6 +7,7 @@ export const DefaultText: React.FC<TextProps> = ({ children, ...props }) => {
     lg: "2xl",
     xl: "4xl",
   });
+
   return (
     <Text fontSize={textSize} {...props}>
       {children}
