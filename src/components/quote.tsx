@@ -2,25 +2,7 @@ import { useBreakpointValue, Box, BoxProps } from "@chakra-ui/react";
 import React from "react";
 import { DefaultText } from "./default-text";
 
-interface QuoteProps extends BoxProps {
-  text: string;
-  author: string;
-  authorSubtext: string;
-}
-export const Quote: React.FC<QuoteProps> = ({
-  text,
-  author,
-  authorSubtext,
-  ...props
-}) => {
-  const textSize = useBreakpointValue({
-    base: "xs",
-    sm: "sm",
-    md: "md",
-    lg: "lg",
-    xl: "2xl",
-  });
-
+export const Quote: React.FC = ({ children }) => {
   const paddingY = useBreakpointValue({
     base: "8",
     sm: "10",
@@ -29,11 +11,8 @@ export const Quote: React.FC<QuoteProps> = ({
     xl: "28",
   });
   return (
-    <Box textAlign="center" paddingY={paddingY} {...props}>
-      <DefaultText>{text}</DefaultText>
-      <DefaultText fontSize={textSize}>
-        <strong>{author}</strong>, {authorSubtext}
-      </DefaultText>
+    <Box textAlign="center" paddingY={paddingY}>
+      <DefaultText>{children}</DefaultText>
     </Box>
   );
 };

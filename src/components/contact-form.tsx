@@ -17,6 +17,7 @@ import {
   Flex,
   Textarea,
 } from "@chakra-ui/react";
+import { ButtonLink } from "./button-link";
 interface Status {
   submitted: boolean;
   submitting: boolean;
@@ -97,21 +98,25 @@ export const ContactForm: React.FC = () => {
       </DefaultText>
       <Box display="inline-block" marginBottom="20">
         <Stack justifyContent="left" spacing="3">
-          <DefaultButton
+          <ButtonLink
+            href="https://www.instagram.com/opendiscourse.de/"
             justifyContent="left"
             colorScheme="pink"
             rightIcon={undefined}
             fontSize={{ base: "lg", md: "xl", xl: "4xl" }}
             leftIcon={<FaInstagramSquare />}
+            isExternal
           >
             <DefaultText
               fontSize={{ base: "md", md: "md", xl: "2xl" }}
               fontWeight="bold"
+              margin="0"
             >
               Instagram
             </DefaultText>
-          </DefaultButton>
-          <DefaultButton
+          </ButtonLink>
+          {/* <ButtonLink
+            href="https://www.instagram.com/opendiscourse.de/"
             justifyContent="left"
             colorScheme="pink"
             rightIcon={undefined}
@@ -121,11 +126,13 @@ export const ContactForm: React.FC = () => {
             <DefaultText
               fontSize={{ base: "md", md: "md", xl: "2xl" }}
               fontWeight="bold"
+              margin="0"
             >
               Facebook
             </DefaultText>
-          </DefaultButton>
-          <DefaultButton
+          </ButtonLink> */}
+          <ButtonLink
+            href="https://twitter.com/OpenDiscourseDE"
             justifyContent="left"
             colorScheme="pink"
             rightIcon={undefined}
@@ -135,10 +142,11 @@ export const ContactForm: React.FC = () => {
             <DefaultText
               fontSize={{ base: "md", md: "md", xl: "2xl" }}
               fontWeight="bold"
+              margin="0"
             >
               Twitter
             </DefaultText>
-          </DefaultButton>
+          </ButtonLink>
         </Stack>
       </Box>
       <Flex flexDirection={{ base: "column", md: "row" }}>

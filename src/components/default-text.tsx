@@ -7,9 +7,14 @@ export const DefaultText: React.FC<TextProps> = ({ children, ...props }) => {
     lg: "2xl",
     xl: "4xl",
   });
-
+  const marginBottom = useBreakpointValue({
+    base: "4",
+    md: "4",
+    lg: "6",
+    xl: "8",
+  });
   return (
-    <Text fontSize={textSize} {...props}>
+    <Text fontSize={textSize} marginBottom={marginBottom} {...props}>
       {children}
     </Text>
   );

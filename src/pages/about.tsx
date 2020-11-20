@@ -1,33 +1,19 @@
 import { BaseTemplate } from "../templates/base-template";
+import { Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import { DefaultContainer } from "../components/default-container";
-import { ColoredSubline } from "../components/colored-subline";
 import { Section } from "../components/section";
-import { DefaultHeadline } from "../components/default-headline";
-import { DefaultText } from "../components/default-text";
 import Image from "next/image";
+import { DefaultContainer } from "../components/default-container";
+import { DefaultHeadline } from "../components/default-headline";
+import { ColoredSubline } from "../components/colored-subline";
 import { Quote } from "../components/quote";
+import { DefaultText } from "../components/default-text";
 import { ContactForm } from "../components/contact-form";
 
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
-      <Section id="wir-sind-open-discourse">
-        <DefaultContainer size="l">
-          <DefaultHeadline size="s">Wir sind Open Discourse</DefaultHeadline>
-          <ColoredSubline backgroundColor="pink.500">
-            Lorem ipsum dolor sit amet consetetur. Lorem ipsum dolor sit amet.
-          </ColoredSubline>
-          <DefaultText>
-            Open Discourse ist ein Projekt der Limebit GmbH. Die Plattform ist
-            unser Beitrag zur Demokratisierung des Zugangs zu politischen
-            Debatten und Themen. Entstanden ist das Projekt aus den Fähigkeiten
-            und Motivationen unser Mitarbeiter_Innen. Außerdem ist die
-            Initiative komplett selbstfinanziert und unabhängig.
-          </DefaultText>
-        </DefaultContainer>
-      </Section>
-      <Section as="div" backgroundColor="pink.500">
+      <Section>
         <Image
           src={"/images/sample/team_outside.png"}
           alt={"Team draußen"}
@@ -36,30 +22,50 @@ const Home: React.FC = () => {
           height="700px"
           quality="75"
         />
-        <DefaultContainer size="l">
-          <Quote
-            text="Unsere Mission ist es, Daten, und Menschen verbinden. Denn die Welt ist voller Daten, überall verborgene Erkenntnisse. Wir analysieren, interpretieren, optimieren, beraten, entwickeln und machen aus verborgenen Informationen sichtbare Lösungen."
-            author="Florian Richter"
-            authorSubtext="Initiator von Open Discourse"
-          />
-        </DefaultContainer>
       </Section>
-      <Section id="unabhaengigkeitserklaerung">
+      <Section>
         <DefaultContainer size="l">
-          <ColoredSubline backgroundColor="#D8D8D8">
-            Lorem ipsum dolor sit amet consetetur. Lorem ipsum dolor sit amet.
+          <DefaultHeadline size="s" as="h1">
+            Das Team hinter Open Discourse
+          </DefaultHeadline>
+          <ColoredSubline backgroundColor="pink.500">
+            Die Plattform ist unser Beitrag zur Demokratisierung des Zugangs zu
+            politischen Debatten und Themen.
           </ColoredSubline>
           <DefaultText>
-            Als privatwirtschaftliches Unternehmen können wir Open Discourse
-            selbstständig finanzieren und sind daher unabhängig von externen
-            Mitteln. Dies ermöglicht uns interessenbasierte Forschung und freies
-            Handeln. Auch unsere Überzeugung öffentliches Wissen durch offene
-            Daten zu unterstützen spiegelt sich in unserem Projekt wieder.
-            <br />
-            <br />
+            Open Discourse ist ein gemeinnützige Projekt der Mitarbeiterinnen
+            und Mitarbeiter der Limebit GmbH. Entstanden ist das Projekt aus den
+            Fähigkeiten und Motivationen der Mitarbeiter_Innen, in
+            Pausengesprächen und aus den gemeinsamen Vorstellungen von
+            Demokratie.
+          </DefaultText>
+          <DefaultText>
+            Die Initiative unabhängig von externen Förderungen und XYZ.
+          </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section background="pink.500" color="white">
+        <DefaultContainer size="s">
+          <Quote>
+            Unsere Mission ist es, den Mehrwert von Daten für Menschen
+            züglichlich und verständliche zu machen. Denn ihn verborgenen
+            Informationen liegen oft sichtbare Lösungen.
+          </Quote>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultText>
+            Die Kundenarbeit ermöglicht dem Unternehmen und uns MitarbeiterInnen
+            finanzielle Mittel und zeitliche Freiräume, um zwischen den
+            Projekten interessenbasierter Forschung nachzugehen. Unsere
+            Überzeugung öffentliches Wissen durch offene Daten zu unterstützen
+            spiegelt sich in diesem Projekt wieder.
+          </DefaultText>
+          <DefaultText>
             Falls ihr Feedback habt oder Open Discourse mit spannenden Ideen
             unterstützen wollt, kontaktiert uns immer gerne. Wir freuen uns auf
-            euch!
+            euch!.
           </DefaultText>
         </DefaultContainer>
       </Section>
