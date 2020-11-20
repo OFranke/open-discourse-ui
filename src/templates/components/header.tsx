@@ -127,7 +127,7 @@ export const Header: React.FC = () => {
             href="/analysen"
             underlineColor={theme.additionalColors.yellow}
           >
-            Analyse
+            Analysen
           </NavItem>
           <NavItem href="/about" underlineColor="black">
             About
