@@ -1,13 +1,14 @@
-import { Text, useBreakpointValue } from "@chakra-ui/react";
+import { Text, TextProps, useBreakpointValue } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 
-interface ColoredSublineProps {
+interface ColoredSublineProps extends TextProps {
   backgroundColor: string;
 }
 
 export const ColoredSubline: React.FC<ColoredSublineProps> = ({
   backgroundColor,
   children,
+  ...props
 }) => {
   const textSize = useBreakpointValue({
     base: "sm",
@@ -39,6 +40,7 @@ export const ColoredSubline: React.FC<ColoredSublineProps> = ({
       color="white"
       fontStyle="italic"
       fontSize={textSize}
+      {...props}
     >
       <Text
         as="span"

@@ -1,0 +1,28 @@
+.shadowed {
+  position: relative;
+}
+
+.shadowed::after {
+  border-radius: 0 0 300px 300px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  content: "";
+  display: block;
+  height: 350px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.backgroundImageOpenDiscourse {
+  background-image: url("../../../public/images/sample/teamwork.jpg");
+}
+
+.backgroundImageFom {
+  background-image: url("../../../public/images/sample/team_outside.png");
+}
+
+.backgroundImageZdf {
+  background-image: url("../../../public/images/sample/teamwork.jpg");
+}
