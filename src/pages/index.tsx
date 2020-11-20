@@ -220,8 +220,8 @@ const Home: React.FC = () => {
             />
           </SimpleGrid>
 
-          <ButtonLink colorScheme="pink" href="/analysen-und-projekte">
-            Analysen und Projekte
+          <ButtonLink colorScheme="pink" href="/analysen">
+            Analysen
           </ButtonLink>
         </DefaultContainer>
       </Section>
