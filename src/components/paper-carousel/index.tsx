@@ -92,7 +92,7 @@ export const PaperCarousel: React.FC = () => {
 
   const displayBgImage = useBreakpointValue({ base: "none", lg: "block" });
   const bgImageMaxHeight = useBreakpointValue({
-    base: 0,
+    base: undefined,
     lg: 600,
     xl: 750,
   });
@@ -221,7 +221,7 @@ export const PaperCarousel: React.FC = () => {
         <div>
           <Box
             display={displayBgImage}
-            className={styles.backgroundImageOpenDiscourse}
+            className={displayBgImage && styles.backgroundImageOpenDiscourse}
             height={"60vh"}
             maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
@@ -235,7 +235,7 @@ export const PaperCarousel: React.FC = () => {
         <div>
           <Box
             display={displayBgImage}
-            className={styles.backgroundImageFom}
+            className={displayBgImage && styles.backgroundImageFom}
             height={"60vh"}
             maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
@@ -249,7 +249,7 @@ export const PaperCarousel: React.FC = () => {
         <div>
           <Box
             display={displayBgImage}
-            className={styles.backgroundImageZdf}
+            className={displayBgImage && styles.backgroundImageZdf}
             height={"60vh"}
             maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
