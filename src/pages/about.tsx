@@ -1,73 +1,73 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Heading, Image, Text } from "@chakra-ui/react";
+import React from "react";
+import { DefaultContainer } from "../components/default-container";
+import { ColoredSubline } from "../components/colored-subline";
+import { Section } from "../components/section";
+import { DefaultHeadline } from "../components/default-headline";
+import { DefaultText } from "../components/default-text";
+import Image from "next/image";
+import { Quote } from "../components/quote";
+import { ContactForm } from "../components/contact-form";
 
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
-      <Heading as="h1">Wir sind Limebit</Heading>
-      <Image
-        src="/images/wir_sind_limebit.png"
-        alt="Limebit Team"
-        width="100%"
-      />
-      <Text>
-        Open Discourse ist ein Projekt der Limebit GmbH. Die Plattform ist unser
-        Beitrag zur Demokratisierung des Zugangs politischer Themen. Entstanden
-        ist das Projekt aus den Fähigkeiten und Motivationen unser
-        MitarbeiterInnen. Außerdem ist die Initiative komplett selbst finanziert
-        und unabhängig.
-      </Text>
-      <Text>
-        Der Deutsche Bundestag ist das parlamentarische Herz unserer Demokratie.
-        In unserem Grundgesetz ist festgeschrieben, dass der Bundestag
-        öffentlich verhandelt soll. So wird seit 1949 für jede Plenarsitzung ein
-        stenografischer Bericht angefertigt, der jedes gesagte Wort der Sitzung
-        dokumentiert. Diese Protokolle liegen nun alle auf den Servern des
-        Bundestages und sind öffentlich abrufbar. Das Format der Protokolle ist
-        allerdings nicht für eine sinnvolle Datenverarbeitung im 21. Jahrhundert
-        geeignet.
-      </Text>
-      <Text>
-        Hier haben wir uns zur Aufgabe gemacht, die im Grundgesetz definierte
-        Öffentlichkeit des Bundestages durch moderne Wege der Datenverarbeitung
-        wieder herzustellen, um jeder Bürgerin und jedem Bürger die Möglichkeit
-        zu geben, den politischen Diskurs zu verfolgen und zu untersuchen.
-      </Text>
-      <Text>
-        Als privatwirtschaftliches Unternehmen können wir Open Discourse
-        selbstständig finanzieren und sind daher unabhängig von externen
-        Mitteln. Dies ermöglicht uns interessenbasierte Forschung und freies
-        Handeln. Auch unsere Überzeugung öffentliches Wissen durch offene Daten
-        zu unterstützen spiegelt sich in unserem Projekt wieder. Open Discourse
-        ist ein Herzensprojekt der Limebit GmbH - From 030 with ♡
-      </Text>
-      <Text>
-        Falls ihr Feedback habt oder Open Discourse mit spannenden Ideen
-        unterstützen wollt, kontaktiert uns immer gerne. Wir freuen uns auf
-        euch!
-      </Text>
-      <Heading as="h2">Unsere Motivation</Heading>
-      <Text>
-        Der deutsche Bundestag - unser hohes Haus - ist das parlamentarische
-        Herz unserer Demokratie. Im Grundgesetz ist definiert, dass der
-        Bundestag öffentlich verhandelt und dass die Abgeordneten die
-        Vertreter_Innen des gesamten Volkes sind. Seit 1949 wird für jede
-        Plenarsitzung ein stenografischer Bericht angefertigt, der jedes gesagte
-        Wort der Sitzung dokumentiert. Diese Protokolle liegen nun alle auf den
-        Servern des Bundestages und sind öffentlich abrufbar, allerdings ist das
-        Format der Protokolle nicht für eine sinnvolle Datenverarbeitung im 21.
-        Jahrhundert geeignet.
-      </Text>
-      <Text>
-        Hier haben wir uns zur Aufgabe gemacht, die im Grundgesetz definierte
-        Öffentlichkeit des Bundestages durch moderne Wege der Datenverarbeitung
-        wieder herzustellen, um jeder Bürgerin und jedem Bürger die Möglichkeit
-        zu geben, den politischen Diskurs zu verfolgen und zu untersuchen.
-      </Text>
-      <Text>
-        Open Discourse ist die Verlängerung des Versprechens am
-        Reichstagsgebäude “Dem deutschen Volke”.
-      </Text>
+      <Section id="wir-sind-open-discourse">
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s">Wir sind Open Discourse</DefaultHeadline>
+          <ColoredSubline backgroundColor="pink.500">
+            Lorem ipsum dolor sit amet consetetur. Lorem ipsum dolor sit amet.
+          </ColoredSubline>
+          <DefaultText>
+            Open Discourse ist ein Projekt der Limebit GmbH. Die Plattform ist
+            unser Beitrag zur Demokratisierung des Zugangs zu politischen
+            Debatten und Themen. Entstanden ist das Projekt aus den Fähigkeiten
+            und Motivationen unser Mitarbeiter_Innen. Außerdem ist die
+            Initiative komplett selbstfinanziert und unabhängig.
+          </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section as="div" backgroundColor="pink.500">
+        <Image
+          src={"/images/sample/team_outside.png"}
+          alt={"Team draußen"}
+          layout="responsive"
+          width="1440px"
+          height="700px"
+          quality="75"
+        />
+        <DefaultContainer size="l">
+          <Quote
+            text="Unsere Mission ist es, Daten, und Menschen verbinden. Denn die Welt ist voller Daten, überall verborgene Erkenntnisse. Wir analysieren, interpretieren, optimieren, beraten, entwickeln und machen aus verborgenen Informationen sichtbare Lösungen."
+            author="Florian Richter"
+            authorSubtext="Initiator von Open Discourse"
+          />
+        </DefaultContainer>
+      </Section>
+      <Section id="unabhaengigkeitserklaerung">
+        <DefaultContainer size="l">
+          <ColoredSubline backgroundColor="#D8D8D8">
+            Lorem ipsum dolor sit amet consetetur. Lorem ipsum dolor sit amet.
+          </ColoredSubline>
+          <DefaultText>
+            Als privatwirtschaftliches Unternehmen können wir Open Discourse
+            selbstständig finanzieren und sind daher unabhängig von externen
+            Mitteln. Dies ermöglicht uns interessenbasierte Forschung und freies
+            Handeln. Auch unsere Überzeugung öffentliches Wissen durch offene
+            Daten zu unterstützen spiegelt sich in unserem Projekt wieder.
+            <br />
+            <br />
+            Falls ihr Feedback habt oder Open Discourse mit spannenden Ideen
+            unterstützen wollt, kontaktiert uns immer gerne. Wir freuen uns auf
+            euch!
+          </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <ContactForm />
+        </DefaultContainer>
+      </Section>
     </BaseTemplate>
   );
 };
