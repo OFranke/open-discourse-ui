@@ -1,19 +1,63 @@
-import { Box, Flex, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, FlexProps, useBreakpointValue } from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import styles from "./styles.module.css";
-import { Slide1 } from "./slide-1";
-import { Slide2 } from "./slide-2";
+import { Slide1, Slide2 } from "./paper-slides";
 import { DefaultContainer } from "../default-container";
 import { useState, useEffect } from "react";
+import { useTheme } from "@emotion/react";
 
-const NavigationSlide: React.FC = ({ children }) => {
+interface NavigationSlideProps extends FlexProps {
+  slideId: number;
+  activeSlideId: number;
+}
+const NavigationSlide: React.FC<NavigationSlideProps> = ({
+  slideId,
+  activeSlideId,
+  children,
+  ...props
+}) => {
+  const isCurrentSlideActive = slideId == activeSlideId;
+  const theme: any = useTheme();
+
+  const activeAndHoverStyle = {
+    content: '""',
+    display: "inline-block",
+    width: "100%",
+    borderBottom: `4px solid ${theme.colors.pink[500]}`,
+  };
+
+  const width = useBreakpointValue({
+    base: "150px",
+    sm: "200px",
+    md: "250px",
+    lg: "300px",
+  });
   return (
-    <Box height="150px" paddingTop="5">
-      {children}
+    <Box
+      paddingY="5"
+      width={width}
+      marginX="5"
+      //   paddingX="2"
+      _after={isCurrentSlideActive ? activeAndHoverStyle : undefined}
+      //   _hover={isCurrentSlideActive ? undefined : activeAndHoverStyle}
+    >
+      <Flex
+        backgroundColor="white"
+        boxShadow="rgba(0, 0, 0, 0.1) 0px 0px 20px 5px, rgba(0, 0, 0, 0.2) 0px 0px 1px 0px;"
+        rounded="md"
+        padding="2"
+        width={width}
+        height="80px"
+        justifyContent="center"
+        alignItems="center"
+        {...props}
+      >
+        {children}
+      </Flex>
     </Box>
   );
 };
@@ -21,193 +65,153 @@ const NavigationSlide: React.FC = ({ children }) => {
 interface NavState {
   nav1: any;
   nav2: any;
+  activeSlide: number;
 }
 export const PaperCarousel: React.FC = () => {
   const [navState, setNavState] = useState<NavState>({
     nav1: null,
     nav2: null,
+    activeSlide: 0,
   });
   let slider1ref: any;
   let slider2ref: any;
 
   useEffect(() => {
-    setNavState({ nav1: slider1ref, nav2: slider2ref });
+    setNavState({ ...navState, nav1: slider1ref, nav2: slider2ref });
   }, [slider1ref, slider2ref]);
   const slidesToShow = useBreakpointValue({
     base: 1,
     lg: 4,
   });
+  console.log("\x1b[33m%s\x1b[0m", "%c >> activeSlide", navState);
   return (
     <>
-      <DefaultContainer size="l">
-        <Slider
-          className={styles.slider}
-          asNavFor={navState.nav2}
-          ref={(slider) => (slider1ref = slider)}
-          slidesToShow={slidesToShow}
-          infinite={true}
-          centerMode={true}
-        >
-          <div>
-            <NavigationSlide>
-              <Flex
-                boxShadow="dark-lg"
-                rounded="md"
-                padding="2"
-                width="150px"
-                height="80px"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Box
-                  width={{
-                    base: "150px",
-                    sm: "120px",
-                    md: "150px",
-                    lg: "150px",
-                    xl: "240px",
-                  }}
-                >
-                  <Image
-                    src={"/images/logos/open_discourse.png"}
-                    alt={"Open Discourse Logo"}
-                    layout="responsive"
-                    width="1250px"
-                    height="400px"
-                    quality="75"
-                  />
-                </Box>
-              </Flex>
-            </NavigationSlide>
-          </div>
-          <div>
-            <NavigationSlide>
-              <Flex
-                boxShadow="dark-lg"
-                rounded="md"
-                padding="2"
-                width="150px"
-                height="80px"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Box
-                  width={{
-                    base: "38px",
-                    sm: "120px",
-                    md: "150px",
-                    lg: "150px",
-                    xl: "240px",
-                  }}
-                >
-                  <Image
-                    src={"/images/logos/fom_logo.png"}
-                    alt={"FOM Logo"}
-                    layout="responsive"
-                    width="120px"
-                    height="120px"
-                    quality="75"
-                  />
-                </Box>
-              </Flex>
-            </NavigationSlide>
-          </div>
-          <div>
-            <NavigationSlide>
-              <Flex
-                boxShadow="dark-lg"
-                rounded="md"
-                padding="2"
-                width="150px"
-                height="80px"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Box
-                  width={{
-                    base: "38px",
-                    sm: "120px",
-                    md: "150px",
-                    lg: "150px",
-                    xl: "240px",
-                  }}
-                >
-                  <Image
-                    src={"/images/logos/fom_logo.png"}
-                    alt={"FOM Logo"}
-                    layout="responsive"
-                    width="120px"
-                    height="120px"
-                    quality="75"
-                  />
-                </Box>
-              </Flex>
-            </NavigationSlide>
-          </div>
-          <div>
-            <NavigationSlide>
-              <Flex
-                boxShadow="dark-lg"
-                rounded="md"
-                padding="2"
-                width="150px"
-                height="80px"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Box
-                  width={{
-                    base: "38px",
-                    sm: "120px",
-                    md: "150px",
-                    lg: "150px",
-                    xl: "240px",
-                  }}
-                >
-                  <Image
-                    src={"/images/logos/fom_logo.png"}
-                    alt={"FOM Logo"}
-                    layout="responsive"
-                    width="120px"
-                    height="120px"
-                    quality="75"
-                  />
-                </Box>
-              </Flex>
-            </NavigationSlide>
-          </div>
-        </Slider>
-      </DefaultContainer>
-      <DefaultContainer size="l">
-        <Box
-          className={styles.shadowed}
-          marginTop="10"
-          marginX="2"
-          padding="4"
-          backgroundImage="linear-gradient(rgba(255, 255, 255, 1), rgba(247, 250, 252, 1))"
-        >
-          <Slider
-            asNavFor={navState.nav1}
-            ref={(slider) => (slider2ref = slider)}
-            slidesToShow={1}
-            swipeToSlide={true}
-            focusOnSelect={true}
-          >
-            <div>
-              <Slide1 />
-            </div>
-            <div>
-              <Slide2 />
-            </div>
-            <div>
-              <Slide1 />
-            </div>
-            <div>
-              <Slide2 />
-            </div>
-          </Slider>
-        </Box>
-      </DefaultContainer>
+      <Slider
+        asNavFor={navState.nav2}
+        ref={(slider) => (slider1ref = slider)}
+        slidesToShow={slidesToShow}
+        infinite={true}
+        centerMode={true}
+        variableWidth={true}
+        focusOnSelect={true}
+        speed={1000}
+        beforeChange={(current, next) =>
+          setNavState({ ...navState, activeSlide: next })
+        }
+      >
+        <div>
+          <NavigationSlide slideId={0} activeSlideId={navState.activeSlide}>
+            <Box
+              width={{
+                base: "150px",
+                sm: "120px",
+                md: "150px",
+                lg: "150px",
+                xl: "240px",
+              }}
+            >
+              <Image
+                src={"/images/logos/open_discourse.png"}
+                alt={"Open Discourse Logo"}
+                layout="responsive"
+                width="1250px"
+                height="400px"
+                quality="75"
+              />
+            </Box>
+          </NavigationSlide>
+        </div>
+        <div>
+          <NavigationSlide slideId={1} activeSlideId={navState.activeSlide}>
+            <Box
+              width={{
+                base: "150px",
+                sm: "120px",
+                md: "150px",
+                lg: "150px",
+                xl: "240px",
+              }}
+            >
+              <Image
+                src={"/images/logos/open_discourse.png"}
+                alt={"Open Discourse Logo"}
+                layout="responsive"
+                width="1250px"
+                height="400px"
+                quality="75"
+              />
+            </Box>
+          </NavigationSlide>
+        </div>
+        <div>
+          <NavigationSlide slideId={2} activeSlideId={navState.activeSlide}>
+            <Box
+              width={{
+                base: "150px",
+                sm: "120px",
+                md: "150px",
+                lg: "150px",
+                xl: "240px",
+              }}
+            >
+              <Image
+                src={"/images/logos/open_discourse.png"}
+                alt={"Open Discourse Logo"}
+                layout="responsive"
+                width="1250px"
+                height="400px"
+                quality="75"
+              />
+            </Box>
+          </NavigationSlide>
+        </div>
+        <div>
+          <NavigationSlide slideId={3} activeSlideId={navState.activeSlide}>
+            <Box
+              width={{
+                base: "150px",
+                sm: "120px",
+                md: "150px",
+                lg: "150px",
+                xl: "240px",
+              }}
+            >
+              <Image
+                src={"/images/logos/open_discourse.png"}
+                alt={"Open Discourse Logo"}
+                layout="responsive"
+                width="1250px"
+                height="400px"
+                quality="75"
+              />
+            </Box>
+          </NavigationSlide>
+        </div>
+      </Slider>
+
+      {/* <DefaultContainer size="l"> */}
+      <Slider
+        asNavFor={navState.nav1}
+        ref={(slider) => (slider2ref = slider)}
+        slidesToShow={1}
+        swipeToSlide={true}
+        speed={1000}
+        //   centerMode={true}
+      >
+        <DefaultContainer size="l">
+          <Slide1 />
+        </DefaultContainer>
+        <DefaultContainer size="l">
+          <Slide2 />
+        </DefaultContainer>
+        <DefaultContainer size="l">
+          <Slide1 />
+        </DefaultContainer>
+        <DefaultContainer size="l">
+          <Slide2 />
+        </DefaultContainer>
+      </Slider>
+      {/* </DefaultContainer> */}
     </>
   );
 };
