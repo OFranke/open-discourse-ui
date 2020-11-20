@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const theme: any = useTheme();
   return (
-    <DefaultContainer size="l" bg="white" boxShadow="base">
+    <DefaultContainer size="l">
       <Flex
         as="nav"
         align="center"

@@ -1,5 +1,5 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Stack, Box, SimpleGrid } from "@chakra-ui/react";
+import { Stack, Box, SimpleGrid, useBreakpointValue } from "@chakra-ui/react";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "../components/default-container";
