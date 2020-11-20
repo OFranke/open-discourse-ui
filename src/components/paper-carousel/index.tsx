@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import { Slide1, Slide2 } from "./paper-slides";
-import { DefaultContainer } from "../default-container";
+import { DefaultContainer, containerSizes } from "../default-container";
 import { useState, useEffect } from "react";
 import { useTheme } from "@emotion/react";
 
@@ -42,6 +42,10 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
     md: "250px",
     xl: "300px",
   });
+  const height = useBreakpointValue({
+    base: "80px",
+    lg: "120px",
+  });
   return (
     <Box
       paddingY="5"
@@ -57,7 +61,7 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
         rounded="md"
         padding="2"
         width={width}
-        height="80px"
+        height={height}
         justifyContent="center"
         alignItems="center"
         {...props}
@@ -68,25 +72,6 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
   );
 };
 
-const NavigationSliderWrapper: React.FC = ({ children }) => {
-  const isLgScreen = useBreakpointValue({ base: false, lg: true });
-
-  const containerSizes = {
-    s: { base: "100vw", sm: "400px", md: "500px", lg: "850px", xl: "60vw" },
-    m: { base: "100vw", sm: "500px", md: "600px", lg: "1050px", xl: "65vw" },
-    l: { base: "100vw", sm: "500px", md: "900px", lg: "1250px", xl: "70vw" },
-    xl: { base: "100vw", sm: "500px", md: "900px", lg: "1400px", xl: "80vw" },
-  };
-
-  if (isLgScreen) {
-    return (
-      <Box maxWidth={containerSizes["l"]} marginX="auto">
-        {children}
-      </Box>
-    );
-  }
-  return <>{children}</>;
-};
 interface NavState {
   nav1: any;
   nav2: any;
@@ -104,19 +89,15 @@ export const PaperCarousel: React.FC = () => {
   useEffect(() => {
     setNavState({ ...navState, nav1: slider1ref, nav2: slider2ref });
   }, [slider1ref, slider2ref]);
-  const slidesToShow = useBreakpointValue({
-    base: 1,
-    md: 2,
-    lg: 4,
-    xl: 4,
+
+  const displayBgImage = useBreakpointValue({ base: "none", lg: "block" });
+  const bgImageMaxHeight = useBreakpointValue({
+    base: 0,
+    lg: 600,
+    xl: 750,
   });
-  console.log("\x1b[33m%s\x1b[0m", "%c >> activeSlide", navState);
-  const containerSizes = {
-    s: { base: "100vw", sm: "400px", md: "500px", lg: "850px", xl: "60vw" },
-    m: { base: "100vw", sm: "500px", md: "600px", lg: "1050px", xl: "65vw" },
-    l: { base: "100vw", sm: "500px", md: "900px", lg: "1250px", xl: "70vw" },
-    xl: { base: "100vw", sm: "500px", md: "900px", lg: "1400px", xl: "80vw" },
-  };
+  const bgNegativeMargin = useBreakpointValue({ base: 0, lg: -200, xl: -300 });
+
   return (
     <>
       <Box maxWidth={containerSizes["l"]} marginX="auto">
@@ -127,8 +108,10 @@ export const PaperCarousel: React.FC = () => {
           infinite={true}
           centerMode={true}
           variableWidth={useBreakpointValue({ base: true })}
+          swipeToSlide={true}
           focusOnSelect={true}
           speed={1000}
+          arrows={false}
           beforeChange={(current, next) =>
             setNavState({ ...navState, activeSlide: next })
           }
@@ -225,6 +208,7 @@ export const PaperCarousel: React.FC = () => {
         </Slider>
       </Box>
       {/* <DefaultContainer size="l"> */}
+
       <Slider
         asNavFor={navState.nav1}
         ref={(slider) => (slider2ref = slider)}
@@ -232,20 +216,47 @@ export const PaperCarousel: React.FC = () => {
         swipeToSlide={true}
         infinite={true}
         speed={1000}
-        //   centerMode={true}
+        arrows={false}
       >
         <div>
-          <DefaultContainer size="l">
+          <Box
+            display={displayBgImage}
+            className={styles.backgroundImageOpenDiscourse}
+            height={"60vh"}
+            maxHeight={bgImageMaxHeight}
+            backgroundPosition="center"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+          />
+          <DefaultContainer size="l" marginTop={bgNegativeMargin}>
             <Slide1 />
           </DefaultContainer>
         </div>
         <div>
-          <DefaultContainer size="l">
+          <Box
+            display={displayBgImage}
+            className={styles.backgroundImageFom}
+            height={"60vh"}
+            maxHeight={bgImageMaxHeight}
+            backgroundPosition="center"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+          />
+          <DefaultContainer size="l" marginTop={bgNegativeMargin}>
             <Slide2 />
           </DefaultContainer>
         </div>
         <div>
-          <DefaultContainer size="l">
+          <Box
+            display={displayBgImage}
+            className={styles.backgroundImageZdf}
+            height={"60vh"}
+            maxHeight={bgImageMaxHeight}
+            backgroundPosition="center"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+          />
+          <DefaultContainer size="l" marginTop={bgNegativeMargin}>
             <Slide1 />
           </DefaultContainer>
         </div>

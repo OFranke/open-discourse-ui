@@ -1,7 +1,3 @@
-/* .slider {
-  max-width: "100vw";
-} */
-
 .shadowed {
   position: relative;
 }
@@ -17,4 +13,16 @@
   top: 0;
   width: 100%;
   z-index: -1;
+}
+
+.backgroundImageOpenDiscourse {
+  background-image: url("../../../public/images/sample/teamwork.jpg");
+}
+
+.backgroundImageFom {
+  background-image: url("../../../public/images/sample/team_outside.png");
+}
+
+.backgroundImageZdf {
+  background-image: url("../../../public/images/sample/teamwork.jpg");
 }

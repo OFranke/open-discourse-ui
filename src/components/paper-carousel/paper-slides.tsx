@@ -7,9 +7,9 @@ const SlideWrapper: React.FC = ({ children }) => {
   return (
     <Box
       className={styles.shadowed}
-      marginTop="10"
-      paddingX="4"
-      paddingY="6"
+      marginTop={{ base: 10, md: 14, lg: 0 }}
+      paddingX={{ base: 4, md: 10, xl: 24 }}
+      paddingY={{ base: 6, md: 14, xl: 40 }}
       backgroundImage="linear-gradient(rgba(255, 255, 255, 1), rgba(247, 250, 252, 1))"
     >
       {children}
