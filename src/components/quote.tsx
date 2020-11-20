@@ -1,4 +1,4 @@
-import { Text, TextProps, useBreakpointValue, Box } from "@chakra-ui/react";
+import { useBreakpointValue, Box, BoxProps } from "@chakra-ui/react";
 import React from "react";
 import { DefaultText } from "./default-text";
 
