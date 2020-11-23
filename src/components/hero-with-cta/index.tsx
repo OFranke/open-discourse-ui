@@ -8,6 +8,7 @@ export const HeroWithCta = () => {
   return (
     <Flex
       className={styles.backgroundImage}
+      // backgroundImage={require("../../../public/images/sample/teamwork.jpg")}
       height={"60vh"}
       maxHeight={[
         "350px", // 0-30em
@@ -39,9 +40,6 @@ export const HeroWithCta = () => {
             display={{ base: "none", lg: "initial" }}
           >
             Open Discourse
-          </DefaultHeadline>
-          <DefaultHeadline size="m" as="h1" width={{ sm: "50%" }}>
-            Analyse von politischer Sprache in Deutschland
           </DefaultHeadline>
           <Box>
             <DefaultButton colorScheme="pink">Zur Volltextsuche</DefaultButton>

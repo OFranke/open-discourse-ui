@@ -1,5 +1,12 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Stack, Box, SimpleGrid, Link } from "@chakra-ui/react";
+import {
+  Stack,
+  Box,
+  SimpleGrid,
+  Link,
+  ListItem,
+  UnorderedList,
+} from "@chakra-ui/react";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "../components/default-container";
@@ -30,7 +37,7 @@ const Home: React.FC = () => {
       </Section>
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">
+          <DefaultHeadline as="h1" size="s">
             Analyse von Plenarprotokollen für Mensch und Machine
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
@@ -102,30 +109,52 @@ const Home: React.FC = () => {
             Reden, Zwischenrufe, Anfragen usw. der jeweiligen Politiker und
             Fraktionen zugeordnet und durchsuchbar gemacht sowie zahlreiche
             Metainformationen hinzugefügt.
-            <br />
-            <br />
-            Wie hat sich der politische Diskurs in den letzten 70 Jahren
-            verändert?
-            <br />
-            <br />
-            Wie ist die thematische Nähe von Politikern zueinander?
-            <br />
-            <br />
-            Wie hoch ist der relative Anteil von Frauen und Männern, die von den
-            verschiedenen Parteien sprechen?
-            <br />
-            <br />
-            Bürger, Journalisten und Wissenschaftler können jetzt den gesamten
-            Datensatz für ihre eigene Forschung herunterladen und auf Muster
-            untersuchen.
-            <br />
-            <br />
-            Nutze unsere Volltextsuche, um den politischen Diskurs im Bundestag
-            nachzuverfolgen und zu untersuchen oder downloade den Datensatz, um
-            eigene umfassende Analysen der Sprache und Reaktionen des Bundestags
-            von 1949 bis heute durchzuführen.
           </DefaultText>
-          <ButtonLink colorScheme="pink" href="/tools-und-daten">
+          <UnorderedList>
+            <ListItem>
+              <DefaultText as="span">
+                Wie hat sich der politische Diskurs in den letzten 70 Jahren
+                verändert?
+              </DefaultText>
+            </ListItem>
+            <ListItem>
+              <DefaultText as="span">
+                Wie ist die thematische Nähe von Politikern zueinander?
+              </DefaultText>
+            </ListItem>
+            <ListItem>
+              <DefaultText as="span">
+                Wie hoch ist der relative Anteil von Frauen und Männern, die von
+                den verschiedenen Parteien sprechen?
+              </DefaultText>
+            </ListItem>
+            <ListItem>
+              <DefaultText as="span">
+                Bürger, Journalisten und Wissenschaftler können jetzt den
+                gesamten Datensatz für ihre eigene Forschung herunterladen und
+                auf Muster untersuchen.
+              </DefaultText>
+            </ListItem>
+            <ListItem>
+              <DefaultText as="span">
+                Nutze unsere Volltextsuche, um den politischen Diskurs im
+                Bundestag nachzuverfolgen und zu untersuchen oder downloade den
+                Datensatz, um eigene umfassende Analysen der Sprache und
+                Reaktionen des Bundestags von 1949 bis heute durchzuführen.
+              </DefaultText>
+            </ListItem>
+          </UnorderedList>
+
+          <ButtonLink
+            colorScheme="pink"
+            href="/tools-und-daten"
+            marginTop={{
+              base: "4",
+              md: "4",
+              lg: "6",
+              xl: "8",
+            }}
+          >
             Zu Tools und Daten
           </ButtonLink>
         </DefaultContainer>
@@ -221,7 +250,16 @@ const Home: React.FC = () => {
             />
           </SimpleGrid>
 
-          <ButtonLink colorScheme="pink" href="/analysen">
+          <ButtonLink
+            colorScheme="pink"
+            href="/analysen"
+            marginTop={{
+              base: "4",
+              md: "4",
+              lg: "6",
+              xl: "8",
+            }}
+          >
             Analysen
           </ButtonLink>
         </DefaultContainer>
@@ -254,17 +292,17 @@ const Home: React.FC = () => {
             des gesamten Volkes sind und dass der Bundestag öffentlich
             verhandelt. Wir alle haben somit das Recht, die Inhalte und Vorgänge
             im Parlament transparent mitverfolgen zu dürfen.
-            <br />
-            <br />
+          </DefaultText>
+
+          <DefaultText>
             Bisher lagen die Protokolle zwar auf den Serven des Bundestags, aber
             die Einsicht in die Dokumenten ist umständlich und das Format der
             Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
             Open Discourse können Bürger_Innen, Journalist_Innen und
             Wissenschaftler_Innen jetzt zugänglich und kostenfrei über die
             <Link color="pink.500" href="/tools-und-daten">
-              {" "}
               Tools und Daten
-            </Link>{" "}
+            </Link>
             der Plattform die Plenarprotokolle nach Stichworten, Politiker_Innen
             und Ämtern durchsuchen und die Ergebnisse für Ihre Arbeit, Forschung
             und natürlich für das eigene Interesse nutzen.
