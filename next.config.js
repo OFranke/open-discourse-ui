@@ -8,7 +8,7 @@ const optimizedImages = require("next-optimized-images");
 
 const envConfig = (phase) => {
   // production value per environment is configured in vercel, see https://vercel.com/docs/platform/environment-variables
-  const env = { NEXT_PUBLIC_VERCEL_URL: "http://localhost:3000/" };
+  const env = {};
   return {
     env,
   };
