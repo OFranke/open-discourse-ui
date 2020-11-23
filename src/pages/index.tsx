@@ -37,10 +37,10 @@ const Home: React.FC = () => {
       </Section>
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
-          <DefaultHeadline as="h1" size="s">
+          {/* <DefaultHeadline as="h1" size="s">
             Analyse von Plenarprotokollen für Mensch und Machine
-          </DefaultHeadline>
-          <ColoredSubline backgroundColor="pink.500">
+          </DefaultHeadline> */}
+          <ColoredSubline as="h2" backgroundColor="pink.500">
             Wie Data Science den Weg zu politischen Diskurs demokratisiert
           </ColoredSubline>
           <DefaultText>
