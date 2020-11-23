@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, useBreakpointValue } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 import { DefaultContainer } from "../default-container";
 import { DefaultButton } from "../default-button";
@@ -8,7 +8,6 @@ export const HeroWithCta = () => {
   return (
     <Flex
       className={styles.backgroundImage}
-      // backgroundImage={require("../../../public/images/sample/teamwork.jpg")}
       height={"60vh"}
       maxHeight={[
         "350px", // 0-30em

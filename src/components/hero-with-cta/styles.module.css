@@ -1,3 +1,33 @@
 .backgroundImage {
-  background-image: url("../../../public/images/sample/teamwork.jpg");
+  background-image: url("../../../public/images/sample/teamwork.jpg?resize&size=480&format=webp");
+}
+
+@media screen and (min-width: 480px) {
+  .backgroundImage {
+    background-image: url("../../../public/images/sample/teamwork.jpg?resize&size=768&format=webp");
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .backgroundImage {
+    background-image: url("../../../public/images/sample/teamwork.jpg?resize&size=1024&format=webp");
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .backgroundImage {
+    background-image: url("../../../public/images/sample/teamwork.jpg?resize&size=1440&format=webp");
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  .backgroundImage {
+    background-image: url("../../../public/images/sample/teamwork.jpg?resize&size=1920&format=webp");
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  .backgroundImage {
+    background-image: url("../../../public/images/sample/teamwork.jpg?webp&resize&size=3840&format=webp");
+  }
 }
