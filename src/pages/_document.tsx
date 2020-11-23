@@ -120,6 +120,17 @@ class MyDocument extends Document {
                     `,
             }}
           /> */}
+
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                    background: '#F7FAFC'
+                    body {
+                        font-family: 'Source Code Pro';
+                    }
+                    `,
+            }}
+          />
         </Head>
         <body>
           <Main />
