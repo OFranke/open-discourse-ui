@@ -65,7 +65,8 @@ module.exports = extend(envConfig).withPlugins([
             {
               // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
               key: "Content-Security-Policy",
-              value: "default-src 'self'",
+              value:
+                "default-src 'self';font-src fonts.gstatic.com;style-src 'self' fonts.googleapis.com",
             },
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
             { key: "X-Frame-Options", value: "SAMEORIGIN" },
