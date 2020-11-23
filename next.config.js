@@ -9,8 +9,13 @@ const optimizedImages = require("next-optimized-images");
 const envConfig = (phase) => {
   // production value per environment is configured in vercel, see https://vercel.com/docs/platform/environment-variables
   const env = {};
+  const i18n = {
+    locales: ["de"], // order does not matter here
+    defaultLocale: "de", // the default locale to fall back to
+  };
   return {
     env,
+    i18n,
   };
 };
 

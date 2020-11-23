@@ -25,13 +25,6 @@ export const SEO: React.FC<SeoProps> = ({
       canonical={
         new URL(canonicalRoute, process.env.NEXT_PUBLIC_VERCEL_URL).href
       }
-      languageAlternates={[
-        {
-          hrefLang: "de",
-          href: new URL(canonicalRoute, process.env.NEXT_PUBLIC_VERCEL_URL)
-            .href,
-        },
-      ]}
     />
   );
 };
