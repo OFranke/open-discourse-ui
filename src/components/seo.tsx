@@ -17,12 +17,14 @@ export const SEO: React.FC<SeoProps> = ({
     throw new Error("environment variable HOST_URL not found.");
   }
 
+  const canonicalUrl = new URL(canonicalRoute, process.env.HOST_URL).href;
+  const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
   return (
     <NextSeo
       title={title}
       description={description}
       titleTemplate={siteConfig.seo.titleTemplate}
-      canonical={new URL(canonicalRoute, process.env.HOST_URL).href}
+      canonical={canonicalUrlWithoutTrailingSlash}
     />
   );
 };
