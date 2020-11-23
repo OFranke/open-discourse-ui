@@ -34,8 +34,7 @@ export const HeroWithCta = () => {
           flexDirection="column"
         >
           <DefaultHeadline size="m" as="h1" width={{ sm: "50%" }}>
-            Open Discourse - Analyse von Plenarprotokollen für Mensch und
-            Maschine
+            Analyse von Plenarprotokollen für Mensch und Maschine
           </DefaultHeadline>
           <Box>
             <DefaultButton colorScheme="pink">Zur Volltextsuche</DefaultButton>
