@@ -59,10 +59,12 @@ module.exports = extend(envConfig).withPlugins([
           source: "/:path*",
           headers: [
             {
-              // // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+              // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
               key: "Content-Security-Policy",
               value: "default-src 'self'",
             },
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+            { key: "X-Frame-Options", value: "SAMEORIGIN" },
           ],
         },
       ];
