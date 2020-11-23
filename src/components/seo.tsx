@@ -13,8 +13,8 @@ export const SEO: React.FC<SeoProps> = ({
   description,
   canonicalRoute,
 }) => {
-  if (!process.env.NEXT_PUBLIC_VERCEL_URL) {
-    throw new Error("environment variable NEXT_PUBLIC_VERCEL_URL not found.");
+  if (!process.env.HOST_URL) {
+    throw new Error("environment variable HOST_URL not found.");
   }
 
   return (
@@ -22,9 +22,7 @@ export const SEO: React.FC<SeoProps> = ({
       title={title}
       description={description}
       titleTemplate={siteConfig.seo.titleTemplate}
-      canonical={
-        new URL(canonicalRoute, process.env.NEXT_PUBLIC_VERCEL_URL).href
-      }
+      canonical={new URL(canonicalRoute, process.env.HOST_URL).href}
     />
   );
 };

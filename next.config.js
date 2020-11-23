@@ -7,8 +7,23 @@ const { withPlugins, extend } = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
 
 const envConfig = (phase) => {
-  // production value per environment is configured in vercel, see https://vercel.com/docs/platform/environment-variables
-  const env = {};
+  // when started in development mode `next dev` or `npm run dev` regardless of the value of STAGING environmental variable
+  const isDev = phase === PHASE_DEVELOPMENT_SERVER;
+  // when `next build` or `npm run build` is used
+  const isStaging =
+    phase === PHASE_PRODUCTION_BUILD && process.env.STAGING === "1";
+  // when `next build` or `npm run build` is used
+  const isProd =
+    phase === PHASE_PRODUCTION_BUILD && process.env.STAGING !== "1";
+
+  console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`);
+
+  const env = {
+    HOST_URL: isDev
+      ? "http://localhost:3000/"
+      : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  };
+
   return {
     env,
   };
