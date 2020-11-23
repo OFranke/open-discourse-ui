@@ -29,7 +29,7 @@ const envConfig = (phase) => {
   };
   return {
     env,
-    experimental,
+    // experimental,
   };
 };
 
