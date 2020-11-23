@@ -23,6 +23,7 @@ const Home: React.FC = () => {
       <SEO
         title="Plenarprotokolle des deutschen Bundestages seit 1949"
         description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
+        canonicalRoute="/"
       />
       <Section>
         <HeroWithCta />
@@ -40,17 +41,17 @@ const Home: React.FC = () => {
             seit 1949 aufgebrochen und analysierbar gemacht - und zwar für
             Mensch und Maschinen. Die Plattform erleichtert den Zugang und die
             Recherche in den über 800.000 Redebeiträgen der letzten 70 Jahre.
-            <br />
-            <br />
-            Die Datenbank hinter Open Discourse ist die erste granulare,
-            umfassende und maschinenlesbare Aufbereitung jedes jemals
-            gesprochenen Wortes in den Parlamentssitzungen des deutschen
-            Bundestages und ermöglicht gefilterte Recherchen in in den Reden,
-            Zwischenrufe und Anfragen der PolitkerInnen und Fraktionen.
-            <br />
-            <br />
-            Für einen offenen Diskurs und eine wissenschaftliche
-            Auseinandersetzung mit politischer Sprache.
+            <DefaultText>
+              Die Datenbank hinter Open Discourse ist die erste granulare,
+              umfassende und maschinenlesbare Aufbereitung jedes jemals
+              gesprochenen Wortes in den Parlamentssitzungen des deutschen
+              Bundestages und ermöglicht gefilterte Recherchen in in den Reden,
+              Zwischenrufe und Anfragen der PolitkerInnen und Fraktionen.
+            </DefaultText>
+            <DefaultText>
+              Für einen offenen Diskurs und eine wissenschaftliche
+              Auseinandersetzung mit politischer Sprache.
+            </DefaultText>
           </DefaultText>
         </DefaultContainer>
       </Section>

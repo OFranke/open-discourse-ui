@@ -9,10 +9,12 @@ import { ColoredSubline } from "../components/colored-subline";
 import { Quote } from "../components/quote";
 import { DefaultText } from "../components/default-text";
 import { ContactForm } from "../components/contact-form";
+import SEO from "../components/seo";
 
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
+      <SEO title="" description="" canonicalRoute="" />
       <Section>
         <Image
           src={"/images/sample/team_outside.png"}

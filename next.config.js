@@ -1,7 +1,20 @@
-const withPlugins = require("next-compose-plugins");
+const {
+  PHASE_DEVELOPMENT_SERVER,
+  PHASE_PRODUCTION_BUILD,
+} = require("next/constants");
+
+const { withPlugins, extend } = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
 
-module.exports = withPlugins([
+const envConfig = (phase) => {
+  // production value per environment is configured in vercel, see https://vercel.com/docs/platform/environment-variables
+  const env = { NEXT_PUBLIC_VERCEL_URL: "http://localhost:3000/" };
+  return {
+    env,
+  };
+};
+
+module.exports = extend(envConfig).withPlugins([
   [
     optimizedImages({
       imagesFolder: "images",

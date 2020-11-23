@@ -16,10 +16,12 @@ import { Tagline } from "../components/tagline";
 import { DefaultButton } from "../components/default-button";
 import { PaperCarousel } from "../components/paper-carousel";
 import Head from "next/head";
+import SEO from "../components/seo";
 
 const Analyses: React.FC = () => {
   return (
     <BaseTemplate>
+      <SEO title="" description="" canonicalRoute="" />
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
           <DefaultHeadline size="s">
