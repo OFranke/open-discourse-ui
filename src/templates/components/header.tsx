@@ -87,8 +87,8 @@ export const Header: React.FC = () => {
                 src={"/images/logos/open_discourse.png"}
                 alt={"Open Discourse Logo"}
                 layout="responsive"
-                width="1250px"
-                height="400px"
+                width="150px"
+                height="48px"
                 quality="75"
               />
             </Box>
