@@ -23,6 +23,7 @@ import SEO from "../components/seo";
 import { Tagline } from "../components/tagline";
 import { DefaultButton } from "../components/default-button";
 import { ButtonLink } from "../components/button-link";
+import ConditionallyRender from "../components/conditionally-render";
 
 const Home: React.FC = () => {
   return (
@@ -185,24 +186,26 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <Stack spacing={{ base: "10", md: "20", lg: "32" }}>
-            <Statistic
-              headline="Statistik"
-              subline="Wer kommt zu Wort – Männer oder Frauen?"
-              description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
-              descriptionHighlight="Für mehr Wachstum und Effektivität."
-              imagePath="/images/statistics/wer_kommt_zu_wort.png"
-              imagePosition="right"
-              imageAlt="Statistik"
-            />
-            <Statistic
-              headline="Statistik"
-              subline="Wer kommt zu Wort – Männer oder Frauen?"
-              description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
-              descriptionHighlight="Für mehr Wachstum und Effektivität."
-              imagePath="/images/statistics/wer_kommt_zu_wort.png"
-              imagePosition="left"
-              imageAlt="Statistik"
-            />
+            <ConditionallyRender client>
+              <Statistic
+                headline="Statistik"
+                subline="Wer kommt zu Wort – Männer oder Frauen?"
+                description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
+                descriptionHighlight="Für mehr Wachstum und Effektivität."
+                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePosition="right"
+                imageAlt="Statistik"
+              />
+              <Statistic
+                headline="Statistik"
+                subline="Wer kommt zu Wort – Männer oder Frauen?"
+                description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
+                descriptionHighlight="Für mehr Wachstum und Effektivität."
+                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePosition="left"
+                imageAlt="Statistik"
+              />
+            </ConditionallyRender>
           </Stack>
         </DefaultContainer>
       </Section>

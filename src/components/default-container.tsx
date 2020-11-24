@@ -1,8 +1,4 @@
-import {
-  Container,
-  ContainerProps,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Container, ContainerProps } from "@chakra-ui/react";
 
 interface DefaultContainerProps extends ContainerProps {
   size: "s" | "m" | "l" | "xl";
@@ -18,11 +14,9 @@ export const DefaultContainer: React.FC<DefaultContainerProps> = ({
   children,
   ...props
 }) => {
-  const containerMaxWidth = useBreakpointValue(containerSizes[size]);
-
   return (
     <Container
-      maxW={containerMaxWidth}
+      maxW={containerSizes[size]}
       {...props}
       marginLeft="auto"
       marginRight="auto"

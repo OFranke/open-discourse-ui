@@ -6,7 +6,6 @@ import {
   useColorMode,
   IconButton,
   useColorModeValue,
-  Theme,
 } from "@chakra-ui/react";
 
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
@@ -14,7 +13,6 @@ import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import { DefaultText } from "../../components/default-text";
-import { useBreakpointValue } from "@chakra-ui/react";
 import { DefaultContainer } from "../../components/default-container";
 import { useTheme } from "@emotion/react";
 interface NavItemProps {
@@ -26,13 +24,13 @@ const NavItem: React.FC<NavItemProps> = ({
   underlineColor,
   children,
 }) => {
-  const textSize = useBreakpointValue({
+  const textSize = {
     base: "sm",
     sm: "md",
     md: "md",
     lg: "xl",
     xl: "4xl",
-  });
+  };
   return (
     <Link href={href} _hover={{ textDecoration: "none" }}>
       <Box>
