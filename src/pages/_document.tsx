@@ -77,28 +77,28 @@ class MyDocument extends Document {
                     @font-face {
                         font-family: 'Source Code Pro';
                         font-weight: regular;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: normal;
                         src: url('/fonts/SourceCodePro-Regular.ttf');
                     }
                     @font-face {
                         font-family: 'Source Code Pro';
                         font-weight: bold;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: normal;
                         src: url('/fonts/SourceCodePro-Bold.ttf');
                     }
                     @font-face {
                         font-family: 'Source Code Pro';
                         font-weight: regular;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: italic;
                         src: url('/fonts/SourceCodePro-Italic.ttf');
                     }
                     @font-face {
                         font-family: 'Source Code Pro';
                         font-weight: bold;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: italic;
                         src: url('/fonts/SourceCodePro-BoldItalic.ttf');
                     }
@@ -106,41 +106,41 @@ class MyDocument extends Document {
                     @font-face {
                         font-family: 'Source Sans Pro';
                         font-weight: regular;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: normal;
                         src: url('/fonts/SourceSansPro-Regular.ttf');
                     }
                     @font-face {
                         font-family: 'Source Sans Pro';
                         font-weight: bold;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: normal;
                         src: url('/fonts/SourceSansPro-Bold.ttf');
                     }
                     @font-face {
                         font-family: 'Source Sans Pro';
                         font-weight: regular;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: italic;
                         src: url('/fonts/SourceSansPro-Italic.ttf');
                     }
                     @font-face {
                         font-family: 'Source Sans Pro';
                         font-weight: 600;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: semibold;
                         src: url('/fonts/SourceSansPro-SemiBold.ttf');
                     }
                     @font-face {
                         font-family: 'Source Sans Pro';
                         font-weight: bold;
-                        font-display: auto;
+                        font-display: swap;
                         font-style: italic;
                         src: url('/fonts/SourceSansPro-BoldItalic.ttf');
                     }
                     background: '#F7FAFC'
                     body {
-                        font-family: 'Source Code Pro';
+                        font-family: 'Source Code Pro, sans-serif';
                     }
                     `,
             }}
