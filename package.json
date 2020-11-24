@@ -15,16 +15,9 @@
     "@types/react-slick": "0.23.4",
     "axios": "0.21.0",
     "framer-motion": "2.9.4",
-    "image-trace-loader": "1.0.2",
-    "imagemin-mozjpeg": "9.0.0",
-    "imagemin-optipng": "8.0.0",
-    "imagemin-svgo": "8.0.0",
-    "jimp": "0.16.1",
-    "lqip-loader": "2.2.1",
     "next": "^10.0.3",
     "next-compose-plugins": "2.2.1",
     "next-google-fonts": "1.2.1",
-    "next-optimized-images": "2.6.2",
     "next-seo": "4.17.0",
     "query-string": "6.13.1",
     "react": "17.0.1",
@@ -32,15 +25,22 @@
     "react-icons": "3.11.0",
     "react-intersection-observer": "8.30.2",
     "react-slick": "0.27.13",
-    "responsive-loader": "2.2.0",
-    "sharp": "0.26.2",
-    "slick-carousel": "1.8.1",
-    "svg-sprite-loader": "5.0.0",
-    "webp-loader": "0.6.0"
+    "slick-carousel": "1.8.1"
   },
   "devDependencies": {
     "@types/node": "14.14.7",
     "@types/react": "16.9.56",
-    "typescript": "4.0.5"
+    "typescript": "4.0.5",
+    "next-optimized-images": "2.6.2",
+    "image-trace-loader": "1.0.2",
+    "imagemin-mozjpeg": "9.0.0",
+    "imagemin-optipng": "8.0.0",
+    "imagemin-svgo": "8.0.0",
+    "jimp": "0.16.1",
+    "lqip-loader": "2.2.1",
+    "responsive-loader": "2.2.0",
+    "sharp": "0.26.2",
+    "webp-loader": "0.6.0",
+    "svg-sprite-loader": "5.0.0"
   }
 }
