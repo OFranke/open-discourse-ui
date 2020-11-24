@@ -1,12 +1,11 @@
-import { NextPageContext } from "next";
 import Document, {
   DocumentContext,
   Html,
-  Head,
   Main,
   NextScript,
+  Head,
 } from "next/document";
-
+import GoogleFonts from "next-google-fonts";
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -16,6 +15,8 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="de">
+        <GoogleFonts href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" />
+
         <Head>
           <link
             rel="icon"
