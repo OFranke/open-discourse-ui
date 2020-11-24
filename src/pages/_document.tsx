@@ -41,15 +41,39 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet"
           /> */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
             rel="stylesheet"
+          /> */}
+          {/* <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+          <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
           />
-          {/* <style
+
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
+            media="print"
+
+            onLoad={function () {
+              this.onload = null;
+              this.removeAttribute("media");
+            }}
+          />
+
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
+            />
+          </noscript> */}
+          <style
             dangerouslySetInnerHTML={{
               __html: `
-                    background: '#F7FAFC'
                     @font-face {
                         font-family: 'Source Code Pro';
                         font-weight: regular;
@@ -114,13 +138,14 @@ class MyDocument extends Document {
                         font-style: italic;
                         src: url('/fonts/SourceSansPro-BoldItalic.ttf');
                     }
+                    background: '#F7FAFC'
                     body {
                         font-family: 'Source Code Pro';
                     }
                     `,
             }}
-          /> */}
-
+          />
+          {/*
           <style
             dangerouslySetInnerHTML={{
               __html: `
@@ -130,7 +155,7 @@ class MyDocument extends Document {
                     }
                     `,
             }}
-          />
+          /> */}
         </Head>
         <body>
           <Main />

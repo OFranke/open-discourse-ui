@@ -34,7 +34,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
     styles: { global: { body: { bg: "gray.50" } } },
   };
   const customTheme = extendTheme(extendedTheme);
-  console.log("\x1b[33m%s\x1b[0m", "%c >> theme", customTheme);
   return (
     <ChakraProvider theme={customTheme}>
       <Component {...pageProps} />
