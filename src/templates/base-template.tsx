@@ -29,8 +29,8 @@ const extendedTheme = {
     },
   },
   additionalColors: { yellow: "#FFF78E" },
+  styles: { global: { body: { bg: "gray.50" } } },
 };
-
 const customTheme = extendTheme(extendedTheme);
 export const BaseTemplate: React.FC = ({ children }) => {
   return (
