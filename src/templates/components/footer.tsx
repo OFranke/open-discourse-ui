@@ -48,6 +48,7 @@ export const Footer: React.FC = () => {
 
         <DefaultText
           fontSize={textSize}
+          marginBottom="0"
           marginTop={{ base: 4, lg: 0 }}
           flex="1"
           flexGrow={1}
