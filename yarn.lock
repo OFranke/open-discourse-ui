@@ -53,6 +53,14 @@
   dependencies:
     cross-fetch "3.0.5"
 
+"@apollo/react-common@3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@apollo/react-common/-/react-common-3.1.3.tgz#ddc34f6403f55d47c0da147fd4756dfd7c73dac5"
+  integrity sha512-Q7ZjDOeqjJf/AOGxUMdGxKF+JVClRXrYBGVq+SuVFqANRpd68MxtVV2OjCWavsFAN0eqYnRqRUrl7vtUCiJqeg==
+  dependencies:
+    ts-invariant "^0.4.4"
+    tslib "^1.10.0"
+
 "@babel/code-frame@7.10.4", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.5.5":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -1075,6 +1083,41 @@
     "@babel/helper-validator-identifier" "^7.10.4"
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
+
+"@bit/limebit.chakra-ui-recipes.error-toast@^0.0.2":
+  version "0.0.2"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.error-toast/-/limebit.chakra-ui-recipes.error-toast-0.0.2.tgz#9263ead37e729e70505a680c623dddda7d09f265"
+  integrity sha1-kmPq035ynnBQWmgMYj3d2n0J8mU=
+
+"@bit/limebit.chakra-ui-recipes.loading-spinner@^0.0.2":
+  version "0.0.2"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.loading-spinner/-/limebit.chakra-ui-recipes.loading-spinner-0.0.2.tgz#2140b56f703ac295db5814317e5f659f77a52754"
+  integrity sha1-IUC1b3A6wpXbWBQxfl9ln3elJ1Q=
+
+"@bit/limebit.chakra-ui-recipes.react-table@^0.0.5":
+  version "0.0.5"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.react-table/-/limebit.chakra-ui-recipes.react-table-0.0.5.tgz#7d9547ef5786985df23d561eec1b0d6f56006507"
+  integrity sha1-fZVH71eGmF3yPVYe7BsNb1YAZQc=
+  dependencies:
+    "@apollo/react-common" "3.1.3"
+    "@bit/limebit.chakra-ui-recipes.table" "0.0.2"
+    "@types/react-table" "7.0.19"
+    csstype "3.0.3"
+    react-feather "2.0.8"
+    react-responsive "8.1.0"
+    react-table "7.2.2"
+
+"@bit/limebit.chakra-ui-recipes.select-input@^0.0.7":
+  version "0.0.7"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.select-input/-/limebit.chakra-ui-recipes.select-input-0.0.7.tgz#ab39a7e3d41129f333d09e5554c08e1920ac2e6d"
+  integrity sha1-qzmn49QRKfMz0J5VVMCOGSCsLm0=
+  dependencies:
+    csstype "3.0.3"
+
+"@bit/limebit.chakra-ui-recipes.table@0.0.2":
+  version "0.0.2"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.table/-/limebit.chakra-ui-recipes.table-0.0.2.tgz#827cea147fe287a2f43b446b0c89c66c6f8ae49a"
+  integrity sha1-gnzqFH/ih6L0O0RrDInGbG+K5Jo=
 
 "@chakra-ui/accordion@1.0.0":
   version "1.0.0"
@@ -2461,6 +2504,11 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
 
+"@types/react-table@7.0.19":
+  version "7.0.19"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.0.19.tgz#a70603ac0ffdeaf399fc6919aacb32fc42e9dd40"
+  integrity sha512-RYyEY7Yry6F2JsKhHeFsGdzuFF1hMqBStQrrazDzpBl4m/ECGHJxFVQjLBRzRwK+47ZKNPm79f7qEpHirbiCLA==
+
 "@types/react-slick@0.23.4":
   version "0.23.4"
   resolved "https://registry.yarnpkg.com/@types/react-slick/-/react-slick-0.23.4.tgz#c97e2a9e7e3d1933c68593b8e82752fab1e8ce53"
@@ -3434,9 +3482,9 @@ camelcase@^6.0.0:
   integrity sha512-c7wVvbw3f37nuobQNtgsgG9POC9qMbNuMQmTCqZv23b6MIz0fcYpBiOlv9gEN/hdLdnZTDQhg6e9Dq5M1vKvfg==
 
 caniuse-lite@^1.0.30001093, caniuse-lite@^1.0.30001113, caniuse-lite@^1.0.30001157:
-  version "1.0.30001157"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001157.tgz#2d11aaeb239b340bc1aa730eca18a37fdb07a9ab"
-  integrity sha512-gOerH9Wz2IRZ2ZPdMfBvyOi3cjaz4O4dgNwPGzx8EhqAs4+2IL/O+fJsbt+znSigujoZG8bVcIAUM/I/E5K3MA==
+  version "1.0.30001158"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001158.tgz#fce86d321369603c2bc855ee0e901a7f49f8310b"
+  integrity sha512-s5loVYY+yKpuVA3HyW8BarzrtJvwHReuzugQXlv1iR3LKSReoFXRm86mT6hT7PEF5RxW+XQZg+6nYjlywYzQ+g==
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -3936,6 +3984,11 @@ css-loader@4.3.0:
     schema-utils "^2.7.1"
     semver "^7.3.2"
 
+css-mediaquery@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/css-mediaquery/-/css-mediaquery-0.1.2.tgz#6a2c37344928618631c54bd33cedd301da18bea0"
+  integrity sha1-aiw3NEkoYYYxxUvTPO3TAdoYvqA=
+
 css-select-base-adapter@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/css-select-base-adapter/-/css-select-base-adapter-0.1.1.tgz#3b2ff4972cc362ab88561507a95408a1432135d7"
@@ -4024,9 +4077,9 @@ cssnano-simple@1.2.0:
     postcss "^7.0.32"
 
 csso@^4.0.2:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/csso/-/csso-4.1.0.tgz#1d31193efa99b87aa6bad6c0cef155e543d09e8b"
-  integrity sha512-h+6w/W1WqXaJA4tb1dk7r5tVbOm97MsKxzwnvOR04UQ6GILroryjMWu3pmCCtL2mLaEStQ0fZgeGiy99mo7iyg==
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/csso/-/csso-4.1.1.tgz#e0cb02d6eb3af1df719222048e4359efd662af13"
+  integrity sha512-Rvq+e1e0TFB8E8X+8MQjHSY6vtol45s5gxtLI/018UsAn2IBMmwNEZRM/h+HVnAJRHjasLIKKUO3uvoMM28LvA==
   dependencies:
     css-tree "^1.0.0"
 
@@ -5579,6 +5632,11 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
+hyphenate-style-name@^1.0.0:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
+  integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
+
 icss-utils@^4.0.0, icss-utils@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/icss-utils/-/icss-utils-4.1.1.tgz#21170b53789ee27447c2f47dd683081403f9a467"
@@ -6533,6 +6591,13 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+matchmediaquery@^0.3.0:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/matchmediaquery/-/matchmediaquery-0.3.1.tgz#8247edc47e499ebb7c58f62a9ff9ccf5b815c6d7"
+  integrity sha512-Hlk20WQHRIm9EE9luN1kjRjYXAQToHOIAHPJn9buxBwuhfTHoKUcX+lXBbxc85DVQfXYbEQ4HcwQdd128E3qHQ==
+  dependencies:
+    css-mediaquery "^0.1.2"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -7877,7 +7942,7 @@ promise-inflight@^1.0.1:
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
-prop-types@15.7.2, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8058,6 +8123,13 @@ react-fast-compare@3.2.0:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
+react-feather@2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/react-feather/-/react-feather-2.0.8.tgz#455baf1470f756a57e2ad6c72545444ce5925781"
+  integrity sha512-J0dCEOvOxpovHeOVj3+8mAhN3/UERTfX6rSxnV6x4E+0s+STY536jhSjRfpSvTQA0SSFjYr4KrpPfdsLmK+zZg==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-focus-lock@2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.4.1.tgz#e842cc93da736b5c5d331799012544295cbcee4f"
@@ -8111,6 +8183,16 @@ react-remove-scroll@2.4.0:
     use-callback-ref "^1.2.3"
     use-sidecar "^1.0.1"
 
+react-responsive@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/react-responsive/-/react-responsive-8.1.0.tgz#afcc2293c46a37b1e7926ff7fef66bcb147e7cba"
+  integrity sha512-U8Nv2/ZWACIw/fAE9XNPbc2Xo33X5q1bcCASc2SufvJ9ifB+o/rokfogfznSVcvS22hN1rafGi0uZD6GiVFEHw==
+  dependencies:
+    hyphenate-style-name "^1.0.0"
+    matchmediaquery "^0.3.0"
+    prop-types "^15.6.1"
+    shallow-equal "^1.1.0"
+
 react-slick@0.27.13:
   version "0.27.13"
   resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.27.13.tgz#1fdb60f56b1a08ffbafaa2251924845f1e192230"
@@ -8130,6 +8212,11 @@ react-style-singleton@^2.1.0:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^1.0.0"
+
+react-table@7.2.2:
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.2.2.tgz#2978a903f0e367e1ceab25d60a6a40ae23498f77"
+  integrity sha512-JBE3QUyRQJkHRU72NKo7HRGtSGcrzIcVLDbsoZI+KhWkFEZ2t9UfpqeHBdbc3R5RRJZ6qC7+NzZZxJPSYWKPBQ==
 
 react@17.0.1:
   version "17.0.1"
@@ -8601,6 +8688,11 @@ sha.js@^2.4.0, sha.js@^2.4.8:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+shallow-equal@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/shallow-equal/-/shallow-equal-1.2.1.tgz#4c16abfa56043aa20d050324efa68940b0da79da"
+  integrity sha512-S4vJDjHHMBaiZuT9NPb616CSmLf618jawtv3sufLl6ivK8WocjAo58cXwbRV1cgqxH0Qbv+iUt6m05eqEa2IRA==
 
 sharp@0.26.2:
   version "0.26.2"
@@ -9452,6 +9544,13 @@ trim-repeated@^1.0.0:
   integrity sha1-42RqLqTokTEr9+rObPsFOAvAHCE=
   dependencies:
     escape-string-regexp "^1.0.2"
+
+ts-invariant@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.4.4.tgz#97a523518688f93aafad01b0e80eb803eb2abd86"
+  integrity sha512-uEtWkFM/sdZvRNNDL3Ehu4WVpwaulhwQszV8mrtcdeE8nN00BV9mAmQ88RkrBhFgl9gMgvjJLAQcZbnPXI9mlA==
+  dependencies:
+    tslib "^1.9.3"
 
 ts-pnp@^1.1.6:
   version "1.2.0"
