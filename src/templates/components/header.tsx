@@ -37,8 +37,10 @@ const NavItem: React.FC<NavItemProps> = ({
     <Link href={href} _hover={{ textDecoration: "none" }}>
       <Box>
         <DefaultText
+          as="span"
           marginTop={{ base: 4, lg: 0 }}
           marginRight={{ base: 6, lg: 10, xl: 14 }}
+          marginBottom={0}
           display="inline-block"
           fontSize={textSize}
           _hover={{
@@ -121,8 +123,11 @@ export const Header: React.FC = () => {
           >
             Tools und Daten
           </NavItem>
-          <NavItem href="/suche" underlineColor={theme.additionalColors.yellow}>
-            Analyse
+          <NavItem
+            href="/analysen"
+            underlineColor={theme.additionalColors.yellow}
+          >
+            Analysen
           </NavItem>
           <NavItem href="/about" underlineColor="black">
             About

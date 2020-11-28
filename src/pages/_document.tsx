@@ -25,6 +25,7 @@ class MyDocument extends Document {
           <style
             dangerouslySetInnerHTML={{
               __html: `
+                    background: '#F7FAFC'
                     @font-face {
                         font-family: 'Source Code Pro';
                         font-weight: regular;
