@@ -12,6 +12,7 @@
     "@chakra-ui/react": "1.0.0",
     "@emotion/react": "11.0.0",
     "@emotion/styled": "11.0.0",
+    "@feedback-fish/react": "1.2.1",
     "@types/react-slick": "0.23.4",
     "axios": "0.21.0",
     "framer-motion": "2.9.4",
