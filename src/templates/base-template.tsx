@@ -1,7 +1,7 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Button, Box } from "@chakra-ui/react";
 import { Header } from "./components/header";
 import { ChakraProvider } from "@chakra-ui/react";
-
+import { FeedbackFish } from "@feedback-fish/react";
 // 1. Import the extendTheme util - it will merge with the default theme.
 import { extendTheme } from "@chakra-ui/react";
 
@@ -36,12 +36,27 @@ const extendedTheme = {
   styles: { global: { body: { bg: "gray.50" } } },
 };
 const customTheme = extendTheme(extendedTheme);
+
+const FeedbackButton: React.FC = () => {
+  return (
+    <Box
+      position="fixed"
+      bottom={{ base: 5, lg: 10 }}
+      right={{ base: 5, lg: 10 }}
+    >
+      <FeedbackFish projectId="ce035f6f6d5e7a">
+        <Button colorScheme="pink">Feedback</Button>
+      </FeedbackFish>
+    </Box>
+  );
+};
 export const BaseTemplate: React.FC = ({ children }) => {
   return (
     <ChakraProvider theme={customTheme}>
       <Flex direction="column">
         <Header />
         {children}
+        <FeedbackButton />
       </Flex>
     </ChakraProvider>
   );
