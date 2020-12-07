@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import { Header } from "./components/header";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -41,7 +41,7 @@ export const BaseTemplate: React.FC = ({ children }) => {
     <ChakraProvider theme={customTheme}>
       <Flex direction="column">
         <Header />
-        {children}
+        <Box marginTop={{ base: "64px", lg: "80px" }}>{children}</Box>
       </Flex>
     </ChakraProvider>
   );
