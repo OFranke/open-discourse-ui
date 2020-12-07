@@ -11,9 +11,10 @@ import {
   ModalFooter,
   Link,
 } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { DefaultText } from "../../components/default-text";
 import React from "react";
+import { NextChakraLink } from "../next-chakra-link";
 
 export interface SpeechModalProps {
   isOpen: boolean;
@@ -39,10 +40,16 @@ export const SpeechModal = ({ isOpen, onClose, data }: SpeechModalProps) => {
           <ModalBody>
             <Text mb="5" color="pink.500" fontWeight="bold">
               {data.documentUrl && (
-                <Link href={data.documentUrl} isExternal>
-                  <ArrowForwardIcon mr="1" />
-                  Zum Plenarprotokoll
-                </Link>
+                <>
+                  <NextChakraLink
+                    color="pink.500"
+                    href={data.documentUrl}
+                    isExternal
+                  >
+                    <ArrowForwardIcon mr="1" />
+                    Zum Plenarprotokoll
+                  </NextChakraLink>
+                </>
               )}
             </Text>
             <Text fontWeight="bold">

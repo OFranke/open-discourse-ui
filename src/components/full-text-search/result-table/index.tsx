@@ -5,6 +5,7 @@ import { SearchResultRow } from "../hooks/use-manage-data";
 import { DownloadButton } from "./download-button";
 import { positions } from "../search-form";
 import { SpeechModal } from "../speech-modal";
+import { NextChakraLink } from "../../next-chakra-link";
 
 interface ResultTableProps {
   data: SearchResultRow[];
@@ -85,9 +86,13 @@ export const ResultTable = ({ data }: ResultTableProps) => {
       Cell: ({ row }: { row: Row }) => {
         if (row.values.documentUrl) {
           return (
-            <Link href={row.values.documentUrl} isExternal fontWeight="bold">
+            <NextChakraLink
+              href={row.values.documentUrl}
+              isExternal
+              fontWeight="bold"
+            >
               Protokoll
-            </Link>
+            </NextChakraLink>
           );
         }
         return null;
@@ -101,7 +106,7 @@ export const ResultTable = ({ data }: ResultTableProps) => {
         if (row.values.speechContent) {
           return (
             <>
-              <Link onClick={onOpen} fontWeight="bold">
+              <Link as="button" onClick={onOpen} fontWeight="bold">
                 anzeigen
               </Link>
               <SpeechModal

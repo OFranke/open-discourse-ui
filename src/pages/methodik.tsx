@@ -12,6 +12,7 @@ import { Quote } from "../components/quote";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta/index";
 import { Tagline } from "../components/tagline";
+import { NextChakraLink } from "../components/next-chakra-link";
 
 const Home: React.FC = () => {
   return (
@@ -38,14 +39,14 @@ const Home: React.FC = () => {
             Seit 1949 für jede Plenarsitzung ein stenografischer Bericht
             angefertigt, der jedes gesagte Wort der Sitzung dokumentiert. Diese
             Protokolle liegen als txt-, xml-, oder pdf-Dokumente auf den{" "}
-            <Link
+            <NextChakraLink
               color="pink.500"
               href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
               isExternal
             >
               {" "}
               Servern des Bundestages <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
             und sind öffentlich abrufbar.
           </DefaultText>
 
@@ -88,7 +89,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Einer der Hauptgründe ist laut dem
-            <Link
+            <NextChakraLink
               color="pink.500"
               href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
               isExternal
@@ -96,7 +97,7 @@ const Home: React.FC = () => {
               {" "}
               Politikwissenschaftler Nicolas Bechter{" "}
               <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
             die Tatsache, dass sich die deutsche Forschung traditionell auf die
             politische Ideengeschichte ausgerichtete und die theoretische und
             methodische Rahmenbedingungen lange fehlten, um Dokumente wie die
@@ -198,14 +199,14 @@ const Home: React.FC = () => {
             Neben Open Discourse möchten wir noch zwei weitere Projekte
             hervorstellen, die sich mit den Korpora des Deutschen Bundestags
             beschäftigt haben:
-            <Link
+            <NextChakraLink
               color="pink.500"
               href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
               isExternal
             >
               {" "}
               GermaParl und ParlSpeech. <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
           </DefaultText>
           <DefaultText>
             Im direkten Vergleich ist erkennbar, dass das Korpus von Open
@@ -287,14 +288,14 @@ const Home: React.FC = () => {
             von jeglichen Zugehörigkeiten ist, die während der Entwicklung
             dieses Korpus beteiligt waren. Die Codebasis kann aus dem
             zugehörigen
-            <Link
+            <NextChakraLink
               color="pink.500"
               href="https://github.com/open-discourse/open-discourse"
               isExternal
             >
               {" "}
               GitHub-Repository <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
             abgerufen werden.
           </DefaultText>
         </DefaultContainer>
@@ -348,14 +349,14 @@ const Home: React.FC = () => {
           </UnorderedList>
           <DefaultText>
             Wir stellen unsere{" "}
-            <Link
+            <NextChakraLink
               color="pink.500"
               href="https://github.com/open-discourse/open-discourse"
               isExternal
             >
               {" "}
               aufbereitete Datenbank <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
             an dieser Stelle zur Verfügung und geben die Nutzung, Weiterwendung
             und Weiterverbreitung frei. Bitte verweist auf unser Projekt und
             diese Website in euren Quellenangaben.

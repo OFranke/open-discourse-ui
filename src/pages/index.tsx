@@ -25,6 +25,7 @@ import { DefaultButton } from "../components/default-button";
 import { ButtonLink } from "../components/button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
+import { NextChakraLink } from "../components/next-chakra-link";
 
 const Home: React.FC = () => {
   return (
@@ -274,11 +275,12 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <Tagline>Warum ist das wichtig?</Tagline>
-          <DefaultHeadline size="s">Warum ist das wichtig?</DefaultHeadline>
+          <DefaultHeadline size="s">
+            Zugang und Durchsuchbarkeit der Dokumente
+          </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
+            Die im Grundgesetz definierte Öffentlichkeit des Bundestages muss
+            durch moderne Wege der Datenverarbeitung ausgebaut werden.
           </ColoredSubline>
           <DefaultText>
             In seiner über 70 jährigen Geschichte war der Bundestag immer eins:
@@ -299,9 +301,9 @@ const Home: React.FC = () => {
             Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
             Open Discourse können Bürger_Innen, Journalist_Innen und
             Wissenschaftler_Innen jetzt zugänglich und kostenfrei über die
-            <Link color="pink.500" href="/tools-und-daten">
+            <NextChakraLink color="pink.500" href="/tools-und-daten">
               Tools und Daten
-            </Link>
+            </NextChakraLink>
             der Plattform die Plenarprotokolle nach Stichworten, Politiker_Innen
             und Ämtern durchsuchen und die Ergebnisse für Ihre Arbeit, Forschung
             und natürlich für das eigene Interesse nutzen.
@@ -323,9 +325,7 @@ const Home: React.FC = () => {
           <Tagline>Wie funktioniert das?</Tagline>
           <DefaultHeadline size="s">Die Herangehensweise</DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
+            Data Science trifft auf Plenarprotokolle
           </ColoredSubline>
           <DefaultText>
             Wir haben mit verschiedenen Methoden der Informatik und
@@ -347,7 +347,16 @@ const Home: React.FC = () => {
             Reproduzierbarkeit und Validierbarkeit/Falsifizierbarkeit aller
             Analysen und erfüllt somit den Anspruch der Wissenschaftlichkeit.
           </DefaultText>
-          <ButtonLink colorScheme="pink" href="/methodik">
+          <ButtonLink
+            colorScheme="pink"
+            href="/methodik"
+            marginTop={{
+              base: "4",
+              md: "4",
+              lg: "6",
+              xl: "8",
+            }}
+          >
             Methodik
           </ButtonLink>
         </DefaultContainer>
@@ -365,25 +374,36 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <Tagline>Wer steckt dahinter?</Tagline>
-          <DefaultHeadline size="s">Wir machen das und deshalb</DefaultHeadline>
-          <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
-          </ColoredSubline>
+          <DefaultHeadline size="s">
+            Unser Beitrag zur Demokratie
+          </DefaultHeadline>
           <DefaultText>
-            Open Discourse ist ein gemeinnütziges Projekt der Limebit GmbH. Die
-            Initiative ist selbstfinanziert, unabhängig und aus den Fähigkeiten
-            und Motivationen unser Mitarbeiter_Innen gewachsen. Die Plattform
-            ist unser Beitrag zur Demokratisierung des Zugangs politischer
-            Themen und Akteure_Innen und eine Herzensangelegenheit.
-          </DefaultText>
-          <DefaultText>
+            Open Discourse ist ein gemeinnütziges Forschungs- und
+            Entwicklungsprojekt.
+            <br />
+            <br />
+            Das Open Discourse Korpus ist selbstfinanziert, unabhängig und aus
+            den Fähigkeiten und Motivationen der Mitarbeiter_Innen der Limebit
+            GmbH gewachsen. Die Plattform ist unser Beitrag zur Demokratisierung
+            des Zugangs politischer Themen und Akteure_Innen und eine
+            Herzensangelegenheit.
+            <br />
+            <br />
             Möchten Sie uns Feedback geben oder haben Sie Interesse Ihre
             Fähigkeiten, Ideen oder Ihr Netzwerk in irgendeiner Form zur
             Verfügung zu stellen? Kontaktieren Sie uns gern!
           </DefaultText>
-          <ButtonLink colorScheme="pink" href="/about">
+
+          <ButtonLink
+            colorScheme="pink"
+            href="/ueber-uns"
+            marginTop={{
+              base: "4",
+              md: "4",
+              lg: "6",
+              xl: "8",
+            }}
+          >
             Über uns
           </ButtonLink>
         </DefaultContainer>

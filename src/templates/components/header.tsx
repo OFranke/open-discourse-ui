@@ -37,7 +37,7 @@ const NavItem: React.FC<NavItemProps> = ({
   console.log("\x1b[33m%s\x1b[0m", "%c >> router.pathname", router.pathname);
   const isActiveLink = router.pathname == href;
   return (
-    <Link href={href} _hover={{ textDecoration: "none" }}>
+    <NextChakraLink href={href} _hover={{ textDecoration: "none" }}>
       <Box>
         <DefaultText
           as="span"
@@ -55,7 +55,7 @@ const NavItem: React.FC<NavItemProps> = ({
           {children}
         </DefaultText>
       </Box>
-    </Link>
+    </NextChakraLink>
   );
 };
 
@@ -80,7 +80,7 @@ export const Header: React.FC = () => {
           width="100%"
         >
           <Flex align="center" mr={5}>
-            <Link href={"/"}>
+            <NextChakraLink href={"/"}>
               <Box
                 width={{
                   base: "120px",
@@ -99,7 +99,7 @@ export const Header: React.FC = () => {
                   quality="75"
                 />
               </Box>
-            </Link>
+            </NextChakraLink>
           </Flex>
 
           <Box display={{ base: "block", lg: "none" }} onClick={handleToggle}>
@@ -134,8 +134,8 @@ export const Header: React.FC = () => {
             >
               Analysen
             </NavItem>
-            <NavItem href="/about" underlineColor="black">
-              About
+            <NavItem href="/ueber-uns" underlineColor="black">
+              Über uns
             </NavItem>
             <Box>
               <NextChakraLink
