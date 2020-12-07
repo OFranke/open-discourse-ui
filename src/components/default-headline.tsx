@@ -1,8 +1,10 @@
-import { Heading, HeadingProps, useBreakpointValue } from "@chakra-ui/react";
+import { Heading, HeadingProps } from "@chakra-ui/react";
 
 import { useTheme } from "@chakra-ui/react";
 interface DefaultHeadlineProps extends HeadingProps {
-  size: "xs" | "s" | "m" | "l";
+  size: //  "xs" |
+  "s" | "m";
+  //  | "l";
 }
 export const DefaultHeadline: React.FC<DefaultHeadlineProps> = ({
   as,
@@ -11,29 +13,27 @@ export const DefaultHeadline: React.FC<DefaultHeadlineProps> = ({
   ...props
 }) => {
   const headingSizes = {
-    xs: { base: "sm", md: "md", lg: "lg", xl: "xl" },
-    s: { base: "md", md: "lg", lg: "xl", xl: "2xl" },
-    m: { base: "lg", md: "xl", lg: "2xl", xl: "3xl" },
-    l: { base: "xl", md: "2xl", lg: "3xl", xl: "4xl" },
+    // xs: { base: "sm", md: "md", lg: "lg", xl: "xl" },
+    s: { base: "xl", md: "3xl", lg: "4xl", xl: "5xl" },
+    m: { base: "2xl", md: "4xl", lg: "4xl", xl: "6xl" },
+    // l: { base: "xl", md: "2xl", lg: "3xl", xl: "4xl" },
   };
-  const headingSize = useBreakpointValue(headingSizes[size]);
 
   const headingMarginBottom = {
-    xs: { base: "2", md: "4", lg: "6" },
+    // xs: { base: "2", md: "4", lg: "6" },
     s: { base: "4", md: "6", lg: "10" },
     m: { base: "5", md: "7", lg: "12" },
-    l: { base: "6", md: "8", lg: "12" },
+    // l: { base: "6", md: "8", lg: "12" },
   };
-  const marginBottomSize = useBreakpointValue(headingMarginBottom[size]);
 
   return (
     <Heading
       as={as}
       fontFamily="Source Sans Pro"
-      size={headingSize}
+      fontSize={headingSizes[size]}
       textTransform="uppercase"
       fontWeight="bold"
-      marginBottom={marginBottomSize}
+      marginBottom={headingMarginBottom[size]}
       {...props}
     >
       {children}

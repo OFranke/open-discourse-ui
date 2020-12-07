@@ -1,4 +1,4 @@
-import { Text, TextProps, useBreakpointValue } from "@chakra-ui/react";
+import { Text, TextProps } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 
 interface ColoredSublineProps extends TextProps {
@@ -10,27 +10,27 @@ export const ColoredSubline: React.FC<ColoredSublineProps> = ({
   children,
   ...props
 }) => {
-  const textSize = useBreakpointValue({
+  const textSize = {
     base: "sm",
     sm: "xl",
     md: "2xl",
     lg: "3xl",
     xl: "4xl",
-  });
-  const marginBottom = useBreakpointValue({
+  };
+  const marginBottom = {
     base: "4",
     sm: "10",
     md: "10",
     lg: "14",
     xl: "14",
-  });
-  const borderWidth = useBreakpointValue({
+  };
+  const borderWidth = {
     base: "8px",
     sm: "12px",
     md: "12px",
     lg: "16px",
     xl: "16px",
-  });
+  };
   return (
     <Text
       marginBottom={marginBottom}

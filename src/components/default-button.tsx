@@ -1,4 +1,4 @@
-import { Button, ButtonProps, useBreakpointValue } from "@chakra-ui/react";
+import { Button, ButtonProps } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 export interface DefaultButtonProps extends ButtonProps {
@@ -9,12 +9,10 @@ export const DefaultButton: React.FC<DefaultButtonProps> = ({
   colorScheme,
   ...props
 }) => {
-  const buttonSize = useBreakpointValue({ base: "md", md: "md", lg: "lg" });
-
   return (
     <Button
       colorScheme={colorScheme}
-      size={buttonSize}
+      size={"md"}
       fontSize={{ xl: "2xl" }}
       padding={{ xl: "8" }}
       textTransform="uppercase"

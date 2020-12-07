@@ -19,6 +19,7 @@ const Home: React.FC = () => {
       <SEO
         title="Plenarprotokolle des deutschen Bundestages seit 1949"
         description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
+        canonicalRoute="methodik"
       />
       <Section>
         <HeroWithCta />
@@ -148,41 +149,49 @@ const Home: React.FC = () => {
 
           <Box border="1px solid">
             <UnorderedList>
-              <DefaultText>
-                <ListItem>
+              <ListItem>
+                <DefaultText as="span">
                   Kerndatenquelle: Parlamentsprotokolle vom Deutschen Bundestag
-                </ListItem>
-                <UnorderedList>
-                  <ListItem>
+                </DefaultText>
+              </ListItem>
+              <UnorderedList>
+                <ListItem>
+                  <DefaultText as="span">
                     Die Protokolle von der ersten bis zur 18. Wahlperiode werden
                     als komprimiertes Archiv mit separaten XML-Dateien für jede
                     Parlamentssitzung bereitgestellt. Die Protokolle der
                     aktuellen 19. Periode werden als separate Dateien
-                    bereitgestellt.
-                  </ListItem>
-                </UnorderedList>
-                <ListItem>
+                    bereitgestellt.{" "}
+                  </DefaultText>
+                </ListItem>
+              </UnorderedList>
+              <ListItem>
+                <DefaultText as="span">
                   Metainformationen über die Mitglieder des Parlaments, die
-                  Vorsitzenden und die Mitglieder des Kabinetts
-                  <UnorderedList>
-                    <ListItem>
+                  Vorsitzenden und die Mitglieder des Kabinetts{" "}
+                </DefaultText>
+                <UnorderedList>
+                  <ListItem>
+                    <DefaultText as="span">
                       Die Metainformationen stammen aus den Stammdaten aller
                       MdBs (Stammdaten aller Abgeordneten seit 1949). Diese
                       Daten werden vom Bundestag zur Verfügung gestellt und
-                      gepflegt.
-                    </ListItem>
-                    <ListItem>
+                      gepflegt.{" "}
+                    </DefaultText>
+                  </ListItem>
+                  <ListItem>
+                    <DefaultText as="span">
                       Es gibt seltene Fälle, in denen Politiker Mitglied der
                       Regierung (MG) sind und nie ein Mandat als Abgeordneter
                       hatten. Diese Politiker sind in den oben genannten
                       Stammdaten nicht enthalten. Daher werden die Namen aller
                       MG aus der deutschen Wikipedia gestrichen und mit den
-                      Stammdaten zusammengeführt.
-                    </ListItem>
-                  </UnorderedList>
-                </ListItem>
-                <br />
-              </DefaultText>
+                      Stammdaten zusammengeführt.{" "}
+                    </DefaultText>
+                  </ListItem>
+                </UnorderedList>
+              </ListItem>
+              <br />
             </UnorderedList>
           </Box>
           <DefaultText>

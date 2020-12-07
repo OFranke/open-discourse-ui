@@ -10,14 +10,6 @@ interface AnimatedProgressProps {
 export const AnimatedProgress: React.FC<AnimatedProgressProps> = ({ to }) => {
   const nodeRef = useRef<HTMLParagraphElement>(null);
 
-  const textSize = useBreakpointValue({
-    base: "sm",
-    sm: "xl",
-    md: "2xl",
-    lg: "3xl",
-    xl: "4xl",
-  });
-
   return (
     <Box
       borderRadius={"0.5em"}
