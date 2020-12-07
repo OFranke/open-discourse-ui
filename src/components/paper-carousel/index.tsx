@@ -1,10 +1,4 @@
-import {
-  Box,
-  Container,
-  Flex,
-  FlexProps,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Box, Flex, FlexProps } from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -36,16 +30,16 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
     borderBottom: `4px solid ${theme.colors.pink[500]}`,
   };
 
-  const width = useBreakpointValue({
+  const width = {
     base: "150px",
     sm: "200px",
     md: "250px",
     xl: "300px",
-  });
-  const height = useBreakpointValue({
+  };
+  const height = {
     base: "80px",
     lg: "120px",
-  });
+  };
   return (
     <Box
       paddingY="5"
@@ -90,13 +84,9 @@ export const PaperCarousel: React.FC = () => {
     setNavState({ ...navState, nav1: slider1ref, nav2: slider2ref });
   }, [slider1ref, slider2ref]);
 
-  const displayBgImage = useBreakpointValue({ base: "none", lg: "block" });
-  const bgImageMaxHeight = useBreakpointValue({
-    base: undefined,
-    lg: 600,
-    xl: 750,
-  });
-  const bgNegativeMargin = useBreakpointValue({ base: 0, lg: -200, xl: -300 });
+  const displayBgImage = { base: "none", lg: "block" };
+
+  const bgNegativeMargin = { base: 0, lg: -300, xl: -600 };
 
   return (
     <>
@@ -107,7 +97,7 @@ export const PaperCarousel: React.FC = () => {
           slidesToShow={3}
           infinite={true}
           centerMode={true}
-          variableWidth={useBreakpointValue({ base: true })}
+          variableWidth={true}
           swipeToSlide={true}
           focusOnSelect={true}
           speed={1000}
@@ -223,7 +213,6 @@ export const PaperCarousel: React.FC = () => {
             display={displayBgImage}
             className={displayBgImage && styles.backgroundImageOpenDiscourse}
             height={"60vh"}
-            maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
@@ -237,7 +226,6 @@ export const PaperCarousel: React.FC = () => {
             display={displayBgImage}
             className={displayBgImage && styles.backgroundImageFom}
             height={"60vh"}
-            maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
@@ -251,7 +239,6 @@ export const PaperCarousel: React.FC = () => {
             display={displayBgImage}
             className={displayBgImage && styles.backgroundImageZdf}
             height={"60vh"}
-            maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"

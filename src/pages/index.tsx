@@ -1,5 +1,12 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Stack, Box, SimpleGrid, Link } from "@chakra-ui/react";
+import {
+  Stack,
+  Box,
+  SimpleGrid,
+  Link,
+  ListItem,
+  UnorderedList,
+} from "@chakra-ui/react";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "../components/default-container";
@@ -16,6 +23,7 @@ import SEO from "../components/seo";
 import { Tagline } from "../components/tagline";
 import { DefaultButton } from "../components/default-button";
 import { ButtonLink } from "../components/button-link";
+import ConditionallyRender from "../components/conditionally-render";
 
 const Home: React.FC = () => {
   return (
@@ -23,16 +31,17 @@ const Home: React.FC = () => {
       <SEO
         title="Plenarprotokolle des deutschen Bundestages seit 1949"
         description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
+        canonicalRoute="/"
       />
       <Section>
         <HeroWithCta />
       </Section>
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">
+          {/* <DefaultHeadline as="h1" size="s">
             Analyse von Plenarprotokollen für Mensch und Machine
-          </DefaultHeadline>
-          <ColoredSubline backgroundColor="pink.500">
+          </DefaultHeadline> */}
+          <ColoredSubline as="h2" backgroundColor="pink.500">
             Wie Data Science den Weg zu politischen Diskurs demokratisiert
           </ColoredSubline>
           <DefaultText>
@@ -40,15 +49,15 @@ const Home: React.FC = () => {
             seit 1949 aufgebrochen und analysierbar gemacht - und zwar für
             Mensch und Maschinen. Die Plattform erleichtert den Zugang und die
             Recherche in den über 800.000 Redebeiträgen der letzten 70 Jahre.
-            <br />
-            <br />
+          </DefaultText>
+          <DefaultText>
             Die Datenbank hinter Open Discourse ist die erste granulare,
             umfassende und maschinenlesbare Aufbereitung jedes jemals
             gesprochenen Wortes in den Parlamentssitzungen des deutschen
             Bundestages und ermöglicht gefilterte Recherchen in in den Reden,
             Zwischenrufe und Anfragen der PolitkerInnen und Fraktionen.
-            <br />
-            <br />
+          </DefaultText>
+          <DefaultText>
             Für einen offenen Diskurs und eine wissenschaftliche
             Auseinandersetzung mit politischer Sprache.
           </DefaultText>
@@ -101,30 +110,52 @@ const Home: React.FC = () => {
             Reden, Zwischenrufe, Anfragen usw. der jeweiligen Politiker und
             Fraktionen zugeordnet und durchsuchbar gemacht sowie zahlreiche
             Metainformationen hinzugefügt.
-            <br />
-            <br />
-            Wie hat sich der politische Diskurs in den letzten 70 Jahren
-            verändert?
-            <br />
-            <br />
-            Wie ist die thematische Nähe von Politikern zueinander?
-            <br />
-            <br />
-            Wie hoch ist der relative Anteil von Frauen und Männern, die von den
-            verschiedenen Parteien sprechen?
-            <br />
-            <br />
-            Bürger, Journalisten und Wissenschaftler können jetzt den gesamten
-            Datensatz für ihre eigene Forschung herunterladen und auf Muster
-            untersuchen.
-            <br />
-            <br />
-            Nutze unsere Volltextsuche, um den politischen Diskurs im Bundestag
-            nachzuverfolgen und zu untersuchen oder downloade den Datensatz, um
-            eigene umfassende Analysen der Sprache und Reaktionen des Bundestags
-            von 1949 bis heute durchzuführen.
           </DefaultText>
-          <ButtonLink colorScheme="pink" href="/tools-und-daten">
+          <UnorderedList>
+            <ListItem>
+              <DefaultText as="span">
+                Wie hat sich der politische Diskurs in den letzten 70 Jahren
+                verändert?
+              </DefaultText>
+            </ListItem>
+            <ListItem>
+              <DefaultText as="span">
+                Wie ist die thematische Nähe von Politikern zueinander?
+              </DefaultText>
+            </ListItem>
+            <ListItem>
+              <DefaultText as="span">
+                Wie hoch ist der relative Anteil von Frauen und Männern, die von
+                den verschiedenen Parteien sprechen?
+              </DefaultText>
+            </ListItem>
+            <ListItem>
+              <DefaultText as="span">
+                Bürger, Journalisten und Wissenschaftler können jetzt den
+                gesamten Datensatz für ihre eigene Forschung herunterladen und
+                auf Muster untersuchen.
+              </DefaultText>
+            </ListItem>
+            <ListItem>
+              <DefaultText as="span">
+                Nutze unsere Volltextsuche, um den politischen Diskurs im
+                Bundestag nachzuverfolgen und zu untersuchen oder downloade den
+                Datensatz, um eigene umfassende Analysen der Sprache und
+                Reaktionen des Bundestags von 1949 bis heute durchzuführen.
+              </DefaultText>
+            </ListItem>
+          </UnorderedList>
+
+          <ButtonLink
+            colorScheme="pink"
+            href="/tools-und-daten"
+            marginTop={{
+              base: "4",
+              md: "4",
+              lg: "6",
+              xl: "8",
+            }}
+          >
             Zu Tools und Daten
           </ButtonLink>
         </DefaultContainer>
@@ -155,24 +186,26 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <Stack spacing={{ base: "10", md: "20", lg: "32" }}>
-            <Statistic
-              headline="Statistik"
-              subline="Wer kommt zu Wort – Männer oder Frauen?"
-              description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
-              descriptionHighlight="Für mehr Wachstum und Effektivität."
-              imagePath="/images/statistics/wer_kommt_zu_wort.png"
-              imagePosition="right"
-              imageAlt="Statistik"
-            />
-            <Statistic
-              headline="Statistik"
-              subline="Wer kommt zu Wort – Männer oder Frauen?"
-              description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
-              descriptionHighlight="Für mehr Wachstum und Effektivität."
-              imagePath="/images/statistics/wer_kommt_zu_wort.png"
-              imagePosition="left"
-              imageAlt="Statistik"
-            />
+            <ConditionallyRender client>
+              <Statistic
+                headline="Statistik"
+                subline="Wer kommt zu Wort – Männer oder Frauen?"
+                description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
+                descriptionHighlight="Für mehr Wachstum und Effektivität."
+                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePosition="right"
+                imageAlt="Statistik"
+              />
+              <Statistic
+                headline="Statistik"
+                subline="Wer kommt zu Wort – Männer oder Frauen?"
+                description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
+                descriptionHighlight="Für mehr Wachstum und Effektivität."
+                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePosition="left"
+                imageAlt="Statistik"
+              />
+            </ConditionallyRender>
           </Stack>
         </DefaultContainer>
       </Section>
@@ -220,7 +253,16 @@ const Home: React.FC = () => {
             />
           </SimpleGrid>
 
-          <ButtonLink colorScheme="pink" href="/analysen">
+          <ButtonLink
+            colorScheme="pink"
+            href="/analysen"
+            marginTop={{
+              base: "4",
+              md: "4",
+              lg: "6",
+              xl: "8",
+            }}
+          >
             Analysen
           </ButtonLink>
         </DefaultContainer>
@@ -253,17 +295,17 @@ const Home: React.FC = () => {
             des gesamten Volkes sind und dass der Bundestag öffentlich
             verhandelt. Wir alle haben somit das Recht, die Inhalte und Vorgänge
             im Parlament transparent mitverfolgen zu dürfen.
-            <br />
-            <br />
+          </DefaultText>
+
+          <DefaultText>
             Bisher lagen die Protokolle zwar auf den Serven des Bundestags, aber
             die Einsicht in die Dokumenten ist umständlich und das Format der
             Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
             Open Discourse können Bürger_Innen, Journalist_Innen und
             Wissenschaftler_Innen jetzt zugänglich und kostenfrei über die
             <Link color="pink.500" href="/tools-und-daten">
-              {" "}
               Tools und Daten
-            </Link>{" "}
+            </Link>
             der Plattform die Plenarprotokolle nach Stichworten, Politiker_Innen
             und Ämtern durchsuchen und die Ergebnisse für Ihre Arbeit, Forschung
             und natürlich für das eigene Interesse nutzen.
