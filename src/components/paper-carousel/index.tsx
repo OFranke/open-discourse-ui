@@ -133,19 +133,19 @@ export const PaperCarousel: React.FC = () => {
             <NavigationSlide slideId={0} activeSlideId={navState.activeSlide}>
               <Box
                 width={{
-                  base: "150px",
-                  sm: "120px",
-                  md: "150px",
-                  lg: "150px",
-                  xl: "240px",
+                  base: "65px",
+                  sm: "65px",
+                  md: "80px",
+                  lg: "120px",
+                  xl: "120px",
                 }}
               >
                 <Image
-                  src={"/images/logos/open_discourse.png"}
+                  src={"/images/logos/akademische_forschung_logo.svg"}
                   alt={"Open Discourse Logo"}
                   layout="responsive"
-                  width="1250px"
-                  height="400px"
+                  width="1280px"
+                  height="944px"
                   quality="75"
                 />
               </Box>
@@ -155,19 +155,19 @@ export const PaperCarousel: React.FC = () => {
             <NavigationSlide slideId={1} activeSlideId={navState.activeSlide}>
               <Box
                 width={{
-                  base: "150px",
-                  sm: "120px",
-                  md: "150px",
-                  lg: "150px",
-                  xl: "240px",
+                  base: "40px",
+                  sm: "40px",
+                  md: "50px",
+                  lg: "75px",
+                  xl: "75px",
                 }}
               >
                 <Image
-                  src={"/images/logos/open_discourse.png"}
+                  src={"/images/logos/correlaid_logo.svg"}
                   alt={"Open Discourse Logo"}
                   layout="responsive"
-                  width="1250px"
-                  height="400px"
+                  width="515px"
+                  height="645px"
                   quality="75"
                 />
               </Box>
@@ -177,19 +177,19 @@ export const PaperCarousel: React.FC = () => {
             <NavigationSlide slideId={2} activeSlideId={navState.activeSlide}>
               <Box
                 width={{
-                  base: "150px",
-                  sm: "120px",
-                  md: "150px",
-                  lg: "150px",
-                  xl: "240px",
+                  base: "50px",
+                  sm: "50px",
+                  md: "65px",
+                  lg: "100px",
+                  xl: "100px",
                 }}
               >
                 <Image
-                  src={"/images/logos/open_discourse.png"}
+                  src={"/images/logos/zdf_heute_logo.jpg"}
                   alt={"Open Discourse Logo"}
                   layout="responsive"
-                  width="1250px"
-                  height="400px"
+                  width="900px"
+                  height="900px"
                   quality="75"
                 />
               </Box>

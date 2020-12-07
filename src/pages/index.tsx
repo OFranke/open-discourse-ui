@@ -149,7 +149,7 @@ const Home: React.FC = () => {
               xl: "8",
             }}
           >
-            Zu Tools und Daten
+            Tools und Daten
           </ButtonLink>
         </DefaultContainer>
       </Section>
@@ -164,12 +164,10 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">Auswertungen und Potenzial</DefaultHeadline>
-          <ColoredSubline backgroundColor="#D8D8D8">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
-          </ColoredSubline>
+          <Tagline>Welches Potenzial steckt in den Daten?</Tagline>
+          <DefaultHeadline size="s">
+            Auswertungen und Ergebnisse
+          </DefaultHeadline>
           <DefaultText>
             Die Datenbank ermöglicht komplexen Analyse der politischen Sprache
             und erlaubt die Reden auf Muster zu untersuchen.
@@ -213,7 +211,9 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">Auswertungen und Analysen</DefaultHeadline>
+          <DefaultHeadline size="s">
+            Freier Zugang zur Datenbank
+          </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
             Das Open Discourse Korpus steht Akteuren aus Politik,
             Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
@@ -225,24 +225,27 @@ const Home: React.FC = () => {
               subline="Hypothetische Reden"
               description='Der Datensatz wurde von Masterstudentinnen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittel Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
               linkText="Mehr zum Projekt"
-              imagePath="/images/logos/fom_logo.png"
+              linkHref="/analysen"
+              imagePath="/images/logos/akademische_forschung_logo.svg"
               imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
             />
             <ProjectCard
               headline="CorrelAid"
-              subline="Placeholder"
+              subline="Inhaltliche Analysen"
               description="CorrelAid ist ein überparteiliches gemeinnütziges Netzwerk von Data Scientists, die die Welt durch Data Science verändern wollen. Ziel der Zusammenarbeit mit unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden und Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der Gründung des Bundestages gesprochen haben."
               linkText="Mehr zum Projekt"
-              imagePath="/images/logos/fom_logo.png"
-              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
+              linkHref="/analysen"
+              imagePath="/images/logos/correlaid_logo.svg"
+              imageAlt="Logo von CorrelAid"
             />
             <ProjectCard
-              headline="ZDF Heute"
-              subline="Placeholder"
+              headline="ZDFHeute"
+              subline="Pandemiedebatte"
               description="ZDFheute untersuchte die Plenarprotokolle des Deutschen Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich unsere Politikerinnen seit dem Jahr 1949  mit dem Stichwort “Pandemie” auseinandergesetzt hat."
               linkText="Mehr zum Projekt"
-              imagePath="/images/logos/fom_logo.png"
-              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
+              linkHref="/analysen"
+              imagePath="/images/logos/zdf_heute_logo.jpg"
+              imageAlt="Logo von ZDFHeute"
             />
           </SimpleGrid>
 
