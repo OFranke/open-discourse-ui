@@ -24,6 +24,7 @@ import { Tagline } from "../components/tagline";
 import { DefaultButton } from "../components/default-button";
 import { ButtonLink } from "../components/button-link";
 import ConditionallyRender from "../components/conditionally-render";
+import { DefaultListItem } from "../components/default-list-item";
 
 const Home: React.FC = () => {
   return (
@@ -97,7 +98,10 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">
+          <DefaultHeadline
+            size="s"
+            maxWidth={{ base: "100%", lg: "70%", xl: "100%" }}
+          >
             An der Schnittstelle zwischen Politikwissenschaft und Data Science
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
@@ -111,41 +115,30 @@ const Home: React.FC = () => {
             Fraktionen zugeordnet und durchsuchbar gemacht sowie zahlreiche
             Metainformationen hinzugefügt.
           </DefaultText>
-          <UnorderedList>
-            <ListItem>
-              <DefaultText as="span">
-                Wie hat sich der politische Diskurs in den letzten 70 Jahren
-                verändert?
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText as="span">
-                Wie ist die thematische Nähe von Politikern zueinander?
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText as="span">
-                Wie hoch ist der relative Anteil von Frauen und Männern, die von
-                den verschiedenen Parteien sprechen?
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText as="span">
-                Bürger, Journalisten und Wissenschaftler können jetzt den
-                gesamten Datensatz für ihre eigene Forschung herunterladen und
-                auf Muster untersuchen.
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText as="span">
-                Nutze unsere Volltextsuche, um den politischen Diskurs im
-                Bundestag nachzuverfolgen und zu untersuchen oder downloade den
-                Datensatz, um eigene umfassende Analysen der Sprache und
-                Reaktionen des Bundestags von 1949 bis heute durchzuführen.
-              </DefaultText>
-            </ListItem>
+          <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+            <DefaultListItem>
+              Wie hat sich der politische Diskurs in den letzten 70 Jahren
+              verändert?
+            </DefaultListItem>
+            <DefaultListItem>
+              Wie ist die thematische Nähe von Politikern zueinander?
+            </DefaultListItem>
+            <DefaultListItem>
+              Wie hoch ist der relative Anteil von Frauen und Männern, die von
+              den verschiedenen Parteien sprechen?
+            </DefaultListItem>
           </UnorderedList>
-
+          <DefaultText>
+            Bürger, Journalisten und Wissenschaftler können jetzt den gesamten
+            Datensatz für ihre eigene Forschung herunterladen und auf Muster
+            untersuchen.
+          </DefaultText>
+          <DefaultText>
+            Nutze unsere Volltextsuche, um den politischen Diskurs im Bundestag
+            nachzuverfolgen und zu untersuchen oder downloade den Datensatz, um
+            eigene umfassende Analysen der Sprache und Reaktionen des Bundestags
+            von 1949 bis heute durchzuführen.
+          </DefaultText>
           <ButtonLink
             colorScheme="pink"
             href="/tools-und-daten"
