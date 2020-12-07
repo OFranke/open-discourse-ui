@@ -8,6 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@bit/limebit.chakra-ui-recipes.error-toast": "^0.0.2",
+    "@bit/limebit.chakra-ui-recipes.loading-spinner": "^0.0.2",
+    "@bit/limebit.chakra-ui-recipes.react-table": "^0.0.5",
+    "@bit/limebit.chakra-ui-recipes.select-input": "^0.0.7",
     "@chakra-ui/icons": "1.0.0",
     "@chakra-ui/react": "1.0.0",
     "@emotion/react": "11.0.0",
