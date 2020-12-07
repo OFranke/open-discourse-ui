@@ -1,7 +1,6 @@
 import React from "react";
 import { NextSeo, NextSeoProps } from "next-seo";
 import { siteConfig } from "../site-config";
-import path from "path";
 
 interface SeoProps extends NextSeoProps {
   title: string;
