@@ -160,32 +160,55 @@ const Home: React.FC = () => {
 
           <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
             <DefaultListItem>
-              Kerndatenquelle: Parlamentsprotokolle vom Deutschen Bundestag
+              Kerndatenquelle:{" "}
+              <NextChakraLink
+                color="pink.500"
+                href="https://www.bundestag.de/services/opendata"
+                isExternal
+              >
+                Parlamentsprotokolle vom Deutschen Bundestag
+                <ExternalLinkIcon mx="2px" />
+              </NextChakraLink>
             </DefaultListItem>
             <UnorderedList>
               <DefaultListItem>
                 Die Protokolle von der ersten bis zur 18. Wahlperiode werden als
                 komprimiertes Archiv mit separaten XML-Dateien für jede
                 Parlamentssitzung bereitgestellt. Die Protokolle der aktuellen
-                19. Periode werden als separate Dateien bereitgestellt.{" "}
+                19. Periode werden als separate Dateien bereitgestellt.
               </DefaultListItem>
             </UnorderedList>
             <DefaultListItem>
               Metainformationen über die Mitglieder des Parlaments, die
-              Vorsitzenden und die Mitglieder des Kabinetts{" "}
+              Vorsitzenden und die Mitglieder des Kabinetts
               <UnorderedList>
                 <DefaultListItem>
-                  Die Metainformationen stammen aus den Stammdaten aller MdBs
-                  (Stammdaten aller Abgeordneten seit 1949). Diese Daten werden
-                  vom Bundestag zur Verfügung gestellt und gepflegt.{" "}
+                  Die Metainformationen stammen aus den Stammdaten aller MdBs (
+                  <NextChakraLink
+                    color="pink.500"
+                    href="https://www.bundestag.de/services/opendata"
+                    isExternal
+                  >
+                    Stammdaten aller Abgeordneten seit 1949
+                    <ExternalLinkIcon mx="2px" />
+                  </NextChakraLink>
+                  ). Diese Daten werden vom Bundestag zur Verfügung gestellt und
+                  gepflegt.
                 </DefaultListItem>
                 <DefaultListItem>
                   Es gibt seltene Fälle, in denen Politiker Mitglied der
                   Regierung (MG) sind und nie ein Mandat als Abgeordneter
                   hatten. Diese Politiker sind in den oben genannten Stammdaten
-                  nicht enthalten. Daher werden die Namen aller MG aus der
-                  deutschen Wikipedia gestrichen und mit den Stammdaten
-                  zusammengeführt.{" "}
+                  nicht enthalten. Daher werden die{" "}
+                  <NextChakraLink
+                    color="pink.500"
+                    href="https://de.wikipedia.org/wiki/Liste_der_deutschen_Regierungsmitglieder_seit_1949"
+                    isExternal
+                  >
+                    Namen aller MG aus der deutschen Wikipedia
+                    <ExternalLinkIcon mx="2px" />
+                  </NextChakraLink>{" "}
+                  übernommen und mit den Stammdaten zusammengeführt
                 </DefaultListItem>
               </UnorderedList>
             </DefaultListItem>
