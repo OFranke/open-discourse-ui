@@ -1,4 +1,4 @@
-import { Text, useBreakpointValue, Box } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import { animate } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { DefaultText } from "../default-text";
@@ -31,18 +31,20 @@ export const AnimatedCountUp: React.FC<AnimatedCountUpProps> = ({
     return () => controls.stop();
   }, [from, to]);
 
-  const textSize = useBreakpointValue({
-    base: "5xl",
-    sm: "6xl",
-    md: "4xl",
-    lg: "6xl",
-    xl: "6xl",
-  });
-  console.log("\x1b[33m%s\x1b[0m", "%c >> textSize", textSize);
   return (
     <>
       <Box display="inline-block" marginBottom="2">
-        <Text ref={nodeRef} fontWeight={900} fontSize={textSize} />
+        <Text
+          ref={nodeRef}
+          fontWeight={900}
+          fontSize={{
+            base: "5xl",
+            sm: "6xl",
+            md: "4xl",
+            lg: "6xl",
+            xl: "6xl",
+          }}
+        />
 
         <Box className={styles.meter}>
           <span style={{ width: "100%" }}>

@@ -13,21 +13,21 @@ const Description: React.FC<DescriptionProps> = ({
   description,
   descriptionHighlight,
 }) => {
-  const paddingY = useBreakpointValue({
+  const paddingY = {
     base: "2",
     sm: "4",
     md: "5",
     lg: "0",
     xl: "0",
-  });
+  };
 
-  const descriptionSize = useBreakpointValue({
+  const descriptionSize = {
     base: "sm",
     sm: "xl",
     md: "xl",
     lg: "xl",
     xl: "2xl",
-  });
+  };
 
   return (
     <Box>
@@ -51,13 +51,13 @@ interface HeaderProps {
   subline: string;
 }
 const Header: React.FC<HeaderProps> = ({ subline }) => {
-  const sublineSize = useBreakpointValue({
+  const sublineSize = {
     base: "sm",
     sm: "xl",
     md: "2xl",
     lg: "3xl",
     xl: "4xl",
-  });
+  };
   return (
     <Box>
       <DefaultHeadline

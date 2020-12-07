@@ -1,5 +1,5 @@
 import { Card } from "./card";
-import { Text, useBreakpointValue, Stack, Box, Flex } from "@chakra-ui/react";
+import { Text, Stack, Box, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import { DefaultHeadline } from "./default-headline";
 import { DefaultText } from "./default-text";
@@ -22,21 +22,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   imagePath,
   imageAlt,
 }) => {
-  const sublineSize = useBreakpointValue({
+  const sublineSize = {
     base: "sm",
     sm: "xl",
     md: "2xl",
     lg: "3xl",
     xl: "4xl",
-  });
+  };
 
-  const descriptionSize = useBreakpointValue({
+  const descriptionSize = {
     base: "sm",
     sm: "xl",
     md: "xl",
     lg: "xl",
     xl: "2xl",
-  });
+  };
 
   return (
     <Card>
