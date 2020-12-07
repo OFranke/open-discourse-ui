@@ -15,6 +15,8 @@ import Image from "next/image";
 import { DefaultText } from "../../components/default-text";
 import { DefaultContainer } from "../../components/default-container";
 import { useTheme } from "@emotion/react";
+import { useRouter } from "next/router";
+import { NextChakraLink } from "../../components/next-chakra-link";
 interface NavItemProps {
   href: string;
   underlineColor: string;
@@ -31,8 +33,11 @@ const NavItem: React.FC<NavItemProps> = ({
     lg: "xl",
     xl: "4xl",
   };
+  const router = useRouter();
+  console.log("\x1b[33m%s\x1b[0m", "%c >> router.pathname", router.pathname);
+  const isActiveLink = router.pathname == href;
   return (
-    <Link href={href} _hover={{ textDecoration: "none" }}>
+    <NextChakraLink href={href} _hover={{ textDecoration: "none" }}>
       <Box>
         <DefaultText
           as="span"
@@ -45,11 +50,12 @@ const NavItem: React.FC<NavItemProps> = ({
             textDecoration: "none",
             borderBottom: `${underlineColor} 4px solid`,
           }}
+          {...(isActiveLink && { borderBottom: `${underlineColor} 4px solid` })}
         >
           {children}
         </DefaultText>
       </Box>
-    </Link>
+    </NextChakraLink>
   );
 };
 
@@ -61,101 +67,106 @@ export const Header: React.FC = () => {
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const theme: any = useTheme();
   return (
-    <DefaultContainer size="l">
-      <Flex
-        as="nav"
-        align="center"
-        justify="space-between"
-        wrap="wrap"
-        paddingY={{ base: "2", lg: "4" }}
-        // bg="teal.500"
-        // color="white"
-        width="100%"
-      >
-        <Flex align="center" mr={5}>
-          <Link href={"/"}>
-            <Box
-              width={{
-                base: "120px",
-                sm: "120px",
-                md: "150px",
-                lg: "150px",
-                xl: "240px",
-              }}
+    <Box position="fixed" width="100%" bg="white" zIndex="100">
+      <DefaultContainer size="l">
+        <Flex
+          as="nav"
+          align="center"
+          justify="space-between"
+          wrap="wrap"
+          paddingY={{ base: "2", lg: "4" }}
+          // bg="teal.500"
+          // color="white"
+          width="100%"
+        >
+          <Flex align="center" mr={5}>
+            <NextChakraLink href={"/"}>
+              <Box
+                width={{
+                  base: "120px",
+                  sm: "120px",
+                  md: "150px",
+                  lg: "150px",
+                  xl: "240px",
+                }}
+              >
+                <Image
+                  src={"/images/logos/open_discourse.png"}
+                  alt={"Open Discourse Logo"}
+                  layout="responsive"
+                  width="1250px"
+                  height="400px"
+                  quality="75"
+                />
+              </Box>
+            </NextChakraLink>
+          </Flex>
+
+          <Box display={{ base: "block", lg: "none" }} onClick={handleToggle}>
+            <IconButton
+              variant="ghost"
+              // colorScheme="white"
+              aria-label="Open Menu"
+              size="lg"
+              icon={<HamburgerIcon w="8" h="8" />}
+            />
+          </Box>
+
+          <Box
+            display={{ base: show ? "block" : "none", lg: "flex" }}
+            width={{ base: "full", lg: "auto" }}
+            alignItems="center"
+            flexGrow={1}
+            justifyContent="flex-end"
+          >
+            <NavItem href="/methodik" underlineColor="black">
+              Methodik
+            </NavItem>
+            <NavItem
+              underlineColor={theme.colors.pink[500]}
+              href="/tools-und-daten"
             >
-              <Image
-                src={"/images/logos/open_discourse.png"}
-                alt={"Open Discourse Logo"}
-                layout="responsive"
-                width="150px"
-                height="48px"
-                quality="75"
+              Tools und Daten
+            </NavItem>
+            <NavItem
+              href="/analysen"
+              underlineColor={theme.additionalColors.yellow}
+            >
+              Analysen
+            </NavItem>
+            <NavItem href="/ueber-uns" underlineColor="black">
+              Über uns
+            </NavItem>
+            <Box>
+              <NextChakraLink
+                href="https://github.com/open-discourse/open-discourse"
+                target="_blank"
+              >
+                <IconButton
+                  justifyContent={{ base: "left", lg: "center" }}
+                  marginRight={{ base: 6, lg: 10, xl: 14 }}
+                  fontSize={{ base: "md", md: "xl", xl: "4xl" }}
+                  variant="ghost"
+                  aria-label="GitHub"
+                  icon={<FaGithub />}
+                />
+              </NextChakraLink>
+            </Box>
+            <Box>
+              <IconButton
+                marginRight={{ base: 6, lg: 10, xl: 14 }}
+                justifyContent={{ base: "left", lg: "center" }}
+                fontSize={{ base: "md", md: "xl", xl: "4xl" }}
+                aria-label={`Switch to ${text} mode`}
+                variant="ghost"
+                color="current"
+                onClick={toggleColorMode}
+                icon={<SwitchIcon />}
               />
             </Box>
-          </Link>
+          </Box>
         </Flex>
-
-        <Box display={{ base: "block", lg: "none" }} onClick={handleToggle}>
-          <IconButton
-            variant="ghost"
-            // colorScheme="white"
-            aria-label="Open Menu"
-            size="lg"
-            icon={<HamburgerIcon w="8" h="8" />}
-          />
-        </Box>
-
-        <Box
-          display={{ base: show ? "block" : "none", lg: "flex" }}
-          width={{ base: "full", lg: "auto" }}
-          alignItems="center"
-          flexGrow={1}
-          justifyContent="flex-end"
-        >
-          <NavItem href="/methodik" underlineColor="black">
-            Methodik
-          </NavItem>
-          <NavItem
-            underlineColor={theme.colors.pink[500]}
-            href="/tools-und-daten"
-          >
-            Tools und Daten
-          </NavItem>
-          <NavItem
-            href="/analysen"
-            underlineColor={theme.additionalColors.yellow}
-          >
-            Analysen
-          </NavItem>
-          <NavItem href="/about" underlineColor="black">
-            About
-          </NavItem>
-          <Box>
-            <IconButton
-              justifyContent={{ base: "left", lg: "center" }}
-              marginRight={{ base: 6, lg: 10, xl: 14 }}
-              fontSize={{ base: "md", md: "xl", xl: "4xl" }}
-              variant="ghost"
-              aria-label="GitHub"
-              href="https://github.com/open-discourse/open-discourse"
-              target="__blank"
-              icon={<FaGithub />}
-            />
-          </Box>
-          <Box>
-            <IconButton
-              marginRight={{ base: 6, lg: 10, xl: 14 }}
-              justifyContent={{ base: "left", lg: "center" }}
-              fontSize={{ base: "md", md: "xl", xl: "4xl" }}
-              aria-label={`Switch to ${text} mode`}
-              variant="ghost"
-              color="current"
-              onClick={toggleColorMode}
-              icon={<SwitchIcon />}
-            />
-          </Box>
-        </Box>
-      </Flex>
-    </DefaultContainer>
+      </DefaultContainer>
+    </Box>
   );
 };

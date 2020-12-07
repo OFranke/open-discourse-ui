@@ -1,6 +1,7 @@
 import { DefaultButton, DefaultButtonProps } from "./default-button";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { NextChakraLink } from "./next-chakra-link";
 interface ButtonLinkProps extends DefaultButtonProps {
   href: string;
   isExternal?: boolean;
@@ -13,10 +14,13 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
   ...props
 }) => {
   return (
-    <NextLink href={href} passHref>
-      <ChakraLink _hover={{ textDecoration: "none" }} isExternal={isExternal}>
-        <DefaultButton {...props}>{children}</DefaultButton>
-      </ChakraLink>
-    </NextLink>
+    <NextChakraLink
+      href={href}
+      isExternal={isExternal}
+      passHref
+      _hover={{ textDecoration: "none" }}
+    >
+      <DefaultButton {...props}>{children}</DefaultButton>
+    </NextChakraLink>
   );
 };

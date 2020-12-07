@@ -6,7 +6,7 @@ import { Section } from "../components/section";
 import { DefaultHeadline } from "../components/default-headline";
 import { PaperCarousel } from "../components/paper-carousel";
 import SEO from "../components/seo";
-
+import styles from "./styles.module.css";
 const Analyses: React.FC = () => {
   return (
     <BaseTemplate>

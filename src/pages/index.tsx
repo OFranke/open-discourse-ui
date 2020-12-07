@@ -24,6 +24,8 @@ import { Tagline } from "../components/tagline";
 import { DefaultButton } from "../components/default-button";
 import { ButtonLink } from "../components/button-link";
 import ConditionallyRender from "../components/conditionally-render";
+import { DefaultListItem } from "../components/default-list-item";
+import { NextChakraLink } from "../components/next-chakra-link";
 
 const Home: React.FC = () => {
   return (
@@ -97,7 +99,10 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">
+          <DefaultHeadline
+            size="s"
+            maxWidth={{ base: "100%", lg: "70%", xl: "100%" }}
+          >
             An der Schnittstelle zwischen Politikwissenschaft und Data Science
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
@@ -111,41 +116,30 @@ const Home: React.FC = () => {
             Fraktionen zugeordnet und durchsuchbar gemacht sowie zahlreiche
             Metainformationen hinzugefügt.
           </DefaultText>
-          <UnorderedList>
-            <ListItem>
-              <DefaultText as="span">
-                Wie hat sich der politische Diskurs in den letzten 70 Jahren
-                verändert?
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText as="span">
-                Wie ist die thematische Nähe von Politikern zueinander?
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText as="span">
-                Wie hoch ist der relative Anteil von Frauen und Männern, die von
-                den verschiedenen Parteien sprechen?
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText as="span">
-                Bürger, Journalisten und Wissenschaftler können jetzt den
-                gesamten Datensatz für ihre eigene Forschung herunterladen und
-                auf Muster untersuchen.
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText as="span">
-                Nutze unsere Volltextsuche, um den politischen Diskurs im
-                Bundestag nachzuverfolgen und zu untersuchen oder downloade den
-                Datensatz, um eigene umfassende Analysen der Sprache und
-                Reaktionen des Bundestags von 1949 bis heute durchzuführen.
-              </DefaultText>
-            </ListItem>
+          <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+            <DefaultListItem>
+              Wie hat sich der politische Diskurs in den letzten 70 Jahren
+              verändert?
+            </DefaultListItem>
+            <DefaultListItem>
+              Wie ist die thematische Nähe von Politikern zueinander?
+            </DefaultListItem>
+            <DefaultListItem>
+              Wie hoch ist der relative Anteil von Frauen und Männern, die von
+              den verschiedenen Parteien sprechen?
+            </DefaultListItem>
           </UnorderedList>
-
+          <DefaultText>
+            Bürger, Journalisten und Wissenschaftler können jetzt den gesamten
+            Datensatz für ihre eigene Forschung herunterladen und auf Muster
+            untersuchen.
+          </DefaultText>
+          <DefaultText>
+            Nutze unsere Volltextsuche, um den politischen Diskurs im Bundestag
+            nachzuverfolgen und zu untersuchen oder downloade den Datensatz, um
+            eigene umfassende Analysen der Sprache und Reaktionen des Bundestags
+            von 1949 bis heute durchzuführen.
+          </DefaultText>
           <ButtonLink
             colorScheme="pink"
             href="/tools-und-daten"
@@ -156,7 +150,7 @@ const Home: React.FC = () => {
               xl: "8",
             }}
           >
-            Zu Tools und Daten
+            Tools und Daten
           </ButtonLink>
         </DefaultContainer>
       </Section>
@@ -171,12 +165,10 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">Auswertungen und Potenzial</DefaultHeadline>
-          <ColoredSubline backgroundColor="#D8D8D8">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
-          </ColoredSubline>
+          <Tagline>Welches Potenzial steckt in den Daten?</Tagline>
+          <DefaultHeadline size="s">
+            Auswertungen und Ergebnisse
+          </DefaultHeadline>
           <DefaultText>
             Die Datenbank ermöglicht komplexen Analyse der politischen Sprache
             und erlaubt die Reden auf Muster zu untersuchen.
@@ -220,7 +212,9 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">Auswertungen und Analysen</DefaultHeadline>
+          <DefaultHeadline size="s">
+            Freier Zugang zur Datenbank
+          </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
             Das Open Discourse Korpus steht Akteuren aus Politik,
             Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
@@ -232,24 +226,27 @@ const Home: React.FC = () => {
               subline="Hypothetische Reden"
               description='Der Datensatz wurde von Masterstudentinnen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittel Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
               linkText="Mehr zum Projekt"
-              imagePath="/images/logos/fom_logo.png"
+              linkHref="/analysen"
+              imagePath="/images/logos/akademische_forschung_logo.svg"
               imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
             />
             <ProjectCard
               headline="CorrelAid"
-              subline="Placeholder"
+              subline="Inhaltliche Analysen"
               description="CorrelAid ist ein überparteiliches gemeinnütziges Netzwerk von Data Scientists, die die Welt durch Data Science verändern wollen. Ziel der Zusammenarbeit mit unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden und Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der Gründung des Bundestages gesprochen haben."
               linkText="Mehr zum Projekt"
-              imagePath="/images/logos/fom_logo.png"
-              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
+              linkHref="/analysen"
+              imagePath="/images/logos/correlaid_logo.svg"
+              imageAlt="Logo von CorrelAid"
             />
             <ProjectCard
-              headline="ZDF Heute"
-              subline="Placeholder"
+              headline="ZDFHeute"
+              subline="Pandemiedebatte"
               description="ZDFheute untersuchte die Plenarprotokolle des Deutschen Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich unsere Politikerinnen seit dem Jahr 1949  mit dem Stichwort “Pandemie” auseinandergesetzt hat."
               linkText="Mehr zum Projekt"
-              imagePath="/images/logos/fom_logo.png"
-              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
+              linkHref="/analysen"
+              imagePath="/images/logos/zdf_heute_logo.jpg"
+              imageAlt="Logo von ZDFHeute"
             />
           </SimpleGrid>
 
@@ -278,11 +275,12 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <Tagline>Warum ist das wichtig?</Tagline>
-          <DefaultHeadline size="s">Warum ist das wichtig?</DefaultHeadline>
+          <DefaultHeadline size="s">
+            Zugang und Durchsuchbarkeit der Dokumente
+          </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
+            Die im Grundgesetz definierte Öffentlichkeit des Bundestages muss
+            durch moderne Wege der Datenverarbeitung ausgebaut werden.
           </ColoredSubline>
           <DefaultText>
             In seiner über 70 jährigen Geschichte war der Bundestag immer eins:
@@ -303,9 +301,9 @@ const Home: React.FC = () => {
             Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
             Open Discourse können Bürger_Innen, Journalist_Innen und
             Wissenschaftler_Innen jetzt zugänglich und kostenfrei über die
-            <Link color="pink.500" href="/tools-und-daten">
+            <NextChakraLink color="pink.500" href="/tools-und-daten">
               Tools und Daten
-            </Link>
+            </NextChakraLink>
             der Plattform die Plenarprotokolle nach Stichworten, Politiker_Innen
             und Ämtern durchsuchen und die Ergebnisse für Ihre Arbeit, Forschung
             und natürlich für das eigene Interesse nutzen.
@@ -327,9 +325,7 @@ const Home: React.FC = () => {
           <Tagline>Wie funktioniert das?</Tagline>
           <DefaultHeadline size="s">Die Herangehensweise</DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
+            Data Science trifft auf Plenarprotokolle
           </ColoredSubline>
           <DefaultText>
             Wir haben mit verschiedenen Methoden der Informatik und
@@ -351,7 +347,16 @@ const Home: React.FC = () => {
             Reproduzierbarkeit und Validierbarkeit/Falsifizierbarkeit aller
             Analysen und erfüllt somit den Anspruch der Wissenschaftlichkeit.
           </DefaultText>
-          <ButtonLink colorScheme="pink" href="/methodik">
+          <ButtonLink
+            colorScheme="pink"
+            href="/methodik"
+            marginTop={{
+              base: "4",
+              md: "4",
+              lg: "6",
+              xl: "8",
+            }}
+          >
             Methodik
           </ButtonLink>
         </DefaultContainer>
@@ -369,25 +374,36 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <Tagline>Wer steckt dahinter?</Tagline>
-          <DefaultHeadline size="s">Wir machen das und deshalb</DefaultHeadline>
-          <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
-          </ColoredSubline>
+          <DefaultHeadline size="s">
+            Unser Beitrag zur Demokratie
+          </DefaultHeadline>
           <DefaultText>
-            Open Discourse ist ein gemeinnütziges Projekt der Limebit GmbH. Die
-            Initiative ist selbstfinanziert, unabhängig und aus den Fähigkeiten
-            und Motivationen unser Mitarbeiter_Innen gewachsen. Die Plattform
-            ist unser Beitrag zur Demokratisierung des Zugangs politischer
-            Themen und Akteure_Innen und eine Herzensangelegenheit.
-          </DefaultText>
-          <DefaultText>
+            Open Discourse ist ein gemeinnütziges Forschungs- und
+            Entwicklungsprojekt.
+            <br />
+            <br />
+            Das Open Discourse Korpus ist selbstfinanziert, unabhängig und aus
+            den Fähigkeiten und Motivationen der Mitarbeiter_Innen der Limebit
+            GmbH gewachsen. Die Plattform ist unser Beitrag zur Demokratisierung
+            des Zugangs politischer Themen und Akteure_Innen und eine
+            Herzensangelegenheit.
+            <br />
+            <br />
             Möchten Sie uns Feedback geben oder haben Sie Interesse Ihre
             Fähigkeiten, Ideen oder Ihr Netzwerk in irgendeiner Form zur
             Verfügung zu stellen? Kontaktieren Sie uns gern!
           </DefaultText>
-          <ButtonLink colorScheme="pink" href="/about">
+
+          <ButtonLink
+            colorScheme="pink"
+            href="/ueber-uns"
+            marginTop={{
+              base: "4",
+              md: "4",
+              lg: "6",
+              xl: "8",
+            }}
+          >
             Über uns
           </ButtonLink>
         </DefaultContainer>
