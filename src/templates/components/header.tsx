@@ -15,6 +15,8 @@ import Image from "next/image";
 import { DefaultText } from "../../components/default-text";
 import { DefaultContainer } from "../../components/default-container";
 import { useTheme } from "@emotion/react";
+import { useRouter } from "next/router";
+import { NextChakraLink } from "../../components/next-chakra-link";
 interface NavItemProps {
   href: string;
   underlineColor: string;
@@ -31,6 +33,9 @@ const NavItem: React.FC<NavItemProps> = ({
     lg: "xl",
     xl: "4xl",
   };
+  const router = useRouter();
+  console.log("\x1b[33m%s\x1b[0m", "%c >> router.pathname", router.pathname);
+  const isActiveLink = router.pathname == href;
   return (
     <Link href={href} _hover={{ textDecoration: "none" }}>
       <Box>
@@ -45,6 +50,7 @@ const NavItem: React.FC<NavItemProps> = ({
             textDecoration: "none",
             borderBottom: `${underlineColor} 4px solid`,
           }}
+          {...(isActiveLink && { borderBottom: `${underlineColor} 4px solid` })}
         >
           {children}
         </DefaultText>
@@ -132,16 +138,19 @@ export const Header: React.FC = () => {
               About
             </NavItem>
             <Box>
-              <IconButton
-                justifyContent={{ base: "left", lg: "center" }}
-                marginRight={{ base: 6, lg: 10, xl: 14 }}
-                fontSize={{ base: "md", md: "xl", xl: "4xl" }}
-                variant="ghost"
-                aria-label="GitHub"
+              <NextChakraLink
                 href="https://github.com/open-discourse/open-discourse"
-                target="__blank"
-                icon={<FaGithub />}
-              />
+                target="_blank"
+              >
+                <IconButton
+                  justifyContent={{ base: "left", lg: "center" }}
+                  marginRight={{ base: 6, lg: 10, xl: 14 }}
+                  fontSize={{ base: "md", md: "xl", xl: "4xl" }}
+                  variant="ghost"
+                  aria-label="GitHub"
+                  icon={<FaGithub />}
+                />
+              </NextChakraLink>
             </Box>
             <Box>
               <IconButton
