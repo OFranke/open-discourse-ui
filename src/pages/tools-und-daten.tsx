@@ -30,7 +30,7 @@ const Search: React.FC = () => {
             sit.
           </ColoredSubline>
           <DefaultText>
-            Mit der Volltextsuche kannst du alle verfügbaren Plenarprotokollen
+            Mit der Volltextsuche können Sie alle verfügbaren Plenarprotokollen
             durchsuchen und die Redebeiträgen unserer PolitikerInnen nach
             Stichwörtern durchstöbern.
           </DefaultText>
@@ -40,7 +40,7 @@ const Search: React.FC = () => {
         zu erhalten."
           />
           <DefaultText>
-            In Übereinstimmung mit deinen Filtereinstellungen werden dir die
+            In Übereinstimmung Ihren Filtereinstellungen werden Ihnen die
             gefilterten Redebeiträge der Politiker_Innen angezeigt, das
             dazugehörige Datum, die URL zum Originalprotokoll und der
             spezifische Redebeitrag.
