@@ -17,7 +17,6 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
     <NextChakraLink
       href={href}
       isExternal={isExternal}
-      passHref
       _hover={{ textDecoration: "none" }}
     >
       <DefaultButton {...props}>{children}</DefaultButton>
