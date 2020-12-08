@@ -30,9 +30,10 @@ export const NavItem: React.FC<NavItemProps> = ({
           as="span"
           marginTop={{ base: 4, lg: 0 }}
           marginRight={{ base: 6, lg: 10, xl: 14 }}
-          marginBottom={0}
+          marginBottom={-4}
           display="inline-block"
           fontSize={textSize}
+          borderBottom="transparent 4px solid"
           _hover={{
             textDecoration: "none",
             borderBottom: `${underlineColor} 4px solid`,

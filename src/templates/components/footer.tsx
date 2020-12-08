@@ -14,64 +14,44 @@ export const Footer: React.FC = () => {
     xl: "4xl",
   });
   return (
-    <DefaultContainer size="l">
-      <Flex
-        as="nav"
-        align="center"
-        display={{ base: "block", md: "flex" }}
-        wrap="wrap"
-        paddingY={{ base: "2", md: "4" }}
-        width="100%"
-      >
-        <Flex align="center" flex="1">
-          <Link href={"/"}>
-            <Box
-              width={{
-                base: "120px",
-                sm: "120px",
-                md: "150px",
-                lg: "150px",
-                xl: "240px",
-              }}
-            >
-              <Image
-                src={"/images/logos/open_discourse.png"}
-                alt={"Open Discourse Logo"}
-                layout="responsive"
-                width="1250px"
-                height="400px"
-                quality="75"
-              />
-            </Box>
-          </Link>
+    <>
+      <Box borderTop="1px solid" width="100%" borderColor="gray.200" />
+      <DefaultContainer size="l">
+        <Flex
+          as="nav"
+          align="center"
+          display={{ base: "block", sm: "flex" }}
+          wrap="wrap"
+          paddingY={{ base: "2", sm: "4" }}
+          width="100%"
+        >
+          <DefaultText
+            fontSize={textSize}
+            marginBottom="0"
+            marginTop={{ base: 4, lg: 0 }}
+            flex="1"
+            flexGrow={1}
+            textAlign={{ base: "center", sm: "left" }}
+          >
+            © 2020 Limebit GmbH
+          </DefaultText>
+
+          <Box
+            display={"flex"}
+            alignItems="center"
+            flexGrow={1}
+            justifyContent={{ base: "center", sm: "flex-end" }}
+            flex="1"
+          >
+            <NavItem href="/impressum" underlineColor="black">
+              Impressum
+            </NavItem>
+            <NavItem href="/datenschutz" underlineColor="black">
+              Datenschutz
+            </NavItem>
+          </Box>
         </Flex>
-
-        <DefaultText
-          fontSize={textSize}
-          marginBottom="0"
-          marginTop={{ base: 4, lg: 0 }}
-          flex="1"
-          flexGrow={1}
-          textAlign={{ base: "left", md: "center" }}
-        >
-          © 2020 Limebit GmbH
-        </DefaultText>
-
-        <Box
-          display={{ base: "block", md: "flex" }}
-          alignItems="center"
-          flexGrow={1}
-          justifyContent="flex-end"
-          flex="1"
-        >
-          <NavItem href="/impressum" underlineColor="black">
-            Impressum
-          </NavItem>
-          <NavItem href="/datenschutz" underlineColor="black">
-            Datenschutz
-          </NavItem>
-        </Box>
-      </Flex>
-    </DefaultContainer>
+      </DefaultContainer>
+    </>
   );
 };
