@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
   return (
     <>
       <Box borderTop="1px solid" width="100%" borderColor="gray.200" />
-      <DefaultContainer size="l">
+      <DefaultContainer size="l" as="footer">
         <Flex
           as="nav"
           align="center"
@@ -26,6 +26,7 @@ export const Footer: React.FC = () => {
           width="100%"
         >
           <Stack
+            as="ul"
             direction="row"
             spacing={{ base: 6, lg: 10, xl: 14 }}
             alignItems="center"
@@ -33,10 +34,10 @@ export const Footer: React.FC = () => {
             justifyContent={{ base: "center", sm: "flex-end" }}
             flex="1"
           >
-            <NavItem href="/impressum" underlineColor="black">
+            <NavItem as="li" href="/impressum" underlineColor="black">
               Impressum
             </NavItem>
-            <NavItem href="/datenschutz" underlineColor="black">
+            <NavItem as="li" href="/datenschutz" underlineColor="black">
               Datenschutz
             </NavItem>
           </Stack>

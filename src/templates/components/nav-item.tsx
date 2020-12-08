@@ -3,15 +3,18 @@ import { Box } from "@chakra-ui/react";
 import { DefaultText } from "../../components/default-text";
 import { useRouter } from "next/router";
 import { NextChakraLink } from "../../components/next-chakra-link";
+import { UrlObject } from "url";
 
 interface NavItemProps {
   href: string;
   underlineColor: string;
+  as?: string | UrlObject | undefined;
 }
 export const NavItem: React.FC<NavItemProps> = ({
   href,
   underlineColor,
   children,
+  as,
 }) => {
   const textSize = {
     base: "sm",
@@ -23,7 +26,7 @@ export const NavItem: React.FC<NavItemProps> = ({
   const router = useRouter();
   const isActiveLink = router.pathname == href;
   return (
-    <NextChakraLink href={href} _hover={{ textDecoration: "none" }}>
+    <NextChakraLink as={as} href={href} _hover={{ textDecoration: "none" }}>
       <Box>
         <DefaultText
           as="span"
