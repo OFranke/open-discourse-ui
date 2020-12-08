@@ -8,7 +8,7 @@ interface NavItemProps {
   href: string;
   underlineColor: string;
 }
-const NavItem: React.FC<NavItemProps> = ({
+export const NavItem: React.FC<NavItemProps> = ({
   href,
   underlineColor,
   children,
