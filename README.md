@@ -29,6 +29,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
 ## Chakra docs
+
 https://next.chakra-ui.com/docs/getting-started
+
+For sitemap generation:
+https://github.com/iamvishnusankar/next-sitemap

@@ -1,15 +1,14 @@
-import { Text, TextProps, useBreakpointValue } from "@chakra-ui/react";
+import { Text, TextProps } from "@chakra-ui/react";
 export const Tagline: React.FC<TextProps> = ({ children, ...props }) => {
-  const textSize = useBreakpointValue({
-    base: "sm",
-    sm: "lg",
-    md: "xl",
-    lg: "2xl",
-    xl: "3xl",
-  });
   return (
     <Text
-      fontSize={textSize}
+      fontSize={{
+        base: "sm",
+        sm: "lg",
+        md: "xl",
+        lg: "2xl",
+        xl: "3xl",
+      }}
       textTransform="uppercase"
       fontWeight="bold"
       color="pink.500"

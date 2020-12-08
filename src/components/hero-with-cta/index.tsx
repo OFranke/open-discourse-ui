@@ -32,16 +32,8 @@ export const HeroWithCta = () => {
           display="flex"
           flexDirection="column"
         >
-          <DefaultHeadline
-            size="l"
-            as="h2"
-            width={{ sm: "50%" }}
-            display={{ base: "none", lg: "initial" }}
-          >
-            Open Discourse
-          </DefaultHeadline>
           <DefaultHeadline size="m" as="h1" width={{ sm: "50%" }}>
-            Analyse von politischer Sprache in Deutschland
+            Analyse von Plenarprotokollen für Mensch und Maschine
           </DefaultHeadline>
           <Box>
             <DefaultButton colorScheme="pink">Zur Volltextsuche</DefaultButton>

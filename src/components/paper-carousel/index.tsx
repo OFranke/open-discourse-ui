@@ -1,10 +1,4 @@
-import {
-  Box,
-  Container,
-  Flex,
-  FlexProps,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Box, Flex, FlexProps } from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -36,16 +30,16 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
     borderBottom: `4px solid ${theme.colors.pink[500]}`,
   };
 
-  const width = useBreakpointValue({
+  const width = {
     base: "150px",
     sm: "200px",
     md: "250px",
     xl: "300px",
-  });
-  const height = useBreakpointValue({
+  };
+  const height = {
     base: "80px",
     lg: "120px",
-  });
+  };
   return (
     <Box
       paddingY="5"
@@ -90,13 +84,9 @@ export const PaperCarousel: React.FC = () => {
     setNavState({ ...navState, nav1: slider1ref, nav2: slider2ref });
   }, [slider1ref, slider2ref]);
 
-  const displayBgImage = useBreakpointValue({ base: "none", lg: "block" });
-  const bgImageMaxHeight = useBreakpointValue({
-    base: undefined,
-    lg: 600,
-    xl: 750,
-  });
-  const bgNegativeMargin = useBreakpointValue({ base: 0, lg: -200, xl: -300 });
+  const displayBgImage = { base: "none", lg: "block" };
+
+  const bgNegativeMargin = { base: 0, lg: -300, xl: -600 };
 
   return (
     <>
@@ -107,7 +97,7 @@ export const PaperCarousel: React.FC = () => {
           slidesToShow={3}
           infinite={true}
           centerMode={true}
-          variableWidth={useBreakpointValue({ base: true })}
+          variableWidth={true}
           swipeToSlide={true}
           focusOnSelect={true}
           speed={1000}
@@ -143,19 +133,19 @@ export const PaperCarousel: React.FC = () => {
             <NavigationSlide slideId={0} activeSlideId={navState.activeSlide}>
               <Box
                 width={{
-                  base: "150px",
-                  sm: "120px",
-                  md: "150px",
-                  lg: "150px",
-                  xl: "240px",
+                  base: "65px",
+                  sm: "65px",
+                  md: "80px",
+                  lg: "120px",
+                  xl: "120px",
                 }}
               >
                 <Image
-                  src={"/images/logos/open_discourse.png"}
+                  src={"/images/logos/akademische_forschung_logo.svg"}
                   alt={"Open Discourse Logo"}
                   layout="responsive"
-                  width="1250px"
-                  height="400px"
+                  width="1280px"
+                  height="944px"
                   quality="75"
                 />
               </Box>
@@ -165,19 +155,19 @@ export const PaperCarousel: React.FC = () => {
             <NavigationSlide slideId={1} activeSlideId={navState.activeSlide}>
               <Box
                 width={{
-                  base: "150px",
-                  sm: "120px",
-                  md: "150px",
-                  lg: "150px",
-                  xl: "240px",
+                  base: "40px",
+                  sm: "40px",
+                  md: "50px",
+                  lg: "75px",
+                  xl: "75px",
                 }}
               >
                 <Image
-                  src={"/images/logos/open_discourse.png"}
+                  src={"/images/logos/correlaid_logo.svg"}
                   alt={"Open Discourse Logo"}
                   layout="responsive"
-                  width="1250px"
-                  height="400px"
+                  width="515px"
+                  height="645px"
                   quality="75"
                 />
               </Box>
@@ -187,19 +177,19 @@ export const PaperCarousel: React.FC = () => {
             <NavigationSlide slideId={2} activeSlideId={navState.activeSlide}>
               <Box
                 width={{
-                  base: "150px",
-                  sm: "120px",
-                  md: "150px",
-                  lg: "150px",
-                  xl: "240px",
+                  base: "50px",
+                  sm: "50px",
+                  md: "65px",
+                  lg: "100px",
+                  xl: "100px",
                 }}
               >
                 <Image
-                  src={"/images/logos/open_discourse.png"}
+                  src={"/images/logos/zdf_heute_logo.jpg"}
                   alt={"Open Discourse Logo"}
                   layout="responsive"
-                  width="1250px"
-                  height="400px"
+                  width="900px"
+                  height="900px"
                   quality="75"
                 />
               </Box>
@@ -223,7 +213,6 @@ export const PaperCarousel: React.FC = () => {
             display={displayBgImage}
             className={displayBgImage && styles.backgroundImageOpenDiscourse}
             height={"60vh"}
-            maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
@@ -237,7 +226,6 @@ export const PaperCarousel: React.FC = () => {
             display={displayBgImage}
             className={displayBgImage && styles.backgroundImageFom}
             height={"60vh"}
-            maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
@@ -251,7 +239,6 @@ export const PaperCarousel: React.FC = () => {
             display={displayBgImage}
             className={displayBgImage && styles.backgroundImageZdf}
             height={"60vh"}
-            maxHeight={bgImageMaxHeight}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"

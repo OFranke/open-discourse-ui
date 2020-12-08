@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -27,6 +27,11 @@ const extendedTheme = {
     pink: {
       500: "#EB558A",
     },
+    gray: {
+      100: "#F2F2F2",
+      200: "#E9E9E9",
+      300: "#CCCCCC",
+    },
   },
   additionalColors: { yellow: "#FFF78E" },
   styles: { global: { body: { bg: "gray.50" } } },
@@ -37,7 +42,7 @@ export const BaseTemplate: React.FC = ({ children }) => {
     <ChakraProvider theme={customTheme}>
       <Flex direction="column">
         <Header />
-        {children}
+        <Box marginTop={{ base: "64px", lg: "80px" }}>{children}</Box>
         <Footer />
       </Flex>
     </ChakraProvider>

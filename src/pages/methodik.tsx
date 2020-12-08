@@ -5,13 +5,15 @@ import { DefaultContainer } from "../components/default-container";
 import { DefaultHeadline } from "../components/default-headline";
 import { ColoredSubline } from "../components/colored-subline/index";
 import { DefaultText } from "../components/default-text";
-import { Link, ListItem, UnorderedList, Box } from "@chakra-ui/react";
+import { UnorderedList } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import { Quote } from "../components/quote";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta/index";
 import { Tagline } from "../components/tagline";
+import { NextChakraLink } from "../components/next-chakra-link";
+import { DefaultListItem } from "../components/default-list-item";
 
 const Home: React.FC = () => {
   return (
@@ -19,6 +21,7 @@ const Home: React.FC = () => {
       <SEO
         title="Plenarprotokolle des deutschen Bundestages seit 1949"
         description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
+        canonicalRoute="methodik"
       />
       <Section>
         <HeroWithCta />
@@ -26,7 +29,7 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h2">
-            Wir bringen des Bundestag ins 21. Jahrhundert!
+            Wir bringen den Bundestag ins 21. Jahrhundert!
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
             Der Deutsche Bundestag ist das parlamentarische Herz unserer
@@ -37,14 +40,14 @@ const Home: React.FC = () => {
             Seit 1949 für jede Plenarsitzung ein stenografischer Bericht
             angefertigt, der jedes gesagte Wort der Sitzung dokumentiert. Diese
             Protokolle liegen als txt-, xml-, oder pdf-Dokumente auf den{" "}
-            <Link
+            <NextChakraLink
               color="pink.500"
               href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
               isExternal
             >
               {" "}
               Servern des Bundestages <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
             und sind öffentlich abrufbar.
           </DefaultText>
 
@@ -87,15 +90,15 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Einer der Hauptgründe ist laut dem
-            <Link
+            <NextChakraLink
               color="pink.500"
-              href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
+              href="https://www.tandfonline.com/doi/full/10.1080/02606755.2018.1428399"
               isExternal
             >
               {" "}
               Politikwissenschaftler Nicolas Bechter{" "}
               <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
             die Tatsache, dass sich die deutsche Forschung traditionell auf die
             politische Ideengeschichte ausgerichtete und die theoretische und
             methodische Rahmenbedingungen lange fehlten, um Dokumente wie die
@@ -115,8 +118,9 @@ const Home: React.FC = () => {
           <Tagline>Woher kommen die Daten?</Tagline>
           <DefaultHeadline size="s">Die Plenarprotokolle</DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse-Korpus basiert auf drei verschiedenen unten
-            aufgeführten Datenquellen, die unterschiedliche Formate und ...
+            Das Open Discourse Korpus basiert auf drei verschiedenen unten
+            aufgeführten Datenquellen, deren unterschiedliche Formate und
+            Inhalte miteinander verknüpft wurden.
           </ColoredSubline>
           <DefaultText>
             Das Open Discourse-Korpus besteht aus den Plenarprotokollen, die für
@@ -131,8 +135,16 @@ const Home: React.FC = () => {
             Bundestages ab.
           </DefaultText>
           <DefaultText>
-            Im Jahr 2013 hat der Deutsche Bundestag das E-Government-Gesetz
-            (EGovG) verabschiedet. Erst mit diesem Gesetz verpflichtete sich die
+            Im Jahr 2013 hat der Deutsche Bundestag das{" "}
+            <NextChakraLink
+              color="pink.500"
+              href="https://www.gesetze-im-internet.de/egovg/"
+              isExternal
+            >
+              {" "}
+              E-Government-Gesetz (EGovG) <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>{" "}
+            verabschiedet. Erst mit diesem Gesetz verpflichtete sich die
             Regierung, Regierungsdokumente und Daten von öffentlichem Interesse
             in einem maschinenlesbaren Format bereitzustellen. Darüber hinaus
             unterwirft das Gesetz diesen Dokumenten uneingeschränkte
@@ -146,64 +158,98 @@ const Home: React.FC = () => {
             erforderlich, um die Dokumente maschienenlesbar zu nutzen:
           </DefaultText>
 
-          <Box border="1px solid">
+          <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+            <DefaultListItem>
+              Kerndatenquelle:{" "}
+              <NextChakraLink
+                color="pink.500"
+                href="https://www.bundestag.de/services/opendata"
+                isExternal
+              >
+                Parlamentsprotokolle vom Deutschen Bundestag
+                <ExternalLinkIcon mx="2px" />
+              </NextChakraLink>
+            </DefaultListItem>
             <UnorderedList>
-              <DefaultText>
-                <ListItem>
-                  Kerndatenquelle: Parlamentsprotokolle vom Deutschen Bundestag
-                </ListItem>
-                <UnorderedList>
-                  <ListItem>
-                    Die Protokolle von der ersten bis zur 18. Wahlperiode werden
-                    als komprimiertes Archiv mit separaten XML-Dateien für jede
-                    Parlamentssitzung bereitgestellt. Die Protokolle der
-                    aktuellen 19. Periode werden als separate Dateien
-                    bereitgestellt.
-                  </ListItem>
-                </UnorderedList>
-                <ListItem>
-                  Metainformationen über die Mitglieder des Parlaments, die
-                  Vorsitzenden und die Mitglieder des Kabinetts
-                  <UnorderedList>
-                    <ListItem>
-                      Die Metainformationen stammen aus den Stammdaten aller
-                      MdBs (Stammdaten aller Abgeordneten seit 1949). Diese
-                      Daten werden vom Bundestag zur Verfügung gestellt und
-                      gepflegt.
-                    </ListItem>
-                    <ListItem>
-                      Es gibt seltene Fälle, in denen Politiker Mitglied der
-                      Regierung (MG) sind und nie ein Mandat als Abgeordneter
-                      hatten. Diese Politiker sind in den oben genannten
-                      Stammdaten nicht enthalten. Daher werden die Namen aller
-                      MG aus der deutschen Wikipedia gestrichen und mit den
-                      Stammdaten zusammengeführt.
-                    </ListItem>
-                  </UnorderedList>
-                </ListItem>
-                <br />
-              </DefaultText>
+              <DefaultListItem>
+                Die Protokolle von der ersten bis zur 18. Wahlperiode werden als
+                komprimiertes Archiv mit separaten XML-Dateien für jede
+                Parlamentssitzung bereitgestellt. Die Protokolle der aktuellen
+                19. Periode werden als separate Dateien bereitgestellt.
+              </DefaultListItem>
             </UnorderedList>
-          </Box>
+            <DefaultListItem>
+              Metainformationen über die Mitglieder des Parlaments, die
+              Vorsitzenden und die Mitglieder des Kabinetts
+              <UnorderedList>
+                <DefaultListItem>
+                  Die Metainformationen stammen aus den Stammdaten aller MdBs (
+                  <NextChakraLink
+                    color="pink.500"
+                    href="https://www.bundestag.de/services/opendata"
+                    isExternal
+                  >
+                    Stammdaten aller Abgeordneten seit 1949
+                    <ExternalLinkIcon mx="2px" />
+                  </NextChakraLink>
+                  ). Diese Daten werden vom Bundestag zur Verfügung gestellt und
+                  gepflegt.
+                </DefaultListItem>
+                <DefaultListItem>
+                  Es gibt seltene Fälle, in denen Politiker Mitglied der
+                  Regierung (MG) sind und nie ein Mandat als Abgeordneter
+                  hatten. Diese Politiker sind in den oben genannten Stammdaten
+                  nicht enthalten. Daher werden die{" "}
+                  <NextChakraLink
+                    color="pink.500"
+                    href="https://de.wikipedia.org/wiki/Liste_der_deutschen_Regierungsmitglieder_seit_1949"
+                    isExternal
+                  >
+                    Namen aller MG aus der deutschen Wikipedia
+                    <ExternalLinkIcon mx="2px" />
+                  </NextChakraLink>{" "}
+                  übernommen und mit den Stammdaten zusammengeführt
+                </DefaultListItem>
+              </UnorderedList>
+            </DefaultListItem>
+            <br />
+          </UnorderedList>
           <DefaultText>
             Neben Open Discourse möchten wir noch zwei weitere Projekte
             hervorstellen, die sich mit den Korpora des Deutschen Bundestags
             beschäftigt haben:
-            <Link
+            <NextChakraLink
               color="pink.500"
-              href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
+              href="https://github.com/PolMine/GermaParlTEI"
               isExternal
             >
               {" "}
-              GermaParl und ParlSpeech. <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+              GermaParl
+              <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>{" "}
+            und
+            <NextChakraLink
+              color="pink.500"
+              href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/E4RSP9"
+              isExternal
+            >
+              {" "}
+              ParlSpeech. <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>{" "}
           </DefaultText>
           <DefaultText>
             Im direkten Vergleich ist erkennbar, dass das Korpus von Open
             Discourse bereits frühere Legislaturperioden umfasst und somit eine
             umfassende, nahezu vollständige Maschienenlesbarkeit ermöglicht:
           </DefaultText>
-          <DefaultText>
+          <DefaultText
+            marginBottom={{
+              base: "4",
+              md: "10",
+              lg: "12",
+              xl: "20",
+            }}
+          >
             Im direkten Vergleich ist erkennbar, dass das Korpus von Open
             Discourse bereits frühere Legislaturperioden umfasst und somit eine
             umfassende, nahezu vollständige Maschienenlesbarkeit ermöglicht:
@@ -222,8 +268,8 @@ const Home: React.FC = () => {
         <DefaultContainer size="l">
           <DefaultHeadline size="s">Das Vorgehen</DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse-Korpus basiert auf drei verschiedenen unten
-            aufgeführten Datenquellen, die unterschiedliche Formate und ...
+            Eine gründliche Datenaufbereitung ist das Fundament für die Qualität
+            späterer Erkenntnisse.
           </ColoredSubline>
           <DefaultText>
             In der Vorbereitung wurden alle Plenarprotokolle und die Stammdaten
@@ -278,14 +324,14 @@ const Home: React.FC = () => {
             von jeglichen Zugehörigkeiten ist, die während der Entwicklung
             dieses Korpus beteiligt waren. Die Codebasis kann aus dem
             zugehörigen
-            <Link
+            <NextChakraLink
               color="pink.500"
               href="https://github.com/open-discourse/open-discourse"
               isExternal
             >
               {" "}
               GitHub-Repository <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
             abgerufen werden.
           </DefaultText>
         </DefaultContainer>
@@ -297,13 +343,13 @@ const Home: React.FC = () => {
             Mögliche Analysen und Tools
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse-Korpus basiert auf drei verschiedenen unten
-            aufgeführten Datenquellen, die unterschiedliche Formate und ...
+            Die aufwendige Datenaufbereitung erlaubt komplexe Analysen und
+            vielschichtige, mehrdimensionale Untersuchungen.
           </ColoredSubline>
           <DefaultText>
-            Da unsere Stärken in erster Linie bei der Arbeit mit Daten und dem
-            Programmieren von Software liegen, können wir über viele
-            Analysemöglichkeiten bisher nur fantasieren. Hier braucht es vor
+            Bisher haben wir in erste Linie Arbeit in die Daten und das
+            Programmieren der Plattform gesteckt. Die vielfältigen
+            Analysemöglichkeiten liegen noch offen vor uns. Hier braucht es vor
             allem die Fähigkeiten von Politik und Sozialwissenschaftlerinnen,
             Datenjournalistinnen und anderen versierten Köpfen, die die wahren
             Erkenntnisse aus dem Datensatz ausgraben.
@@ -311,45 +357,37 @@ const Home: React.FC = () => {
           <DefaultText>
             Mögliche Forschungsfragen könnten z.B. sein:
           </DefaultText>
-          <UnorderedList>
-            <ListItem>
-              <DefaultText>
-                Wie variiert die politische Sprache abhängig vom jeweiligen
-                Themengebiet und abhängig von der Zeit?
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText>
-                Die Größe des Datensatzes eignet sich gut zur Evaluation und
-                Optimierung verschiedener Algorithmen aus den Gebieten NLP,
-                Computational Linguistics, Information Retrieval u.ä.
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText>
-                Wie hat sich die ideologische Positionierung von Fraktionen und
-                Personen über die Zeit verändert?
-              </DefaultText>
-            </ListItem>
-            <ListItem>
-              <DefaultText>
-                Überprüfung von Haltungen spezifischer Abgeordneter
-              </DefaultText>
-            </ListItem>
+          <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+            <DefaultListItem>
+              Wie variiert die politische Sprache abhängig vom jeweiligen
+              Themengebiet und abhängig von der Zeit?
+            </DefaultListItem>
+            <DefaultListItem>
+              Die Größe des Datensatzes eignet sich gut zur Evaluation und
+              Optimierung verschiedener Algorithmen aus den Gebieten NLP,
+              Computational Linguistics, Information Retrieval u.ä.
+            </DefaultListItem>
+            <DefaultListItem>
+              Wie hat sich die ideologische Positionierung von Fraktionen und
+              Personen über die Zeit verändert?
+            </DefaultListItem>
+            <DefaultListItem>
+              Überprüfung von Haltungen spezifischer Abgeordneter
+            </DefaultListItem>
           </UnorderedList>
           <DefaultText>
             Wir stellen unsere{" "}
-            <Link
+            <NextChakraLink
               color="pink.500"
               href="https://github.com/open-discourse/open-discourse"
               isExternal
             >
               {" "}
               aufbereitete Datenbank <ExternalLinkIcon mx="2px" />
-            </Link>{" "}
+            </NextChakraLink>{" "}
             an dieser Stelle zur Verfügung und geben die Nutzung, Weiterwendung
-            und Weiterverbreitung frei. Bitte verweist auf unser Projekt und
-            diese Website in euren Quellenangaben.
+            und Weiterverbreitung frei. Bitte verweisen Sie auf unser Projekt
+            und diese Website in Ihren Quellenangaben.
           </DefaultText>
         </DefaultContainer>
       </Section>
@@ -364,9 +402,9 @@ const Home: React.FC = () => {
           <DefaultText>
             Es erfordert Mühe, Daten vorzubereiten, zu kuratieren und zu
             beschreiben. Genauso braucht es Zeit, das Data Paper zu schreiben.
-            Aktuell arbeiten wir noch an dem Dokument und bitten euch um noch
-            ein wenig Geduld. Tragt euch gern in unseren Newsletter ein, wenn
-            ihr über die Veröffentlichung informiert werden wollt.
+            Aktuell arbeiten wir noch an dem Dokument und bitten Sie um noch ein
+            wenig Geduld. Tragen Sie sich gern in unseren Newsletter ein, wenn
+            Sie über die Veröffentlichung informiert werden wollen.
           </DefaultText>
         </DefaultContainer>
       </Section>
@@ -382,9 +420,6 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <Tagline>
-            Könnt ihr das ganze nochmal von vorn bis hinten aufdrösel?
-          </Tagline>
           <DefaultHeadline size="s">
             Darstellung des Gesamtprozesses
           </DefaultHeadline>

@@ -1,26 +1,30 @@
 import React from "react";
-import { Box, Link } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { DefaultText } from "../../components/default-text";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import { NextChakraLink } from "../../components/next-chakra-link";
 
 interface NavItemProps {
   href: string;
   underlineColor: string;
 }
-export const NavItem: React.FC<NavItemProps> = ({
+const NavItem: React.FC<NavItemProps> = ({
   href,
   underlineColor,
   children,
 }) => {
-  const textSize = useBreakpointValue({
+  const textSize = {
     base: "sm",
     sm: "md",
     md: "md",
     lg: "xl",
     xl: "4xl",
-  });
+  };
+  const router = useRouter();
+  console.log("\x1b[33m%s\x1b[0m", "%c >> router.pathname", router.pathname);
+  const isActiveLink = router.pathname == href;
   return (
-    <Link href={href} _hover={{ textDecoration: "none" }}>
+    <NextChakraLink href={href} _hover={{ textDecoration: "none" }}>
       <Box>
         <DefaultText
           as="span"
@@ -33,10 +37,11 @@ export const NavItem: React.FC<NavItemProps> = ({
             textDecoration: "none",
             borderBottom: `${underlineColor} 4px solid`,
           }}
+          {...(isActiveLink && { borderBottom: `${underlineColor} 4px solid` })}
         >
           {children}
         </DefaultText>
       </Box>
-    </Link>
+    </NextChakraLink>
   );
 };
