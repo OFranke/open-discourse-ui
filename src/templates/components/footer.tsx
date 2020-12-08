@@ -1,6 +1,5 @@
 import React from "react";
-import { Flex, Box, Link, useBreakpointValue } from "@chakra-ui/react";
-import Image from "next/image";
+import { Flex, Box, Stack, useBreakpointValue } from "@chakra-ui/react";
 import { DefaultContainer } from "../../components/default-container";
 import { NavItem } from "./nav-item";
 import { DefaultText } from "../../components/default-text";
@@ -21,23 +20,14 @@ export const Footer: React.FC = () => {
           as="nav"
           align="center"
           display={{ base: "block", sm: "flex" }}
+          flexDirection="row-reverse"
           wrap="wrap"
           paddingY={{ base: "2", sm: "4" }}
           width="100%"
         >
-          <DefaultText
-            fontSize={textSize}
-            marginBottom="0"
-            marginTop={{ base: 4, lg: 0 }}
-            flex="1"
-            flexGrow={1}
-            textAlign={{ base: "center", sm: "left" }}
-          >
-            © 2020 Limebit GmbH
-          </DefaultText>
-
-          <Box
-            display={"flex"}
+          <Stack
+            direction="row"
+            spacing={{ base: 6, lg: 10, xl: 14 }}
             alignItems="center"
             flexGrow={1}
             justifyContent={{ base: "center", sm: "flex-end" }}
@@ -49,7 +39,17 @@ export const Footer: React.FC = () => {
             <NavItem href="/datenschutz" underlineColor="black">
               Datenschutz
             </NavItem>
-          </Box>
+          </Stack>
+
+          <DefaultText
+            fontSize={textSize}
+            marginBottom="0"
+            flex="1"
+            flexGrow={1}
+            textAlign={{ base: "center", sm: "left" }}
+          >
+            © 2020 Limebit GmbH
+          </DefaultText>
         </Flex>
       </DefaultContainer>
     </>

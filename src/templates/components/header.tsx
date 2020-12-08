@@ -5,6 +5,7 @@ import {
   useColorMode,
   IconButton,
   useColorModeValue,
+  Stack,
 } from "@chakra-ui/react";
 
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
@@ -32,8 +33,6 @@ export const Header: React.FC = () => {
           justify="space-between"
           wrap="wrap"
           paddingY={{ base: "2", lg: "4" }}
-          // bg="teal.500"
-          // color="white"
           width="100%"
         >
           <Flex align="center" mr={5}>
@@ -69,12 +68,13 @@ export const Header: React.FC = () => {
             />
           </Box>
 
-          <Box
-            display={{ base: show ? "block" : "none", lg: "flex" }}
+          <Stack
+            direction={{ base: "column", lg: "row" }}
+            display={{ base: show ? "flex" : "none", lg: "flex" }}
+            spacing={{ base: 4, lg: 10, xl: 14 }}
             width={{ base: "full", lg: "auto" }}
-            alignItems="center"
-            flexGrow={1}
-            justifyContent="flex-end"
+            alignItems={{ base: "left", lg: "center" }}
+            marginTop={{ base: 4, lg: 0 }}
           >
             <NavItem href="/methodik" underlineColor="black">
               Methodik
@@ -101,7 +101,6 @@ export const Header: React.FC = () => {
               >
                 <IconButton
                   justifyContent={{ base: "left", lg: "center" }}
-                  marginRight={{ base: 6, lg: 10, xl: 14 }}
                   fontSize={{ base: "md", md: "xl", xl: "4xl" }}
                   variant="ghost"
                   aria-label="GitHub"
@@ -111,7 +110,6 @@ export const Header: React.FC = () => {
             </Box>
             <Box>
               <IconButton
-                marginRight={{ base: 6, lg: 10, xl: 14 }}
                 justifyContent={{ base: "left", lg: "center" }}
                 fontSize={{ base: "md", md: "xl", xl: "4xl" }}
                 aria-label={`Switch to ${text} mode`}
@@ -121,7 +119,7 @@ export const Header: React.FC = () => {
                 icon={<SwitchIcon />}
               />
             </Box>
-          </Box>
+          </Stack>
         </Flex>
       </DefaultContainer>
     </Box>
