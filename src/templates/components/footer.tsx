@@ -44,8 +44,6 @@ export const Footer: React.FC = () => {
           <DefaultText
             fontSize={textSize}
             marginBottom="0"
-            flex="1"
-            flexGrow={1}
             textAlign={{ base: "center", sm: "left" }}
           >
             © 2020 Limebit GmbH

@@ -21,7 +21,6 @@ export const NavItem: React.FC<NavItemProps> = ({
     xl: "4xl",
   };
   const router = useRouter();
-  console.log("\x1b[33m%s\x1b[0m", "%c >> router.pathname", router.pathname);
   const isActiveLink = router.pathname == href;
   return (
     <NextChakraLink href={href} _hover={{ textDecoration: "none" }}>
