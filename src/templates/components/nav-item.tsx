@@ -8,13 +8,11 @@ import { UrlObject } from "url";
 interface NavItemProps {
   href: string;
   underlineColor: string;
-  as?: string | UrlObject | undefined;
 }
 export const NavItem: React.FC<NavItemProps> = ({
   href,
   underlineColor,
   children,
-  as,
 }) => {
   const textSize = {
     base: "sm",
@@ -26,7 +24,7 @@ export const NavItem: React.FC<NavItemProps> = ({
   const router = useRouter();
   const isActiveLink = router.pathname == href;
   return (
-    <NextChakraLink as={as} href={href} _hover={{ textDecoration: "none" }}>
+    <NextChakraLink href={href} _hover={{ textDecoration: "none" }}>
       <Box>
         <DefaultText
           as="span"

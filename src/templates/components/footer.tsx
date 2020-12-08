@@ -33,13 +33,18 @@ export const Footer: React.FC = () => {
             flexGrow={1}
             justifyContent={{ base: "center", sm: "flex-end" }}
             flex="1"
+            listStyleType="none"
           >
-            <NavItem as="li" href="/impressum" underlineColor="black">
-              Impressum
-            </NavItem>
-            <NavItem as="li" href="/datenschutz" underlineColor="black">
-              Datenschutz
-            </NavItem>
+            <li>
+              <NavItem href="/impressum" underlineColor="black">
+                Impressum
+              </NavItem>
+            </li>
+            <li>
+              <NavItem href="/datenschutz" underlineColor="black">
+                Datenschutz
+              </NavItem>
+            </li>
           </Stack>
 
           <DefaultText
