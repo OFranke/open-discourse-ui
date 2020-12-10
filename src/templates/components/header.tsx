@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
   const theme: any = useTheme();
   return (
     <Box position="fixed" width="100%" bg="white" zIndex="100">
-      <DefaultContainer size="l">
+      <DefaultContainer size="l" as="header">
         <Flex
           as="nav"
           align="center"
@@ -61,7 +61,6 @@ export const Header: React.FC = () => {
           <Box display={{ base: "block", lg: "none" }} onClick={handleToggle}>
             <IconButton
               variant="ghost"
-              // colorScheme="white"
               aria-label="Open Menu"
               size="lg"
               icon={<HamburgerIcon w="8" h="8" />}
