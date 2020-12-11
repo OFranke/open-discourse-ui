@@ -1,5 +1,6 @@
 import { Flex, Box } from "@chakra-ui/react";
 import { Header } from "./components/header";
+import { Footer } from "./components/footer";
 import { ChakraProvider } from "@chakra-ui/react";
 
 // 1. Import the extendTheme util - it will merge with the default theme.
@@ -42,6 +43,7 @@ export const BaseTemplate: React.FC = ({ children }) => {
       <Flex direction="column">
         <Header />
         <Box marginTop={{ base: "64px", lg: "80px" }}>{children}</Box>
+        <Footer />
       </Flex>
     </ChakraProvider>
   );

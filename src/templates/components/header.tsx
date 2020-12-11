@@ -2,62 +2,20 @@ import React, { useState } from "react";
 import {
   Flex,
   Box,
-  Link,
   useColorMode,
   IconButton,
   useColorModeValue,
+  Stack,
 } from "@chakra-ui/react";
 
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
-import { DefaultText } from "../../components/default-text";
 import { DefaultContainer } from "../../components/default-container";
 import { useTheme } from "@emotion/react";
-import { useRouter } from "next/router";
+import { NavItem } from "./nav-item";
 import { NextChakraLink } from "../../components/next-chakra-link";
-interface NavItemProps {
-  href: string;
-  underlineColor: string;
-}
-const NavItem: React.FC<NavItemProps> = ({
-  href,
-  underlineColor,
-  children,
-}) => {
-  const textSize = {
-    base: "sm",
-    sm: "md",
-    md: "md",
-    lg: "xl",
-    xl: "4xl",
-  };
-  const router = useRouter();
-  console.log("\x1b[33m%s\x1b[0m", "%c >> router.pathname", router.pathname);
-  const isActiveLink = router.pathname == href;
-  return (
-    <NextChakraLink href={href} _hover={{ textDecoration: "none" }}>
-      <Box>
-        <DefaultText
-          as="span"
-          marginTop={{ base: 4, lg: 0 }}
-          marginRight={{ base: 6, lg: 10, xl: 14 }}
-          marginBottom={0}
-          display="inline-block"
-          fontSize={textSize}
-          _hover={{
-            textDecoration: "none",
-            borderBottom: `${underlineColor} 4px solid`,
-          }}
-          {...(isActiveLink && { borderBottom: `${underlineColor} 4px solid` })}
-        >
-          {children}
-        </DefaultText>
-      </Box>
-    </NextChakraLink>
-  );
-};
 
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
@@ -68,15 +26,13 @@ export const Header: React.FC = () => {
   const theme: any = useTheme();
   return (
     <Box position="fixed" width="100%" bg="white" zIndex="100">
-      <DefaultContainer size="l">
+      <DefaultContainer size="l" as="header">
         <Flex
           as="nav"
           align="center"
           justify="space-between"
           wrap="wrap"
           paddingY={{ base: "2", lg: "4" }}
-          // bg="teal.500"
-          // color="white"
           width="100%"
         >
           <Flex align="center" mr={5}>
@@ -105,19 +61,19 @@ export const Header: React.FC = () => {
           <Box display={{ base: "block", lg: "none" }} onClick={handleToggle}>
             <IconButton
               variant="ghost"
-              // colorScheme="white"
               aria-label="Open Menu"
               size="lg"
               icon={<HamburgerIcon w="8" h="8" />}
             />
           </Box>
 
-          <Box
-            display={{ base: show ? "block" : "none", lg: "flex" }}
+          <Stack
+            direction={{ base: "column", lg: "row" }}
+            display={{ base: show ? "flex" : "none", lg: "flex" }}
+            spacing={{ base: 4, lg: 10, xl: 14 }}
             width={{ base: "full", lg: "auto" }}
-            alignItems="center"
-            flexGrow={1}
-            justifyContent="flex-end"
+            alignItems={{ base: "left", lg: "center" }}
+            marginTop={{ base: 4, lg: 0 }}
           >
             <NavItem href="/methodik" underlineColor="black">
               Methodik
@@ -144,7 +100,6 @@ export const Header: React.FC = () => {
               >
                 <IconButton
                   justifyContent={{ base: "left", lg: "center" }}
-                  marginRight={{ base: 6, lg: 10, xl: 14 }}
                   fontSize={{ base: "md", md: "xl", xl: "4xl" }}
                   variant="ghost"
                   aria-label="GitHub"
@@ -154,7 +109,6 @@ export const Header: React.FC = () => {
             </Box>
             <Box>
               <IconButton
-                marginRight={{ base: 6, lg: 10, xl: 14 }}
                 justifyContent={{ base: "left", lg: "center" }}
                 fontSize={{ base: "md", md: "xl", xl: "4xl" }}
                 aria-label={`Switch to ${text} mode`}
@@ -164,7 +118,7 @@ export const Header: React.FC = () => {
                 icon={<SwitchIcon />}
               />
             </Box>
-          </Box>
+          </Stack>
         </Flex>
       </DefaultContainer>
     </Box>
