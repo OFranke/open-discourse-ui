@@ -4,7 +4,7 @@ import { FullTextSearch } from "../components/full-text-search";
 import { DefaultContainer } from "../components/default-container";
 import { ColoredSubline } from "../components/colored-subline";
 import { Section } from "../components/section";
-import { DefaultHeadline } from "../components/default-headline";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "../components/default-text";
 import { Callout } from "../components/callout";
 import { DefaultButton } from "../components/default-button";

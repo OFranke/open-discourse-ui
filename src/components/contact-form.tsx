@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { DefaultHeadline } from "./default-headline";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "./default-text";
 import { DefaultButton } from "./default-button";
 import {

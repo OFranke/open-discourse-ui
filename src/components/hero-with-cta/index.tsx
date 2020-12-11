@@ -2,7 +2,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 import { DefaultContainer } from "../default-container";
 import { DefaultButton } from "../default-button";
-import { DefaultHeadline } from "../default-headline";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 
 export const HeroWithCta = () => {
   return (

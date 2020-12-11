@@ -2,7 +2,7 @@ import { BaseTemplate } from "../templates/base-template";
 import SEO from "../components/seo";
 import { Section } from "../components/section";
 import { DefaultContainer } from "../components/default-container";
-import { DefaultHeadline } from "../components/default-headline";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "../components/colored-subline/index";
 import { DefaultText } from "../components/default-text";
 import { UnorderedList } from "@chakra-ui/react";

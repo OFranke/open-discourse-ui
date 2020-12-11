@@ -1,6 +1,4 @@
 import { DefaultButton, DefaultButtonProps } from "./default-button";
-import { Link as ChakraLink } from "@chakra-ui/react";
-import NextLink from "next/link";
 import { NextChakraLink } from "./next-chakra-link";
 interface ButtonLinkProps extends DefaultButtonProps {
   href: string;

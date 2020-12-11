@@ -3,7 +3,7 @@ import React from "react";
 import { DefaultContainer } from "../components/default-container";
 import { ColoredSubline } from "../components/colored-subline";
 import { Section } from "../components/section";
-import { DefaultHeadline } from "../components/default-headline";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { PaperCarousel } from "../components/paper-carousel";
 import SEO from "../components/seo";
 import styles from "./styles.module.css";

@@ -1,10 +1,9 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import { Section } from "../components/section";
 import Image from "next/image";
 import { DefaultContainer } from "../components/default-container";
-import { DefaultHeadline } from "../components/default-headline";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "../components/colored-subline";
 import { Quote } from "../components/quote";
 import { DefaultText } from "../components/default-text";
