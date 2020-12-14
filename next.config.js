@@ -83,6 +83,11 @@ module.exports = withPlugins(
             "node_modules",
             "@emotion"
           );
+          config.resolve.alias["@chakra-ui/react"] = path.resolve(
+            __dirname,
+            "node_modules",
+            "@chakra-ui/react"
+          );
           return config;
         },
       }),
