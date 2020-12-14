@@ -56,31 +56,39 @@ const nextConfig = {
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(new DuplicatePackageCheckerPlugin());
+    // e.g. resolve duplicate dependencies to the latest version
+    // config.resolve.alias['fast-deep-equal'] = path.resolve(
+    //   __dirname,
+    //   'node_modules',
+    //   'fast-deep-equal'
+    // )
     return config;
   },
 };
-module.exports = extend(envConfig).withPlugins([
+module.exports = extend(envConfig).withPlugins(
   [
-    optimizedImages({
-      imagesFolder: "images",
-      optimizeImagesInDev: true,
-      optimizeImages: true,
-      mozjpeg: {
-        quality: 80,
+    [
+      optimizedImages({
+        imagesFolder: "images",
+        optimizeImagesInDev: true,
+        optimizeImages: true,
+        mozjpeg: {
+          quality: 80,
+        },
+        webp: {
+          preset: "default",
+          quality: 75,
+        },
+        responsive: {
+          adapter: require("responsive-loader/sharp"),
+        },
+      }),
+      {
+        /* config for next-optimized-images */
       },
-      webp: {
-        preset: "default",
-        quality: 75,
-      },
-      responsive: {
-        adapter: require("responsive-loader/sharp"),
-      },
-    }),
-    {
-      /* config for next-optimized-images */
-    },
-  ],
+    ],
 
-  // your other plugins here
-  nextConfig,
-]);
+    // your other plugins here
+  ],
+  nextConfig
+);
