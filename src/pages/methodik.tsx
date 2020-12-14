@@ -3,7 +3,7 @@ import SEO from "../components/seo";
 import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
-import { ColoredSubline } from "../components/colored-subline/index";
+import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { UnorderedList } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
