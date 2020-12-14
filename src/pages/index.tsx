@@ -19,6 +19,10 @@ import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
