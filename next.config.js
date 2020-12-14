@@ -2,7 +2,7 @@ const {
   PHASE_DEVELOPMENT_SERVER,
   PHASE_PRODUCTION_BUILD,
 } = require("next/constants");
-
+const path = require("path");
 const { withPlugins, extend } = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
@@ -54,18 +54,8 @@ const nextConfig = {
       },
     ];
   },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.plugins.push(new DuplicatePackageCheckerPlugin());
-    // e.g. resolve duplicate dependencies to the latest version
-    // config.resolve.alias['fast-deep-equal'] = path.resolve(
-    //   __dirname,
-    //   'node_modules',
-    //   'fast-deep-equal'
-    // )
-    return config;
-  },
 };
-module.exports = extend(envConfig).withPlugins(
+module.exports = withPlugins(
   [
     [
       optimizedImages({
@@ -82,13 +72,24 @@ module.exports = extend(envConfig).withPlugins(
         responsive: {
           adapter: require("responsive-loader/sharp"),
         },
+        webpack: (
+          config,
+          { buildId, dev, isServer, defaultLoaders, webpack }
+        ) => {
+          config.plugins.push(new DuplicatePackageCheckerPlugin());
+          // e.g. resolve duplicate dependencies to the latest version
+          config.resolve.alias["@emotion"] = path.resolve(
+            __dirname,
+            "node_modules",
+            "@emotion"
+          );
+          return config;
+        },
       }),
       {
         /* config for next-optimized-images */
       },
     ],
-
-    // your other plugins here
   ],
   nextConfig
 );
