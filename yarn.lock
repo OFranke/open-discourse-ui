@@ -185,6 +185,14 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
+"@bit/limebit.limebit-ui.tagline@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.limebit-ui.tagline/-/limebit.limebit-ui.tagline-0.0.3.tgz#b965596d0f789f84dfae26f56d683682a9a43408"
+  integrity sha1-uWVZbQ94n4Tfrib1bWg2gqmkNAg=
+  dependencies:
+    "@chakra-ui/react" "1.0.3"
+    react "17.0.1"
+
 "@chakra-ui/accordion@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@chakra-ui/accordion/-/accordion-1.0.2.tgz#efc55327f10dbfcca527c1eec590d44c09e8f14c"

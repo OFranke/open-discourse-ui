@@ -13,7 +13,7 @@ import Image from "next/image";
 import { ProjectCard } from "../components/project-card";
 import { Quote } from "../components/quote";
 import SEO from "../components/seo";
-import { Tagline } from "../components/tagline";
+import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { ButtonLink } from "../components/button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";

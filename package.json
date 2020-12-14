@@ -15,6 +15,7 @@
     "@bit/limebit.limebit-ui.colored-subline": "0.0.x",
     "@bit/limebit.limebit-ui.default-headline": "0.1.x",
     "@bit/limebit.limebit-ui.section": "0.0.3",
+    "@bit/limebit.limebit-ui.tagline": "0.0.3",
     "@chakra-ui/icons": "1.0.1",
     "@chakra-ui/react": "1.0.3",
     "@emotion/react": "11.0.0",
