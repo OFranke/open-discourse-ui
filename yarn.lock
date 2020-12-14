@@ -161,10 +161,18 @@
   resolved "https://node.bit.dev/limebit.chakra-ui-recipes.table/-/limebit.chakra-ui-recipes.table-0.0.2.tgz#827cea147fe287a2f43b446b0c89c66c6f8ae49a"
   integrity sha1-gnzqFH/ih6L0O0RrDInGbG+K5Jo=
 
-"@bit/limebit.limebit-ui.default-headline@0.1.0":
-  version "0.1.0"
-  resolved "https://node.bit.dev/limebit.limebit-ui.default-headline/-/limebit.limebit-ui.default-headline-0.1.0.tgz#087ac821e0913684f58bbaa6425667d633b88a20"
-  integrity sha1-CHrIIeCRNoT1i7qmQlZn1jO4iiA=
+"@bit/limebit.limebit-ui.colored-subline@0.0.x":
+  version "0.0.2"
+  resolved "https://node.bit.dev/limebit.limebit-ui.colored-subline/-/limebit.limebit-ui.colored-subline-0.0.2.tgz#8ecf7dc7e5690e3ddd755152225801e9de7a0158"
+  integrity sha1-js99x+VpDj3ddVFSIlgB6d56AVg=
+  dependencies:
+    "@chakra-ui/react" "1.0.2"
+    react "17.0.1"
+
+"@bit/limebit.limebit-ui.default-headline@0.1.x":
+  version "0.1.1"
+  resolved "https://node.bit.dev/limebit.limebit-ui.default-headline/-/limebit.limebit-ui.default-headline-0.1.1.tgz#4b929f527ce4615a05e0abb2f3bbfc02f9ca7542"
+  integrity sha1-S5KfUnzkYVoF4Kuy87v8AvnKdUI=
   dependencies:
     "@chakra-ui/react" "1.0.2"
     react "17.0.1"

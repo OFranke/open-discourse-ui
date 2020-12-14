@@ -1,16 +1,9 @@
 import { BaseTemplate } from "../templates/base-template";
-import {
-  Stack,
-  Box,
-  SimpleGrid,
-  Link,
-  ListItem,
-  UnorderedList,
-} from "@chakra-ui/react";
+import { Stack, Box, SimpleGrid, UnorderedList } from "@chakra-ui/react";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "../components/default-container";
-import { ColoredSubline } from "../components/colored-subline";
+import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { Section } from "../components/section";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "../components/default-text";
