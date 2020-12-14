@@ -169,15 +169,16 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.colored-subline@0.0.x":
-  version "0.0.3"
-  resolved "https://node.bit.dev/limebit.limebit-ui.colored-subline/-/limebit.limebit-ui.colored-subline-0.0.3.tgz#d0f8fc898ec1241d9707cb2efdfea1cf13946fde"
-  integrity sha1-0Pj8iY7BJB2XB8su/f6hzxOUb94=
+"@bit/limebit.limebit-ui.colored-subline@0.0.5":
+  version "0.0.5"
+  resolved "https://node.bit.dev/limebit.limebit-ui.colored-subline/-/limebit.limebit-ui.colored-subline-0.0.5.tgz#4f281fc11fa77c1654b0e1021332a6eae36b03c8"
+  integrity sha1-TygfwR+nfBZUsOECEzKm6uNrA8g=
   dependencies:
     "@chakra-ui/react" "1.0.3"
+    "@emotion/css" "11.0.0"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.default-button@0.0.3":
+"@bit/limebit.limebit-ui.default-button@0.0.3", "@bit/limebit.limebit-ui.default-button@0.0.x":
   version "0.0.3"
   resolved "https://node.bit.dev/limebit.limebit-ui.default-button/-/limebit.limebit-ui.default-button-0.0.3.tgz#e1fc87af4802fa475ca881e4d670851534420ba9"
   integrity sha1-4fyHr0gC+kdcqIHk1nCFFTRCC6k=
@@ -186,7 +187,7 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.default-container@0.0.1":
+"@bit/limebit.limebit-ui.default-container@0.0.x":
   version "0.0.1"
   resolved "https://node.bit.dev/limebit.limebit-ui.default-container/-/limebit.limebit-ui.default-container-0.0.1.tgz#44077efd370174ddcf56d6c9cf22ce0d7b68ef9a"
   integrity sha1-RAd+/TcBdN3PVtbJzyLODXto75o=
@@ -202,7 +203,7 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.default-text@0.0.3":
+"@bit/limebit.limebit-ui.default-text@0.0.3", "@bit/limebit.limebit-ui.default-text@0.0.x":
   version "0.0.3"
   resolved "https://node.bit.dev/limebit.limebit-ui.default-text/-/limebit.limebit-ui.default-text-0.0.3.tgz#1a0c6523c4b26777671abe0af0fbbc4a34de008e"
   integrity sha1-GgxlI8SyZ3dnGr4K8Pu8SjTeAI4=
@@ -210,7 +211,7 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.next-button-link@0.0.1":
+"@bit/limebit.limebit-ui.next-button-link@0.0.x":
   version "0.0.1"
   resolved "https://node.bit.dev/limebit.limebit-ui.next-button-link/-/limebit.limebit-ui.next-button-link-0.0.1.tgz#4f84ba8e0102e920fd07e3722ab1cca9043d43fb"
   integrity sha1-T4S6jgEC6SD9B+NyKrHMqQQ9Q/s=
@@ -219,7 +220,7 @@
     "@bit/limebit.limebit-ui.next-chakra-link" "0.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.next-chakra-link@0.0.3":
+"@bit/limebit.limebit-ui.next-chakra-link@0.0.3", "@bit/limebit.limebit-ui.next-chakra-link@0.0.x":
   version "0.0.3"
   resolved "https://node.bit.dev/limebit.limebit-ui.next-chakra-link/-/limebit.limebit-ui.next-chakra-link-0.0.3.tgz#a16708857466e0d7e0b87e0ba501476ab3bdc7d5"
   integrity sha1-oWcIhXRm4NfguH4LpQFHarO9x9U=
@@ -228,7 +229,7 @@
     next "10.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.quote@0.0.3":
+"@bit/limebit.limebit-ui.quote@0.0.x":
   version "0.0.3"
   resolved "https://node.bit.dev/limebit.limebit-ui.quote/-/limebit.limebit-ui.quote-0.0.3.tgz#61cb8f87995c27a9221558c0767dd8f196868645"
   integrity sha1-YcuPh5lcJ6kiFVjAdn3Y8ZaGhkU=
@@ -237,7 +238,7 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.section@0.0.3":
+"@bit/limebit.limebit-ui.section@0.0.x":
   version "0.0.3"
   resolved "https://node.bit.dev/limebit.limebit-ui.section/-/limebit.limebit-ui.section-0.0.3.tgz#571679b1b3f63826eddee7b60a40b10b9d924251"
   integrity sha1-VxZ5sbP2OCbt3ue2CkCxC52SQlE=
@@ -245,7 +246,7 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.tagline@0.0.3":
+"@bit/limebit.limebit-ui.tagline@0.0.x":
   version "0.0.3"
   resolved "https://node.bit.dev/limebit.limebit-ui.tagline/-/limebit.limebit-ui.tagline-0.0.3.tgz#b965596d0f789f84dfae26f56d683682a9a43408"
   integrity sha1-uWVZbQ94n4Tfrib1bWg2gqmkNAg=
@@ -785,6 +786,17 @@
     "@emotion/utils" "^1.0.0"
     "@emotion/weak-memoize" "^0.2.5"
     stylis "^4.0.3"
+
+"@emotion/css@11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@emotion/css/-/css-11.0.0.tgz#804dcec7e4990019a08e678c1145d34208923acb"
+  integrity sha512-i7/uzTYcoP0hIW9V4YobD/mYAt6rjNySr9g6CS7JEFsRDfskg4nUczzIehALfacDaHbHaOQYaNDHBGuD/AtW5A==
+  dependencies:
+    "@emotion/babel-plugin" "^11.0.0"
+    "@emotion/cache" "^11.0.0"
+    "@emotion/serialize" "^1.0.0"
+    "@emotion/sheet" "^1.0.0"
+    "@emotion/utils" "^1.0.0"
 
 "@emotion/hash@^0.8.0":
   version "0.8.0"
