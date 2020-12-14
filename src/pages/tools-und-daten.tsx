@@ -9,10 +9,6 @@ import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { Callout } from "../components/callout";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 const Search: React.FC = () => {
   return (
     <BaseTemplate>
