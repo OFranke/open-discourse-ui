@@ -1,12 +1,12 @@
 import { BaseTemplate } from "../templates/base-template";
 import React from "react";
-import { Section } from "../components/section";
+import { Section } from "@bit/limebit.limebit-ui.section";
 import Image from "next/image";
-import { DefaultContainer } from "../components/default-container";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
-import { ColoredSubline } from "../components/colored-subline";
-import { Quote } from "../components/quote";
-import { DefaultText } from "../components/default-text";
+import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
+import { Quote } from "@bit/limebit.limebit-ui.quote";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { ContactForm } from "../components/contact-form";
 import SEO from "../components/seo";
 

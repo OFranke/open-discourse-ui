@@ -1,18 +1,18 @@
 import { BaseTemplate } from "../templates/base-template";
 import SEO from "../components/seo";
-import { Section } from "../components/section";
-import { DefaultContainer } from "../components/default-container";
+import { Section } from "@bit/limebit.limebit-ui.section";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "../components/colored-subline/index";
-import { DefaultText } from "../components/default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { UnorderedList } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
-import { Quote } from "../components/quote";
+import { Quote } from "@bit/limebit.limebit-ui.quote";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta/index";
-import { Tagline } from "../components/tagline";
-import { NextChakraLink } from "../components/next-chakra-link";
+import { Tagline } from "@bit/limebit.limebit-ui.tagline";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
 
 const Home: React.FC = () => {

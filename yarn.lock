@@ -161,10 +161,35 @@
   resolved "https://node.bit.dev/limebit.chakra-ui-recipes.table/-/limebit.chakra-ui-recipes.table-0.0.2.tgz#827cea147fe287a2f43b446b0c89c66c6f8ae49a"
   integrity sha1-gnzqFH/ih6L0O0RrDInGbG+K5Jo=
 
+"@bit/limebit.limebit-ui.card@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.limebit-ui.card/-/limebit.limebit-ui.card-0.0.3.tgz#b10b59eb0ce218622c88342d5965a0f0e431a8ef"
+  integrity sha1-sQtZ6wziGGIsiDQtWWWg8OQxqO8=
+  dependencies:
+    "@chakra-ui/react" "1.0.3"
+    react "17.0.1"
+
 "@bit/limebit.limebit-ui.colored-subline@0.0.x":
   version "0.0.3"
   resolved "https://node.bit.dev/limebit.limebit-ui.colored-subline/-/limebit.limebit-ui.colored-subline-0.0.3.tgz#d0f8fc898ec1241d9707cb2efdfea1cf13946fde"
   integrity sha1-0Pj8iY7BJB2XB8su/f6hzxOUb94=
+  dependencies:
+    "@chakra-ui/react" "1.0.3"
+    react "17.0.1"
+
+"@bit/limebit.limebit-ui.default-button@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.limebit-ui.default-button/-/limebit.limebit-ui.default-button-0.0.3.tgz#e1fc87af4802fa475ca881e4d670851534420ba9"
+  integrity sha1-4fyHr0gC+kdcqIHk1nCFFTRCC6k=
+  dependencies:
+    "@chakra-ui/icons" "1.0.1"
+    "@chakra-ui/react" "1.0.3"
+    react "17.0.1"
+
+"@bit/limebit.limebit-ui.default-container@0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/limebit.limebit-ui.default-container/-/limebit.limebit-ui.default-container-0.0.1.tgz#44077efd370174ddcf56d6c9cf22ce0d7b68ef9a"
+  integrity sha1-RAd+/TcBdN3PVtbJzyLODXto75o=
   dependencies:
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
@@ -174,6 +199,32 @@
   resolved "https://node.bit.dev/limebit.limebit-ui.default-headline/-/limebit.limebit-ui.default-headline-0.1.2.tgz#68df7f8f3aaae41e603d4f167bcf6866fd36cf0d"
   integrity sha1-aN9/jzqq5B5gPU8We89oZv02zw0=
   dependencies:
+    "@chakra-ui/react" "1.0.3"
+    react "17.0.1"
+
+"@bit/limebit.limebit-ui.default-text@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.limebit-ui.default-text/-/limebit.limebit-ui.default-text-0.0.3.tgz#1a0c6523c4b26777671abe0af0fbbc4a34de008e"
+  integrity sha1-GgxlI8SyZ3dnGr4K8Pu8SjTeAI4=
+  dependencies:
+    "@chakra-ui/react" "1.0.3"
+    react "17.0.1"
+
+"@bit/limebit.limebit-ui.next-chakra-link@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.limebit-ui.next-chakra-link/-/limebit.limebit-ui.next-chakra-link-0.0.3.tgz#a16708857466e0d7e0b87e0ba501476ab3bdc7d5"
+  integrity sha1-oWcIhXRm4NfguH4LpQFHarO9x9U=
+  dependencies:
+    "@chakra-ui/react" "1.0.3"
+    next "10.0.3"
+    react "17.0.1"
+
+"@bit/limebit.limebit-ui.quote@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.limebit-ui.quote/-/limebit.limebit-ui.quote-0.0.3.tgz#61cb8f87995c27a9221558c0767dd8f196868645"
+  integrity sha1-YcuPh5lcJ6kiFVjAdn3Y8ZaGhkU=
+  dependencies:
+    "@bit/limebit.limebit-ui.default-text" "0.0.3"
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
@@ -6000,7 +6051,7 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next@^10.0.3:
+next@10.0.3, next@^10.0.3:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/next/-/next-10.0.3.tgz#2bf9a1625dcd0afc8c31be19fc5516af68d99e80"
   integrity sha512-QYCfjZgowjaLUFvyV8959SmkUZU/edFgHeiXNtWDv7kffo/oTm891p0KZAkk5cMIHcsDX3g3UuQdw/zmui783g==

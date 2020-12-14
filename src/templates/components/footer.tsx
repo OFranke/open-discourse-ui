@@ -1,8 +1,8 @@
 import React from "react";
 import { Flex, Box, Stack, useBreakpointValue } from "@chakra-ui/react";
-import { DefaultContainer } from "../../components/default-container";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { NavItem } from "./nav-item";
-import { DefaultText } from "../../components/default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 
 export const Footer: React.FC = () => {
   const textSize = useBreakpointValue({

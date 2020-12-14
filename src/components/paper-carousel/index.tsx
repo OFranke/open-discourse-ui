@@ -6,7 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import { Slide1, Slide2 } from "./paper-slides";
-import { DefaultContainer, containerSizes } from "../default-container";
+import {
+  DefaultContainer,
+  containerSizes,
+} from "@bit/limebit.limebit-ui.default-container";
 import { useState, useEffect } from "react";
 import { useTheme } from "@emotion/react";
 

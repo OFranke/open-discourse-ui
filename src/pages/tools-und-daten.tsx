@@ -1,13 +1,13 @@
 import { BaseTemplate } from "../templates/base-template";
 import { Image } from "@chakra-ui/react";
 import { FullTextSearch } from "../components/full-text-search";
-import { DefaultContainer } from "../components/default-container";
-import { ColoredSubline } from "../components/colored-subline";
-import { Section } from "../components/section";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
+import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
+import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
-import { DefaultText } from "../components/default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { Callout } from "../components/callout";
-import { DefaultButton } from "../components/default-button";
+import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 
 const Search: React.FC = () => {
   return (

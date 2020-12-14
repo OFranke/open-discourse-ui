@@ -1,12 +1,11 @@
 import { BaseTemplate } from "../templates/base-template";
 import React from "react";
-import { DefaultContainer } from "../components/default-container";
-import { ColoredSubline } from "../components/colored-subline";
-import { Section } from "../components/section";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
+import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
+import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { PaperCarousel } from "../components/paper-carousel";
 import SEO from "../components/seo";
-import styles from "./styles.module.css";
 const Analyses: React.FC = () => {
   return (
     <BaseTemplate>

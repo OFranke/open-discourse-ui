@@ -1,5 +1,8 @@
-import { DefaultButton, DefaultButtonProps } from "./default-button";
-import { NextChakraLink } from "./next-chakra-link";
+import {
+  DefaultButton,
+  DefaultButtonProps,
+} from "@bit/limebit.limebit-ui.default-button";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 interface ButtonLinkProps extends DefaultButtonProps {
   href: string;
   isExternal?: boolean;

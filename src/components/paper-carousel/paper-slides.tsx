@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import { ColoredSubline } from "../colored-subline";
-import { DefaultText } from "../default-text";
+import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import styles from "./styles.module.css";
 
 const SlideWrapper: React.FC = ({ children }) => {

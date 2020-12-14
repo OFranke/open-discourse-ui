@@ -5,7 +5,7 @@ import { SearchResultRow } from "../hooks/use-manage-data";
 import { DownloadButton } from "./download-button";
 import { positions } from "../search-form";
 import { SpeechModal } from "../speech-modal";
-import { NextChakraLink } from "../../next-chakra-link";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 interface ResultTableProps {
   data: SearchResultRow[];

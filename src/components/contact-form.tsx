@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
-import { DefaultText } from "./default-text";
-import { DefaultButton } from "./default-button";
-import {
-  FaInstagramSquare,
-  FaFacebookSquare,
-  FaTwitterSquare,
-} from "react-icons/fa";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
+import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
+import { FaInstagramSquare, FaTwitterSquare } from "react-icons/fa";
 import {
   Stack,
   Box,

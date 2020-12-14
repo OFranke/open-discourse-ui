@@ -1,6 +1,6 @@
 import React from "react";
 import { useBreakpointValue, Box, BoxProps, Stack } from "@chakra-ui/react";
-import { DefaultText } from "./default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 
 export interface CalloutProps extends BoxProps {
   calloutText: string;

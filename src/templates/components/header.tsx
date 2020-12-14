@@ -12,10 +12,10 @@ import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
-import { DefaultContainer } from "../../components/default-container";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { useTheme } from "@emotion/react";
 import { NavItem } from "./nav-item";
-import { NextChakraLink } from "../../components/next-chakra-link";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);

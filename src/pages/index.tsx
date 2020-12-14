@@ -2,22 +2,22 @@ import { BaseTemplate } from "../templates/base-template";
 import { Stack, Box, SimpleGrid, UnorderedList } from "@chakra-ui/react";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta";
-import { DefaultContainer } from "../components/default-container";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
-import { DefaultText } from "../components/default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { Statistic } from "../components/statistic/index";
 import Image from "next/image";
 import { ProjectCard } from "../components/project-card";
-import { Quote } from "../components/quote";
+import { Quote } from "@bit/limebit.limebit-ui.quote";
 import SEO from "../components/seo";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { ButtonLink } from "../components/button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
-import { NextChakraLink } from "../components/next-chakra-link";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 const Home: React.FC = () => {
   return (

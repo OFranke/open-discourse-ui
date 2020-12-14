@@ -12,7 +12,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
-import { DefaultText } from "../../components/default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import React from "react";
 import { NextChakraLink } from "../next-chakra-link";
 
