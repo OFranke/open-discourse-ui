@@ -13,7 +13,7 @@ import {
   Flex,
   Textarea,
 } from "@chakra-ui/react";
-import { ButtonLink } from "./button-link";
+import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 interface Status {
   submitted: boolean;
   submitting: boolean;
@@ -94,7 +94,7 @@ export const ContactForm: React.FC = () => {
       </DefaultText>
       <Box display="inline-block" marginBottom="20">
         <Stack justifyContent="left" spacing="3">
-          <ButtonLink
+          <NextButtonLink
             href="https://www.instagram.com/opendiscourse.de/"
             justifyContent="left"
             colorScheme="pink"
@@ -110,7 +110,7 @@ export const ContactForm: React.FC = () => {
             >
               Instagram
             </DefaultText>
-          </ButtonLink>
+          </NextButtonLink>
           {/* <ButtonLink
             href="https://www.instagram.com/opendiscourse.de/"
             justifyContent="left"
@@ -127,7 +127,7 @@ export const ContactForm: React.FC = () => {
               Facebook
             </DefaultText>
           </ButtonLink> */}
-          <ButtonLink
+          <NextButtonLink
             href="https://twitter.com/OpenDiscourseDE"
             justifyContent="left"
             colorScheme="pink"
@@ -142,7 +142,7 @@ export const ContactForm: React.FC = () => {
             >
               Twitter
             </DefaultText>
-          </ButtonLink>
+          </NextButtonLink>
         </Stack>
       </Box>
       <Flex flexDirection={{ base: "column", md: "row" }}>

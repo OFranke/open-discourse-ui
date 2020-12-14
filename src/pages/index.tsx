@@ -14,7 +14,7 @@ import { ProjectCard } from "../components/project-card";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import SEO from "../components/seo";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
-import { ButtonLink } from "../components/button-link";
+import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
@@ -132,7 +132,7 @@ const Home: React.FC = () => {
             eigene umfassende Analysen der Sprache und Reaktionen des Bundestags
             von 1949 bis heute durchzuführen.
           </DefaultText>
-          <ButtonLink
+          <NextButtonLink
             colorScheme="pink"
             href="/tools-und-daten"
             marginTop={{
@@ -143,7 +143,7 @@ const Home: React.FC = () => {
             }}
           >
             Tools und Daten
-          </ButtonLink>
+          </NextButtonLink>
         </DefaultContainer>
       </Section>
       <Section background="pink.500" color="white">
@@ -242,7 +242,7 @@ const Home: React.FC = () => {
             />
           </SimpleGrid>
 
-          <ButtonLink
+          <NextButtonLink
             colorScheme="pink"
             href="/analysen"
             marginTop={{
@@ -253,7 +253,7 @@ const Home: React.FC = () => {
             }}
           >
             Analysen
-          </ButtonLink>
+          </NextButtonLink>
         </DefaultContainer>
       </Section>
       <Section background="pink.500" color="white">
@@ -339,7 +339,7 @@ const Home: React.FC = () => {
             Reproduzierbarkeit und Validierbarkeit/Falsifizierbarkeit aller
             Analysen und erfüllt somit den Anspruch der Wissenschaftlichkeit.
           </DefaultText>
-          <ButtonLink
+          <NextButtonLink
             colorScheme="pink"
             href="/methodik"
             marginTop={{
@@ -350,7 +350,7 @@ const Home: React.FC = () => {
             }}
           >
             Methodik
-          </ButtonLink>
+          </NextButtonLink>
         </DefaultContainer>
       </Section>
       <Section>
@@ -386,7 +386,7 @@ const Home: React.FC = () => {
             Verfügung zu stellen? Kontaktieren Sie uns gern!
           </DefaultText>
 
-          <ButtonLink
+          <NextButtonLink
             colorScheme="pink"
             href="/ueber-uns"
             marginTop={{
@@ -397,7 +397,7 @@ const Home: React.FC = () => {
             }}
           >
             Über uns
-          </ButtonLink>
+          </NextButtonLink>
         </DefaultContainer>
       </Section>
     </BaseTemplate>

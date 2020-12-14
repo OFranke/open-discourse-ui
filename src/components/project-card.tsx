@@ -1,4 +1,4 @@
-import { Card } from "./card";
+import { Card } from "@bit/limebit.limebit-ui.card";
 import { Text, Stack, Box, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
