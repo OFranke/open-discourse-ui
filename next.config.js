@@ -5,6 +5,7 @@ const {
 
 const { withPlugins, extend } = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
+const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 
 const envConfig = (phase) => {
   // when started in development mode `next dev` or `npm run dev` regardless of the value of STAGING environmental variable
@@ -33,6 +34,31 @@ const envConfig = (phase) => {
   };
 };
 
+const nextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          // {
+          //   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+          //   key: "Content-Security-Policy",
+          //   value:
+          //     "default-src 'self';font-src fonts.gstatic.com;style-src 'self' fonts.googleapis.com",
+          // },
+          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+          { key: "X-Content-Type-Options", value: "nosniff" },
+        ],
+      },
+    ];
+  },
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.plugins.push(new DuplicatePackageCheckerPlugin());
+    return config;
+  },
+};
 module.exports = extend(envConfig).withPlugins([
   [
     optimizedImages({
@@ -56,25 +82,5 @@ module.exports = extend(envConfig).withPlugins([
   ],
 
   // your other plugins here
-  {
-    async headers() {
-      return [
-        {
-          source: "/:path*",
-          headers: [
-            // {
-            //   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-            //   key: "Content-Security-Policy",
-            //   value:
-            //     "default-src 'self';font-src fonts.gstatic.com;style-src 'self' fonts.googleapis.com",
-            // },
-            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
-            { key: "X-Frame-Options", value: "SAMEORIGIN" },
-            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
-            { key: "X-Content-Type-Options", value: "nosniff" },
-          ],
-        },
-      ];
-    },
-  },
+  nextConfig,
 ]);
