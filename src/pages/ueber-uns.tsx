@@ -10,6 +10,10 @@ import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { ContactForm } from "../components/contact-form";
 import SEO from "../components/seo";
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 const Home: React.FC = () => {
   return (
     <BaseTemplate>

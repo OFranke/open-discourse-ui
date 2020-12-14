@@ -15,6 +15,10 @@ import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 const Home: React.FC = () => {
   return (
     <BaseTemplate>

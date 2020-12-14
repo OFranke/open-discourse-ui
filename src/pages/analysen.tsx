@@ -6,6 +6,11 @@ import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { PaperCarousel } from "../components/paper-carousel";
 import SEO from "../components/seo";
+
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 const Analyses: React.FC = () => {
   return (
     <BaseTemplate>
