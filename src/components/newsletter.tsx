@@ -7,7 +7,7 @@ export const Newsletter: React.FC = () => {
   return (
     <>
       <iframe
-        src="http://eepurl.com/gNedIP"
+        src="https://opendiscourse.us4.list-manage.com/subscribe/post?u=30a259be75440df1879f0b592&id=c65a7ccd1a"
         height={iframeHeight}
         width={iframeWidth}
       />
