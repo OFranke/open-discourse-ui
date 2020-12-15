@@ -169,10 +169,10 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.colored-subline@0.0.5":
-  version "0.0.5"
-  resolved "https://node.bit.dev/limebit.limebit-ui.colored-subline/-/limebit.limebit-ui.colored-subline-0.0.5.tgz#4f281fc11fa77c1654b0e1021332a6eae36b03c8"
-  integrity sha1-TygfwR+nfBZUsOECEzKm6uNrA8g=
+"@bit/limebit.limebit-ui.colored-subline@0.0.6":
+  version "0.0.6"
+  resolved "https://node.bit.dev/limebit.limebit-ui.colored-subline/-/limebit.limebit-ui.colored-subline-0.0.6.tgz#a9f6b41fa84e02aa0584670ed01bbc709bbe9623"
+  integrity sha1-qfa0H6hOAqoFhGcO0Bu8cJu+liM=
   dependencies:
     "@chakra-ui/react" "1.0.3"
     "@emotion/css" "11.0.0"

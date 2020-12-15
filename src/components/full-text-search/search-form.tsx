@@ -135,7 +135,7 @@ export const SearchForm: React.FC<FormParams> = () => {
                       )
                     : undefined
                 }
-                placeholder="Nach Politiker Filtern"
+                placeholder="Nach Politiker_Innen Filtern"
               />
               <DefaultSelectInput
                 rawData={convertedFactions}

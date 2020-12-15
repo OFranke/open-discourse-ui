@@ -36,7 +36,7 @@ const Home: React.FC = () => {
             Analyse von Plenarprotokollen für Mensch und Machine
           </DefaultHeadline> */}
           <ColoredSubline as="h2" backgroundColor="pink.500">
-            Wie Data Science den Weg zu politischen Diskurs demokratisiert
+            Wie Data Science den Weg zu politischem Diskurs demokratisiert
           </ColoredSubline>
           <DefaultText>
             Open Discourse hat die Plenarprotokolle des deutschen Bundestags
@@ -48,8 +48,8 @@ const Home: React.FC = () => {
             Die Datenbank hinter Open Discourse ist die erste granulare,
             umfassende und maschinenlesbare Aufbereitung jedes jemals
             gesprochenen Wortes in den Parlamentssitzungen des deutschen
-            Bundestages und ermöglicht gefilterte Recherchen in in den Reden,
-            Zwischenrufe und Anfragen der PolitkerInnen und Fraktionen.
+            Bundestages. Sie ermöglicht erstmalig gefilterte Recherchen in den
+            Reden und Zwischenrufen der Politker_Innen und Fraktionen.
           </DefaultText>
           <DefaultText>
             Für einen offenen Diskurs und eine wissenschaftliche
@@ -98,14 +98,14 @@ const Home: React.FC = () => {
             An der Schnittstelle zwischen Politikwissenschaft und Data Science
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Open Discourse erleichtet den Zugang zu über 800.000 Reden seit 1949
-            und ermöglicht eine strukturierte Stichwortrecherche auf der
-            Grundlage von Politikern, Koalitionen und Positionen.
+            Open Discourse erleichtert den Zugang zu über 800.000 Reden seit
+            1949 und ermöglicht eine strukturierte Stichwortrecherche auf der
+            Grundlage von Politiker_Innen, Koalitionen und Positionen.
           </ColoredSubline>
           <DefaultText>
             Mit Methoden der Informatik und Computerlinguistik haben wir alle
-            Reden, Zwischenrufe, Anfragen usw. der jeweiligen Politiker und
-            Fraktionen zugeordnet und durchsuchbar gemacht sowie zahlreiche
+            Reden, Zwischenrufe, Anfragen usw. den jeweiligen Politiker_Innen
+            und Fraktionen zugeordnet und durchsuchbar gemacht sowie zahlreiche
             Metainformationen hinzugefügt.
           </DefaultText>
           <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
@@ -114,23 +114,23 @@ const Home: React.FC = () => {
               verändert?
             </DefaultListItem>
             <DefaultListItem>
-              Wie ist die thematische Nähe von Politikern zueinander?
+              Wie ist die thematische Nähe von Politiker_Innen zueinander?
             </DefaultListItem>
             <DefaultListItem>
-              Wie hoch ist der relative Anteil von Frauen und Männern, die von
-              den verschiedenen Parteien sprechen?
+              Wie hoch ist der relative Anteil von Frauen und Männern, die als
+              Abgeordnete der verschiedenen Parteien sprechen?
             </DefaultListItem>
           </UnorderedList>
           <DefaultText>
-            Bürger, Journalisten und Wissenschaftler können jetzt den gesamten
-            Datensatz für ihre eigene Forschung herunterladen und auf Muster
-            untersuchen.
+            Bürger_Innen, Journalist_Innen und Wissenschaftler_Innen können
+            jetzt den gesamten Datensatz für ihre eigene Forschung herunterladen
+            und auf Muster untersuchen.
           </DefaultText>
           <DefaultText>
-            Nutze unsere Volltextsuche, um den politischen Diskurs im Bundestag
-            nachzuverfolgen und zu untersuchen oder downloade den Datensatz, um
-            eigene umfassende Analysen der Sprache und Reaktionen des Bundestags
-            von 1949 bis heute durchzuführen.
+            Nutzen Sie unsere Volltextsuche, um den politischen Diskurs im
+            Bundestag nachzuverfolgen und zu untersuchen oder downloaden Sie den
+            Datensatz, um eigene umfassende Analysen der Sprache und Reaktionen
+            des Bundestags von 1949 bis heute durchzuführen.
           </DefaultText>
           <NextButtonLink
             colorScheme="pink"
@@ -162,7 +162,7 @@ const Home: React.FC = () => {
             Auswertungen und Ergebnisse
           </DefaultHeadline>
           <DefaultText>
-            Die Datenbank ermöglicht komplexen Analyse der politischen Sprache
+            Die Datenbank ermöglicht komplexe Analysen der politischen Sprache
             und erlaubt die Reden auf Muster zu untersuchen.
           </DefaultText>
         </DefaultContainer>
@@ -208,7 +208,7 @@ const Home: React.FC = () => {
             Freier Zugang zur Datenbank
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteuren aus Politik,
+            Das Open Discourse Korpus steht Akteur_Innen aus Politik,
             Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
             freien Verfügung.
           </ColoredSubline>
@@ -216,7 +216,7 @@ const Home: React.FC = () => {
             <ProjectCard
               headline="Akademische Forschung"
               subline="Hypothetische Reden"
-              description='Der Datensatz wurde von Masterstudentinnen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittel Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
+              description='Der Datensatz wurde von Masterstudent_Innen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittels Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
               linkText="Mehr zum Projekt"
               linkHref="/analysen"
               imagePath="/images/logos/akademische_forschung_logo.svg"
@@ -225,7 +225,7 @@ const Home: React.FC = () => {
             <ProjectCard
               headline="CorrelAid"
               subline="Inhaltliche Analysen"
-              description="CorrelAid ist ein überparteiliches gemeinnütziges Netzwerk von Data Scientists, die die Welt durch Data Science verändern wollen. Ziel der Zusammenarbeit mit unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden und Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der Gründung des Bundestages gesprochen haben."
+              description="CorrelAid ist ein überparteiliches gemeinnütziges Netzwerk von Data Scientists, die die Welt durch die Arbeit mit Daten  verändern wollen. Ziel der Zusammenarbeit mit unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden, um Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der Gründung des Bundestages gesprochen haben."
               linkText="Mehr zum Projekt"
               linkHref="/analysen"
               imagePath="/images/logos/correlaid_logo.svg"
@@ -234,7 +234,7 @@ const Home: React.FC = () => {
             <ProjectCard
               headline="ZDFHeute"
               subline="Pandemiedebatte"
-              description="ZDFheute untersuchte die Plenarprotokolle des Deutschen Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich unsere Politikerinnen seit dem Jahr 1949  mit dem Stichwort “Pandemie” auseinandergesetzt hat."
+              description="ZDFheute untersuchte die Plenarprotokolle des Deutschen Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich unsere Politiker_innen seit dem Jahr 1949  mit dem Stichwort “Pandemie” auseinandergesetzt haben."
               linkText="Mehr zum Projekt"
               linkHref="/analysen"
               imagePath="/images/logos/zdf_heute_logo.jpg"
@@ -288,29 +288,20 @@ const Home: React.FC = () => {
           </DefaultText>
 
           <DefaultText>
-            Bisher lagen die Protokolle zwar auf den Serven des Bundestags, aber
-            die Einsicht in die Dokumenten ist umständlich und das Format der
-            Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
+            Bisher lagen die Protokolle zwar auf den Serven des Bundestages,
+            aber die Einsicht in die Dokumenten ist umständlich und das Format
+            der Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
             Open Discourse können Bürger_Innen, Journalist_Innen und
-            Wissenschaftler_Innen jetzt zugänglich und kostenfrei über die
+            Wissenschaftler_Innen jetzt leicht zugänglich und kostenfrei über
+            die{" "}
             <NextChakraLink color="pink.500" href="/tools-und-daten">
               Tools und Daten
-            </NextChakraLink>
+            </NextChakraLink>{" "}
             der Plattform die Plenarprotokolle nach Stichworten, Politiker_Innen
             und Ämtern durchsuchen und die Ergebnisse für Ihre Arbeit, Forschung
             und natürlich für das eigene Interesse nutzen.
           </DefaultText>
         </DefaultContainer>
-      </Section>
-      <Section>
-        <Image
-          src={"/images/sample/team_outside.png"}
-          alt={"Team draußen"}
-          layout="responsive"
-          width="1440px"
-          height="700px"
-          quality="75"
-        />
       </Section>
       <Section>
         <DefaultContainer size="l">
@@ -319,9 +310,19 @@ const Home: React.FC = () => {
           <ColoredSubline backgroundColor="pink.500">
             Data Science trifft auf Plenarprotokolle
           </ColoredSubline>
+          <Box marginBottom={{ base: 5, md: 10, lg: 10 }}>
+            <Image
+              src={"/images/regex_erkennung.png"}
+              alt={"Mustererkennung "}
+              layout="responsive"
+              width="1440px"
+              height="700px"
+              quality="75"
+            />
+          </Box>
           <DefaultText>
             Wir haben mit verschiedenen Methoden der Informatik und
-            Computerlinguistik die Plenarprotokolle aufgebrochen und haben alle
+            Computerlinguistik die Plenarprotokolle aufgebrochen und alle
             Redebeiträge, Zwischenrufe, Rückfragen etc. der jeweiligen
             Politiker_Innen und Fraktionen zugeordnet und durchsuchbar gemacht.
           </DefaultText>
@@ -372,15 +373,16 @@ const Home: React.FC = () => {
           <DefaultText>
             Open Discourse ist ein gemeinnütziges Forschungs- und
             Entwicklungsprojekt.
-            <br />
-            <br />
+          </DefaultText>
+          <DefaultText>
             Das Open Discourse Korpus ist selbstfinanziert, unabhängig und aus
             den Fähigkeiten und Motivationen der Mitarbeiter_Innen der Limebit
             GmbH gewachsen. Die Plattform ist unser Beitrag zur Demokratisierung
-            des Zugangs politischer Themen und Akteure_Innen und eine
+            des Zugangs politischer Themen und Akteur_Innen und eine
             Herzensangelegenheit.
-            <br />
-            <br />
+          </DefaultText>
+
+          <DefaultText>
             Möchten Sie uns Feedback geben oder haben Sie Interesse Ihre
             Fähigkeiten, Ideen oder Ihr Netzwerk in irgendeiner Form zur
             Verfügung zu stellen? Kontaktieren Sie uns gern!
