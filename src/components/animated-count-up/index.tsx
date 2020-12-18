@@ -1,5 +1,5 @@
-import { Text, Box, Tr } from "@chakra-ui/react";
-import { animate, useAnimation } from "framer-motion";
+import { Text, Box } from "@chakra-ui/react";
+import { animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 
@@ -24,8 +24,8 @@ export const AnimatedCountUp: React.FC<AnimatedCountUpProps> = ({
     function isInViewbox() {
       if (
         nodeRef.current?.getBoundingClientRect() &&
-        nodeRef.current?.getBoundingClientRect().top >= 0 &&
-        nodeRef.current?.getBoundingClientRect().bottom <=
+        nodeRef.current.getBoundingClientRect().top >= 0 &&
+        nodeRef.current.getBoundingClientRect().bottom <=
           (window.innerHeight || document.documentElement.clientHeight)
       ) {
         setInviewbox(true);
