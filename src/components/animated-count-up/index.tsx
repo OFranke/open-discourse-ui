@@ -42,7 +42,9 @@ export const AnimatedCountUp: React.FC<AnimatedCountUpProps> = ({
       duration: 1,
       onUpdate(value) {
         if (nodeRef.current) {
-          nodeRef.current.textContent = value.toFixed(0);
+          nodeRef.current.textContent = value
+            .toFixed(0)
+            .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
         }
       },
     });
