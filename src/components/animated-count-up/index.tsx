@@ -9,14 +9,16 @@ interface AnimatedCountUpProps {
   from: number;
   to: number;
   subline: string;
+  color: string;
 }
 export const AnimatedCountUp: React.FC<AnimatedCountUpProps> = ({
   from,
   to,
   subline,
+  color,
 }) => {
   const nodeRef = useRef<HTMLParagraphElement>(null);
-  const barRef = useRef<HTMLSpanElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
   const [inviewbox, setInviewbox] = useState(false);
   useEffect(() => {
     function isInViewbox() {
@@ -60,12 +62,14 @@ export const AnimatedCountUp: React.FC<AnimatedCountUpProps> = ({
         />
 
         <Box className={styles.meter}>
-          <span style={{ width: "100%" }}>
-            <span
+          <Box as={"span"} style={{ width: "100%" }}>
+            <Box
+              as={"span"}
               className={inviewbox ? styles.progress : undefined}
+              backgroundColor={color}
               ref={barRef}
-            ></span>
-          </span>
+            ></Box>
+          </Box>
         </Box>
       </Box>
       <DefaultText>{subline}</DefaultText>

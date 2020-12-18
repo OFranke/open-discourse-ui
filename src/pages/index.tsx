@@ -69,6 +69,7 @@ const Home: React.FC = () => {
                 from={100000}
                 to={331197}
                 subline="Seiten Text"
+                color="black"
               ></AnimatedCountUp>
             </Box>
 
@@ -77,6 +78,7 @@ const Home: React.FC = () => {
                 from={100000}
                 to={846628}
                 subline="Redebeiträge"
+                color="pink.500"
               ></AnimatedCountUp>
             </Box>
             <Box>
@@ -84,6 +86,7 @@ const Home: React.FC = () => {
                 from={1000000}
                 to={2255102}
                 subline="Reaktionen & Zwischenrufe"
+                color="#FFF78E"
               ></AnimatedCountUp>
             </Box>
           </Stack>
