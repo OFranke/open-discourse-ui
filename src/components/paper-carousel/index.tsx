@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import styles from "./styles.module.css";
-import { Slide1, Slide2 } from "./paper-slides";
+import { Slide1, Slide2, Slide3, Slide4 } from "./paper-slides";
 import {
   DefaultContainer,
   containerSizes,
@@ -114,20 +114,25 @@ export const PaperCarousel: React.FC = () => {
               settings: {
                 slidesToShow: 1,
                 swipeToSlide: true,
+                infinite: true,
               },
             },
             {
               breakpoint: 768,
               settings: {
                 slidesToShow: 2,
+                swipeToSlide: true,
+                infinite: true,
               },
             },
             {
               breakpoint: 1024,
               settings: {
                 slidesToShow: 3,
-                centerMode: false,
+                swipeToSlide: true,
                 infinite: false,
+                // centerMode: false,
+                // infinite: false,
               },
             },
           ]}
@@ -136,19 +141,19 @@ export const PaperCarousel: React.FC = () => {
             <NavigationSlide slideId={0} activeSlideId={navState.activeSlide}>
               <Box
                 width={{
-                  base: "65px",
-                  sm: "65px",
-                  md: "80px",
-                  lg: "120px",
-                  xl: "120px",
+                  base: "50px",
+                  sm: "50px",
+                  md: "65px",
+                  lg: "100px",
+                  xl: "100px",
                 }}
               >
                 <Image
-                  src={"/images/logos/akademische_forschung_logo.svg"}
-                  alt={"Open Discourse Logo"}
+                  src={"/images/logos/zdf_heute_logo.jpg"}
+                  alt={"ZDFHeute Logo"}
                   layout="responsive"
-                  width="1280px"
-                  height="944px"
+                  width="900px"
+                  height="900px"
                   quality="75"
                 />
               </Box>
@@ -166,8 +171,8 @@ export const PaperCarousel: React.FC = () => {
                 }}
               >
                 <Image
-                  src={"/images/logos/correlaid_logo.svg"}
-                  alt={"Open Discourse Logo"}
+                  src={"/images/logos/ccc_logo.svg"}
+                  alt={"Chaos Computer Club Logo"}
                   layout="responsive"
                   width="515px"
                   height="645px"
@@ -180,19 +185,41 @@ export const PaperCarousel: React.FC = () => {
             <NavigationSlide slideId={2} activeSlideId={navState.activeSlide}>
               <Box
                 width={{
-                  base: "50px",
-                  sm: "50px",
-                  md: "65px",
-                  lg: "100px",
-                  xl: "100px",
+                  base: "65px",
+                  sm: "65px",
+                  md: "80px",
+                  lg: "120px",
+                  xl: "120px",
                 }}
               >
                 <Image
-                  src={"/images/logos/zdf_heute_logo.jpg"}
-                  alt={"Open Discourse Logo"}
+                  src={"/images/logos/akademische_forschung_logo.svg"}
+                  alt={"Bild zur Darstellung akademischer Forschung"}
                   layout="responsive"
-                  width="900px"
-                  height="900px"
+                  width="1280px"
+                  height="944px"
+                  quality="75"
+                />
+              </Box>
+            </NavigationSlide>
+          </div>
+          <div>
+            <NavigationSlide slideId={3} activeSlideId={navState.activeSlide}>
+              <Box
+                width={{
+                  base: "40px",
+                  sm: "40px",
+                  md: "50px",
+                  lg: "75px",
+                  xl: "75px",
+                }}
+              >
+                <Image
+                  src={"/images/logos/correlaid_logo.svg"}
+                  alt={"Correlaid Logo"}
+                  layout="responsive"
+                  width="515px"
+                  height="645px"
                   quality="75"
                 />
               </Box>
@@ -214,7 +241,7 @@ export const PaperCarousel: React.FC = () => {
         <div>
           <Box
             display={displayBgImage}
-            className={displayBgImage && styles.backgroundImageOpenDiscourse}
+            className={displayBgImage && styles.backgroundImageZdf}
             height={"60vh"}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
@@ -227,7 +254,7 @@ export const PaperCarousel: React.FC = () => {
         <div>
           <Box
             display={displayBgImage}
-            className={displayBgImage && styles.backgroundImageFom}
+            className={displayBgImage && styles.backgroundImageCCC}
             height={"60vh"}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
@@ -240,14 +267,27 @@ export const PaperCarousel: React.FC = () => {
         <div>
           <Box
             display={displayBgImage}
-            className={displayBgImage && styles.backgroundImageZdf}
+            className={displayBgImage && styles.backgroundImageFom}
             height={"60vh"}
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
           />
           <DefaultContainer size="l" marginTop={bgNegativeMargin}>
-            <Slide1 />
+            <Slide3 />
+          </DefaultContainer>
+        </div>
+        <div>
+          <Box
+            display={displayBgImage}
+            className={displayBgImage && styles.backgroundImageCorrelaid}
+            height={"60vh"}
+            backgroundPosition="center"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+          />
+          <DefaultContainer size="l" marginTop={bgNegativeMargin}>
+            <Slide4 />
           </DefaultContainer>
         </div>
       </Slider>

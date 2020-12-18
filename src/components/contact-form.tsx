@@ -88,9 +88,9 @@ export const ContactForm: React.FC = () => {
         textTransform="uppercase"
         marginBottom="10"
       >
-        Falls ihr Feedback habt oder Open Discourse mit spannenden Ideen
-        unterstützen wollt, kontaktiert uns immer gerne. Wir freuen uns auf
-        euch!
+        Falls Sie Feedback für uns haben oder Open Discourse mit spannenden
+        Ideen unterstützen wollen, kontaktieren Sie uns gerne. Wir freuen uns
+        über Ihre Nachricht!
       </DefaultText>
       <Box display="inline-block" marginBottom="20">
         <Stack justifyContent="left" spacing="3">
@@ -106,7 +106,7 @@ export const ContactForm: React.FC = () => {
             <DefaultText
               fontSize={{ base: "md", md: "md", xl: "2xl" }}
               fontWeight="bold"
-              margin="0"
+              marginBottom="0px"
             >
               Instagram
             </DefaultText>
@@ -138,7 +138,7 @@ export const ContactForm: React.FC = () => {
             <DefaultText
               fontSize={{ base: "md", md: "md", xl: "2xl" }}
               fontWeight="bold"
-              margin="0"
+              marginBottom="0px"
             >
               Twitter
             </DefaultText>
@@ -217,7 +217,7 @@ export const ContactForm: React.FC = () => {
             </DefaultText>
             <DefaultText as="div">
               Limebit GmbH <br />
-              Prinz-Eugen-Straße 38 <br />
+              Prinz-Eugen-Straße 17A <br />
               13347 Berlin
             </DefaultText>
           </Box>

@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
+import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 
 export const HeroWithCta = () => {
   return (
@@ -36,7 +37,18 @@ export const HeroWithCta = () => {
             Analyse von Plenarprotokollen für Mensch und Maschine
           </DefaultHeadline>
           <Box>
-            <DefaultButton colorScheme="pink">Zur Volltextsuche</DefaultButton>
+            <NextButtonLink
+              colorScheme="pink"
+              href="/tools-und-daten"
+              marginTop={{
+                base: "4",
+                md: "4",
+                lg: "6",
+                xl: "8",
+              }}
+            >
+              Zur Volltextsuche
+            </NextButtonLink>
           </Box>
         </DefaultContainer>
       </Flex>

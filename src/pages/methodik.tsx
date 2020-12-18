@@ -192,9 +192,9 @@ const Home: React.FC = () => {
                   gepflegt.
                 </DefaultListItem>
                 <DefaultListItem>
-                  Es gibt seltene Fälle, in denen Politiker*Innen Mitglied der
+                  Es gibt seltene Fälle, in denen Politiker_Innen Mitglied der
                   Regierung (MG) sind und nie ein Mandat als Abgeordnete hatten.
-                  Diese Politiker*Innen sind in den oben genannten Stammdaten
+                  Diese Politiker_Innen sind in den oben genannten Stammdaten
                   nicht enthalten. Daher werden die{" "}
                   <NextChakraLink
                     color="pink.500"
@@ -314,7 +314,7 @@ const Home: React.FC = () => {
           <DefaultText>
             Mögliche Forschungsfragen könnten z.B. sein:
           </DefaultText>
-          <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+          {/* <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
             <DefaultListItem>
               Wie variiert die politische Sprache abhängig vom jeweiligen
               Themengebiet und abhängig von der Zeit?
@@ -331,7 +331,7 @@ const Home: React.FC = () => {
             <DefaultListItem>
               Überprüfung von Haltungen spezifischer Abgeordneter
             </DefaultListItem>
-          </UnorderedList>
+          </UnorderedList> */}
           <DefaultText>
             Wir stellen unsere{" "}
             <NextChakraLink

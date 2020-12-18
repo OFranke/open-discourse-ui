@@ -29,7 +29,7 @@ const Search: React.FC = () => {
           <DefaultHeadline size="s">Volltextsuche</DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
             Hier können Sie Datenbank nach Stichworten, Politiker_Innen,
-            Fraktionen oder Positionen durchsuchen.
+            Fraktionen oder Rollen der Politiker_Innen durchsuchen.
           </ColoredSubline>
           <DefaultText>
             Mit der Volltextsuche können Sie alle verfügbaren Plenarprotokollen
@@ -37,16 +37,16 @@ const Search: React.FC = () => {
             somit in den Redebeiträgen unserer Politiker_Innen zielgerichtet
             stöbern.
           </DefaultText>
-          <Callout
-            calloutText="Im Positionsfeld kann entweder eine Partei oder ein Amt ausgewählt
-        werden. Es müssen nicht alle Felder ausgefüllt sein, um ein Suchergebnis
-        zu erhalten."
-          />
+          <Callout calloutText="Aktuell werden nur die 50 ersten Suchergebnisse ausgegeben, um sicherzustellen, dass unsere Datenbank alle Suchanfragen beantworten kann. Wir beabsichtigen dieses Limit zeitnah zu erhöhen, um die Recherche in den Daten noch weiter zu vereinfachen." />
           <DefaultText>
-            In Übereinstimmung Ihren Filtereinstellungen werden Ihnen die
-            gefilterten Redebeiträge der Politiker_Innen angezeigt, das
-            dazugehörige Datum, die URL zum Originalprotokoll und der
-            spezifische Redebeitrag.
+            In Übereinstimmung mit Ihren Filtereinstellungen werden Ihnen die
+            relevantesten Redebeiträge angezeigt. In der Spalte “Rede” können
+            sie sich den jeweiligen Redebeitrag direkt anschauen und in der
+            Spalte “URL” finden Sie den Verweis zum original Plenarprotokoll.
+            Zusätzlich können Sie die Kästchen in der Spalte “Herunterladen”
+            anklicken, um eine Auswahl als CSV Datei zu exportieren. Alternativ
+            finden Sie unter der Tabelle auch die Schaltfläche “Alles
+            Herunterladen”, um alle Einträge zu exportieren.
           </DefaultText>
         </DefaultContainer>
       </Section>
@@ -75,36 +75,26 @@ const Search: React.FC = () => {
             einfach eigenständig durchstöbern?
           </ColoredSubline>
           <DefaultText>
-            Wir stellen unsere aufbereitete Datenbank*{" "}
-            <NextChakraLink
-              color="pink.500"
-              href="https://dataverse.harvard.edu/dataverse/opendiscourse "
-              isExternal
-            >
-              an dieser Stelle <ExternalLinkIcon mx="2px" />
-            </NextChakraLink>{" "}
-            open source zur Verfügung und geben die Nutzung, Weiterverwendung
-            und Weiterverbreitung frei. Wir würden uns freuen, wenn ihr bei
-            Nutzung des Datensatzes unser Data Paper zitiert:
+            Wir stellen unsere aufbereitete Datenbank* open source zur Verfügung
+            und geben die Nutzung, Weiterverwendung und Weiterverbreitung frei.
+            Wir würden uns freuen, wenn ihr bei Nutzung des Datensatzes unser
+            Data Paper zitiert:
           </DefaultText>
-          <DefaultText>
+          <DefaultText fontStyle="italic">
             <q>
-              Zitierweise, 2019, blablabla, hier und da SozArxiv und so shit
-              dummy-zitierweise hihi
+              Richter, Florian; Koch, Philipp; Franke, Oliver; Kraus, Jakob;
+              Kuruc, Fabrizio; Thiem, Anja; Högerl, Judith; Heine, Stella;
+              Schöps, Konstantin, 2020, "Open Discourse",
+              https://doi.org/10.7910/DVN/FIKIBO, Harvard Dataverse
             </q>
           </DefaultText>
           <DefaultText>
-            Wir arbeiten gerade an einer detaillierte Dokumentation über die
-            Daten befindet sich (Preprint) Publikation “Open Discourse - The
-            first fully Comprehensive Corpus of the parliamentary Protocols of
-            the German Bundestag” mit der DOI: XXXXXXXXXXX. Unser Ziel soll
-            sein, dass dieser Datensatz für wissenschaftliche Zwecke gebraucht
-            werden kann.
+            Wir arbeiten gerade an einer detaillierten, wissenschaftlichen
+            Dokumentation über das Open DIscourse Korpus. Wir hoffen dieses Data
+            Paper in Q1 2021 zu veröffentlichen - die entsprechenden
+            Informationen finden Sie dann ebenfalls hier.
           </DefaultText>
-          <DefaultText>
-            Sie finden die Rohdaten bzw. die Datenbank und ein Codebook zu den
-            einzelnen Datenbanktabellen und Variablen im Harvard Dataverse.
-          </DefaultText>
+
           <DefaultText>
             <NextChakraLink
               color="pink.500"
