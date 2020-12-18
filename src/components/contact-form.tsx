@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { DefaultHeadline } from "./default-headline";
-import { DefaultText } from "./default-text";
-import { DefaultButton } from "./default-button";
-import {
-  FaInstagramSquare,
-  FaFacebookSquare,
-  FaTwitterSquare,
-} from "react-icons/fa";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
+import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
+import { FaInstagramSquare, FaTwitterSquare } from "react-icons/fa";
 import {
   Stack,
   Box,
@@ -17,7 +13,7 @@ import {
   Flex,
   Textarea,
 } from "@chakra-ui/react";
-import { ButtonLink } from "./button-link";
+import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 interface Status {
   submitted: boolean;
   submitting: boolean;
@@ -92,13 +88,13 @@ export const ContactForm: React.FC = () => {
         textTransform="uppercase"
         marginBottom="10"
       >
-        Falls ihr Feedback habt oder Open Discourse mit spannenden Ideen
-        unterstützen wollt, kontaktiert uns immer gerne. Wir freuen uns auf
-        euch!
+        Falls Sie Feedback für uns haben oder Open Discourse mit spannenden
+        Ideen unterstützen wollen, kontaktieren Sie uns gerne. Wir freuen uns
+        über Ihre Nachricht!
       </DefaultText>
       <Box display="inline-block" marginBottom="20">
         <Stack justifyContent="left" spacing="3">
-          <ButtonLink
+          <NextButtonLink
             href="https://www.instagram.com/opendiscourse.de/"
             justifyContent="left"
             colorScheme="pink"
@@ -110,11 +106,11 @@ export const ContactForm: React.FC = () => {
             <DefaultText
               fontSize={{ base: "md", md: "md", xl: "2xl" }}
               fontWeight="bold"
-              margin="0"
+              marginBottom="0px"
             >
               Instagram
             </DefaultText>
-          </ButtonLink>
+          </NextButtonLink>
           {/* <ButtonLink
             href="https://www.instagram.com/opendiscourse.de/"
             justifyContent="left"
@@ -131,7 +127,7 @@ export const ContactForm: React.FC = () => {
               Facebook
             </DefaultText>
           </ButtonLink> */}
-          <ButtonLink
+          <NextButtonLink
             href="https://twitter.com/OpenDiscourseDE"
             justifyContent="left"
             colorScheme="pink"
@@ -142,11 +138,11 @@ export const ContactForm: React.FC = () => {
             <DefaultText
               fontSize={{ base: "md", md: "md", xl: "2xl" }}
               fontWeight="bold"
-              margin="0"
+              marginBottom="0px"
             >
               Twitter
             </DefaultText>
-          </ButtonLink>
+          </NextButtonLink>
         </Stack>
       </Box>
       <Flex flexDirection={{ base: "column", md: "row" }}>
@@ -221,7 +217,7 @@ export const ContactForm: React.FC = () => {
             </DefaultText>
             <DefaultText as="div">
               Limebit GmbH <br />
-              Prinz-Eugen-Straße 38 <br />
+              Prinz-Eugen-Straße 17A <br />
               13347 Berlin
             </DefaultText>
           </Box>

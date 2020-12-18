@@ -8,7 +8,7 @@ import {
   FormParams,
   DefaultSelectInput,
 } from "./custom-inputs";
-import { DefaultButton } from "../default-button";
+import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 
 export interface Faction {
   id: string;
@@ -135,7 +135,7 @@ export const SearchForm: React.FC<FormParams> = () => {
                       )
                     : undefined
                 }
-                placeholder="Nach Politiker Filtern"
+                placeholder="Nach Politiker_Innen Filtern"
               />
               <DefaultSelectInput
                 rawData={convertedFactions}

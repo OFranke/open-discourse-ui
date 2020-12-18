@@ -1,19 +1,21 @@
 import { BaseTemplate } from "../templates/base-template";
 import SEO from "../components/seo";
-import { Section } from "../components/section";
-import { DefaultContainer } from "../components/default-container";
-import { DefaultHeadline } from "../components/default-headline";
-import { ColoredSubline } from "../components/colored-subline/index";
-import { DefaultText } from "../components/default-text";
-import { UnorderedList } from "@chakra-ui/react";
+import { Section } from "@bit/limebit.limebit-ui.section";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
+import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
+import { Code, UnorderedList, Box } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
-import { Quote } from "../components/quote";
+import { Quote } from "@bit/limebit.limebit-ui.quote";
 import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta/index";
-import { Tagline } from "../components/tagline";
-import { NextChakraLink } from "../components/next-chakra-link";
+import { Tagline } from "@bit/limebit.limebit-ui.tagline";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
+import { Newsletter } from "../components/newsletter";
+import ConditionallyRender from "../components/conditionally-render";
 
 const Home: React.FC = () => {
   return (
@@ -34,10 +36,10 @@ const Home: React.FC = () => {
           <ColoredSubline backgroundColor="pink.500">
             Der Deutsche Bundestag ist das parlamentarische Herz unserer
             Demokratie. In unserem Grundgesetz ist festgeschrieben, dass der
-            Bundestag öffentlich verhandelt soll.
+            Bundestag öffentlich verhandeln soll.
           </ColoredSubline>
           <DefaultText>
-            Seit 1949 für jede Plenarsitzung ein stenografischer Bericht
+            SSeit 1949 wird für jede Plenarsitzung ein stenografischer Bericht
             angefertigt, der jedes gesagte Wort der Sitzung dokumentiert. Diese
             Protokolle liegen als txt-, xml-, oder pdf-Dokumente auf den{" "}
             <NextChakraLink
@@ -45,14 +47,13 @@ const Home: React.FC = () => {
               href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
               isExternal
             >
-              {" "}
               Servern des Bundestages <ExternalLinkIcon mx="2px" />
             </NextChakraLink>{" "}
             und sind öffentlich abrufbar.
           </DefaultText>
 
           <DefaultText>
-            Die Protokolle und Transkripte der parlamentarischer Debatten sind
+            Die Protokolle und Transkripte der parlamentarischen Debatten sind
             eine reichhaltige Informationsquelle für Forschungsfragen. Die
             öffentlichen Dateiformate entsprechen jedoch leider noch nicht den
             Anforderungen für die Datenverarbeitung im digitalen Zeitalter.
@@ -60,16 +61,16 @@ const Home: React.FC = () => {
           <DefaultText>
             Vor Open Discourse waren die Dokumente für die Öffentlichkeit nicht
             maschinenlesbar. Jede Recherche stellte einen langwierigen,
-            händischen Prozess dar und für Wissenschaftler_Innen war es nahezu
-            unmöglich, alle Texte manuell zu lesen und zu analysieren.
+            händischen Prozess dar, der es nahezu unmöglich machte, alle Texte
+            manuell zu lesen und zu analysieren.
           </DefaultText>
         </DefaultContainer>
       </Section>
       <Section background="pink.500" color="white">
         <DefaultContainer size="s">
           <Quote>
-            Eine technologische Lösung mit den technischen Mitteln ist schon
-            lange erforderlich.
+            Eine Lösung mit den technischen Mitteln des 21. Jahrhunderts ist
+            schon lange erforderlich.
           </Quote>
         </DefaultContainer>
       </Section>
@@ -100,16 +101,16 @@ const Home: React.FC = () => {
               <ExternalLinkIcon mx="2px" />
             </NextChakraLink>{" "}
             die Tatsache, dass sich die deutsche Forschung traditionell auf die
-            politische Ideengeschichte ausgerichtete und die theoretische und
-            methodische Rahmenbedingungen lange fehlten, um Dokumente wie die
+            politische Ideengeschichte ausrichtete und die theoretischen und
+            methodischen Rahmenbedingungen lange fehlten, um Dokumente wie die
             Plenarprotokolle in die Forschung einzubeziehen.
           </DefaultText>
           <DefaultText>
             Wir haben es uns zur Aufgabe gemacht, die im Grundgesetz definierte
             Öffentlichkeit des Bundestages durch moderne Wege der
             Datenverarbeitung wieder herzustellen, um jeder Bürgerin und jedem
-            Bürger - als auch die Möglichkeit zu geben, den politischen Diskurs
-            zu verfolgen und zu untersuchen.
+            Bürger die Möglichkeit zu geben, den politischen Diskurs zu
+            verfolgen und zu untersuchen.
           </DefaultText>
         </DefaultContainer>
       </Section>
@@ -118,21 +119,20 @@ const Home: React.FC = () => {
           <Tagline>Woher kommen die Daten?</Tagline>
           <DefaultHeadline size="s">Die Plenarprotokolle</DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus basiert auf drei verschiedenen unten
+            Das Open Discourse Korpus basiert auf drei verschiedenen, unten
             aufgeführten Datenquellen, deren unterschiedliche Formate und
             Inhalte miteinander verknüpft wurden.
           </ColoredSubline>
           <DefaultText>
-            Das Open Discourse-Korpus besteht aus den Plenarprotokollen, die für
+            Das Open Discourse Korpus besteht aus den Plenarprotokollen, die für
             jede Parlamentssitzung des Deutschen Bundestages erstellt werden.
             Diese Berichte dokumentieren jede Rede im Parlament sowie jede
-            Einmischung und andere Arten von Beiträgen (Lachen, Fröhlichkeit,
+            Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
             Applaus usw.) der Politker_Innen, die während der Reden stattfanden.
-            Insgesamt besteht das Korpus aus 219.695,231 Tokens (202,553,267
-            Tokens aus Reden; 17,161,964 Tokens aus Beiträgen) aus 890,796 Reden
-            in 4,265 verarbeiteten Protokollen. Das Open Discourse-Korpus deckt
-            insgesamt 99,7 Prozent aller Plenarprotokolle des Deutschen
-            Bundestages ab.
+            Insgesamt besteht das Korpus aus über 200 Millionen Tokens aus fast
+            900.000 Reden in mehr als 4,200 verarbeiteten Protokollen. Das Open
+            Discourse Korpus deckt insgesamt 99,7 Prozent aller Plenarprotokolle
+            des Deutschen Bundestages ab.
           </DefaultText>
           <DefaultText>
             Im Jahr 2013 hat der Deutsche Bundestag das{" "}
@@ -141,21 +141,17 @@ const Home: React.FC = () => {
               href="https://www.gesetze-im-internet.de/egovg/"
               isExternal
             >
-              {" "}
               E-Government-Gesetz (EGovG) <ExternalLinkIcon mx="2px" />
             </NextChakraLink>{" "}
             verabschiedet. Erst mit diesem Gesetz verpflichtete sich die
             Regierung, Regierungsdokumente und Daten von öffentlichem Interesse
             in einem maschinenlesbaren Format bereitzustellen. Darüber hinaus
-            unterwirft das Gesetz diesen Dokumenten uneingeschränkte
-            Nutzungsrechte und Verwertungsrechte (offene Daten). Infolgedessen
-            gibt keine wesentlichen rechtlichen Hindernisse für die Verwendung,
-            Verarbeitung und Wiederverwendung dieser Dokumente.
+            definiert dieses Gesetz uneingeschränkte Nutzungs- und
+            Verwertungsrechte für diese Daten (open Data).
           </DefaultText>
           <DefaultText>
-            Das Open Discourse-Korpus basiert auf drei verschiedenen unten
-            aufgeführten Datenquellen. Ein XML-Umwandlung der Dokumenten war
-            erforderlich, um die Dokumente maschienenlesbar zu nutzen:
+            Das Open Discourse-Korpus basiert auf drei verschiedenen, unten
+            aufgeführten Datenquellen.
           </DefaultText>
 
           <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
@@ -166,7 +162,7 @@ const Home: React.FC = () => {
                 href="https://www.bundestag.de/services/opendata"
                 isExternal
               >
-                Parlamentsprotokolle vom Deutschen Bundestag
+                Parlamentsprotokolle des Deutschen Bundestages
                 <ExternalLinkIcon mx="2px" />
               </NextChakraLink>
             </DefaultListItem>
@@ -196,9 +192,9 @@ const Home: React.FC = () => {
                   gepflegt.
                 </DefaultListItem>
                 <DefaultListItem>
-                  Es gibt seltene Fälle, in denen Politiker Mitglied der
-                  Regierung (MG) sind und nie ein Mandat als Abgeordneter
-                  hatten. Diese Politiker sind in den oben genannten Stammdaten
+                  Es gibt seltene Fälle, in denen Politiker_Innen Mitglied der
+                  Regierung (MG) sind und nie ein Mandat als Abgeordnete hatten.
+                  Diese Politiker_Innen sind in den oben genannten Stammdaten
                   nicht enthalten. Daher werden die{" "}
                   <NextChakraLink
                     color="pink.500"
@@ -208,60 +204,12 @@ const Home: React.FC = () => {
                     Namen aller MG aus der deutschen Wikipedia
                     <ExternalLinkIcon mx="2px" />
                   </NextChakraLink>{" "}
-                  übernommen und mit den Stammdaten zusammengeführt
+                  übernommen und mit den Stammdaten zusammengeführt.
                 </DefaultListItem>
               </UnorderedList>
             </DefaultListItem>
             <br />
           </UnorderedList>
-          <DefaultText>
-            Neben Open Discourse möchten wir noch zwei weitere Projekte
-            hervorstellen, die sich mit den Korpora des Deutschen Bundestags
-            beschäftigt haben:
-            <NextChakraLink
-              color="pink.500"
-              href="https://github.com/PolMine/GermaParlTEI"
-              isExternal
-            >
-              {" "}
-              GermaParl
-              <ExternalLinkIcon mx="2px" />
-            </NextChakraLink>{" "}
-            und
-            <NextChakraLink
-              color="pink.500"
-              href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/E4RSP9"
-              isExternal
-            >
-              {" "}
-              ParlSpeech. <ExternalLinkIcon mx="2px" />
-            </NextChakraLink>{" "}
-          </DefaultText>
-          <DefaultText>
-            Im direkten Vergleich ist erkennbar, dass das Korpus von Open
-            Discourse bereits frühere Legislaturperioden umfasst und somit eine
-            umfassende, nahezu vollständige Maschienenlesbarkeit ermöglicht:
-          </DefaultText>
-          <DefaultText
-            marginBottom={{
-              base: "4",
-              md: "10",
-              lg: "12",
-              xl: "20",
-            }}
-          >
-            Im direkten Vergleich ist erkennbar, dass das Korpus von Open
-            Discourse bereits frühere Legislaturperioden umfasst und somit eine
-            umfassende, nahezu vollständige Maschienenlesbarkeit ermöglicht:
-          </DefaultText>
-          <Image
-            src={"/images/statistics/wer_kommt_zu_wort.png"}
-            alt={"imageAlt"}
-            layout="responsive"
-            width="1024px"
-            height="512px"
-            quality="75"
-          />
         </DefaultContainer>
       </Section>
       <Section>
@@ -300,13 +248,25 @@ const Home: React.FC = () => {
             bisher nicht (ohne großen Aufwand) beantwortbar waren.
           </DefaultText>
           <Image
-            src={"/images/statistics/wer_kommt_zu_wort.png"}
+            src={"/images/regex_erkennung.png"}
             alt={"imageAlt"}
             layout="responsive"
             width="1024px"
             height="512px"
             quality="75"
           />
+          <Box display={{ base: "none", lg: "initial" }}>
+            <DefaultText>
+              Mögliche Grafik (obere) aus folgendem Regex-Pattern:
+            </DefaultText>
+            <Code display="block" border="1px solid" padding="4">
+              <DefaultText>
+                {
+                  "(?:(?<=()|(?<=[-––]s)|(?<=[––])|(?<=[-––].s)|(?<=s[-––])|(?<=[Hh]eiterkeits)|(?<=[Ll]achens)|(?<=[Ww]eiterers)|(?<=[Ww]eiteres)|(?<=[Ee]rneuters)|(?<=[Ee]rneutes)|(?<=[Ff]ortgesetztes)|(?<=[Ll]ebhaftes)|(?<=[Ww]eiteres[Ll]ebhaftes|(?<=Andauerndes)|(?<=Fortdauerndes)))(?P<delete>(unds?|[Ee]rneutes|[Aa]nhaltendes|[Ee]rregtes|[Vv]ielfache)?(Zurufe?|Gegenrufe?|Rufe?)(?:(?::|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*Abgs?.s?(?P<name>(?:(?!sunds)(?!sowiesdes)[^––:(){}[]\n])+)(s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*s*[({[](?P<party>[^––:(){}[]\n]*)[)}]](s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*:)s*(?P<content>[^––:(){{}}[]\n]*)|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*?(?!der)(?![-––])(?P<initiator>(?:(?!s[-––]s)[^:])*)s*))(?=)|–[^)(]+)|{|—[^)(]+)|)|-[^)(]+))"
+                }
+              </DefaultText>
+            </Code>
+          </Box>
         </DefaultContainer>
       </Section>
       <Section>
@@ -320,10 +280,8 @@ const Home: React.FC = () => {
             Die Verarbeitung der oben genannten Datenquellen und die Erstellung
             der Datenbank ist ein vollautomatischer und reproduzierbarer
             Vorgang. Auf diese Weise können wir sicherstellen, dass die
-            Erstellung des Open Discourse-Korpus und der Datenbank unabhängig
-            von jeglichen Zugehörigkeiten ist, die während der Entwicklung
-            dieses Korpus beteiligt waren. Die Codebasis kann aus dem
-            zugehörigen
+            Erstellung des Open Discourse Korpus maximal transparent und
+            unabhängig ist. Die Codebasis kann aus dem zugehörigen
             <NextChakraLink
               color="pink.500"
               href="https://github.com/open-discourse/open-discourse"
@@ -347,17 +305,16 @@ const Home: React.FC = () => {
             vielschichtige, mehrdimensionale Untersuchungen.
           </ColoredSubline>
           <DefaultText>
-            Bisher haben wir in erste Linie Arbeit in die Daten und das
-            Programmieren der Plattform gesteckt. Die vielfältigen
-            Analysemöglichkeiten liegen noch offen vor uns. Hier braucht es vor
-            allem die Fähigkeiten von Politik und Sozialwissenschaftlerinnen,
-            Datenjournalistinnen und anderen versierten Köpfen, die die wahren
-            Erkenntnisse aus dem Datensatz ausgraben.
+            Unsere bisherige Arbeit hat sich vorrangig auf die Aufarbeitung und
+            Bereitstellung der Daten konzentriert. Die vielfältigen
+            Analysemöglichkeiten liegen noch offen vor uns und vor Ihnen. Jetzt
+            sind Sie gefragt, Ihre eigenen Fragestellungen mit den Daten zu
+            beantworten und eigene Recherchen durchzuführen!
           </DefaultText>
           <DefaultText>
             Mögliche Forschungsfragen könnten z.B. sein:
           </DefaultText>
-          <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+          {/* <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
             <DefaultListItem>
               Wie variiert die politische Sprache abhängig vom jeweiligen
               Themengebiet und abhängig von der Zeit?
@@ -374,7 +331,7 @@ const Home: React.FC = () => {
             <DefaultListItem>
               Überprüfung von Haltungen spezifischer Abgeordneter
             </DefaultListItem>
-          </UnorderedList>
+          </UnorderedList> */}
           <DefaultText>
             Wir stellen unsere{" "}
             <NextChakraLink
@@ -385,20 +342,20 @@ const Home: React.FC = () => {
               {" "}
               aufbereitete Datenbank <ExternalLinkIcon mx="2px" />
             </NextChakraLink>{" "}
-            an dieser Stelle zur Verfügung und geben die Nutzung, Weiterwendung
-            und Weiterverbreitung frei. Bitte verweisen Sie auf unser Projekt
-            und diese Website in Ihren Quellenangaben.
+            an dieser Stelle zur Verfügung und geben die Nutzung,
+            Weiterverwendung und Weiterentwicklung frei. Bitte verweisen Sie auf
+            unser Projekt und diese Website in Ihren Quellenangaben.
           </DefaultText>
         </DefaultContainer>
       </Section>
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s">Das Data Paper</DefaultHeadline>
-          <ColoredSubline backgroundColor="pink.500">
+          {/* <ColoredSubline backgroundColor="pink.500">
             Ein Data Paper ist ein Dokument, dass durch einen
             Peer-Review-Prozess gegangen ist und den behandelten Datensatz
             beschreibt.
-          </ColoredSubline>
+          </ColoredSubline> */}
           <DefaultText>
             Es erfordert Mühe, Daten vorzubereiten, zu kuratieren und zu
             beschreiben. Genauso braucht es Zeit, das Data Paper zu schreiben.
@@ -406,6 +363,9 @@ const Home: React.FC = () => {
             wenig Geduld. Tragen Sie sich gern in unseren Newsletter ein, wenn
             Sie über die Veröffentlichung informiert werden wollen.
           </DefaultText>
+          <ConditionallyRender client>
+            <Newsletter />
+          </ConditionallyRender>
         </DefaultContainer>
       </Section>
       <Section>
@@ -418,13 +378,13 @@ const Home: React.FC = () => {
           quality="75"
         />
       </Section>
-      <Section>
+      {/* <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s">
             Darstellung des Gesamtprozesses
           </DefaultHeadline>
         </DefaultContainer>
-      </Section>
+      </Section> */}
     </BaseTemplate>
   );
 };

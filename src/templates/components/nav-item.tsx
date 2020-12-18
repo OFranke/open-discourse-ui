@@ -1,9 +1,8 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import { DefaultText } from "../../components/default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { useRouter } from "next/router";
-import { NextChakraLink } from "../../components/next-chakra-link";
-import { UrlObject } from "url";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 interface NavItemProps {
   href: string;

@@ -1,6 +1,6 @@
 import { SearchResultRow } from "../hooks/use-manage-data";
 import { DownloadIcon } from "@chakra-ui/icons";
-import { DefaultButton } from "../../default-button";
+import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 
 export interface DownloadButtonProps {
   data: SearchResultRow[];

@@ -1,7 +1,7 @@
 import { Text, Box } from "@chakra-ui/react";
 import { animate } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { DefaultText } from "../default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 
 import styles from "./styles.module.css";
 

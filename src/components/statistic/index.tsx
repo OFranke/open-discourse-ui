@@ -1,8 +1,8 @@
-import { Card } from "../card";
+import { Card } from "@bit/limebit.limebit-ui.card";
 import { Flex, useBreakpointValue, Text, Box } from "@chakra-ui/react";
-import { DefaultHeadline } from "../default-headline";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import React from "react";
-import { DefaultText } from "../default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import Image from "next/image";
 
 interface DescriptionProps {

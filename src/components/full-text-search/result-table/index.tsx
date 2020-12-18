@@ -5,7 +5,7 @@ import { SearchResultRow } from "../hooks/use-manage-data";
 import { DownloadButton } from "./download-button";
 import { positions } from "../search-form";
 import { SpeechModal } from "../speech-modal";
-import { NextChakraLink } from "../../next-chakra-link";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 interface ResultTableProps {
   data: SearchResultRow[];
@@ -138,11 +138,11 @@ export const ResultTable = ({ data }: ResultTableProps) => {
         colors={{ evenColor: "gray.200", tableHeadColor: "gray.200" }}
       />
       <Flex justifyContent="space-between">
-        <DownloadButton data={data} text={"Alles Herunterladen"} />
+        <DownloadButton data={data} text={"Alle Ergebnisse Herunterladen"} />
         {Object.entries(selected).some(([_id, state]) => state) ? (
           <DownloadButton
             data={data.filter((element) => selected[element.downloadId])}
-            text={"Ausgewählte Herunterladen"}
+            text={"Ausgewählte Ergebnisse Herunterladen"}
           />
         ) : null}
       </Flex>

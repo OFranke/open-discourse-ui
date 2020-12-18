@@ -1,11 +1,11 @@
-import { Card } from "./card";
+import { Card } from "@bit/limebit.limebit-ui.card";
 import { Text, Stack, Box, Flex } from "@chakra-ui/react";
 import Image from "next/image";
-import { DefaultHeadline } from "./default-headline";
-import { DefaultText } from "./default-text";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import React from "react";
-import { NextChakraLink } from "./next-chakra-link";
+import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 interface ProjectCardProps {
   headline: string;
