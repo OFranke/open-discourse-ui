@@ -39,7 +39,7 @@ const Home: React.FC = () => {
             Bundestag öffentlich verhandeln soll.
           </ColoredSubline>
           <DefaultText>
-            SSeit 1949 wird für jede Plenarsitzung ein stenografischer Bericht
+            Seit 1949 wird für jede Plenarsitzung ein stenografischer Bericht
             angefertigt, der jedes gesagte Wort der Sitzung dokumentiert. Diese
             Protokolle liegen als txt-, xml-, oder pdf-Dokumente auf den{" "}
             <NextChakraLink
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
             Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
             Applaus usw.) der Politker_Innen, die während der Reden stattfanden.
             Insgesamt besteht das Korpus aus über 200 Millionen Tokens aus fast
-            900.000 Reden in mehr als 4,200 verarbeiteten Protokollen. Das Open
+            900.000 Reden in mehr als 4.000 verarbeiteten Protokollen. Das Open
             Discourse Korpus deckt insgesamt 99,7 Prozent aller Plenarprotokolle
             des Deutschen Bundestages ab.
           </DefaultText>
@@ -232,13 +232,13 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Im nächsten Schritt wurden eine die Fraktionstabelle, eine
-            Politikerinnentabelle und eine Tabelle mit den gesprochenen Inhalten
-            erstellt und extrahiert. Mit umfangreichen Regex-Muster können die
-            Reden, die Person, die die Rede hält, die assoziierte Partei und
-            Interjektionen durch das Plenum extrahieren werden. Ab der elften
-            Wahlperiode werden Tagesordnungspunkte in den Protokollen verwendet,
-            um den Rohtext aufzuteilen. Diese Unterteilung des Textes erhöht die
-            Genauigkeit der angewendeten Regex-Muster. Der letzte
+            Politiker_Innentabelle und eine Tabelle mit den gesprochenen
+            Inhalten erstellt und extrahiert. Mit umfangreichen Regex-Muster
+            können die Reden, die Person, die die Rede hält, die assoziierte
+            Partei und Zwischenrufe durch das Plenum extrahieren werden. Ab der
+            elften Wahlperiode werden Tagesordnungspunkte in den Protokollen
+            verwendet, um den Rohtext aufzuteilen. Diese Unterteilung des Textes
+            erhöht die Genauigkeit der angewendeten Regex-Muster. Der letzte
             Verarbeitungsschritt ist die Erstellung der Beitragstabelle.
           </DefaultText>
           <DefaultText>
@@ -255,18 +255,6 @@ const Home: React.FC = () => {
             height="512px"
             quality="75"
           />
-          <Box display={{ base: "none", lg: "initial" }}>
-            <DefaultText>
-              Mögliche Grafik (obere) aus folgendem Regex-Pattern:
-            </DefaultText>
-            <Code display="block" border="1px solid" padding="4">
-              <DefaultText>
-                {
-                  "(?:(?<=()|(?<=[-––]s)|(?<=[––])|(?<=[-––].s)|(?<=s[-––])|(?<=[Hh]eiterkeits)|(?<=[Ll]achens)|(?<=[Ww]eiterers)|(?<=[Ww]eiteres)|(?<=[Ee]rneuters)|(?<=[Ee]rneutes)|(?<=[Ff]ortgesetztes)|(?<=[Ll]ebhaftes)|(?<=[Ww]eiteres[Ll]ebhaftes|(?<=Andauerndes)|(?<=Fortdauerndes)))(?P<delete>(unds?|[Ee]rneutes|[Aa]nhaltendes|[Ee]rregtes|[Vv]ielfache)?(Zurufe?|Gegenrufe?|Rufe?)(?:(?::|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*Abgs?.s?(?P<name>(?:(?!sunds)(?!sowiesdes)[^––:(){}[]\n])+)(s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*s*[({[](?P<party>[^––:(){}[]\n]*)[)}]](s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*:)s*(?P<content>[^––:(){{}}[]\n]*)|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*?(?!der)(?![-––])(?P<initiator>(?:(?!s[-––]s)[^:])*)s*))(?=)|–[^)(]+)|{|—[^)(]+)|)|-[^)(]+))"
-                }
-              </DefaultText>
-            </Code>
-          </Box>
         </DefaultContainer>
       </Section>
       <Section>
@@ -312,7 +300,7 @@ const Home: React.FC = () => {
             beantworten und eigene Recherchen durchzuführen!
           </DefaultText>
           <DefaultText>
-            Mögliche Forschungsfragen könnten z.B. sein:
+            {/*Mögliche Forschungsfragen könnten z.B. sein:*/}
           </DefaultText>
           {/* <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
             <DefaultListItem>
