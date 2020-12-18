@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import {
   Flex,
   Box,
-  useColorMode,
+  // useColorMode,
   IconButton,
-  useColorModeValue,
+  // useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
 
-import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
@@ -20,9 +20,8 @@ import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
-  const { colorMode, toggleColorMode } = useColorMode();
-  const text = useColorModeValue("dark", "light");
-  const SwitchIcon = useColorModeValue(FaMoon, FaSun);
+  // const text = useColorModeValue("dark", "light");
+  // const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const theme: any = useTheme();
   return (
     <Box position="fixed" width="100%" bg="white" zIndex="100">
@@ -107,7 +106,7 @@ export const Header: React.FC = () => {
                 />
               </NextChakraLink>
             </Box>
-            <Box>
+            {/* <Box>
               <IconButton
                 justifyContent={{ base: "left", lg: "center" }}
                 fontSize={{ base: "md", md: "xl", xl: "4xl" }}
@@ -117,7 +116,7 @@ export const Header: React.FC = () => {
                 onClick={toggleColorMode}
                 icon={<SwitchIcon />}
               />
-            </Box>
+            </Box> */}
           </Stack>
         </Flex>
       </DefaultContainer>
