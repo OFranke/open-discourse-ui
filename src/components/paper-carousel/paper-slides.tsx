@@ -1,4 +1,4 @@
-import { Box, OrderedList, UnorderedList } from "@chakra-ui/react";
+import { Box, OrderedList, UnorderedList, Flex } from "@chakra-ui/react";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import styles from "./styles.module.css";
@@ -8,7 +8,7 @@ import { DefaultListItem } from "../default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
-
+import ReactPlayer from "react-player/lazy";
 const SlideWrapper: React.FC = ({ children }) => {
   return (
     <Box
@@ -47,7 +47,7 @@ export const Slide1: React.FC = () => {
       <DefaultText>
         Lesen Sie hier den gesamten Artikel und erfahren Sie, wie im Plenum des
         Bundestages laut der Datenanalyse zu wenig über Pandemien debattiert
-        wurde:
+        wurde.
       </DefaultText>
       <NextButtonLink
         colorScheme="pink"
@@ -60,7 +60,7 @@ export const Slide1: React.FC = () => {
           xl: "8",
         }}
       >
-        Schweigen im hohen Hause
+        Zum Artikel
       </NextButtonLink>
     </SlideWrapper>
   );
@@ -80,7 +80,13 @@ export const Slide2: React.FC = () => {
       <DefaultText>
         In Kürze finden Sie hier die Aufzeichnung unseres Vortrages :)
       </DefaultText>
-      <Box height={{ base: "200px", md: "500px" }}></Box>
+
+      <Box height={{ base: "200px", md: "500px" }}>
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=bJBkZQ1xeA0"
+          controls={true}
+        />
+      </Box>
     </SlideWrapper>
   );
 };
@@ -239,10 +245,17 @@ export const Slide4: React.FC = () => {
         erzählen wie sich Politik und Gesellschaft im Laufe der Jahre verändert
         haben.
         <br />
-        <br />
-        Auf der CorrelCon-Tagung im November wurde bereits ein Ergebnis
-        vorgestellt: https://www.youtube.com/watch?v=bJBkZQ1xeA0
+        <b>
+          Auf der CorrelCon-Tagung im November wurde bereits ein Ergebnis
+          vorgestellt:
+        </b>
       </DefaultText>
+      <Flex justifyContent="center">
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=bJBkZQ1xeA0"
+          controls={true}
+        />
+      </Flex>
     </SlideWrapper>
   );
 };
