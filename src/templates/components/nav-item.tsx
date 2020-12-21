@@ -7,10 +7,12 @@ import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 interface NavItemProps {
   href: string;
   underlineColor: string;
+  isExternal?: boolean;
 }
 export const NavItem: React.FC<NavItemProps> = ({
   href,
   underlineColor,
+  isExternal,
   children,
 }) => {
   const textSize = {
@@ -23,7 +25,11 @@ export const NavItem: React.FC<NavItemProps> = ({
   const router = useRouter();
   const isActiveLink = router.pathname == href;
   return (
-    <NextChakraLink href={href} _hover={{ textDecoration: "none" }}>
+    <NextChakraLink
+      href={href}
+      _hover={{ textDecoration: "none" }}
+      isExternal={isExternal}
+    >
       <Box>
         <DefaultText
           as="span"

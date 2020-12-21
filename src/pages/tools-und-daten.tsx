@@ -14,9 +14,9 @@ import React from "react";
 const Search: React.FC = () => {
   return (
     <BaseTemplate>
-      <Section>
+      <Section paddingTop={{ base: 4, xl: 10 }}>
         <Image
-          src={"/images/reichstagsgebaeude.png"}
+          src={"/images/tools_und_daten_header.jpg"}
           alt={"Bundestag"}
           css={{ objectFit: "cover" }}
           width="100%"
@@ -57,7 +57,7 @@ const Search: React.FC = () => {
       </Section>
       <Section>
         <Image
-          src={"/images/reichstagsgebaeude.png"}
+          src={"/images/tools_und_daten_bundestag.jpg"}
           alt={"Bundestag"}
           css={{ objectFit: "cover" }}
           width="100%"

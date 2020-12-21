@@ -14,8 +14,7 @@ import { HeroWithCta } from "../components/hero-with-cta/index";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
-import { Newsletter } from "../components/newsletter";
-import ConditionallyRender from "../components/conditionally-render";
+import styles from "./styles.module.css";
 
 const Home: React.FC = () => {
   return (
@@ -26,7 +25,7 @@ const Home: React.FC = () => {
         canonicalRoute="methodik"
       />
       <Section>
-        <HeroWithCta />
+        <HeroWithCta backgroundImageStyles={styles.methodikBackgroundImage} />
       </Section>
       <Section>
         <DefaultContainer size="l">
@@ -154,7 +153,10 @@ const Home: React.FC = () => {
             aufgeführten Datenquellen.
           </DefaultText>
 
-          <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+          <UnorderedList
+            listStyleType="disc"
+            marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}
+          >
             <DefaultListItem>
               Kerndatenquelle:{" "}
               <NextChakraLink
@@ -166,7 +168,7 @@ const Home: React.FC = () => {
                 <ExternalLinkIcon mx="2px" />
               </NextChakraLink>
             </DefaultListItem>
-            <UnorderedList>
+            <UnorderedList listStyleType="circle" className={styles.listStyle}>
               <DefaultListItem>
                 Die Protokolle von der ersten bis zur 18. Wahlperiode werden als
                 komprimiertes Archiv mit separaten XML-Dateien für jede
@@ -177,7 +179,7 @@ const Home: React.FC = () => {
             <DefaultListItem>
               Metainformationen über die Mitglieder des Parlaments, die
               Vorsitzenden und die Mitglieder des Kabinetts
-              <UnorderedList>
+              <UnorderedList listStyleType="circle">
                 <DefaultListItem>
                   Die Metainformationen stammen aus den Stammdaten aller MdBs (
                   <NextChakraLink
@@ -208,8 +210,17 @@ const Home: React.FC = () => {
                 </DefaultListItem>
               </UnorderedList>
             </DefaultListItem>
-            <br />
           </UnorderedList>
+          <Box display={{ base: "none", lg: "initial" }}>
+            <DefaultText>Unser längstes Regex-Pattern</DefaultText>
+            <Code display="block" border="1px solid" padding="4">
+              <DefaultText>
+                {
+                  "(?:(?<=()|(?<=[-––]s)|(?<=[––])|(?<=[-––].s)|(?<=s[-––])|(?<=[Hh]eiterkeits)|(?<=[Ll]achens)|(?<=[Ww]eiterers)|(?<=[Ww]eiteres)|(?<=[Ee]rneuters)|(?<=[Ee]rneutes)|(?<=[Ff]ortgesetztes)|(?<=[Ll]ebhaftes)|(?<=[Ww]eiteres[Ll]ebhaftes|(?<=Andauerndes)|(?<=Fortdauerndes)))(?P<delete>(unds?|[Ee]rneutes|[Aa]nhaltendes|[Ee]rregtes|[Vv]ielfache)?(Zurufe?|Gegenrufe?|Rufe?)(?:(?::|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*Abgs?.s?(?P<name>(?:(?!sunds)(?!sowiesdes)[^––:(){}[]\n])+)(s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*s*[({[](?P<party>[^––:(){}[]\n]*)[)}]](s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*:)s*(?P<content>[^––:(){{}}[]\n]*)|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*?(?!der)(?![-––])(?P<initiator>(?:(?!s[-––]s)[^:])*)s*))(?=)|–[^)(]+)|{|—[^)(]+)|)|-[^)(]+))"
+                }
+              </DefaultText>
+            </Code>
+          </Box>
         </DefaultContainer>
       </Section>
       <Section>
@@ -255,18 +266,6 @@ const Home: React.FC = () => {
             height="512px"
             quality="75"
           />
-          <Box display={{ base: "none", lg: "initial" }}>
-            <DefaultText>
-              Mögliche Grafik (obere) aus folgendem Regex-Pattern:
-            </DefaultText>
-            <Code display="block" border="1px solid" padding="4">
-              <DefaultText>
-                {
-                  "(?:(?<=()|(?<=[-––]s)|(?<=[––])|(?<=[-––].s)|(?<=s[-––])|(?<=[Hh]eiterkeits)|(?<=[Ll]achens)|(?<=[Ww]eiterers)|(?<=[Ww]eiteres)|(?<=[Ee]rneuters)|(?<=[Ee]rneutes)|(?<=[Ff]ortgesetztes)|(?<=[Ll]ebhaftes)|(?<=[Ww]eiteres[Ll]ebhaftes|(?<=Andauerndes)|(?<=Fortdauerndes)))(?P<delete>(unds?|[Ee]rneutes|[Aa]nhaltendes|[Ee]rregtes|[Vv]ielfache)?(Zurufe?|Gegenrufe?|Rufe?)(?:(?::|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*Abgs?.s?(?P<name>(?:(?!sunds)(?!sowiesdes)[^––:(){}[]\n])+)(s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*s*[({[](?P<party>[^––:(){}[]\n]*)[)}]](s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*:)s*(?P<content>[^––:(){{}}[]\n]*)|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*?(?!der)(?![-––])(?P<initiator>(?:(?!s[-––]s)[^:])*)s*))(?=)|–[^)(]+)|{|—[^)(]+)|)|-[^)(]+))"
-                }
-              </DefaultText>
-            </Code>
-          </Box>
         </DefaultContainer>
       </Section>
       <Section>
@@ -311,10 +310,10 @@ const Home: React.FC = () => {
             sind Sie gefragt, Ihre eigenen Fragestellungen mit den Daten zu
             beantworten und eigene Recherchen durchzuführen!
           </DefaultText>
-          <DefaultText>
+          {/* <DefaultText>
             Mögliche Forschungsfragen könnten z.B. sein:
           </DefaultText>
-          {/* <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+       <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
             <DefaultListItem>
               Wie variiert die politische Sprache abhängig vom jeweiligen
               Themengebiet und abhängig von der Zeit?
@@ -360,17 +359,22 @@ const Home: React.FC = () => {
             Es erfordert Mühe, Daten vorzubereiten, zu kuratieren und zu
             beschreiben. Genauso braucht es Zeit, das Data Paper zu schreiben.
             Aktuell arbeiten wir noch an dem Dokument und bitten Sie um noch ein
-            wenig Geduld. Tragen Sie sich gern in unseren Newsletter ein, wenn
-            Sie über die Veröffentlichung informiert werden wollen.
+            wenig Geduld. Tragen Sie sich gern in{" "}
+            <NextChakraLink
+              color="pink.500"
+              isExternal
+              href="https://opendiscourse.us4.list-manage.com/subscribe/post?u=30a259be75440df1879f0b592&id=c65a7ccd1a"
+            >
+              unseren Newsletter <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>{" "}
+            ein, wenn Sie über die Veröffentlichung informiert werden wollen.
           </DefaultText>
-          <ConditionallyRender client>
-            <Newsletter />
-          </ConditionallyRender>
         </DefaultContainer>
       </Section>
-      <Section>
+      <Section marginBottom="0">
         <Image
-          src={"/images/statistics/wer_kommt_zu_wort.png"}
+          src={"/images/02_Methode_untern_tim-hufner-urFFjEVSllw-unsplash.jpg"}
+          // src={"/images/statistics/wer_kommt_zu_wort.png"}
           alt={"imageAlt"}
           layout="responsive"
           width="1024px"
