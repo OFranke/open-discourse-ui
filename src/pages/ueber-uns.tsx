@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       <SEO title="" description="" canonicalRoute="" />
       <Section>
         <DefaultContainer size="l">
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing="10">
+          <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing="10">
             <Image
               src={"/images/karikaturen/anja.png"}
               alt={"imageAlt"}
