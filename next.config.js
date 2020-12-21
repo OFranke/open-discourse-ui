@@ -76,6 +76,7 @@ module.exports = withPlugins(
           config,
           { buildId, dev, isServer, defaultLoaders, webpack }
         ) => {
+          config.resolve.alias["@public"] = path.resolve(__dirname, "public");
           config.plugins.push(new DuplicatePackageCheckerPlugin());
           // e.g. resolve duplicate dependencies to the latest version
           config.resolve.alias["@emotion"] = path.resolve(

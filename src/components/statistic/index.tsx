@@ -84,15 +84,17 @@ const StatisticImage: React.FC<StatisticImageProps> = ({
   imagePath,
   imageAlt,
 }) => {
+  const multipleSizes = require("../../../public/images/statistics/wer_kommt_zu_wort.png?resize&size=1920&format=webp");
   return (
-    <Image
-      src={imagePath}
-      alt={imageAlt}
-      layout="responsive"
-      width="1024px"
-      height="512px"
-      quality="75"
-    />
+    <img src={multipleSizes.src} srcSet={multipleSizes.srcSet} />
+    // <Image
+    //   src={imagePath}
+    //   alt={imageAlt}
+    //   layout="responsive"
+    //   width="1024px"
+    //   height="512px"
+    //   quality="75"
+    // />
   );
 };
 

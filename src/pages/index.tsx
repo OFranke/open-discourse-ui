@@ -18,7 +18,9 @@ import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
-
+export const config = {
+  unstable_runtimeJS: false,
+};
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
@@ -57,41 +59,43 @@ const Home: React.FC = () => {
           </DefaultText>
         </DefaultContainer>
       </Section>
-      <Section>
-        <DefaultContainer size="l">
-          <Stack
-            direction={{ base: "column", md: "row" }}
-            justifyContent="space-between"
-            spacing="5"
-          >
-            <Box>
-              <AnimatedCountUp
-                from={100000}
-                to={331197}
-                subline="Seiten Text"
-                color="black"
-              ></AnimatedCountUp>
-            </Box>
+      <ConditionallyRender client>
+        <Section>
+          <DefaultContainer size="l">
+            <Stack
+              direction={{ base: "column", md: "row" }}
+              justifyContent="space-between"
+              spacing="5"
+            >
+              <Box>
+                <AnimatedCountUp
+                  from={100000}
+                  to={331197}
+                  subline="Seiten Text"
+                  color="black"
+                ></AnimatedCountUp>
+              </Box>
 
-            <Box>
-              <AnimatedCountUp
-                from={100000}
-                to={846628}
-                subline="Redebeiträge"
-                color="pink.500"
-              ></AnimatedCountUp>
-            </Box>
-            <Box>
-              <AnimatedCountUp
-                from={1000000}
-                to={2255102}
-                subline="Reaktionen & Zwischenrufe"
-                color="#FFF78E"
-              ></AnimatedCountUp>
-            </Box>
-          </Stack>
-        </DefaultContainer>
-      </Section>
+              <Box>
+                <AnimatedCountUp
+                  from={100000}
+                  to={846628}
+                  subline="Redebeiträge"
+                  color="pink.500"
+                ></AnimatedCountUp>
+              </Box>
+              <Box>
+                <AnimatedCountUp
+                  from={1000000}
+                  to={2255102}
+                  subline="Reaktionen & Zwischenrufe"
+                  color="#FFF78E"
+                ></AnimatedCountUp>
+              </Box>
+            </Stack>
+          </DefaultContainer>
+        </Section>
+      </ConditionallyRender>
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline
@@ -179,7 +183,7 @@ const Home: React.FC = () => {
                 subline="Wer kommt zu Wort – Männer oder Frauen?"
                 description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
                 descriptionHighlight="Für mehr Wachstum und Effektivität."
-                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePath="./../../../../public/images/statistics/wer_kommt_zu_wort.png"
                 imagePosition="right"
                 imageAlt="Statistik"
               />
@@ -188,7 +192,7 @@ const Home: React.FC = () => {
                 subline="Wer kommt zu Wort – Männer oder Frauen?"
                 description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
                 descriptionHighlight="Für mehr Wachstum und Effektivität."
-                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePath="../../../../images/statistics/wer_kommt_zu_wort.png"
                 imagePosition="left"
                 imageAlt="Statistik"
               />
