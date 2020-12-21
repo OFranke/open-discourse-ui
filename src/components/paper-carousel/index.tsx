@@ -97,9 +97,9 @@ export const PaperCarousel: React.FC = () => {
         <Slider
           asNavFor={navState.nav2}
           ref={(slider) => (slider1ref = slider)}
-          slidesToShow={4}
-          infinite={false}
-          centerMode={false}
+          slidesToShow={3}
+          infinite={true}
+          centerMode={true}
           variableWidth={true}
           swipeToSlide={true}
           focusOnSelect={true}
@@ -109,24 +109,12 @@ export const PaperCarousel: React.FC = () => {
             setNavState({ ...navState, activeSlide: next })
           }
           responsive={[
-            // {
-            //   breakpoint: 1440,
-            //   settings: {
-            //     slidesToShow: 4,
-            //     swipeToSlide: true,
-            //     infinite: true,
-            //     centerMode: true,
-            //     // infinite: false,
-            //   },
-            // },
             {
-              breakpoint: 1200,
+              breakpoint: 480,
               settings: {
-                slidesToShow: 3,
+                slidesToShow: 1,
                 swipeToSlide: true,
                 infinite: true,
-                centerMode: true,
-                // infinite: false,
               },
             },
             {
@@ -135,16 +123,24 @@ export const PaperCarousel: React.FC = () => {
                 slidesToShow: 2,
                 swipeToSlide: true,
                 infinite: true,
-                centerMode: true,
+              },
+            },
+
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 3,
+                swipeToSlide: true,
+                infinite: true,
+                // infinite: false,
               },
             },
             {
-              breakpoint: 480,
+              breakpoint: 1440,
               settings: {
-                slidesToShow: 1,
+                slidesToShow: 3,
                 swipeToSlide: true,
-                infinite: true,
-                centerMode: true,
+                infinite: false,
               },
             },
           ]}
