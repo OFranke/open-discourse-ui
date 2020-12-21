@@ -309,10 +309,10 @@ const Home: React.FC = () => {
             sind Sie gefragt, Ihre eigenen Fragestellungen mit den Daten zu
             beantworten und eigene Recherchen durchzuführen!
           </DefaultText>
-          <DefaultText>
+          {/* <DefaultText>
             Mögliche Forschungsfragen könnten z.B. sein:
           </DefaultText>
-          {/* <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+       <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
             <DefaultListItem>
               Wie variiert die politische Sprache abhängig vom jeweiligen
               Themengebiet und abhängig von der Zeit?
