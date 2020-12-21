@@ -14,7 +14,7 @@ import React from "react";
 const Search: React.FC = () => {
   return (
     <BaseTemplate>
-      <Section>
+      <Section paddingTop={{ base: 4, xl: 10 }}>
         <Image
           src={"/images/reichstagsgebaeude.png"}
           alt={"Bundestag"}

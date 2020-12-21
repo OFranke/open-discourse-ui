@@ -9,12 +9,14 @@ import { Quote } from "@bit/limebit.limebit-ui.quote";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { ContactForm } from "../components/contact-form";
 import SEO from "../components/seo";
+import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
       <SEO title="" description="" canonicalRoute="" />
-      <Section>
+      <Section paddingTop={{ base: 4, xl: 10 }}>
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h1">
             Das Team hinter Open Discourse
@@ -36,6 +38,18 @@ const Home: React.FC = () => {
             Zugang zu den Daten dazu anregt, die politische Geschichte des
             Bundestags auf Basis der verwendeten Sprache der Politiker_Innen zu
             analysieren.
+          </DefaultText>
+          <DefaultText>
+            Wenn Sie von weiteren Updates und Projekten rund um Open Discourse
+            erfahren wollen, tragen Sie sich gern in{" "}
+            <NextChakraLink
+              color="pink.500"
+              isExternal
+              href="https://opendiscourse.us4.list-manage.com/subscribe/post?u=30a259be75440df1879f0b592&id=c65a7ccd1a"
+            >
+              unseren Newsletter <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>{" "}
+            ein.
           </DefaultText>
         </DefaultContainer>
       </Section>
