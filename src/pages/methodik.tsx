@@ -14,8 +14,7 @@ import { HeroWithCta } from "../components/hero-with-cta/index";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
-import { Newsletter } from "../components/newsletter";
-import ConditionallyRender from "../components/conditionally-render";
+import styles from "./styles.module.css";
 
 const Home: React.FC = () => {
   return (
@@ -26,7 +25,7 @@ const Home: React.FC = () => {
         canonicalRoute="methodik"
       />
       <Section>
-        <HeroWithCta />
+        <HeroWithCta backgroundImageStyles={styles.methodikBackgroundImage} />
       </Section>
       <Section>
         <DefaultContainer size="l">
@@ -154,7 +153,10 @@ const Home: React.FC = () => {
             aufgeführten Datenquellen.
           </DefaultText>
 
-          <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+          <UnorderedList
+            listStyleType="disc"
+            marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}
+          >
             <DefaultListItem>
               Kerndatenquelle:{" "}
               <NextChakraLink
@@ -166,7 +168,7 @@ const Home: React.FC = () => {
                 <ExternalLinkIcon mx="2px" />
               </NextChakraLink>
             </DefaultListItem>
-            <UnorderedList>
+            <UnorderedList listStyleType="circle" className={styles.listStyle}>
               <DefaultListItem>
                 Die Protokolle von der ersten bis zur 18. Wahlperiode werden als
                 komprimiertes Archiv mit separaten XML-Dateien für jede
@@ -177,7 +179,7 @@ const Home: React.FC = () => {
             <DefaultListItem>
               Metainformationen über die Mitglieder des Parlaments, die
               Vorsitzenden und die Mitglieder des Kabinetts
-              <UnorderedList>
+              <UnorderedList listStyleType="circle">
                 <DefaultListItem>
                   Die Metainformationen stammen aus den Stammdaten aller MdBs (
                   <NextChakraLink
@@ -208,8 +210,17 @@ const Home: React.FC = () => {
                 </DefaultListItem>
               </UnorderedList>
             </DefaultListItem>
-            <br />
           </UnorderedList>
+          <Box display={{ base: "none", lg: "initial" }}>
+            <DefaultText>Unser längstes Regex-Pattern</DefaultText>
+            <Code display="block" border="1px solid" padding="4">
+              <DefaultText>
+                {
+                  "(?:(?<=()|(?<=[-––]s)|(?<=[––])|(?<=[-––].s)|(?<=s[-––])|(?<=[Hh]eiterkeits)|(?<=[Ll]achens)|(?<=[Ww]eiterers)|(?<=[Ww]eiteres)|(?<=[Ee]rneuters)|(?<=[Ee]rneutes)|(?<=[Ff]ortgesetztes)|(?<=[Ll]ebhaftes)|(?<=[Ww]eiteres[Ll]ebhaftes|(?<=Andauerndes)|(?<=Fortdauerndes)))(?P<delete>(unds?|[Ee]rneutes|[Aa]nhaltendes|[Ee]rregtes|[Vv]ielfache)?(Zurufe?|Gegenrufe?|Rufe?)(?:(?::|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*Abgs?.s?(?P<name>(?:(?!sunds)(?!sowiesdes)[^––:(){}[]\n])+)(s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*s*[({[](?P<party>[^––:(){}[]\n]*)[)}]](s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*:)s*(?P<content>[^––:(){{}}[]\n]*)|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*?(?!der)(?![-––])(?P<initiator>(?:(?!s[-––]s)[^:])*)s*))(?=)|–[^)(]+)|{|—[^)(]+)|)|-[^)(]+))"
+                }
+              </DefaultText>
+            </Code>
+          </Box>
         </DefaultContainer>
       </Section>
       <Section>
@@ -255,16 +266,6 @@ const Home: React.FC = () => {
             height="512px"
             quality="75"
           />
-          <Box display={{ base: "none", lg: "initial" }}>
-            <DefaultText>Unser längstes Regex-Pattern</DefaultText>
-            <Code display="block" border="1px solid" padding="4">
-              <DefaultText>
-                {
-                  "(?:(?<=()|(?<=[-––]s)|(?<=[––])|(?<=[-––].s)|(?<=s[-––])|(?<=[Hh]eiterkeits)|(?<=[Ll]achens)|(?<=[Ww]eiterers)|(?<=[Ww]eiteres)|(?<=[Ee]rneuters)|(?<=[Ee]rneutes)|(?<=[Ff]ortgesetztes)|(?<=[Ll]ebhaftes)|(?<=[Ww]eiteres[Ll]ebhaftes|(?<=Andauerndes)|(?<=Fortdauerndes)))(?P<delete>(unds?|[Ee]rneutes|[Aa]nhaltendes|[Ee]rregtes|[Vv]ielfache)?(Zurufe?|Gegenrufe?|Rufe?)(?:(?::|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*Abgs?.s?(?P<name>(?:(?!sunds)(?!sowiesdes)[^––:(){}[]\n])+)(s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*s*[({[](?P<party>[^––:(){}[]\n]*)[)}]](s*[({[](?P<location_information>[^––:(){}[]\n]+)[)}]])*:)s*(?P<content>[^––:(){{}}[]\n]*)|\b(?:s*beis+der|s*im|s*beis+Abgeordneten|s*beis+Abgeordnetens+der|s*beim|s*des|)\bs*?(?!der)(?![-––])(?P<initiator>(?:(?!s[-––]s)[^:])*)s*))(?=)|–[^)(]+)|{|—[^)(]+)|)|-[^)(]+))"
-                }
-              </DefaultText>
-            </Code>
-          </Box>
         </DefaultContainer>
       </Section>
       <Section>
