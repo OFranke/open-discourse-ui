@@ -349,16 +349,6 @@ const Home: React.FC = () => {
         </DefaultContainer>
       </Section>
       <Section>
-        <Image
-          src={"/images/sample/team_outside.png"}
-          alt={"Team draußen"}
-          layout="responsive"
-          width="1440px"
-          height="700px"
-          quality="75"
-        />
-      </Section>
-      <Section>
         <DefaultContainer size="l">
           <Tagline>Wer steckt dahinter?</Tagline>
           <DefaultHeadline size="s">

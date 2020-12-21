@@ -109,16 +109,16 @@ export const PaperCarousel: React.FC = () => {
             setNavState({ ...navState, activeSlide: next })
           }
           responsive={[
-            {
-              breakpoint: 1440,
-              settings: {
-                slidesToShow: 4,
-                swipeToSlide: false,
-                infinite: false,
-                centerMode: false,
-                // infinite: false,
-              },
-            },
+            // {
+            //   breakpoint: 1440,
+            //   settings: {
+            //     slidesToShow: 4,
+            //     swipeToSlide: true,
+            //     infinite: true,
+            //     centerMode: true,
+            //     // infinite: false,
+            //   },
+            // },
             {
               breakpoint: 1200,
               settings: {

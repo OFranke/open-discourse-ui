@@ -82,11 +82,11 @@ export const Slide2: React.FC = () => {
         In Kürze finden Sie hier die Aufzeichnung unseres Vortrages :)
       </DefaultText>
 
-      {/* <Box height={{ base: "200px", md: "500px" }} /> */}
+      <Box height={{ base: "200px", md: "500px" }} />
 
-      <Flex justifyContent="center">
+      {/* <Flex justifyContent="center">
         <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
-      </Flex>
+      </Flex> */}
     </SlideWrapper>
   );
 };
