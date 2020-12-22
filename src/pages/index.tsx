@@ -39,10 +39,11 @@ const Home: React.FC = () => {
             Wie Data Science den Weg zu politischem Diskurs demokratisiert
           </ColoredSubline>
           <DefaultText>
-            Open Discourse hat die Plenarprotokolle des deutschen Bundestags
+            Open Discourse hat die Plenarprotokolle des deutschen Bundestages
             seit 1949 aufgebrochen und analysierbar gemacht - und zwar für
-            Mensch und Maschinen. Die Plattform erleichtert den Zugang und die
-            Recherche in den über 800.000 Redebeiträgen der letzten 70 Jahre.
+            Mensch und Maschine. Die Plattform ermöglicht erstmals den Zugang
+            und die Recherche in den über 800.000 Redebeiträgen der letzten 70
+            Jahre.
           </DefaultText>
           <DefaultText>
             Die Datenbank hinter Open Discourse ist die erste granulare,
@@ -76,7 +77,7 @@ const Home: React.FC = () => {
             <Box>
               <AnimatedCountUp
                 from={100000}
-                to={846628}
+                to={896250}
                 subline="Redebeiträge"
                 color="pink.500"
               ></AnimatedCountUp>
@@ -84,7 +85,7 @@ const Home: React.FC = () => {
             <Box>
               <AnimatedCountUp
                 from={1000000}
-                to={2255102}
+                to={2122025}
                 subline="Reaktionen & Zwischenrufe"
                 color="#FFF78E"
               ></AnimatedCountUp>
@@ -107,8 +108,8 @@ const Home: React.FC = () => {
           </ColoredSubline>
           <DefaultText>
             Mit Methoden der Informatik und Computerlinguistik haben wir alle
-            Reden, Zwischenrufe, Anfragen usw. den jeweiligen Politiker_Innen
-            und Fraktionen zugeordnet und durchsuchbar gemacht sowie zahlreiche
+            Reden, Zwischenrufe, Anfragen uvm. den jeweiligen Politiker_Innen
+            und Fraktionen zugeordnet und durchsuchbar gemacht, sowie zahlreiche
             Metainformationen hinzugefügt.
           </DefaultText>
           <UnorderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
@@ -166,7 +167,11 @@ const Home: React.FC = () => {
           </DefaultHeadline>
           <DefaultText>
             Die Datenbank ermöglicht komplexe Analysen der politischen Sprache
-            und erlaubt die Reden auf Muster zu untersuchen.
+            und erlaubt es, die Reden auf Muster zu untersuchen.
+          </DefaultText>
+          <DefaultText>
+            Hier werden Ihnen bald noch mehr Analysen von uns und von anderen
+            Personen zeigen können - wir bitten um noch ewas Gedult.
           </DefaultText>
         </DefaultContainer>
       </Section>
@@ -175,10 +180,10 @@ const Home: React.FC = () => {
           <Stack spacing={{ base: "10", md: "20", lg: "32" }}>
             <ConditionallyRender client>
               <Statistic
-                headline="Statistik"
+                headline="Auswertung"
                 subline="Wer kommt zu Wort – Männer oder Frauen?"
-                description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
-                descriptionHighlight="Für mehr Wachstum und Effektivität."
+                description="Anlässlich des internationalen Frauentages 2020 haben wir untersucht, wie viele Redebeiträge der einzelnen Parteien eigentlich von Frauen kamen."
+                descriptionHighlight="Für mehr Transparenz des politischen Diskurses!"
                 imagePath="/images/statistics/wer_kommt_zu_wort.png"
                 imagePosition="right"
                 imageAlt="Statistik"
@@ -190,7 +195,7 @@ const Home: React.FC = () => {
       <Section background="pink.500" color="white">
         <DefaultContainer size="s">
           <Quote>
-            Die Zusammenarbeit mit anderen Partnern kann dazu beitragen,
+            Die Zusammenarbeit mit anderen Partner_Innen kann dazu beitragen,
             deutsche Parlamente dauerhaft zu öffnen und politischen Diskurs zu
             demokratisieren.
           </Quote>
@@ -437,20 +442,18 @@ const Home: React.FC = () => {
           </DefaultHeadline>
 
           <DefaultText>
-            Open Discourse ist ein gemeinnütziges Forschungs- und
-            Entwicklungsprojekt.
+            Open Discourse ist ein gemeinnütziges Forschungsprojekt.
           </DefaultText>
           <DefaultText>
             Das Open Discourse Korpus ist selbstfinanziert, unabhängig und aus
             den Fähigkeiten und Motivationen der Mitarbeiter_Innen der Limebit
             GmbH gewachsen. Die Plattform ist unser Beitrag zur Demokratisierung
-            des Zugangs politischer Themen und Akteur_Innen und eine
-            Herzensangelegenheit.
+            des Zugangs zu politischen Themen und eine Herzensangelegenheit.
           </DefaultText>
 
           <DefaultText>
             Möchten Sie uns Feedback geben oder haben Sie Interesse Ihre
-            Fähigkeiten, Ideen oder Ihr Netzwerk in irgendeiner Form zur
+            Fähigkeiten, Ideen oder Anmerkungen in irgendeiner Form zur
             Verfügung zu stellen? Kontaktieren Sie uns gern!
           </DefaultText>
 
