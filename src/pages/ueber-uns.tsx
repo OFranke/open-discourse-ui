@@ -9,11 +9,93 @@ import { Quote } from "@bit/limebit.limebit-ui.quote";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { ContactForm } from "../components/contact-form";
 import SEO from "../components/seo";
+import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { SimpleGrid, Box } from "@chakra-ui/react";
 
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
       <SEO title="" description="" canonicalRoute="" />
+      <Section>
+        <DefaultContainer size="l">
+          <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing="10">
+            <Image
+              src={"/images/karikaturen/anja.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+            <Image
+              src={"/images/karikaturen/fabrizio.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+            <Image
+              src={"/images/karikaturen/flo.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+            <Image
+              src={"/images/karikaturen/jakob.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+            <Image
+              src={"/images/karikaturen/judith.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+
+            <Image
+              src={"/images/karikaturen/konstantin.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+            <Image
+              src={"/images/karikaturen/olli.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+            <Image
+              src={"/images/karikaturen/philipp.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+            <Image
+              src={"/images/karikaturen/stella.png"}
+              alt={"imageAlt"}
+              layout="responsive"
+              width="1417px"
+              height="1890px"
+              quality="75"
+            />
+          </SimpleGrid>
+        </DefaultContainer>
+      </Section>
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h1">
@@ -36,6 +118,18 @@ const Home: React.FC = () => {
             Zugang zu den Daten dazu anregt, die politische Geschichte des
             Bundestags auf Basis der verwendeten Sprache der Politiker_Innen zu
             analysieren.
+          </DefaultText>
+          <DefaultText>
+            Wenn Sie von weiteren Updates und Projekten rund um Open Discourse
+            erfahren wollen, tragen Sie sich gern in{" "}
+            <NextChakraLink
+              color="pink.500"
+              isExternal
+              href="https://opendiscourse.us4.list-manage.com/subscribe/post?u=30a259be75440df1879f0b592&id=c65a7ccd1a"
+            >
+              unseren Newsletter <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>{" "}
+            ein.
           </DefaultText>
         </DefaultContainer>
       </Section>

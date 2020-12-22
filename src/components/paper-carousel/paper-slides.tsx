@@ -1,4 +1,4 @@
-import { Box, OrderedList, UnorderedList } from "@chakra-ui/react";
+import { Box, OrderedList, UnorderedList, Flex } from "@chakra-ui/react";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import styles from "./styles.module.css";
@@ -8,7 +8,8 @@ import { DefaultListItem } from "../default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
-
+import ReactPlayer from "react-player/lazy";
+import { YoutubeVideo } from "../youtube-video";
 const SlideWrapper: React.FC = ({ children }) => {
   return (
     <Box
@@ -47,7 +48,7 @@ export const Slide1: React.FC = () => {
       <DefaultText>
         Lesen Sie hier den gesamten Artikel und erfahren Sie, wie im Plenum des
         Bundestages laut der Datenanalyse zu wenig über Pandemien debattiert
-        wurde:
+        wurde.
       </DefaultText>
       <NextButtonLink
         colorScheme="pink"
@@ -60,7 +61,7 @@ export const Slide1: React.FC = () => {
           xl: "8",
         }}
       >
-        Schweigen im hohen Hause
+        Zum Artikel
       </NextButtonLink>
     </SlideWrapper>
   );
@@ -80,7 +81,12 @@ export const Slide2: React.FC = () => {
       <DefaultText>
         In Kürze finden Sie hier die Aufzeichnung unseres Vortrages :)
       </DefaultText>
-      <Box height={{ base: "200px", md: "500px" }}></Box>
+
+      {/* <Box height={{ base: "200px", md: "500px" }} /> */}
+
+      <Flex justifyContent="center">
+        <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
+      </Flex>
     </SlideWrapper>
   );
 };
@@ -135,43 +141,35 @@ export const Slide3: React.FC = () => {
         Autoren:
         <UnorderedList listStyleType="none" margin="0">
           <DefaultListItem marginBottom="0">
-            Florian M. Lorisch{" "}
             <NextChakraLink
               color="pink.500"
               href="https://www.linkedin.com/in/florianlorisch/"
             >
-              https://www.linkedin.com/in/florianlorisch/{" "}
-              <ExternalLinkIcon mx="2px" />
+              Florian M. Lorisch <ExternalLinkIcon mx="2px" />
             </NextChakraLink>
           </DefaultListItem>
           <DefaultListItem marginBottom="0">
-            Michael Schwabe{" "}
             <NextChakraLink
               color="pink.500"
               href="https://www.linkedin.com/in/michael-s-a911a1164/"
             >
-              https://www.linkedin.com/in/michael-s-a911a1164/{" "}
-              <ExternalLinkIcon mx="2px" />
+              Michael Schwabe <ExternalLinkIcon mx="2px" />
             </NextChakraLink>
           </DefaultListItem>
           <DefaultListItem marginBottom="0">
-            Louis Matheoschat{" "}
             <NextChakraLink
               color="pink.500"
               href="https://www.linkedin.com/in/louis-m-47227516a/"
             >
-              https://www.linkedin.com/in/louis-m-47227516a/{" "}
-              <ExternalLinkIcon mx="2px" />
+              Michael Schwabe <ExternalLinkIcon mx="2px" />
             </NextChakraLink>
           </DefaultListItem>
           <DefaultListItem marginBottom="0">
-            Paul Abisch{" "}
             <NextChakraLink
               color="pink.500"
               href="https://www.linkedin.com/in/paul-abisch-840503191/"
             >
-              https://www.linkedin.com/in/paul-abisch-840503191/{" "}
-              <ExternalLinkIcon mx="2px" />
+              Paul Abisch <ExternalLinkIcon mx="2px" />
             </NextChakraLink>
           </DefaultListItem>
         </UnorderedList>
@@ -239,10 +237,14 @@ export const Slide4: React.FC = () => {
         erzählen wie sich Politik und Gesellschaft im Laufe der Jahre verändert
         haben.
         <br />
-        <br />
-        Auf der CorrelCon-Tagung im November wurde bereits ein Ergebnis
-        vorgestellt: https://www.youtube.com/watch?v=bJBkZQ1xeA0
+        <b>
+          Auf der CorrelCon-Tagung im November wurde bereits ein Ergebnis
+          vorgestellt:
+        </b>
       </DefaultText>
+      <Flex justifyContent="center">
+        <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
+      </Flex>
     </SlideWrapper>
   );
 };

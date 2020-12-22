@@ -12,7 +12,11 @@ const Analyses: React.FC = () => {
   return (
     <BaseTemplate>
       <SEO title="" description="" canonicalRoute="" />
-      <Section display="flex" flexDirection="column">
+      <Section
+        display="flex"
+        flexDirection="column"
+        paddingTop={{ base: 4, xl: 10 }}
+      >
         <DefaultContainer size="l">
           <DefaultHeadline size="s">
             Die Open Discourse Daten für Forschung, Journalismus und Civil

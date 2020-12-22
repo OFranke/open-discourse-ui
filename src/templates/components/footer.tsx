@@ -33,10 +33,18 @@ export const Footer: React.FC = () => {
             justifyContent={{ base: "center", sm: "flex-end" }}
             flex="1"
           >
-            <NavItem href="/impressum" underlineColor="black">
+            <NavItem
+              href="https://www.limebit.de/impressum"
+              underlineColor="black"
+              isExternal
+            >
               Impressum
             </NavItem>
-            <NavItem href="/datenschutz" underlineColor="black">
+            <NavItem
+              href="https://www.limebit.de/datenschutz"
+              underlineColor="black"
+              isExternal
+            >
               Datenschutz
             </NavItem>
           </Stack>

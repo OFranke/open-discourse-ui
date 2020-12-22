@@ -18,7 +18,7 @@ import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
-
+import styles from "./styles.module.css";
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
         canonicalRoute="/"
       />
       <Section>
-        <HeroWithCta />
+        <HeroWithCta backgroundImageStyles={styles.indexBackgroundImage} />
       </Section>
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
@@ -70,6 +70,7 @@ const Home: React.FC = () => {
                 from={100000}
                 to={331197}
                 subline="Seiten Text"
+                color="black"
               ></AnimatedCountUp>
             </Box>
 
@@ -78,6 +79,7 @@ const Home: React.FC = () => {
                 from={100000}
                 to={896250}
                 subline="Redebeiträge"
+                color="pink.500"
               ></AnimatedCountUp>
             </Box>
             <Box>
@@ -85,6 +87,7 @@ const Home: React.FC = () => {
                 from={1000000}
                 to={2122025}
                 subline="Reaktionen & Zwischenrufe"
+                color="#FFF78E"
               ></AnimatedCountUp>
             </Box>
           </Stack>
@@ -183,15 +186,6 @@ const Home: React.FC = () => {
                 descriptionHighlight="Für mehr Transparenz des politischen Diskurses!"
                 imagePath="/images/statistics/wer_kommt_zu_wort.png"
                 imagePosition="right"
-                imageAlt="Statistik"
-              />
-              <Statistic
-                headline="Statistik"
-                subline="Wer kommt zu Wort – Männer oder Frauen?"
-                description="Die Welt von Big Data, Machine Learning und Künstlicher Intelligenz ist komplex. Wir helfen Ihnen, sich darin zurechtzufinden. Mit professioneller Beratung und individuellen Schulungen."
-                descriptionHighlight="Für mehr Wachstum und Effektivität."
-                imagePath="/images/statistics/wer_kommt_zu_wort.png"
-                imagePosition="left"
                 imageAlt="Statistik"
               />
             </ConditionallyRender>

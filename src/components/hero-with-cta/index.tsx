@@ -4,11 +4,15 @@ import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
-
-export const HeroWithCta = () => {
+interface HeroWithCtaProps {
+  backgroundImageStyles: string;
+}
+export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
+  backgroundImageStyles,
+}) => {
   return (
     <Flex
-      className={styles.backgroundImage}
+      className={backgroundImageStyles}
       height={"60vh"}
       maxHeight={[
         "350px", // 0-30em
