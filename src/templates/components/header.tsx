@@ -96,6 +96,7 @@ export const Header: React.FC = () => {
               <NextChakraLink
                 href="https://github.com/open-discourse/open-discourse"
                 target="_blank"
+                isExternal
               >
                 <IconButton
                   justifyContent={{ base: "left", lg: "center" }}

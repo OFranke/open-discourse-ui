@@ -294,6 +294,7 @@ const Home: React.FC = () => {
             <NextChakraLink
               color="pink.500"
               href="https://github.com/open-discourse/open-discourse"
+              rel="noopener"
               isExternal
             >
               {" "}
