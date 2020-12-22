@@ -13,89 +13,30 @@ import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { SimpleGrid, Box } from "@chakra-ui/react";
 
+interface TeamMemberProps {
+  src: string;
+  name: string;
+}
+const TeamMember: React.FC<TeamMemberProps> = ({ src, name }) => {
+  return (
+    <Box textAlign="center">
+      <Image
+        src={src}
+        alt={`Comic Karikatur von ${name}`}
+        layout="responsive"
+        width="1417px"
+        height="1890px"
+        quality="75"
+      />
+      <DefaultText as="span">{name}</DefaultText>
+    </Box>
+  );
+};
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
       <SEO title="" description="" canonicalRoute="" />
-      <Section>
-        <DefaultContainer size="l">
-          <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing="10">
-            <Image
-              src={"/images/karikaturen/anja.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
-            <Image
-              src={"/images/karikaturen/fabrizio.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
-            <Image
-              src={"/images/karikaturen/flo.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
-            <Image
-              src={"/images/karikaturen/jakob.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
-            <Image
-              src={"/images/karikaturen/judith.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
 
-            <Image
-              src={"/images/karikaturen/konstantin.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
-            <Image
-              src={"/images/karikaturen/olli.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
-            <Image
-              src={"/images/karikaturen/philipp.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
-            <Image
-              src={"/images/karikaturen/stella.png"}
-              alt={"imageAlt"}
-              layout="responsive"
-              width="1417px"
-              height="1890px"
-              quality="75"
-            />
-          </SimpleGrid>
-        </DefaultContainer>
-      </Section>
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h1">
@@ -131,6 +72,33 @@ const Home: React.FC = () => {
             </NextChakraLink>{" "}
             ein.
           </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="s">
+          <SimpleGrid columns={{ base: 3, md: 3, lg: 3 }} spacing="10">
+            <TeamMember src={"/images/karikaturen/anja.png"} name="Anja" />
+            <TeamMember
+              src={"/images/karikaturen/fabrizio.png"}
+              name="Fabrizio"
+            />
+            <TeamMember
+              src={"/images/karikaturen/florian.png"}
+              name="Florian"
+            />
+            <TeamMember src={"/images/karikaturen/jakob.png"} name="Jakob" />
+            <TeamMember src={"/images/karikaturen/judith.png"} name="Judith" />
+            <TeamMember
+              src={"/images/karikaturen/konstantin.png"}
+              name="Konstantin"
+            />
+            <TeamMember src={"/images/karikaturen/oliver.png"} name="Oliver" />
+            <TeamMember
+              src={"/images/karikaturen/philipp.png"}
+              name="Philipp"
+            />
+            <TeamMember src={"/images/karikaturen/stella.png"} name="Stella" />
+          </SimpleGrid>
         </DefaultContainer>
       </Section>
       <Section background="pink.500" color="white">
