@@ -22,7 +22,7 @@ const Analyses: React.FC = () => {
         paddingTop={{ base: 4, xl: 10 }}
       >
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">
+          <DefaultHeadline size="s" as="h1">
             Die Open Discourse Daten für Forschung, Journalismus und Civil
             Science
           </DefaultHeadline>
