@@ -141,6 +141,7 @@ export const Slide3: React.FC = () => {
       <UnorderedList listStyleType="none" margin="0">
         <DefaultListItem marginBottom="0">
           <NextChakraLink
+            isExternal
             color="pink.500"
             href="https://www.linkedin.com/in/florianlorisch/"
           >
@@ -149,6 +150,7 @@ export const Slide3: React.FC = () => {
         </DefaultListItem>
         <DefaultListItem marginBottom="0">
           <NextChakraLink
+            isExternal
             color="pink.500"
             href="https://www.linkedin.com/in/michael-s-a911a1164/"
           >
@@ -157,6 +159,7 @@ export const Slide3: React.FC = () => {
         </DefaultListItem>
         <DefaultListItem marginBottom="0">
           <NextChakraLink
+            isExternal
             color="pink.500"
             href="https://www.linkedin.com/in/louis-m-47227516a/"
           >
@@ -165,6 +168,7 @@ export const Slide3: React.FC = () => {
         </DefaultListItem>
         <DefaultListItem marginBottom="0">
           <NextChakraLink
+            isExternal
             color="pink.500"
             href="https://www.linkedin.com/in/paul-abisch-840503191/"
           >
@@ -198,7 +202,11 @@ export const Slide4: React.FC = () => {
         Datenbasiertes Storytelling
       </ColoredSubline>
       <DefaultText>
-        <NextChakraLink color="pink.500" href="https://correlaid.org/">
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://correlaid.org/"
+        >
           CorrelAid <ExternalLinkIcon mx="2px" />
         </NextChakraLink>{" "}
         ist ein gemeinnütziges Netzwerk von Data Scientists, die die Welt durch
