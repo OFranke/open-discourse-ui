@@ -5,7 +5,7 @@ import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-import { Code, UnorderedList, Box } from "@chakra-ui/react";
+import { Code, UnorderedList, Box, Flex } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
@@ -20,13 +20,26 @@ const Home: React.FC = () => {
   return (
     <BaseTemplate>
       <SEO
-        title="Plenarprotokolle des deutschen Bundestages seit 1949"
-        description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
+        title="Data Science öffnet den politischen Diskurs"
+        description="Open Discourse bringt den Bundestag mittels moderner Technologie und Analysemöglichkeiten in das 21.Jahrhundert. Lesen Sie hier über das methodische Vorgehen."
         canonicalRoute="methodik"
       />
       <Section>
-        <HeroWithCta backgroundImageStyles={styles.methodikBackgroundImage} />
+        <Flex
+          className={styles.methodikBackgroundImage}
+          height={"60vh"}
+          maxHeight={[
+            "350px", // 0-30em
+            "600px", // 30em-48em
+            "600px", // 48em-62em
+            "750px", // 62em+
+          ]}
+          backgroundPosition="center"
+          backgroundRepeat="no-repeat"
+          backgroundSize="cover"
+        />
       </Section>
+
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h2">
@@ -211,14 +224,14 @@ const Home: React.FC = () => {
               </UnorderedList>
             </DefaultListItem>
           </UnorderedList>
-          <Box display={{ base: "none", lg: "initial" }}>
+          {/* <Box display={{ base: "none", lg: "initial" }}>
             <DefaultText>Unser längstes Regex-Pattern</DefaultText>
             <Code display="block" border="1px solid" padding="4">
               <DefaultText>
                 {String.raw`(?:(?<=\()|(?<=[-––]\s)|(?<=[––])|(?<=[-––]\.\s)|(?<=\s[-––])|(?<=[Hh]eiterkeit\s)|(?<=[Ll]achen\s)|(?<=[Ww]eiterer\s)|(?<=[Ww]eitere\s)|(?<=[Ee]rneuter\s)|(?<=[Ee]rneute\s)|(?<=[Ff]ortgesetzte\s)|(?<=[Ll]ebhafte\s)|(?<=[Ww]eitere\s[Ll]ebhafte\s|(?<=Andauernde\s)|(?<=Fortdauernde\s)))(?P<delete>(und\s?|[Ee]rneute\s|[Aa]nhaltende\s|[Ee]rregte\s|[Vv]ielfache)?(Zurufe?|Gegenrufe?|Rufe?)(?:(?::|\b(?:\s*bei\s+der|\s*im|\s*bei\s+Abgeordneten|\s*bei\s+Abgeordneten\s+der|\s*beim|\s*des|)\b\s*Abg\s?\.\s?(?P<name>(?:(?!\sund\s)(?!sowie\sdes)[^––:(){}[\]\n])+)(\s*[({\[](?P<location_information>[^––:(){}[\]\n]+)[)}\]])*\s*[({\[](?P<party>[^––:(){}[\]\n]*)[)}\]](\s*[({\[](?P<location_information>[^––:(){}[\]\n]+)[)}\]])*:)\s*(?P<content>[^––:(){{}}[\]\n]*)|\b(?:\s*bei\s+der|\s*im|\s*bei\s+Abgeordneten|\s*bei\s+Abgeordneten\s+der|\s*beim|\s*des|)\b\s*?(?!der)(?![-––])(?P<initiator>(?:(?!\s[-––]\s)[^:])*)\s*))(?=\)|–[^\)\(]+\)|{|—[^\)\(]+\)|\)|-[^\)\(]+\))`}
               </DefaultText>
             </Code>
-          </Box>
+          </Box> */}
         </DefaultContainer>
       </Section>
       <Section>
@@ -371,12 +384,12 @@ const Home: React.FC = () => {
       </Section>
       <Section marginBottom="0">
         <Image
-          src={"/images/02_Methode_untern_tim-hufner-urFFjEVSllw-unsplash.jpg"}
+          src={"/images/methodik/reichstagsgebäude_wiese.jpg"}
           // src={"/images/statistics/wer_kommt_zu_wort.png"}
           alt={"imageAlt"}
           layout="responsive"
-          width="1024px"
-          height="512px"
+          width="320px"
+          height="160px"
           quality="75"
         />
       </Section>

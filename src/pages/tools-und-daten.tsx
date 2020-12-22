@@ -1,5 +1,5 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Image } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { FullTextSearch } from "../components/full-text-search";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
@@ -10,18 +10,30 @@ import { Callout } from "../components/callout";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import React from "react";
+import styles from "./styles.module.css";
+import SEO from "../components/seo";
 
 const Search: React.FC = () => {
   return (
     <BaseTemplate>
-      <Section paddingTop={{ base: 4, xl: 10 }}>
-        <Image
-          src={"/images/tools_und_daten_header.jpg"}
-          alt={"Bundestag"}
-          css={{ objectFit: "cover" }}
-          width="100%"
-          height="500px"
-          quality="75"
+      <SEO
+        title="Volltextsuche und Datensatz"
+        description="Die Open Discourse Volltextsuche ermöglicht eine strukturierte Suche in allen verfügbaren Plenarprotokollen des Deutschen Bundestags seit 1949."
+        canonicalRoute="tools-und-daten"
+      />
+      <Section>
+        <Flex
+          className={styles.toolsUndDatenBackgroundImage}
+          height={"60vh"}
+          maxHeight={[
+            "350px", // 0-30em
+            "600px", // 30em-48em
+            "600px", // 48em-62em
+            "750px", // 62em+
+          ]}
+          backgroundPosition="center"
+          backgroundRepeat="no-repeat"
+          backgroundSize="cover"
         />
       </Section>
       <Section>
@@ -56,13 +68,18 @@ const Search: React.FC = () => {
         </DefaultContainer>
       </Section>
       <Section>
-        <Image
-          src={"/images/tools_und_daten_bundestag.jpg"}
-          alt={"Bundestag"}
-          css={{ objectFit: "cover" }}
-          width="100%"
-          height="500px"
-          quality="75"
+        <Flex
+          className={styles.toolsUndDatenBundestagImage}
+          height={"60vh"}
+          maxHeight={[
+            "350px", // 0-30em
+            "600px", // 30em-48em
+            "600px", // 48em-62em
+            "750px", // 62em+
+          ]}
+          backgroundPosition="center"
+          backgroundRepeat="no-repeat"
+          backgroundSize="cover"
         />
       </Section>
       <Section>

@@ -2,9 +2,30 @@
   background-image: url("../../public/images/home_header.jpg?resize&size=480&format=webp");
 }
 
+.methodikBackgroundImage {
+  background-image: url("../../public/images/methodik/header_methodik.jpg?resize&size=480&format=webp");
+}
+
+.toolsUndDatenBackgroundImage {
+  background-image: url("../../public/images/tools_und_daten/tools_und_daten_header.jpg?resize&size=480&format=webp");
+}
+
+.toolsUndDatenBundestagImage {
+  background-image: url("../../public/images/tools_und_daten/tools_und_daten_bundestag.jpg?resize&size=480&format=webp");
+}
+
 @media screen and (min-width: 480px) {
   .indexBackgroundImage {
     background-image: url("../../public/images/home_header.jpg?resize&size=768&format=webp");
+  }
+  .methodikBackgroundImage {
+    background-image: url("../../public/images/methodik/header_methodik.jpg?resize&size=768&format=webp");
+  }
+  .toolsUndDatenBackgroundImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_header.jpg?resize&size=768&format=webp");
+  }
+  .toolsUndDatenBundestagImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_bundestag.jpg?resize&size=768&format=webp");
   }
 }
 
@@ -12,11 +33,29 @@
   .indexBackgroundImage {
     background-image: url("../../public/images/home_header.jpg?resize&size=1024&format=webp");
   }
+  .methodikBackgroundImage {
+    background-image: url("../../public/images/methodik/header_methodik.jpg?resize&size=1024&format=webp");
+  }
+  .toolsUndDatenBackgroundImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_header.jpg?resize&size=1024&format=webp");
+  }
+  .toolsUndDatenBundestagImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_bundestag.jpg?resize&size=1024&format=webp");
+  }
 }
 
 @media screen and (min-width: 1025px) {
   .indexBackgroundImage {
     background-image: url("../../public/images/home_header.jpg?resize&size=1440&format=webp");
+  }
+  .methodikBackgroundImage {
+    background-image: url("../../public/images/methodik/header_methodik.jpg?resize&size=1440&format=webp");
+  }
+  .toolsUndDatenBackgroundImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_header.jpg?resize&size=1440&format=webp");
+  }
+  .toolsUndDatenBundestagImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_bundestag.jpg?resize&size=1440&format=webp");
   }
 }
 
@@ -24,45 +63,29 @@
   .indexBackgroundImage {
     background-image: url("../../public/images/home_header.jpg?resize&size=1920&format=webp");
   }
+  .methodikBackgroundImage {
+    background-image: url("../../public/images/methodik/header_methodik.jpg?resize&size=1920&format=webp");
+  }
+  .toolsUndDatenBackgroundImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_header.jpg?resize&size=1920&format=webp");
+  }
+  .toolsUndDatenBundestagImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_bundestag.jpg?resize&size=1920&format=webp");
+  }
 }
 
 @media screen and (min-width: 1921px) {
   .indexBackgroundImage {
     background-image: url("../../public/images/home_header.jpg?webp&resize&size=3840&format=webp");
   }
-}
-
-.methodikBackgroundImage {
-  background-image: url("../../public/images/sample/teamwork.jpg?resize&size=480&format=webp");
-}
-
-@media screen and (min-width: 480px) {
   .methodikBackgroundImage {
-    background-image: url("../../public/images/sample/teamwork.jpg?resize&size=768&format=webp");
+    background-image: url("../../public/images/methodik/header_methodik.jpg?webp&resize&size=3840&format=webp");
   }
-}
-
-@media screen and (min-width: 769px) {
-  .methodikBackgroundImage {
-    background-image: url("../../public/images/sample/teamwork.jpg?resize&size=1024&format=webp");
+  .toolsUndDatenBackgroundImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_header.jpg?resize&size=3840&format=webp");
   }
-}
-
-@media screen and (min-width: 1025px) {
-  .methodikBackgroundImage {
-    background-image: url("../../public/images/sample/teamwork.jpg?resize&size=1440&format=webp");
-  }
-}
-
-@media screen and (min-width: 1441px) {
-  .methodikBackgroundImage {
-    background-image: url("../../public/images/sample/teamwork.jpg?resize&size=1920&format=webp");
-  }
-}
-
-@media screen and (min-width: 1921px) {
-  .methodikBackgroundImage {
-    background-image: url("../../public/images/sample/teamwork.jpg?webp&resize&size=3840&format=webp");
+  .toolsUndDatenBundestagImage {
+    background-image: url("../../public/images/tools_und_daten/tools_und_daten_bundestag.jpg?resize&size=3840&format=webp");
   }
 }
 

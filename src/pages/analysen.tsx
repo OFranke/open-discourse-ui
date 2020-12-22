@@ -11,7 +11,11 @@ import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 const Analyses: React.FC = () => {
   return (
     <BaseTemplate>
-      <SEO title="" description="" canonicalRoute="" />
+      <SEO
+        title="Aktuelle Forschungsprojekte"
+        description="Der Open Discourse Datensatz dient als Grundlage für Datenjournalismus, akademische Forschung und Projekte verschiedener Akteure_Innen."
+        canonicalRoute="analysen"
+      />
       <Section
         display="flex"
         flexDirection="column"
@@ -27,7 +31,7 @@ const Analyses: React.FC = () => {
           </ColoredSubline>
           <DefaultText>
             Der Open Discourse Datensatz wurde bereits von verschiedenen
-            Akteur*Innen für Forschungsprojekte und datengetriebene
+            Akteur_Innen für Forschungsprojekte und datengetriebene
             Berichterstattungen genutzt.
             <br />
             <br />

@@ -72,7 +72,7 @@ export const Slide2: React.FC = () => {
     <SlideWrapper>
       <DefaultHeadline size="s">Chaos Computer Club</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
-        Open -Discourse beim rC3 – der Remote Chaos Experience
+        Open Discourse beim rC3 – der Remote Chaos Experience
       </ColoredSubline>
       <DefaultText>
         Im Rahmen des diesjährigen Chaos Computer Club Events werden wir das
@@ -220,15 +220,14 @@ export const Slide4: React.FC = () => {
       <DefaultText>
         In der Arbeit mit dem Datensatz hat sich das Team folgende Ziele
         gesetzt:
-        <br />
-        <OrderedList>
-          <DefaultListItem>mehr über angewandtes NLP erfahren</DefaultListItem>
-          <DefaultListItem>
-            kreative Wege finden, um die Daten zu analysieren und zu
-            visualisieren
-          </DefaultListItem>
-        </OrderedList>
       </DefaultText>
+      <OrderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+        <DefaultListItem>mehr über angewandtes NLP erfahren</DefaultListItem>
+        <DefaultListItem>
+          kreative Wege finden, um die Daten zu analysieren und zu visualisieren
+        </DefaultListItem>
+      </OrderedList>
+
       <DefaultText>
         Das genaue Ziel, d. H. der Fokus der Analyse, wurde innerhalb der beiden
         Untergruppen entwickelt. Das Ergebnis sollte sich primär nicht auf ein
@@ -242,7 +241,7 @@ export const Slide4: React.FC = () => {
           vorgestellt:
         </b>
       </DefaultText>
-      <Flex justifyContent="center">
+      <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
         <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
       </Flex>
     </SlideWrapper>

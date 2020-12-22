@@ -35,9 +35,13 @@ const TeamMember: React.FC<TeamMemberProps> = ({ src, name }) => {
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
-      <SEO title="" description="" canonicalRoute="" />
+      <SEO
+        title="Unser Beitrag zur Demokratie"
+        description="Das Team hinter dem gemeinnützigen Projekt engagiert sich für den erleichterten Zugang zu politischen Debatten und Themen auf Basis modernster Technologien."
+        canonicalRoute="ueber-uns"
+      />
 
-      <Section>
+      <Section paddingTop={{ base: 4, xl: 10 }}>
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h1">
             Das Team hinter Open Discourse
