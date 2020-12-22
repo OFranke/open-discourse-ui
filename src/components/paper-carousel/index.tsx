@@ -159,6 +159,7 @@ export const PaperCarousel: React.FC = () => {
                 <Image
                   src={"/images/logos/zdf_heute_logo.jpg"}
                   alt={"ZDFHeute Logo"}
+                  loading="eager"
                   layout="responsive"
                   width="900px"
                   height="900px"
@@ -181,6 +182,7 @@ export const PaperCarousel: React.FC = () => {
                 <Image
                   src={"/images/logos/ccc_logo.svg"}
                   alt={"Chaos Computer Club Logo"}
+                  loading="eager"
                   layout="responsive"
                   width="515px"
                   height="645px"
@@ -203,6 +205,7 @@ export const PaperCarousel: React.FC = () => {
                 <Image
                   src={"/images/logos/akademische_forschung_logo.svg"}
                   alt={"Bild zur Darstellung akademischer Forschung"}
+                  loading="eager"
                   layout="responsive"
                   width="1280px"
                   height="944px"
@@ -225,6 +228,7 @@ export const PaperCarousel: React.FC = () => {
                 <Image
                   src={"/images/logos/correlaid_logo.svg"}
                   alt={"Correlaid Logo"}
+                  loading="eager"
                   layout="responsive"
                   width="515px"
                   height="645px"
