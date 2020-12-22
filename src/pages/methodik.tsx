@@ -38,7 +38,7 @@ const Home: React.FC = () => {
             Bundestag öffentlich verhandeln soll.
           </ColoredSubline>
           <DefaultText>
-            SSeit 1949 wird für jede Plenarsitzung ein stenografischer Bericht
+            Seit 1949 wird für jede Plenarsitzung ein stenografischer Bericht
             angefertigt, der jedes gesagte Wort der Sitzung dokumentiert. Diese
             Protokolle liegen als txt-, xml-, oder pdf-Dokumente auf den{" "}
             <NextChakraLink
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
             Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
             Applaus usw.) der Politker_Innen, die während der Reden stattfanden.
             Insgesamt besteht das Korpus aus über 200 Millionen Tokens aus fast
-            900.000 Reden in mehr als 4,200 verarbeiteten Protokollen. Das Open
+            900.000 Reden in mehr als 4.000 verarbeiteten Protokollen. Das Open
             Discourse Korpus deckt insgesamt 99,7 Prozent aller Plenarprotokolle
             des Deutschen Bundestages ab.
           </DefaultText>
@@ -241,13 +241,13 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Im nächsten Schritt wurden eine die Fraktionstabelle, eine
-            Politikerinnentabelle und eine Tabelle mit den gesprochenen Inhalten
-            erstellt und extrahiert. Mit umfangreichen Regex-Muster können die
-            Reden, die Person, die die Rede hält, die assoziierte Partei und
-            Interjektionen durch das Plenum extrahieren werden. Ab der elften
-            Wahlperiode werden Tagesordnungspunkte in den Protokollen verwendet,
-            um den Rohtext aufzuteilen. Diese Unterteilung des Textes erhöht die
-            Genauigkeit der angewendeten Regex-Muster. Der letzte
+            Politiker_Innentabelle und eine Tabelle mit den gesprochenen
+            Inhalten erstellt und extrahiert. Mit umfangreichen Regex-Muster
+            können die Reden, die Person, die die Rede hält, die assoziierte
+            Partei und Zwischenrufe durch das Plenum extrahieren werden. Ab der
+            elften Wahlperiode werden Tagesordnungspunkte in den Protokollen
+            verwendet, um den Rohtext aufzuteilen. Diese Unterteilung des Textes
+            erhöht die Genauigkeit der angewendeten Regex-Muster. Der letzte
             Verarbeitungsschritt ist die Erstellung der Beitragstabelle.
           </DefaultText>
           <DefaultText>

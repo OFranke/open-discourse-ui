@@ -28,13 +28,13 @@ const Search: React.FC = () => {
         <DefaultContainer size="l">
           <DefaultHeadline size="s">Volltextsuche</DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Hier können Sie Datenbank nach Stichworten, Politiker_Innen,
+            Hier können Sie die Datenbank nach Stichworten, Politiker_Innen,
             Fraktionen oder Rollen der Politiker_Innen durchsuchen.
           </ColoredSubline>
           <DefaultText>
             Mit der Volltextsuche können Sie alle verfügbaren Plenarprotokollen
             des Deutschen Bundestags seit 1949 nach Stichworten filtern und
-            somit in den Redebeiträgen unserer Politiker_Innen zielgerichtet
+            somit in den Redebeiträgen der Politiker_Innen zielgerichtet
             stöbern.
           </DefaultText>
           <Callout calloutText="Aktuell werden nur die 50 ersten Suchergebnisse ausgegeben, um sicherzustellen, dass unsere Datenbank alle Suchanfragen beantworten kann. Wir beabsichtigen dieses Limit zeitnah zu erhöhen, um die Recherche in den Daten noch weiter zu vereinfachen." />
@@ -75,24 +75,22 @@ const Search: React.FC = () => {
             einfach eigenständig durchstöbern?
           </ColoredSubline>
           <DefaultText>
-            Wir stellen unsere aufbereitete Datenbank* open source zur Verfügung
-            und geben die Nutzung, Weiterverwendung und Weiterverbreitung frei.
-            Wir würden uns freuen, wenn ihr bei Nutzung des Datensatzes unser
-            Data Paper zitiert:
+            Wir stellen unsere aufbereitete Datenbank* open source zur
+            Verfügung. Wir würden uns freuen, wenn Sie uns bei Nutzung des
+            Datensatzes zitieren:
           </DefaultText>
           <DefaultText fontStyle="italic">
             <q>
-              Richter, Florian; Koch, Philipp; Franke, Oliver; Kraus, Jakob;
-              Kuruc, Fabrizio; Thiem, Anja; Högerl, Judith; Heine, Stella;
-              Schöps, Konstantin, 2020, "Open Discourse",
+              Richter, F.; Koch, P.; Franke, O.; Kraus, J.; Kuruc, F.; Thiem,
+              A.; Högerl, J.; Heine, S.; Schöps, K., 2020, "Open Discourse",
               https://doi.org/10.7910/DVN/FIKIBO, Harvard Dataverse
             </q>
           </DefaultText>
           <DefaultText>
             Wir arbeiten gerade an einer detaillierten, wissenschaftlichen
-            Dokumentation über das Open DIscourse Korpus. Wir hoffen dieses Data
-            Paper in Q1 2021 zu veröffentlichen - die entsprechenden
-            Informationen finden Sie dann ebenfalls hier.
+            Dokumentation über die Open Discourse Daten. Wir werden dieses Data
+            Paper in Q1 2021 veröffentlichen - die entsprechenden Informationen
+            finden Sie dann ebenfalls hier.
           </DefaultText>
 
           <DefaultText>
@@ -121,11 +119,11 @@ const Search: React.FC = () => {
           <DefaultText>
             Für vollständige Reproduzierbarkeit und Offenheit, stellen wir den
             Source Code, mit dem die Open-Discourse Daten erstellt wurden, auf
-            GitHub zur Verfügung. So können wir garantieren, dass keine
-            Datenverfälschung oder Manipulation stattgefunden hat.
+            GitHub zur Verfügung.
             <br />
             <br />
-            Auch stellen wir hier einige Docker Images zur Verfügung. <br />
+            Auch stellen wir hier ein Docker Image der Datenbank zur Verfügung.{" "}
+            <br />
             Diese können Sie benutzen, um die Datenbank ganz einfach lokal
             aufzusetzen.
             <br />
