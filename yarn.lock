@@ -211,22 +211,13 @@
     "@chakra-ui/react" "1.0.3"
     react "17.0.1"
 
-"@bit/limebit.limebit-ui.next-button-link@0.0.x":
-  version "0.0.1"
-  resolved "https://node.bit.dev/limebit.limebit-ui.next-button-link/-/limebit.limebit-ui.next-button-link-0.0.1.tgz#4f84ba8e0102e920fd07e3722ab1cca9043d43fb"
-  integrity sha1-T4S6jgEC6SD9B+NyKrHMqQQ9Q/s=
+"@bit/limebit.limebit-ui.next-button-link@0.0.2":
+  version "0.0.2"
+  resolved "https://node.bit.dev/limebit.limebit-ui.next-button-link/-/limebit.limebit-ui.next-button-link-0.0.2.tgz#1734e0f8b81e55af4b42632150b14575513a3068"
+  integrity sha1-FzTg+LgeVa9LQmMhULFFdVE6MGg=
   dependencies:
     "@bit/limebit.limebit-ui.default-button" "0.0.3"
-    "@bit/limebit.limebit-ui.next-chakra-link" "0.0.3"
-    react "17.0.1"
-
-"@bit/limebit.limebit-ui.next-chakra-link@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/limebit.limebit-ui.next-chakra-link/-/limebit.limebit-ui.next-chakra-link-0.0.3.tgz#a16708857466e0d7e0b87e0ba501476ab3bdc7d5"
-  integrity sha1-oWcIhXRm4NfguH4LpQFHarO9x9U=
-  dependencies:
-    "@chakra-ui/react" "1.0.3"
-    next "10.0.3"
+    "@bit/limebit.limebit-ui.next-chakra-link" "0.0.4"
     react "17.0.1"
 
 "@bit/limebit.limebit-ui.next-chakra-link@0.0.4":
