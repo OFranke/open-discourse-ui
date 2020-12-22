@@ -18,7 +18,7 @@
     "@bit/limebit.limebit-ui.default-container": "0.0.x",
     "@bit/limebit.limebit-ui.default-headline": "0.1.x",
     "@bit/limebit.limebit-ui.default-text": "0.0.x",
-    "@bit/limebit.limebit-ui.next-button-link": "0.0.x",
+    "@bit/limebit.limebit-ui.next-button-link": "0.0.2",
     "@bit/limebit.limebit-ui.next-chakra-link": "0.0.4",
     "@bit/limebit.limebit-ui.quote": "0.0.x",
     "@bit/limebit.limebit-ui.section": "0.0.x",
