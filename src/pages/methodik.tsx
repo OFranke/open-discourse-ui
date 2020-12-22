@@ -5,12 +5,11 @@ import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-import { Code, UnorderedList, Box, Flex } from "@chakra-ui/react";
+import { UnorderedList, Flex } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import React from "react";
-import { HeroWithCta } from "../components/hero-with-cta/index";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
@@ -42,7 +41,7 @@ const Home: React.FC = () => {
 
       <Section>
         <DefaultContainer size="l">
-          <DefaultHeadline size="s" as="h2">
+          <DefaultHeadline size="s" as="h1">
             Wir bringen den Bundestag ins 21. Jahrhundert!
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
