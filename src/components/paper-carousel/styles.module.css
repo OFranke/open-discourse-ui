@@ -15,22 +15,54 @@
   z-index: -1;
 }
 
-.backgroundImageOpenDiscourse {
-  background-image: url("../../../public/images/sample/teamwork.jpg");
-}
-
 .backgroundImageCCC {
-  background-image: url("../../../public/images/analysen/04_Analysen_CCC_markus-spiske-8CWoXxaqGrs-unsplash.jpg?format=webp");
+  background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=1440&format=webp");
 }
 
 .backgroundImageFom {
-  background-image: url("../../../public/images/analysen/04_Analaysen_Akademische_ansgar-scheffold-gGI9zZKMG4g-unsplash.jpg?format=webp");
+  background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=1440&format=webp");
 }
 
 .backgroundImageZdf {
-  background-image: url("../../../public/images/analysen/04_Analysen_Plenarsaal_bundestag-1006110_1920.jpg?format=webp");
+  background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=1440&format=webp");
 }
 
 .backgroundImageCorrelaid {
-  background-image: url("../../../public/images/analysen/04_Analysen_Correlaid_christian-lue-0m5rvoQnwgM-unsplash.jpg?format=webp");
+  background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=1440&format=webp");
+}
+
+@media screen and (min-width: 1441px) {
+  .backgroundImageCCC {
+    background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=1920&format=webp");
+  }
+
+  .backgroundImageFom {
+    background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=1920&format=webp");
+  }
+
+  .backgroundImageZdf {
+    background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=1920&format=webp");
+  }
+
+  .backgroundImageCorrelaid {
+    background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=1920&format=webp");
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  .backgroundImageCCC {
+    background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=3840&format=webp");
+  }
+
+  .backgroundImageFom {
+    background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=3840&format=webp");
+  }
+
+  .backgroundImageZdf {
+    background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=3840&format=webp");
+  }
+
+  .backgroundImageCorrelaid {
+    background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=3840&format=webp");
+  }
 }

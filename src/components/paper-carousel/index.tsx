@@ -97,9 +97,9 @@ export const PaperCarousel: React.FC = () => {
         <Slider
           asNavFor={navState.nav2}
           ref={(slider) => (slider1ref = slider)}
-          slidesToShow={4}
-          infinite={false}
-          centerMode={false}
+          slidesToShow={3}
+          infinite={true}
+          centerMode={true}
           variableWidth={true}
           swipeToSlide={true}
           focusOnSelect={true}
@@ -110,23 +110,11 @@ export const PaperCarousel: React.FC = () => {
           }
           responsive={[
             {
-              breakpoint: 1440,
+              breakpoint: 480,
               settings: {
-                slidesToShow: 4,
-                swipeToSlide: false,
-                infinite: false,
-                centerMode: false,
-                // infinite: false,
-              },
-            },
-            {
-              breakpoint: 1200,
-              settings: {
-                slidesToShow: 3,
+                slidesToShow: 1,
                 swipeToSlide: true,
                 infinite: true,
-                centerMode: true,
-                // infinite: false,
               },
             },
             {
@@ -135,16 +123,24 @@ export const PaperCarousel: React.FC = () => {
                 slidesToShow: 2,
                 swipeToSlide: true,
                 infinite: true,
-                centerMode: true,
+              },
+            },
+
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 3,
+                swipeToSlide: true,
+                infinite: true,
+                // infinite: false,
               },
             },
             {
-              breakpoint: 480,
+              breakpoint: 1440,
               settings: {
-                slidesToShow: 1,
+                slidesToShow: 3,
                 swipeToSlide: true,
-                infinite: true,
-                centerMode: true,
+                infinite: false,
               },
             },
           ]}
@@ -163,6 +159,7 @@ export const PaperCarousel: React.FC = () => {
                 <Image
                   src={"/images/logos/zdf_heute_logo.jpg"}
                   alt={"ZDFHeute Logo"}
+                  loading="eager"
                   layout="responsive"
                   width="900px"
                   height="900px"
@@ -185,6 +182,7 @@ export const PaperCarousel: React.FC = () => {
                 <Image
                   src={"/images/logos/ccc_logo.svg"}
                   alt={"Chaos Computer Club Logo"}
+                  loading="eager"
                   layout="responsive"
                   width="515px"
                   height="645px"
@@ -207,6 +205,7 @@ export const PaperCarousel: React.FC = () => {
                 <Image
                   src={"/images/logos/akademische_forschung_logo.svg"}
                   alt={"Bild zur Darstellung akademischer Forschung"}
+                  loading="eager"
                   layout="responsive"
                   width="1280px"
                   height="944px"
@@ -229,6 +228,7 @@ export const PaperCarousel: React.FC = () => {
                 <Image
                   src={"/images/logos/correlaid_logo.svg"}
                   alt={"Correlaid Logo"}
+                  loading="eager"
                   layout="responsive"
                   width="515px"
                   height="645px"

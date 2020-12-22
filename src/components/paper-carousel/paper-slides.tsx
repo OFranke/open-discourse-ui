@@ -72,7 +72,7 @@ export const Slide2: React.FC = () => {
     <SlideWrapper>
       <DefaultHeadline size="s">Chaos Computer Club</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
-        Open -Discourse beim rC3 – der Remote Chaos Experience
+        Open Discourse beim rC3 – der Remote Chaos Experience
       </ColoredSubline>
       <DefaultText>
         Im Rahmen des diesjährigen Chaos Computer Club Events werden wir das
@@ -82,11 +82,11 @@ export const Slide2: React.FC = () => {
         In Kürze finden Sie hier die Aufzeichnung unseres Vortrages :)
       </DefaultText>
 
-      {/* <Box height={{ base: "200px", md: "500px" }} /> */}
+      <Box height={{ base: "200px", md: "500px" }} />
 
-      <Flex justifyContent="center">
+      {/* <Flex justifyContent="center">
         <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
-      </Flex>
+      </Flex> */}
     </SlideWrapper>
   );
 };
@@ -137,43 +137,42 @@ export const Slide3: React.FC = () => {
         Sprache. Dabei sollte insbesondere die Verwendung von
         Transformerarchitekturen näher betrachtet werden.
       </DefaultText>
-      <DefaultText>
-        Autoren:
-        <UnorderedList listStyleType="none" margin="0">
-          <DefaultListItem marginBottom="0">
-            <NextChakraLink
-              color="pink.500"
-              href="https://www.linkedin.com/in/florianlorisch/"
-            >
-              Florian M. Lorisch <ExternalLinkIcon mx="2px" />
-            </NextChakraLink>
-          </DefaultListItem>
-          <DefaultListItem marginBottom="0">
-            <NextChakraLink
-              color="pink.500"
-              href="https://www.linkedin.com/in/michael-s-a911a1164/"
-            >
-              Michael Schwabe <ExternalLinkIcon mx="2px" />
-            </NextChakraLink>
-          </DefaultListItem>
-          <DefaultListItem marginBottom="0">
-            <NextChakraLink
-              color="pink.500"
-              href="https://www.linkedin.com/in/louis-m-47227516a/"
-            >
-              Michael Schwabe <ExternalLinkIcon mx="2px" />
-            </NextChakraLink>
-          </DefaultListItem>
-          <DefaultListItem marginBottom="0">
-            <NextChakraLink
-              color="pink.500"
-              href="https://www.linkedin.com/in/paul-abisch-840503191/"
-            >
-              Paul Abisch <ExternalLinkIcon mx="2px" />
-            </NextChakraLink>
-          </DefaultListItem>
-        </UnorderedList>
-      </DefaultText>
+      <DefaultText marginBottom="0">Autoren:</DefaultText>
+      <UnorderedList listStyleType="none" margin="0">
+        <DefaultListItem marginBottom="0">
+          <NextChakraLink
+            color="pink.500"
+            href="https://www.linkedin.com/in/florianlorisch/"
+          >
+            Florian M. Lorisch <ExternalLinkIcon mx="2px" />
+          </NextChakraLink>
+        </DefaultListItem>
+        <DefaultListItem marginBottom="0">
+          <NextChakraLink
+            color="pink.500"
+            href="https://www.linkedin.com/in/michael-s-a911a1164/"
+          >
+            Michael Schwabe <ExternalLinkIcon mx="2px" />
+          </NextChakraLink>
+        </DefaultListItem>
+        <DefaultListItem marginBottom="0">
+          <NextChakraLink
+            color="pink.500"
+            href="https://www.linkedin.com/in/louis-m-47227516a/"
+          >
+            Michael Schwabe <ExternalLinkIcon mx="2px" />
+          </NextChakraLink>
+        </DefaultListItem>
+        <DefaultListItem marginBottom="0">
+          <NextChakraLink
+            color="pink.500"
+            href="https://www.linkedin.com/in/paul-abisch-840503191/"
+          >
+            Paul Abisch <ExternalLinkIcon mx="2px" />
+          </NextChakraLink>
+        </DefaultListItem>
+      </UnorderedList>
+
       <NextButtonLink
         colorScheme="pink"
         isExternal
@@ -220,15 +219,14 @@ export const Slide4: React.FC = () => {
       <DefaultText>
         In der Arbeit mit dem Datensatz hat sich das Team folgende Ziele
         gesetzt:
-        <br />
-        <OrderedList>
-          <DefaultListItem>mehr über angewandtes NLP erfahren</DefaultListItem>
-          <DefaultListItem>
-            kreative Wege finden, um die Daten zu analysieren und zu
-            visualisieren
-          </DefaultListItem>
-        </OrderedList>
       </DefaultText>
+      <OrderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+        <DefaultListItem>mehr über angewandtes NLP erfahren</DefaultListItem>
+        <DefaultListItem>
+          kreative Wege finden, um die Daten zu analysieren und zu visualisieren
+        </DefaultListItem>
+      </OrderedList>
+
       <DefaultText>
         Das genaue Ziel, d. H. der Fokus der Analyse, wurde innerhalb der beiden
         Untergruppen entwickelt. Das Ergebnis sollte sich primär nicht auf ein
@@ -242,7 +240,7 @@ export const Slide4: React.FC = () => {
           vorgestellt:
         </b>
       </DefaultText>
-      <Flex justifyContent="center">
+      <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
         <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
       </Flex>
     </SlideWrapper>
