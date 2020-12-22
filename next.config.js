@@ -95,6 +95,7 @@ module.exports = withPlugins(
         /* config for next-optimized-images */
       },
     ],
+    envConfig,
   ],
   nextConfig
 );

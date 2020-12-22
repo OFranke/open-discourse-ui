@@ -38,7 +38,9 @@ const Search: React.FC = () => {
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">Volltextsuche</DefaultHeadline>
+          <DefaultHeadline size="s" as="h1">
+            Volltextsuche für Plenarprotokolle des Bundestages
+          </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
             Hier können Sie die Datenbank nach Stichworten, Politiker_Innen,
             Fraktionen oder Rollen der Politiker_Innen durchsuchen.
