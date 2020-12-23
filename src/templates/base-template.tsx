@@ -1,19 +1,19 @@
-import { Flex, Text } from "@chakra-ui/core";
-import { theme } from "@chakra-ui/core";
+import { Flex, Box } from "@chakra-ui/react";
 import { Header } from "./components/header";
-import { ChakraProvider } from "@chakra-ui/core";
+import { Footer } from "./components/footer";
+import { ChakraProvider } from "@chakra-ui/react";
 
 // 1. Import the extendTheme util - it will merge with the default theme.
-import { extendTheme } from "@chakra-ui/core";
+import { extendTheme } from "@chakra-ui/react";
 
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 
 // Then add your custom breakpoints as key-value pairs
 const breakpoints = createBreakpoints({
-  sm: "30em", // 30*16 = up to 480px --> Mobile
-  md: "48em", // 48*16 = from 481px to 768px --> Mobile Landscape & Tablet
-  lg: "85em", // 85*16 = from 769px to 1360px --> HD Ready
-  xl: "120em", // 120*16 = from 1361px to 1920px --> Full HD
+  sm: "480px",
+  md: "768px",
+  lg: "1024px",
+  xl: "2560px",
 });
 
 // 2. Extend the theme to include custom colors, fonts, etc.
@@ -23,30 +23,27 @@ const extendedTheme = {
     heading: "Source Sans Pro",
     body: "Source Sans Pro",
   },
-  // textStyles: {
-  //   h1: {
-  //     // you can also use responsive styles
-  //     fontSize: ["48px", "72px"],
-  //     fontWeight: "bold",
-  //     lineHeight: "110%",
-  //     letterSpacing: "-2%",
-  //   },
-  //   h2: {
-  //     fontSize: ["36px", "48px"],
-  //     fontWeight: "semibold",
-  //     lineHeight: "110%",
-  //     letterSpacing: "-1%",
-  //   },
-  // },
+  colors: {
+    pink: {
+      500: "#EB558A",
+    },
+    gray: {
+      100: "#F2F2F2",
+      200: "#E9E9E9",
+      300: "#CCCCCC",
+    },
+  },
+  additionalColors: { yellow: "#FFF78E" },
+  styles: { global: { body: { bg: "gray.50" } } },
 };
-
 const customTheme = extendTheme(extendedTheme);
 export const BaseTemplate: React.FC = ({ children }) => {
   return (
     <ChakraProvider theme={customTheme}>
       <Flex direction="column">
         <Header />
-        {children}
+        <Box marginTop={{ base: "64px", lg: "80px" }}>{children}</Box>
+        <Footer />
       </Flex>
     </ChakraProvider>
   );

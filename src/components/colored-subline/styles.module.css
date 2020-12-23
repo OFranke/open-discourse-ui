@@ -1,6 +1,0 @@
-.insertWhitespace:before {
-  content: "\00a0 ";
-}
-.insertWhitespace:after {
-  content: "\00a0 ";
-}

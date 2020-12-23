@@ -1,8 +1,8 @@
-import { Card } from "../card";
-import { Stack, Flex, useBreakpointValue, Text, Box } from "@chakra-ui/core";
-import { DefaultHeadline } from "../default-headline";
+import { Card } from "@bit/limebit.limebit-ui.card";
+import { Flex, useBreakpointValue, Text, Box } from "@chakra-ui/react";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import React from "react";
-import { DefaultText } from "../default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import Image from "next/image";
 
 interface DescriptionProps {
@@ -13,21 +13,21 @@ const Description: React.FC<DescriptionProps> = ({
   description,
   descriptionHighlight,
 }) => {
-  const paddingY = useBreakpointValue({
+  const paddingY = {
     base: "2",
     sm: "4",
     md: "5",
     lg: "0",
     xl: "0",
-  });
+  };
 
-  const descriptionSize = useBreakpointValue({
+  const descriptionSize = {
     base: "sm",
     sm: "xl",
     md: "xl",
     lg: "xl",
     xl: "2xl",
-  });
+  };
 
   return (
     <Box>
@@ -36,7 +36,7 @@ const Description: React.FC<DescriptionProps> = ({
       </DefaultText>
       <DefaultText
         textTransform="uppercase"
-        color="#EB558A"
+        color="pink.500"
         fontWeight="bold"
         fontSize={descriptionSize}
       >
@@ -51,13 +51,13 @@ interface HeaderProps {
   subline: string;
 }
 const Header: React.FC<HeaderProps> = ({ subline }) => {
-  const sublineSize = useBreakpointValue({
+  const sublineSize = {
     base: "sm",
     sm: "xl",
     md: "2xl",
     lg: "3xl",
     xl: "4xl",
-  });
+  };
   return (
     <Box>
       <DefaultHeadline
@@ -121,7 +121,6 @@ export const Statistic: React.FC<StatisticProps> = ({
     <Card>
       {isDesktop ? (
         <Flex
-          padding="4"
           flexDirection={imagePosition == "right" ? "row-reverse" : "initial"}
         >
           <Flex
@@ -145,7 +144,7 @@ export const Statistic: React.FC<StatisticProps> = ({
           </Box>
         </Flex>
       ) : (
-        <Flex direction="column" p="2">
+        <Flex direction="column">
           <Header headline={headline} subline={subline} />{" "}
           <Box
             width={{ md: "100%" }}

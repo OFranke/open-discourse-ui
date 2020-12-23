@@ -1,13 +1,18 @@
-import { Box, Flex } from "@chakra-ui/core";
+import { Box, Flex } from "@chakra-ui/react";
 import styles from "./styles.module.css";
-import { DefaultContainer } from "../default-container";
-import { DefaultButton } from "../default-button";
-import { DefaultHeadline } from "../default-headline";
-
-export const HeroWithCta = () => {
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
+import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
+import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
+interface HeroWithCtaProps {
+  backgroundImageStyles: string;
+}
+export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
+  backgroundImageStyles,
+}) => {
   return (
     <Flex
-      className={styles.backgroundImage}
+      className={backgroundImageStyles}
       height={"60vh"}
       maxHeight={[
         "350px", // 0-30em
@@ -32,19 +37,22 @@ export const HeroWithCta = () => {
           display="flex"
           flexDirection="column"
         >
-          <DefaultHeadline
-            size="l"
-            as="h2"
-            width={{ sm: "50%" }}
-            display={{ base: "none", lg: "initial" }}
-          >
-            Open Discourse
-          </DefaultHeadline>
           <DefaultHeadline size="m" as="h1" width={{ sm: "50%" }}>
-            Analyse von politischer Sprache in Deutschland
+            Analyse von Plenarprotokollen für Mensch und Maschine
           </DefaultHeadline>
           <Box>
-            <DefaultButton colorScheme="pink">Zur Volltextsuche</DefaultButton>
+            <NextButtonLink
+              colorScheme="pink"
+              href="/tools-und-daten"
+              marginTop={{
+                base: "4",
+                md: "4",
+                lg: "6",
+                xl: "8",
+              }}
+            >
+              Zur Volltextsuche
+            </NextButtonLink>
           </Box>
         </DefaultContainer>
       </Flex>
