@@ -22,7 +22,9 @@ const envConfig = (phase) => {
   const env = {
     HOST_URL: isDev
       ? "http://localhost:3000/"
-      : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+      : process.env.VERCEL_ENV == "production"
+      ? `https://opendiscourse.de`
+      : `https://${process.env.VERCEL_GIT_REPO_SLUG}-git-${process.env.VERCEL_GIT_COMMIT_REF}.ofranke.vercel.app`,
   };
 
   const experimental = {
