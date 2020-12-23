@@ -24,7 +24,7 @@ const envConfig = (phase) => {
       ? "http://localhost:3000/"
       : process.env.VERCEL_ENV == "production"
       ? `https://opendiscourse.de`
-      : `https://${process.env.VERCEL_GIT_REPO_SLUG}-${VERCEL_GIT_COMMIT_REF}.ofranke.vercel.app`,
+      : `https://${process.env.VERCEL_GIT_REPO_SLUG}-${process.env.VERCEL_GIT_COMMIT_REF}.ofranke.vercel.app`,
   };
 
   const experimental = {
