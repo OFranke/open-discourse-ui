@@ -90,7 +90,7 @@ export const ResultMobile = ({
                 ...row,
                 abbreviation:
                   row.abbreviation == "not found"
-                    ? "Ohne Zurodnung"
+                    ? "Ohne Zuordnung"
                     : row.abbreviation,
                 positionShort: convertPosition(row.positionShort),
               }}
