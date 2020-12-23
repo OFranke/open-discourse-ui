@@ -101,7 +101,6 @@ export const SearchForm: React.FC<FormParams> = () => {
         }))
     : [];
   const inputSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
-  console.log("\x1b[33m%s\x1b[0m", "%c >> inputSize", inputSize);
   if (politicians && factions) {
     return (
       <>

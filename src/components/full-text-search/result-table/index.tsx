@@ -129,7 +129,7 @@ export const ResultTable = ({ data }: ResultTableProps) => {
             ...element,
             abbreviation:
               element.abbreviation == "not found"
-                ? "Ohne Zurodnung"
+                ? "Ohne Zuordnung"
                 : element.abbreviation,
             positionShort: convertPosition(element.positionShort),
           };

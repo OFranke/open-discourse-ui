@@ -30,7 +30,6 @@ export const useManageData = () => {
       const searchApiEndpoint = `${
         process.env.PROXY_ENDPOINT || "https://api.opendiscourse.de:5300"
       }/${window.location.search}`;
-
       const searchResult = await fetch(searchApiEndpoint, {
         mode: "cors",
         headers: { "Content-Type": "application/json" },
