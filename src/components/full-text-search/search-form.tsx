@@ -173,14 +173,22 @@ export const SearchForm: React.FC<FormParams> = () => {
             <Stack direction={{ base: "column", md: "row" }}>
               <DefaultDateInput
                 prefix="Von:"
-                formParams={formParams}
-                setFormParams={setFormParams}
+                onChange={(event) => {
+                  setFormParams({
+                    ...formParams,
+                    fromDate: event.target.value,
+                  });
+                }}
                 value={formParams?.fromDate || ""}
               />
               <DefaultDateInput
                 prefix="Bis:"
-                formParams={formParams}
-                setFormParams={setFormParams}
+                onChange={(event) => {
+                  setFormParams({
+                    ...formParams,
+                    toDate: event.target.value,
+                  });
+                }}
                 value={formParams?.toDate || ""}
               />
             </Stack>
