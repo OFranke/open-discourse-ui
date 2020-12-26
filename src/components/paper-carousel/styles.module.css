@@ -15,54 +15,55 @@
   z-index: -1;
 }
 
+/*  @TODO: update image format to webp when most users upgraded to safari 14 or find a better solution in general */
 .backgroundImageCCC {
-  background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=1440&format=webp");
+  background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=1440&format=jpg");
 }
 
 .backgroundImageFom {
-  background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=1440&format=webp");
+  background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=1440&format=jpg");
 }
 
 .backgroundImageZdf {
-  background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=1440&format=webp");
+  background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=1440&format=jpg");
 }
 
 .backgroundImageCorrelaid {
-  background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=1440&format=webp");
+  background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=1440&format=jpg");
 }
 
 @media screen and (min-width: 1441px) {
   .backgroundImageCCC {
-    background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=1920&format=webp");
+    background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=1920&format=jpg");
   }
 
   .backgroundImageFom {
-    background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=1920&format=webp");
+    background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=1920&format=jpg");
   }
 
   .backgroundImageZdf {
-    background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=1920&format=webp");
+    background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=1920&format=jpg");
   }
 
   .backgroundImageCorrelaid {
-    background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=1920&format=webp");
+    background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=1920&format=jpg");
   }
 }
 
 @media screen and (min-width: 1921px) {
   .backgroundImageCCC {
-    background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=3840&format=webp");
+    background-image: url("../../../public/images/analysen/background_ccc.jpg?resize&size=3840&format=jpg");
   }
 
   .backgroundImageFom {
-    background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=3840&format=webp");
+    background-image: url("../../../public/images/analysen/background_fom.jpg?resize&size=3840&format=jpg");
   }
 
   .backgroundImageZdf {
-    background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=3840&format=webp");
+    background-image: url("../../../public/images/analysen/background_zdf.jpg?resize&size=3840&format=jpg");
   }
 
   .backgroundImageCorrelaid {
-    background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=3840&format=webp");
+    background-image: url("../../../public/images/analysen/background_correlaid.jpg?resize&size=3840&format=jpg");
   }
 }
