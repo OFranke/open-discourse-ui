@@ -35,15 +35,11 @@ export const positions = [
 export const SearchForm: React.FC<FormParams> = () => {
   const [formParams, setFormParams] = useState<FormParams>({});
   const [politicians] = useGetData<Politician[]>(
-    `${
-      process.env.PROXY_ENDPOINT || "https://api.opendiscourse.de:5300"
-    }/politicians`,
+    "https://api.opendiscourse.de:5300/politicians",
     (response) => response.politicians
   );
   const [factions] = useGetData<Faction[]>(
-    `${
-      process.env.PROXY_ENDPOINT || "https://api.opendiscourse.de:5300"
-    }/factions`,
+    "https://api.opendiscourse.de:5300/factions",
     (response) => response.factions
   );
 
@@ -177,14 +173,22 @@ export const SearchForm: React.FC<FormParams> = () => {
             <Stack direction={{ base: "column", md: "row" }}>
               <DefaultDateInput
                 prefix="Von:"
-                formParams={formParams}
-                setFormParams={setFormParams}
+                onChange={(event) => {
+                  setFormParams({
+                    ...formParams,
+                    fromDate: event.target.value,
+                  });
+                }}
                 value={formParams?.fromDate || ""}
               />
               <DefaultDateInput
                 prefix="Bis:"
-                formParams={formParams}
-                setFormParams={setFormParams}
+                onChange={(event) => {
+                  setFormParams({
+                    ...formParams,
+                    toDate: event.target.value,
+                  });
+                }}
                 value={formParams?.toDate || ""}
               />
             </Stack>
