@@ -3,9 +3,11 @@ import {
   InputGroup,
   InputLeftAddon,
   InputRightElement,
+  Text,
 } from "@chakra-ui/react";
 import { CalendarIcon } from "@chakra-ui/icons";
-import { ChangeEvent } from "react";
+import { SetStateAction } from "react";
+import { useBreakpointValue } from "@chakra-ui/react";
 import {
   DataProps,
   SelectInput,
@@ -21,25 +23,38 @@ export interface FormParams {
 }
 
 export interface DefaultDateInputProps {
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  formParams: FormParams;
+  setFormParams: (value: SetStateAction<FormParams>) => void;
   value: string;
   prefix: string;
 }
 
 export const DefaultDateInput = ({
-  onChange,
+  formParams,
+  setFormParams,
   value,
   prefix,
 }: DefaultDateInputProps) => {
+  const inputSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
   return (
     <InputGroup>
-      <InputLeftAddon children={prefix} />
+      <InputLeftAddon
+        height="inherit"
+        width={{ base: "20%", lg: "15%" }}
+        children={<Text fontSize={inputSize}>{prefix}</Text>}
+      />
       <Input
+        size={inputSize}
         value={value}
-        placeholder="27.12.2020"
+        placeholder="YYYY-MM-DD"
         type="text"
         focusBorderColor="pink.500"
-        onChange={onChange}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
+          setFormParams({
+            ...formParams,
+            toDate: event.target.value,
+          })
+        }
       />
       <InputRightElement children={<CalendarIcon color="pink.500" />} />
     </InputGroup>
@@ -59,6 +74,7 @@ export const DefaultSelectInput = ({
   placeholder,
   initialValue,
 }: DefaultSelectInputProps) => {
+  const inputSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
   return (
     <SelectInput
       width="100%"
@@ -66,6 +82,7 @@ export const DefaultSelectInput = ({
       rawData={rawData}
       onSelect={onSelect}
       InputProps={{
+        size: inputSize,
         focusBorderColor: "pink.500",
         type: "text",
       }}
