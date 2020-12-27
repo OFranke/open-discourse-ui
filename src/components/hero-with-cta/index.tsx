@@ -1,7 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
-import styles from "./styles.module.css";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
-import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 interface HeroWithCtaProps {
