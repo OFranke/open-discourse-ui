@@ -36,7 +36,7 @@ export const DefaultDateInput = ({
       <InputLeftAddon children={prefix} />
       <Input
         value={value}
-        placeholder="YYYY-MM-DD"
+        placeholder="27.12.2020"
         type="text"
         focusBorderColor="pink.500"
         onChange={onChange}
