@@ -1,6 +1,6 @@
+import React from "react";
 import { BaseTemplate } from "../templates/base-template";
 import { Stack, Box, SimpleGrid, UnorderedList } from "@chakra-ui/react";
-import React from "react";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
