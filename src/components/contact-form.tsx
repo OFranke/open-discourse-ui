@@ -14,6 +14,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
+import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 interface Status {
   submitted: boolean;
   submitting: boolean;
@@ -227,7 +228,13 @@ export const ContactForm: React.FC = () => {
             </DefaultText>
             <DefaultText as="div">
               zwischenruf@opendiscourse.de <br />
-              www.limebit.de <br />
+              <NextChakraLink
+                color="pink.500"
+                href="https://limebit.de"
+                isExternal
+              >
+                www.limebit.de <br />
+              </NextChakraLink>
               +49 (0) 30 - 120 86 0 64
             </DefaultText>
           </Box>

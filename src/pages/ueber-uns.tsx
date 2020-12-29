@@ -52,10 +52,17 @@ const Home: React.FC = () => {
           </ColoredSubline>
           <DefaultText>
             Open Discourse ist ein gemeinnützige Projekt der Mitarbeiterinnen
-            und Mitarbeiter der Limebit GmbH. Entstanden ist das Idee aus den
-            Fähigkeiten und Motivationen der Mitarbeiter_Innen, in
-            Pausengesprächen und aus den gemeinsamen Vorstellungen von
-            Demokratie.
+            und Mitarbeiter der{" "}
+            <NextChakraLink
+              color="pink.500"
+              href="https://limebit.de"
+              isExternal
+            >
+              Limebit GmbH. <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>{" "}
+            Entstanden ist die Idee aus den Fähigkeiten und Motivationen der
+            Mitarbeiter_Innen, in Pausengesprächen und aus den gemeinsamen
+            Vorstellungen von Demokratie.
           </DefaultText>
           <DefaultText>
             Wir hoffen, dass durch unsere Vorarbeit datenbasierter Journalismus,
