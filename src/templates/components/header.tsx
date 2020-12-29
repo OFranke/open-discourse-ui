@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
           <Box display={{ base: "block", lg: "none" }} onClick={handleToggle}>
             <IconButton
               variant="ghost"
-              aria-label="Open Menu"
+              aria-label="Menü Öffnen"
               size="lg"
               icon={<HamburgerIcon w="8" h="8" />}
             />
