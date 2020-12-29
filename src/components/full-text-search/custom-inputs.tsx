@@ -12,6 +12,7 @@ import {
   DataProps,
   SelectInput,
 } from "@bit/limebit.chakra-ui-recipes.select-input";
+import { ChangeEvent } from "react";
 
 export interface FormParams {
   contentQuery?: string | null;
@@ -23,38 +24,28 @@ export interface FormParams {
 }
 
 export interface DefaultDateInputProps {
-  formParams: FormParams;
-  setFormParams: (value: SetStateAction<FormParams>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   value: string;
   prefix: string;
 }
 
 export const DefaultDateInput = ({
-  formParams,
-  setFormParams,
+  onChange,
   value,
   prefix,
 }: DefaultDateInputProps) => {
   const inputSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
   return (
     <InputGroup>
-      <InputLeftAddon
-        height="inherit"
-        width={{ base: "20%", lg: "15%" }}
-        children={<Text fontSize={inputSize}>{prefix}</Text>}
-      />
+      <InputLeftAddon children={prefix} />
+
       <Input
         size={inputSize}
         value={value}
         placeholder="YYYY-MM-DD"
         type="text"
         focusBorderColor="pink.500"
-        onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
-          setFormParams({
-            ...formParams,
-            toDate: event.target.value,
-          })
-        }
+        onChange={onChange}
       />
       <InputRightElement children={<CalendarIcon color="pink.500" />} />
     </InputGroup>
