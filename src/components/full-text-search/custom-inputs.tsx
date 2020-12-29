@@ -3,11 +3,9 @@ import {
   InputGroup,
   InputLeftAddon,
   InputRightElement,
-  Text,
 } from "@chakra-ui/react";
 import { CalendarIcon } from "@chakra-ui/icons";
-import { SetStateAction } from "react";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { ChangeEvent } from "react";
 import {
   DataProps,
   SelectInput,
@@ -34,13 +32,10 @@ export const DefaultDateInput = ({
   value,
   prefix,
 }: DefaultDateInputProps) => {
-  const inputSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
   return (
     <InputGroup>
       <InputLeftAddon children={prefix} />
-
       <Input
-        size={inputSize}
         value={value}
         placeholder="YYYY-MM-DD"
         type="text"
@@ -65,7 +60,6 @@ export const DefaultSelectInput = ({
   placeholder,
   initialValue,
 }: DefaultSelectInputProps) => {
-  const inputSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
   return (
     <SelectInput
       width="100%"
@@ -73,7 +67,6 @@ export const DefaultSelectInput = ({
       rawData={rawData}
       onSelect={onSelect}
       InputProps={{
-        size: inputSize,
         focusBorderColor: "pink.500",
         type: "text",
       }}
