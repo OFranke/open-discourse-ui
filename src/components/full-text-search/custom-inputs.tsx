@@ -10,7 +10,6 @@ import {
   DataProps,
   SelectInput,
 } from "@bit/limebit.chakra-ui-recipes.select-input";
-import { ChangeEvent } from "react";
 
 export interface FormParams {
   contentQuery?: string | null;
