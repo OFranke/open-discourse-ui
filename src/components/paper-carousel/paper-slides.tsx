@@ -82,18 +82,7 @@ export const Slide2: React.FC = () => {
         In Kürze finden Sie hier die Aufzeichnung unseres Vortrages :)
       </DefaultText>
 
-      {/* <Box height={{ base: "200px", md: "500px" }} /> */}
-
-      <iframe
-        width="1024"
-        height="576"
-        src="https://media.ccc.de/v/rc3-428768-wir_wissen_was_ihr_letzten_sommer_gesagt_habt_open_discourse_und_die_transparenz_des_bundestages/oembed"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-      {/* <Flex justifyContent="center">
-        <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
-      </Flex> */}
+      <Box height={{ base: "200px", md: "500px" }} />
     </SlideWrapper>
   );
 };
