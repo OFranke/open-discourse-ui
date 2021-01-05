@@ -83,10 +83,6 @@ export const Slide2: React.FC = () => {
       </DefaultText>
 
       <Box height={{ base: "200px", md: "500px" }} />
-
-      {/* <Flex justifyContent="center">
-        <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
-      </Flex> */}
     </SlideWrapper>
   );
 };
@@ -113,8 +109,40 @@ export const Slide3: React.FC = () => {
         Generative Adversarial Networks (GAN) hypothetische Reden.
         <br />
         Aus dem Abstract der Seminararbeit “Automatisierte Generierung
-        politischer Reden auf Basis eines deutschsprachigen Korpus “ von Michael
-        Schwabe, Louis Matheoschat, Florian Lorisch und Paul Abisch:
+        politischer Reden auf Basis eines deutschsprachigen Korpus “ von{" "}
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://www.linkedin.com/in/michael-s-a911a1164/"
+        >
+          Michael Schwabe <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>
+        {", "}
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://www.linkedin.com/in/louis-m-47227516a/"
+        >
+          Louis Matheoschat
+          <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>
+        {", "}
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://www.linkedin.com/in/florianlorisch/"
+        >
+          Florian M. Lorisch <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>{" "}
+        und{" "}
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://www.linkedin.com/in/paul-abisch-840503191/"
+        >
+          Paul Abisch <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>
+        .
       </DefaultText>
       <DefaultText>
         Die automatisierte Generierung von Texten mithilfe von Natural Language
@@ -137,46 +165,6 @@ export const Slide3: React.FC = () => {
         Sprache. Dabei sollte insbesondere die Verwendung von
         Transformerarchitekturen näher betrachtet werden.
       </DefaultText>
-      <DefaultText marginBottom="0">Autoren:</DefaultText>
-      <UnorderedList listStyleType="none" margin="0">
-        <DefaultListItem marginBottom="0">
-          <NextChakraLink
-            isExternal
-            color="pink.500"
-            href="https://www.linkedin.com/in/florianlorisch/"
-          >
-            Florian M. Lorisch <ExternalLinkIcon mx="2px" />
-          </NextChakraLink>
-        </DefaultListItem>
-        <DefaultListItem marginBottom="0">
-          <NextChakraLink
-            isExternal
-            color="pink.500"
-            href="https://www.linkedin.com/in/michael-s-a911a1164/"
-          >
-            Michael Schwabe <ExternalLinkIcon mx="2px" />
-          </NextChakraLink>
-        </DefaultListItem>
-        <DefaultListItem marginBottom="0">
-          <NextChakraLink
-            isExternal
-            color="pink.500"
-            href="https://www.linkedin.com/in/louis-m-47227516a/"
-          >
-            Michael Schwabe <ExternalLinkIcon mx="2px" />
-          </NextChakraLink>
-        </DefaultListItem>
-        <DefaultListItem marginBottom="0">
-          <NextChakraLink
-            isExternal
-            color="pink.500"
-            href="https://www.linkedin.com/in/paul-abisch-840503191/"
-          >
-            Paul Abisch <ExternalLinkIcon mx="2px" />
-          </NextChakraLink>
-        </DefaultListItem>
-      </UnorderedList>
-
       <NextButtonLink
         colorScheme="pink"
         isExternal
