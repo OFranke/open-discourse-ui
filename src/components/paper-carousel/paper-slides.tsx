@@ -75,14 +75,13 @@ export const Slide2: React.FC = () => {
         Open Discourse beim rC3 – der Remote Chaos Experience
       </ColoredSubline>
       <DefaultText>
-        Im Rahmen des diesjährigen Chaos Computer Club Events werden wir das
-        Projekt Open Discourse vorstellen.
+        Im Rahmen des Chaos Computer Club Events haben wir Open Discourse am
+        27.12.2020 vorgestellt.
       </DefaultText>
-      <DefaultText>
-        In Kürze finden Sie hier die Aufzeichnung unseres Vortrages :)
-      </DefaultText>
-
-      <Box height={{ base: "200px", md: "500px" }} />
+      <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
+        <YoutubeVideo url="https://www.youtube.com/watch?v=Epm-5bmPc38&feature=youtu.be&ab_channel=media.ccc.de&rel=0" />
+      </Flex>
+      {/* <Box height={{ base: "200px", md: "500px" }} /> */}
     </SlideWrapper>
   );
 };
