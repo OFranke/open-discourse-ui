@@ -75,14 +75,19 @@ export const Slide2: React.FC = () => {
         Open Discourse beim rC3 – der Remote Chaos Experience
       </ColoredSubline>
       <DefaultText>
-        Im Rahmen des diesjährigen Chaos Computer Club Events werden wir das
-        Projekt Open Discourse vorstellen.
+        Im Dezember 2020 haben wir beim Chaos Communication Congress unser
+        Projekt das erste Mal der Öffentlichkeit vorgestellt. In unserem Talk
+        erklären Philipp und Florian, woher die Motivation für Open Discourse
+        kam, wie die Daten aufbereitet wurden und wie man auf die Daten
+        zugreifen kann. Zusätzlich zeigen die Beiden anhand der Themenfelder
+        Datenschutz und Klimawandel, wie der Bundestag sich mit diesen Themen
+        historisch auseinander gesetzt hat und welche Politiker_Innen und
+        Parteien die Themen besonders (un-)interessant fanden.
       </DefaultText>
-      <DefaultText>
-        In Kürze finden Sie hier die Aufzeichnung unseres Vortrages :)
-      </DefaultText>
-
-      <Box height={{ base: "200px", md: "500px" }} />
+      <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
+        <YoutubeVideo url="https://www.youtube-nocookie.com/embed/Epm-5bmPc38" />
+      </Flex>
+      {/* <Box height={{ base: "200px", md: "500px" }} /> */}
     </SlideWrapper>
   );
 };
@@ -237,7 +242,7 @@ export const Slide4: React.FC = () => {
         </b>
       </DefaultText>
       <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
-        <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
+        <YoutubeVideo url="https://www.youtube-nocookie.com/embed/bJBkZQ1xeA0" />
       </Flex>
     </SlideWrapper>
   );
