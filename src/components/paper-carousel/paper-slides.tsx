@@ -75,18 +75,19 @@ export const Slide2: React.FC = () => {
         Open Discourse beim rC3 – der Remote Chaos Experience
       </ColoredSubline>
       <DefaultText>
-        Im Rahmen des diesjährigen Chaos Computer Club Events werden wir das
-        Projekt Open Discourse vorstellen.
+        Im Dezember 2020 haben wir beim Chaos Communication Congress unser
+        Projekt das erste Mal der Öffentlichkeit vorgestellt. In unserem Talk
+        erklären Philipp und Florian, woher die Motivation für Open Discourse
+        kam, wie die Daten aufbereitet wurden und wie man auf die Daten
+        zugreifen kann. Zusätzlich zeigen die Beiden anhand der Themenfelder
+        Datenschutz und Klimawandel, wie der Bundestag sich mit diesen Themen
+        historisch auseinander gesetzt hat und welche Politiker_Innen und
+        Parteien die Themen besonders (un-)interessant fanden.
       </DefaultText>
-      <DefaultText>
-        In Kürze finden Sie hier die Aufzeichnung unseres Vortrages :)
-      </DefaultText>
-
-      <Box height={{ base: "200px", md: "500px" }} />
-
-      {/* <Flex justifyContent="center">
-        <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
-      </Flex> */}
+      <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
+        <YoutubeVideo url="https://www.youtube-nocookie.com/embed/Epm-5bmPc38" />
+      </Flex>
+      {/* <Box height={{ base: "200px", md: "500px" }} /> */}
     </SlideWrapper>
   );
 };
@@ -113,8 +114,40 @@ export const Slide3: React.FC = () => {
         Generative Adversarial Networks (GAN) hypothetische Reden.
         <br />
         Aus dem Abstract der Seminararbeit “Automatisierte Generierung
-        politischer Reden auf Basis eines deutschsprachigen Korpus “ von Michael
-        Schwabe, Louis Matheoschat, Florian Lorisch und Paul Abisch:
+        politischer Reden auf Basis eines deutschsprachigen Korpus “ von{" "}
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://www.linkedin.com/in/michael-s-a911a1164/"
+        >
+          Michael Schwabe <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>
+        {", "}
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://www.linkedin.com/in/louis-m-47227516a/"
+        >
+          Louis Matheoschat
+          <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>
+        {", "}
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://www.linkedin.com/in/florianlorisch/"
+        >
+          Florian M. Lorisch <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>{" "}
+        und{" "}
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://www.linkedin.com/in/paul-abisch-840503191/"
+        >
+          Paul Abisch <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>
+        .
       </DefaultText>
       <DefaultText>
         Die automatisierte Generierung von Texten mithilfe von Natural Language
@@ -137,46 +170,6 @@ export const Slide3: React.FC = () => {
         Sprache. Dabei sollte insbesondere die Verwendung von
         Transformerarchitekturen näher betrachtet werden.
       </DefaultText>
-      <DefaultText marginBottom="0">Autoren:</DefaultText>
-      <UnorderedList listStyleType="none" margin="0">
-        <DefaultListItem marginBottom="0">
-          <NextChakraLink
-            isExternal
-            color="pink.500"
-            href="https://www.linkedin.com/in/florianlorisch/"
-          >
-            Florian M. Lorisch <ExternalLinkIcon mx="2px" />
-          </NextChakraLink>
-        </DefaultListItem>
-        <DefaultListItem marginBottom="0">
-          <NextChakraLink
-            isExternal
-            color="pink.500"
-            href="https://www.linkedin.com/in/michael-s-a911a1164/"
-          >
-            Michael Schwabe <ExternalLinkIcon mx="2px" />
-          </NextChakraLink>
-        </DefaultListItem>
-        <DefaultListItem marginBottom="0">
-          <NextChakraLink
-            isExternal
-            color="pink.500"
-            href="https://www.linkedin.com/in/louis-m-47227516a/"
-          >
-            Michael Schwabe <ExternalLinkIcon mx="2px" />
-          </NextChakraLink>
-        </DefaultListItem>
-        <DefaultListItem marginBottom="0">
-          <NextChakraLink
-            isExternal
-            color="pink.500"
-            href="https://www.linkedin.com/in/paul-abisch-840503191/"
-          >
-            Paul Abisch <ExternalLinkIcon mx="2px" />
-          </NextChakraLink>
-        </DefaultListItem>
-      </UnorderedList>
-
       <NextButtonLink
         colorScheme="pink"
         isExternal
@@ -249,7 +242,7 @@ export const Slide4: React.FC = () => {
         </b>
       </DefaultText>
       <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
-        <YoutubeVideo url="https://www.youtube.com/watch?v=bJBkZQ1xeA0" />
+        <YoutubeVideo url="https://www.youtube-nocookie.com/embed/bJBkZQ1xeA0" />
       </Flex>
     </SlideWrapper>
   );
