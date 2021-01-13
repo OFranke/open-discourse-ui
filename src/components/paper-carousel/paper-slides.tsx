@@ -75,8 +75,14 @@ export const Slide2: React.FC = () => {
         Open Discourse beim rC3 – der Remote Chaos Experience
       </ColoredSubline>
       <DefaultText>
-        Im Rahmen des Chaos Computer Club Events haben wir Open Discourse am
-        27.12.2020 vorgestellt.
+        Im Dezember 2020 haben wir beim Chaos Communication Congress unser
+        Projekt das erste Mal der Öffentlichkeit vorgestellt. In unserem Talk
+        erklären Philipp und Florian, woher die Motivation für Open Discourse
+        kam, wie die Daten aufbereitet wurden und wie man auf die Daten
+        zugreifen kann. Zusätzlich zeigen die Beiden anhand der Themenfelder
+        Datenschutz und Klimawandel, wie der Bundestag sich mit diesen Themen
+        historisch auseinander gesetzt hat und welche Politiker_Innen und
+        Parteien die Themen besonders (un-)interessant fanden.
       </DefaultText>
       <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
         <YoutubeVideo url="https://www.youtube.com/watch?v=Epm-5bmPc38&feature=youtu.be&ab_channel=media.ccc.de&rel=0" />
