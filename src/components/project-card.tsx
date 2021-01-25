@@ -1,6 +1,5 @@
 import { Card } from "@bit/limebit.limebit-ui.card";
-import { Text, Stack, Box, Flex } from "@chakra-ui/react";
-import Image from "next/image";
+import { Text, Stack, Box, Flex, chakra } from "@chakra-ui/react";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -42,6 +41,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     xl: "2xl",
   };
 
+  const multipleSizesWebp = require(`../../public/images${imagePath}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
+  const multipleSizes = require(`../../public/images${imagePath}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=jpg`);
+
   return (
     <Card>
       <Flex direction="column" height="100%" justifyContent="space-between">
@@ -51,17 +53,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             alignItems={{ base: "center", lg: "unset" }}
           >
             <Box
-              width={{ base: "60px", sm: "80px", md: "100px", lg: "140px" }}
+              boxSize={{ base: "60px", sm: "80px", md: "100px", lg: "140px" }}
               alignSelf="center"
             >
-              <Image
-                src={imagePath}
-                alt={imageAlt}
-                layout="responsive"
-                width="60px"
-                height="60px"
-                quality="75"
-              />
+              <picture>
+                <source srcSet={multipleSizesWebp.srcSet} type="image/webp" />
+                <source srcSet={multipleSizes.srcSet} type="image/jpg" />
+                <chakra.img
+                  alt={imageAlt}
+                  src={multipleSizes.src}
+                  width="100%"
+                  height="100%"
+                  objectFit="contain"
+                />
+              </picture>
             </Box>
             <Flex
               direction="column"

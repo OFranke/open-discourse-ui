@@ -5,17 +5,21 @@ import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-import { UnorderedList, Flex } from "@chakra-ui/react";
+import { UnorderedList, Flex, chakra } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import Image from "next/image";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import React from "react";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
 import styles from "./styles.module.css";
+import { BackgroundImage } from "../components/background-image";
 
 const Home: React.FC = () => {
+  const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
+  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
+  const multipleSizesBundestagWebp = require(`../../public/images/methodik/reichstagsgebäude_wiese.jpg?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
+  const multipleSizesBundestag = require(`../../public/images/methodik/reichstagsgebäude_wiese.jpg?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
   return (
     <BaseTemplate>
       <SEO
@@ -24,18 +28,9 @@ const Home: React.FC = () => {
         canonicalRoute="methodik"
       />
       <Section>
-        <Flex
-          className={styles.methodikBackgroundImage}
-          height={"60vh"}
-          maxHeight={[
-            "350px", // 0-30em
-            "600px", // 30em-48em
-            "600px", // 48em-62em
-            "750px", // 62em+
-          ]}
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-          backgroundSize="cover"
+        <BackgroundImage
+          relativePathFromImageDir="/methodik/header_methodik.jpg"
+          height="60vh"
         />
       </Section>
 
@@ -268,14 +263,15 @@ const Home: React.FC = () => {
             Learning etc. auf die Daten anwenden, um Fragen zu beantworten, die
             bisher nicht (ohne großen Aufwand) beantwortbar waren.
           </DefaultText>
-          <Image
-            src={"/images/regex_erkennung.png"}
-            alt={"imageAlt"}
-            layout="responsive"
-            width="1024px"
-            height="512px"
-            quality="75"
-          />
+          <picture>
+            <source srcSet={multipleSizesRegexWebp.srcSet} type="image/webp" />
+            <source srcSet={multipleSizesRegex.srcSet} type="image/jpg" />
+            <chakra.img
+              alt="Mustererkennung"
+              src={multipleSizesRegex.src}
+              objectFit="contain"
+            />
+          </picture>
         </DefaultContainer>
       </Section>
       <Section>
@@ -383,15 +379,20 @@ const Home: React.FC = () => {
         </DefaultContainer>
       </Section>
       <Section marginBottom="0">
-        <Image
-          src={"/images/methodik/reichstagsgebäude_wiese.jpg"}
-          // src={"/images/statistics/wer_kommt_zu_wort.png"}
-          alt={"imageAlt"}
-          layout="responsive"
-          width="320px"
-          height="160px"
-          quality="75"
-        />
+        <picture>
+          <source
+            srcSet={multipleSizesBundestagWebp.srcSet}
+            type="image/webp"
+          />
+          <source srcSet={multipleSizesBundestag.srcSet} type="image/jpg" />
+          <chakra.img
+            alt="imageAlt"
+            src={multipleSizesBundestag.src}
+            width="100%"
+            height="100vh"
+            objectFit="cover"
+          />
+        </picture>
       </Section>
       {/* <Section>
         <DefaultContainer size="l">

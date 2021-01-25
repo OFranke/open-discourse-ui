@@ -2,26 +2,16 @@ import { Box, Flex } from "@chakra-ui/react";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
+import React from "react";
+import { BackgroundImage } from "../background-image";
 interface HeroWithCtaProps {
-  backgroundImageStyles: string;
+  relativePathFromImageDir: string;
 }
 export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
-  backgroundImageStyles,
+  relativePathFromImageDir,
 }) => {
   return (
-    <Flex
-      className={backgroundImageStyles}
-      height={"60vh"}
-      maxHeight={[
-        "350px", // 0-30em
-        "600px", // 30em-48em
-        "600px", // 48em-62em
-        "750px", // 62em+
-      ]}
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      backgroundSize="cover"
-    >
+    <BackgroundImage relativePathFromImageDir={relativePathFromImageDir}>
       <Flex
         width="100%"
         height="100%"
@@ -54,6 +44,6 @@ export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
           </Box>
         </DefaultContainer>
       </Flex>
-    </Flex>
+    </BackgroundImage>
   );
 };

@@ -1,9 +1,8 @@
-import { Box, Flex, FlexProps } from "@chakra-ui/react";
+import { Box, chakra, Flex, FlexProps } from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
 import styles from "./styles.module.css";
 import { Slide1, Slide2, Slide3, Slide4 } from "./paper-slides";
 import {
@@ -91,6 +90,15 @@ export const PaperCarousel: React.FC = () => {
 
   const bgNegativeMargin = { base: 0, lg: -300, xl: -600 };
 
+  const multipleSizesZDFWebp = require(`../../../public/images/logos/zdf_heute_logo.jpg?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
+  const multipleSizesZDF = require(`../../../public/images/logos/zdf_heute_logo.jpg?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=jpg`);
+  const multipleSizesCCCWebp = require(`../../../public/images/logos/ccc_logo.svg?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
+  const multipleSizesCCC = require(`../../../public/images/logos/ccc_logo.svg?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=jpg`);
+  const multipleSizesAFLWebp = require(`../../../public/images/logos/akademische_forschung_logo.svg?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
+  const multipleSizesAFL = require(`../../../public/images/logos/akademische_forschung_logo.svg?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=jpg`);
+  const multipleSizesCAidWebp = require(`../../../public/images/logos/correlaid_logo.svg?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
+  const multipleSizesCAid = require(`../../../public/images/logos/correlaid_logo.svg?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=jpg`);
+
   return (
     <>
       <Box maxWidth={containerSizes["l"]} marginX="auto">
@@ -156,15 +164,20 @@ export const PaperCarousel: React.FC = () => {
                   xl: "100px",
                 }}
               >
-                <Image
-                  src={"/images/logos/zdf_heute_logo.jpg"}
-                  alt={"ZDFHeute Logo"}
-                  loading="eager"
-                  layout="responsive"
-                  width="900px"
-                  height="900px"
-                  quality="75"
-                />
+                <picture>
+                  <source
+                    srcSet={multipleSizesZDFWebp.srcSet}
+                    type="image/webp"
+                  />
+                  <source srcSet={multipleSizesZDF.srcSet} type="image/jpg" />
+                  <chakra.img
+                    alt="ZDFHeute Logo"
+                    src={multipleSizesZDF.src}
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
+                  />
+                </picture>
               </Box>
             </NavigationSlide>
           </div>
@@ -179,15 +192,20 @@ export const PaperCarousel: React.FC = () => {
                   xl: "75px",
                 }}
               >
-                <Image
-                  src={"/images/logos/ccc_logo.svg"}
-                  alt={"Chaos Computer Club Logo"}
-                  loading="eager"
-                  layout="responsive"
-                  width="515px"
-                  height="645px"
-                  quality="75"
-                />
+                <picture>
+                  <source
+                    srcSet={multipleSizesCCCWebp.srcSet}
+                    type="image/webp"
+                  />
+                  <source srcSet={multipleSizesCCC.srcSet} type="image/jpg" />
+                  <chakra.img
+                    alt="Chaos Computer Club Logo"
+                    src={multipleSizesCCC.src}
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
+                  />
+                </picture>
               </Box>
             </NavigationSlide>
           </div>
@@ -202,15 +220,20 @@ export const PaperCarousel: React.FC = () => {
                   xl: "120px",
                 }}
               >
-                <Image
-                  src={"/images/logos/akademische_forschung_logo.svg"}
-                  alt={"Bild zur Darstellung akademischer Forschung"}
-                  loading="eager"
-                  layout="responsive"
-                  width="1280px"
-                  height="944px"
-                  quality="75"
-                />
+                <picture>
+                  <source
+                    srcSet={multipleSizesAFLWebp.srcSet}
+                    type="image/webp"
+                  />
+                  <source srcSet={multipleSizesAFL.srcSet} type="image/jpg" />
+                  <chakra.img
+                    alt="Bild zur Darstellung akademischer Forschung"
+                    src={multipleSizesAFL.src}
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
+                  />
+                </picture>
               </Box>
             </NavigationSlide>
           </div>
@@ -225,15 +248,20 @@ export const PaperCarousel: React.FC = () => {
                   xl: "75px",
                 }}
               >
-                <Image
-                  src={"/images/logos/correlaid_logo.svg"}
-                  alt={"Correlaid Logo"}
-                  loading="eager"
-                  layout="responsive"
-                  width="515px"
-                  height="645px"
-                  quality="75"
-                />
+                <picture>
+                  <source
+                    srcSet={multipleSizesCAidWebp.srcSet}
+                    type="image/webp"
+                  />
+                  <source srcSet={multipleSizesCAid.srcSet} type="image/jpg" />
+                  <chakra.img
+                    alt="Correlaid Logo"
+                    src={multipleSizesCAid.src}
+                    width="100%"
+                    height="100%"
+                    objectFit="contain"
+                  />
+                </picture>
               </Box>
             </NavigationSlide>
           </div>

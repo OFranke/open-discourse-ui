@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-import {
-  Flex,
-  Box,
-  // useColorMode,
-  IconButton,
-  // useColorModeValue,
-  Stack,
-} from "@chakra-ui/react";
+import { Flex, Box, IconButton, Stack, chakra } from "@chakra-ui/react";
 
 import { FaGithub } from "react-icons/fa";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
-import Image from "next/image";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { useTheme } from "@emotion/react";
 import { NavItem } from "./nav-item";
@@ -20,8 +12,6 @@ import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
-  // const text = useColorModeValue("dark", "light");
-  // const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const theme: any = useTheme();
   return (
     <Box position="fixed" width="100%" bg="white" zIndex="100">
@@ -36,24 +26,27 @@ export const Header: React.FC = () => {
         >
           <Flex align="center" mr={5}>
             <NextChakraLink href={"/"}>
-              <Box
-                width={{
-                  base: "120px",
-                  sm: "120px",
-                  md: "150px",
-                  lg: "150px",
-                  xl: "240px",
-                }}
-              >
-                <Image
-                  src={"/images/logos/open_discourse.png"}
-                  alt={"Open Discourse Logo"}
-                  layout="responsive"
-                  width="1250px"
-                  height="400px"
-                  quality="75"
+              <picture>
+                <source
+                  srcSet={require(`../../../public/images/logos/open_discourse.png?resize&size=240&format=webp`)}
+                  type="image/webp"
                 />
-              </Box>
+                <source
+                  srcSet={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
+                  type="image/png"
+                />
+                <chakra.img
+                  width={{
+                    base: "120px",
+                    sm: "120px",
+                    md: "150px",
+                    lg: "150px",
+                    xl: "240px",
+                  }}
+                  alt={"Open Discourse Logo"}
+                  src={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
+                />
+              </picture>
             </NextChakraLink>
           </Flex>
 
@@ -107,17 +100,6 @@ export const Header: React.FC = () => {
                 />
               </NextChakraLink>
             </Box>
-            {/* <Box>
-              <IconButton
-                justifyContent={{ base: "left", lg: "center" }}
-                fontSize={{ base: "md", md: "xl", xl: "4xl" }}
-                aria-label={`Switch to ${text} mode`}
-                variant="ghost"
-                color="current"
-                onClick={toggleColorMode}
-                icon={<SwitchIcon />}
-              />
-            </Box> */}
           </Stack>
         </Flex>
       </DefaultContainer>
