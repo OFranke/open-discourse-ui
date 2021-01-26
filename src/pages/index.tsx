@@ -324,6 +324,7 @@ const Home: React.FC = () => {
                 alt="Mustererkennung"
                 src={multipleSizesRegex.src}
                 objectFit="contain"
+                loading="lazy"
               />
             </picture>
           </Box>

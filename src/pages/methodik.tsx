@@ -270,6 +270,7 @@ const Home: React.FC = () => {
               alt="Mustererkennung"
               src={multipleSizesRegex.src}
               objectFit="contain"
+              loading="lazy"
             />
           </picture>
         </DefaultContainer>
@@ -391,6 +392,7 @@ const Home: React.FC = () => {
             width="100%"
             height="100vh"
             objectFit="cover"
+            loading="lazy"
           />
         </picture>
       </Section>

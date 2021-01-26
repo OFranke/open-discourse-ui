@@ -65,6 +65,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   width="100%"
                   height="100%"
                   objectFit="contain"
+                  loading="lazy"
                 />
               </picture>
             </Box>

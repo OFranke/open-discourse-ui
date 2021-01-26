@@ -176,6 +176,7 @@ export const PaperCarousel: React.FC = () => {
                     width="100%"
                     height="100%"
                     objectFit="contain"
+                    loading="lazy"
                   />
                 </picture>
               </Box>
@@ -204,6 +205,7 @@ export const PaperCarousel: React.FC = () => {
                     width="100%"
                     height="100%"
                     objectFit="contain"
+                    loading="lazy"
                   />
                 </picture>
               </Box>
@@ -232,6 +234,7 @@ export const PaperCarousel: React.FC = () => {
                     width="100%"
                     height="100%"
                     objectFit="contain"
+                    loading="lazy"
                   />
                 </picture>
               </Box>
@@ -260,6 +263,7 @@ export const PaperCarousel: React.FC = () => {
                     width="100%"
                     height="100%"
                     objectFit="contain"
+                    loading="lazy"
                   />
                 </picture>
               </Box>

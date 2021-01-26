@@ -30,6 +30,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ src, name }) => {
           width="100%"
           height="100%"
           objectFit="contain"
+          loading="lazy"
         />
       </picture>
       <DefaultText as="span">{name}</DefaultText>

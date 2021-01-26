@@ -45,6 +45,7 @@ export const Header: React.FC = () => {
                   }}
                   alt={"Open Discourse Logo"}
                   src={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
+                  loading="lazy"
                 />
               </picture>
             </NextChakraLink>

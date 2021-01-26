@@ -95,6 +95,7 @@ const StatisticImage: React.FC<StatisticImageProps> = ({
         width="100%"
         height="100%"
         objectFit="contain"
+        loading="lazy"
       />
     </picture>
   );
