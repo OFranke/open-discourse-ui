@@ -69,7 +69,7 @@ module.exports = withPlugins(
         },
         webp: {
           preset: "default",
-          quality: 75,
+          quality: 80,
         },
         responsive: {
           adapter: require("responsive-loader/sharp"),

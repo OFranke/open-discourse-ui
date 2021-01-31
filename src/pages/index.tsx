@@ -240,7 +240,7 @@ const Home: React.FC = () => {
               description="ZDFheute untersuchte die Plenarprotokolle des Deutschen Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich unsere Politiker_innen seit dem Jahr 1949  mit dem Stichwort “Pandemie” auseinandergesetzt haben."
               linkText="Mehr zum Projekt"
               linkHref="/analysen"
-              imagePath="/logos/zdf_heute_logo.jpg"
+              imagePath="/logos/zdf_heute_logo.png"
               imageAlt="Logo von ZDFHeute"
             />
           </SimpleGrid>
