@@ -83,8 +83,8 @@ const StatisticImage: React.FC<StatisticImageProps> = ({
   imagePath,
   imageAlt,
 }) => {
-  const multipleSizesWebp = require(`../../../public${imagePath}?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
-  const multipleSizes = require(`../../../public${imagePath}?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
+  const multipleSizesWebp = require(`../../../public/images${imagePath}?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
+  const multipleSizes = require(`../../../public/images${imagePath}?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
   return (
     <picture>
       <source srcSet={multipleSizesWebp.srcSet} type="image/webp" />

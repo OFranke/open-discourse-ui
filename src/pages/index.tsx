@@ -188,7 +188,7 @@ const Home: React.FC = () => {
                 subline="Wer kommt zu Wort – Männer oder Frauen?"
                 description="Anlässlich des internationalen Frauentages 2020 haben wir untersucht, wie viele Redebeiträge der einzelnen Parteien eigentlich von Frauen kamen."
                 descriptionHighlight="Für mehr Transparenz des politischen Diskurses!"
-                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePath="/statistics/wer_kommt_zu_wort.png"
                 imagePosition="right"
                 imageAlt="Statistik"
               />
