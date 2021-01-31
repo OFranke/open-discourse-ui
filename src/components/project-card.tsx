@@ -42,7 +42,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   const multipleSizesWebp = require(`../../public/images${imagePath}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
-  const multipleSizes = require(`../../public/images${imagePath}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=jpg`);
+  const multipleSizes = require(`../../public/images${imagePath}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=png`);
 
   return (
     <Card>
@@ -58,7 +58,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             >
               <picture>
                 <source srcSet={multipleSizesWebp.srcSet} type="image/webp" />
-                <source srcSet={multipleSizes.srcSet} type="image/jpg" />
+                <source srcSet={multipleSizes.srcSet} type="image/png" />
                 <chakra.img
                   alt={imageAlt}
                   src={multipleSizes.src}

@@ -26,7 +26,7 @@ import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 const Home: React.FC = () => {
   const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
-  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
+  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=png`);
   return (
     <BaseTemplate>
       <SEO
@@ -319,7 +319,7 @@ const Home: React.FC = () => {
                 srcSet={multipleSizesRegexWebp.srcSet}
                 type="image/webp"
               />
-              <source srcSet={multipleSizesRegex.srcSet} type="image/jpg" />
+              <source srcSet={multipleSizesRegex.srcSet} type="image/png" />
               <chakra.img
                 alt="Mustererkennung"
                 src={multipleSizesRegex.src}

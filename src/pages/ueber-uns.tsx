@@ -18,12 +18,12 @@ interface TeamMemberProps {
 }
 const TeamMember: React.FC<TeamMemberProps> = ({ src, name }) => {
   const multipleSizesWebp = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
-  const multipleSizes = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=jpg`);
+  const multipleSizes = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=png`);
   return (
     <Box textAlign="center">
       <picture>
         <source srcSet={multipleSizesWebp.srcSet} type="image/webp" />
-        <source srcSet={multipleSizes.srcSet} type="image/jpg" />
+        <source srcSet={multipleSizes.srcSet} type="image/png" />
         <chakra.img
           alt={`Comic Karikatur von ${name}`}
           src={multipleSizes.src}

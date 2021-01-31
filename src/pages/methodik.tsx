@@ -17,7 +17,7 @@ import { BackgroundImage } from "../components/background-image";
 
 const Home: React.FC = () => {
   const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
-  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
+  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=png`);
   const multipleSizesBundestagWebp = require(`../../public/images/methodik/reichstagsgebäude_wiese.jpg?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
   const multipleSizesBundestag = require(`../../public/images/methodik/reichstagsgebäude_wiese.jpg?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
   return (
@@ -265,7 +265,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <picture>
             <source srcSet={multipleSizesRegexWebp.srcSet} type="image/webp" />
-            <source srcSet={multipleSizesRegex.srcSet} type="image/jpg" />
+            <source srcSet={multipleSizesRegex.srcSet} type="image/png" />
             <chakra.img
               alt="Mustererkennung"
               src={multipleSizesRegex.src}
