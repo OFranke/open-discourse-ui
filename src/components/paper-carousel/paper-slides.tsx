@@ -1,32 +1,39 @@
-import { Box, OrderedList, UnorderedList, Flex } from "@chakra-ui/react";
+import { OrderedList, Flex } from "@chakra-ui/react";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-import styles from "./styles.module.css";
 import React from "react";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultListItem } from "../default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
-import ReactPlayer from "react-player/lazy";
 import { YoutubeVideo } from "../youtube-video";
-const SlideWrapper: React.FC = ({ children }) => {
+import { InnerContainer, SlideContainer } from "./utils";
+import { BackgroundImage } from "../background-image";
+import DefaultContainer from "@bit/limebit.limebit-ui.default-container";
+import Section from "@bit/limebit.limebit-ui.section";
+
+interface SliderWrapper {
+  children: React.ReactNode;
+  imagePath: string;
+}
+
+const SlideWrapper: React.FC<SliderWrapper> = ({ children, imagePath }) => {
   return (
-    <Box
-      className={styles.shadowed}
-      marginTop={{ base: 10, md: 14, lg: 0 }}
-      paddingX={{ base: 4, md: 10, xl: 24 }}
-      paddingY={{ base: 6, md: 14, xl: 40 }}
-      backgroundImage="linear-gradient(rgba(255, 255, 255, 1), rgba(247, 250, 252, 1))"
-    >
-      {children}
-    </Box>
+    <SlideContainer>
+      <BackgroundImage relativePathFromImageDir={imagePath} height="60vh" />
+      <DefaultContainer size="l" zIndex="20">
+        <InnerContainer>
+          <Section as="div">{children}</Section>
+        </InnerContainer>
+      </DefaultContainer>
+    </SlideContainer>
   );
 };
 
 export const Slide1: React.FC = () => {
   return (
-    <SlideWrapper>
+    <SlideWrapper imagePath="/analysen/background_zdf.jpg">
       <DefaultHeadline size="s">ZDFHeute</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
         Datenjournalismus zum Stichwort “Pandemie”
@@ -69,7 +76,7 @@ export const Slide1: React.FC = () => {
 
 export const Slide2: React.FC = () => {
   return (
-    <SlideWrapper>
+    <SlideWrapper imagePath="/analysen/background_ccc.jpg">
       <DefaultHeadline size="s">Chaos Computer Club</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
         Open Discourse beim rC3 – der Remote Chaos Experience
@@ -87,13 +94,12 @@ export const Slide2: React.FC = () => {
       <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
         <YoutubeVideo url="https://www.youtube-nocookie.com/embed/Epm-5bmPc38" />
       </Flex>
-      {/* <Box height={{ base: "200px", md: "500px" }} /> */}
     </SlideWrapper>
   );
 };
 export const Slide3: React.FC = () => {
   return (
-    <SlideWrapper>
+    <SlideWrapper imagePath="/analysen/background_fom.jpg">
       <DefaultHeadline size="s">Akademische Forschungsarbeiten</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
         Eignung für die Verwendung in Universitätsprojekten
@@ -189,7 +195,7 @@ export const Slide3: React.FC = () => {
 
 export const Slide4: React.FC = () => {
   return (
-    <SlideWrapper>
+    <SlideWrapper imagePath="/analysen/background_correlaid.jpg">
       <DefaultHeadline size="s">CorrelAid</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
         Datenbasiertes Storytelling

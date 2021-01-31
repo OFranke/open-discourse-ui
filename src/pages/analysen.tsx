@@ -7,8 +7,19 @@ import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { PaperCarousel } from "../components/paper-carousel";
 import SEO from "../components/seo";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
+import {
+  Slide1,
+  Slide2,
+  Slide3,
+  Slide4,
+} from "../components/paper-carousel/paper-slides";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 const Analyses: React.FC = () => {
+  const showArrows = useBreakpointValue({
+    md: false,
+    lg: true,
+  });
   return (
     <BaseTemplate>
       <SEO
@@ -41,7 +52,21 @@ const Analyses: React.FC = () => {
         </DefaultContainer>
       </Section>
       <Section overflow="hidden">
-        <PaperCarousel />
+        <PaperCarousel
+          size="50px"
+          gap="1vw"
+          top={{
+            base: "calc(50px + 30vh)",
+            md: "calc(75px + 30vh)",
+            lg: "calc(100px + 30vh)",
+          }}
+          showArrows={showArrows}
+        >
+          <Slide1 />
+          <Slide2 />
+          <Slide3 />
+          <Slide4 />
+        </PaperCarousel>
       </Section>
     </BaseTemplate>
   );
