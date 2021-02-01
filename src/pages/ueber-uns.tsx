@@ -17,8 +17,8 @@ interface TeamMemberProps {
   name: string;
 }
 const TeamMember: React.FC<TeamMemberProps> = ({ src, name }) => {
-  const multipleSizesWebp = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
-  const multipleSizes = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=png`);
+  const multipleSizesWebp = require(`../../public/images${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
+  const multipleSizes = require(`../../public/images${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=png`);
   return (
     <Box textAlign="center">
       <picture>
@@ -93,27 +93,15 @@ const Home: React.FC = () => {
       <Section>
         <DefaultContainer size="s">
           <SimpleGrid columns={{ base: 3, md: 3, lg: 3 }} spacing="10">
-            <TeamMember src={"/images/karikaturen/anja.png"} name="Anja" />
-            <TeamMember
-              src={"/images/karikaturen/fabrizio.png"}
-              name="Fabrizio"
-            />
-            <TeamMember
-              src={"/images/karikaturen/florian.png"}
-              name="Florian"
-            />
-            <TeamMember src={"/images/karikaturen/jakob.png"} name="Jakob" />
-            <TeamMember src={"/images/karikaturen/judith.png"} name="Judith" />
-            <TeamMember
-              src={"/images/karikaturen/konstantin.png"}
-              name="Konstantin"
-            />
-            <TeamMember src={"/images/karikaturen/oliver.png"} name="Oliver" />
-            <TeamMember
-              src={"/images/karikaturen/philipp.png"}
-              name="Philipp"
-            />
-            <TeamMember src={"/images/karikaturen/stella.png"} name="Stella" />
+            <TeamMember src={"/karikaturen/anja.png"} name="Anja" />
+            <TeamMember src={"/karikaturen/fabrizio.png"} name="Fabrizio" />
+            <TeamMember src={"/karikaturen/florian.png"} name="Florian" />
+            <TeamMember src={"/karikaturen/jakob.png"} name="Jakob" />
+            <TeamMember src={"/karikaturen/judith.png"} name="Judith" />
+            <TeamMember src={"/karikaturen/konstantin.png"} name="Konstantin" />
+            <TeamMember src={"/karikaturen/oliver.png"} name="Oliver" />
+            <TeamMember src={"/karikaturen/philipp.png"} name="Philipp" />
+            <TeamMember src={"/karikaturen/stella.png"} name="Stella" />
           </SimpleGrid>
         </DefaultContainer>
       </Section>

@@ -167,14 +167,15 @@
   resolved "https://node.bit.dev/limebit.chakra-ui-recipes.loading-spinner/-/limebit.chakra-ui-recipes.loading-spinner-0.0.5.tgz#95263c18332bb91661647e1431f12e558f385522"
   integrity sha1-lSY8GDMruRZhZH4UMfEuVY84VSI=
 
-"@bit/limebit.chakra-ui-recipes.react-table@0.0.6":
-  version "0.0.6"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.react-table/-/limebit.chakra-ui-recipes.react-table-0.0.6.tgz#20456bf59abc26162967365a0f414d2cfe37a198"
-  integrity sha1-IEVr9Zq8JhYpZzZaD0FNLP43oZg=
+"@bit/limebit.chakra-ui-recipes.react-table@0.0.5":
+  version "0.0.5"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.react-table/-/limebit.chakra-ui-recipes.react-table-0.0.5.tgz#7d9547ef5786985df23d561eec1b0d6f56006507"
+  integrity sha1-fZVH71eGmF3yPVYe7BsNb1YAZQc=
   dependencies:
     "@apollo/react-common" "3.1.3"
-    "@bit/limebit.chakra-ui-recipes.table" "0.0.3"
+    "@bit/limebit.chakra-ui-recipes.table" "0.0.2"
     "@types/react-table" "7.0.19"
+    csstype "3.0.3"
     react-feather "2.0.8"
     react-responsive "8.1.0"
     react-table "7.2.2"
@@ -186,10 +187,10 @@
   dependencies:
     csstype "3.0.6"
 
-"@bit/limebit.chakra-ui-recipes.table@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.table/-/limebit.chakra-ui-recipes.table-0.0.3.tgz#8abf1c8d26b3f5a751799b41d0134ae00bdc11f7"
-  integrity sha1-ir8cjSaz9adReZtB0BNK4AvcEfc=
+"@bit/limebit.chakra-ui-recipes.table@0.0.2":
+  version "0.0.2"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.table/-/limebit.chakra-ui-recipes.table-0.0.2.tgz#827cea147fe287a2f43b446b0c89c66c6f8ae49a"
+  integrity sha1-gnzqFH/ih6L0O0RrDInGbG+K5Jo=
 
 "@bit/limebit.limebit-ui.card@0.0.4":
   version "0.0.4"
@@ -363,14 +364,6 @@
   resolved "https://registry.yarnpkg.com/@chakra-ui/control-box/-/control-box-1.0.2.tgz#e334befb738592c66023055b298259f7a92b0877"
   integrity sha512-YQE4GasvtZn+aJEQHkch+wp0LySrlBHgBRjdw3y8/FbwAPGOH4KYr3HXre2VqWwfp27M1A+1k7ud6n4wcfjJ1A==
   dependencies:
-    "@chakra-ui/utils" "1.0.2"
-
-"@chakra-ui/counter@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/counter/-/counter-1.0.2.tgz#d4ad35d8787a8a64e216124518cf136e37fb8d22"
-  integrity sha512-BRqRsiaKcTOpaW10vOgz0boO6EtWxSG+/Uoct6rceeMkDEdeilvVy0PsWso3wT+IieL9SHZAnvQ90lAuDu2aWg==
-  dependencies:
-    "@chakra-ui/hooks" "1.0.2"
     "@chakra-ui/utils" "1.0.2"
 
 "@chakra-ui/counter@1.0.2":
@@ -788,13 +781,6 @@
     css-box-model "1.2.1"
     lodash.mergewith "4.6.2"
     object-assign "4.1.1"
-
-"@chakra-ui/visually-hidden@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/visually-hidden/-/visually-hidden-1.0.2.tgz#b091ef42700b2f8c1b88d19bf45b9f32c8cf0e1c"
-  integrity sha512-W73zVywhBnTa38Lz+dxcTp5FuiYFRBOwUnNNN9nA8wrBHvZBD6BaFrFXaugUj2AwJckaBz2UBxCGh74DFx7Dpw==
-  dependencies:
-    "@chakra-ui/utils" "1.0.2"
 
 "@chakra-ui/visually-hidden@1.0.2":
   version "1.0.2"

@@ -10,7 +10,7 @@
   "dependencies": {
     "@bit/limebit.chakra-ui-recipes.error-toast": "0.0.5",
     "@bit/limebit.chakra-ui-recipes.loading-spinner": "0.0.5",
-    "@bit/limebit.chakra-ui-recipes.react-table": "0.0.6",
+    "@bit/limebit.chakra-ui-recipes.react-table": "0.0.5",
     "@bit/limebit.chakra-ui-recipes.select-input": "0.0.9",
     "@bit/limebit.limebit-ui.card": "0.0.4",
     "@bit/limebit.limebit-ui.colored-subline": "0.0.7",
