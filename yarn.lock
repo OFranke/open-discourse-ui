@@ -126,40 +126,39 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@bit/limebit.chakra-ui-recipes.error-toast@^0.0.2":
-  version "0.0.2"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.error-toast/-/limebit.chakra-ui-recipes.error-toast-0.0.2.tgz#9263ead37e729e70505a680c623dddda7d09f265"
-  integrity sha1-kmPq035ynnBQWmgMYj3d2n0J8mU=
+"@bit/limebit.chakra-ui-recipes.error-toast@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.error-toast/-/limebit.chakra-ui-recipes.error-toast-0.0.3.tgz#b2562400e5c1d1b267d92163d1702cbef5b608f8"
+  integrity sha1-slYkAOXB0bJn2SFj0XAsvvW2CPg=
 
-"@bit/limebit.chakra-ui-recipes.loading-spinner@^0.0.2":
-  version "0.0.2"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.loading-spinner/-/limebit.chakra-ui-recipes.loading-spinner-0.0.2.tgz#2140b56f703ac295db5814317e5f659f77a52754"
-  integrity sha1-IUC1b3A6wpXbWBQxfl9ln3elJ1Q=
+"@bit/limebit.chakra-ui-recipes.loading-spinner@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.loading-spinner/-/limebit.chakra-ui-recipes.loading-spinner-0.0.3.tgz#71dcc30114a3608c99f7bc10139e42d0195edeef"
+  integrity sha1-cdzDARSjYIyZ97wQE55C0Ble3u8=
 
-"@bit/limebit.chakra-ui-recipes.react-table@^0.0.5":
-  version "0.0.5"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.react-table/-/limebit.chakra-ui-recipes.react-table-0.0.5.tgz#7d9547ef5786985df23d561eec1b0d6f56006507"
-  integrity sha1-fZVH71eGmF3yPVYe7BsNb1YAZQc=
+"@bit/limebit.chakra-ui-recipes.react-table@0.0.6":
+  version "0.0.6"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.react-table/-/limebit.chakra-ui-recipes.react-table-0.0.6.tgz#20456bf59abc26162967365a0f414d2cfe37a198"
+  integrity sha1-IEVr9Zq8JhYpZzZaD0FNLP43oZg=
   dependencies:
     "@apollo/react-common" "3.1.3"
-    "@bit/limebit.chakra-ui-recipes.table" "0.0.2"
+    "@bit/limebit.chakra-ui-recipes.table" "0.0.3"
     "@types/react-table" "7.0.19"
-    csstype "3.0.3"
     react-feather "2.0.8"
     react-responsive "8.1.0"
     react-table "7.2.2"
 
-"@bit/limebit.chakra-ui-recipes.select-input@^0.0.7":
-  version "0.0.7"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.select-input/-/limebit.chakra-ui-recipes.select-input-0.0.7.tgz#ab39a7e3d41129f333d09e5554c08e1920ac2e6d"
-  integrity sha1-qzmn49QRKfMz0J5VVMCOGSCsLm0=
+"@bit/limebit.chakra-ui-recipes.select-input@0.0.8":
+  version "0.0.8"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.select-input/-/limebit.chakra-ui-recipes.select-input-0.0.8.tgz#9eaee9a766571e12f22d804998d8c8b9d781a0f7"
+  integrity sha1-nq7pp2ZXHhLyLYBJmNjIudeBoPc=
   dependencies:
     csstype "3.0.3"
 
-"@bit/limebit.chakra-ui-recipes.table@0.0.2":
-  version "0.0.2"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.table/-/limebit.chakra-ui-recipes.table-0.0.2.tgz#827cea147fe287a2f43b446b0c89c66c6f8ae49a"
-  integrity sha1-gnzqFH/ih6L0O0RrDInGbG+K5Jo=
+"@bit/limebit.chakra-ui-recipes.table@0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.table/-/limebit.chakra-ui-recipes.table-0.0.3.tgz#8abf1c8d26b3f5a751799b41d0134ae00bdc11f7"
+  integrity sha1-ir8cjSaz9adReZtB0BNK4AvcEfc=
 
 "@bit/limebit.limebit-ui.card@0.0.3":
   version "0.0.3"
