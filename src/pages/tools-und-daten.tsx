@@ -1,5 +1,4 @@
 import { BaseTemplate } from "../templates/base-template";
-import { Flex } from "@chakra-ui/react";
 import { FullTextSearch } from "../components/full-text-search";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
@@ -10,8 +9,8 @@ import { Callout } from "../components/callout";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import React from "react";
-import styles from "./styles.module.css";
 import SEO from "../components/seo";
+import { BackgroundImage } from "../components/background-image";
 
 const Search: React.FC = () => {
   return (
@@ -22,18 +21,9 @@ const Search: React.FC = () => {
         canonicalRoute="tools-und-daten"
       />
       <Section>
-        <Flex
-          className={styles.toolsUndDatenBackgroundImage}
-          height={"60vh"}
-          maxHeight={[
-            "350px", // 0-30em
-            "600px", // 30em-48em
-            "600px", // 48em-62em
-            "750px", // 62em+
-          ]}
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-          backgroundSize="cover"
+        <BackgroundImage
+          relativePathFromImageDir="/tools_und_daten/tools_und_daten_header.jpg"
+          height="60vh"
         />
       </Section>
       <Section>
@@ -70,18 +60,9 @@ const Search: React.FC = () => {
         </DefaultContainer>
       </Section>
       <Section>
-        <Flex
-          className={styles.toolsUndDatenBundestagImage}
-          height={"60vh"}
-          maxHeight={[
-            "350px", // 0-30em
-            "600px", // 30em-48em
-            "600px", // 48em-62em
-            "750px", // 62em+
-          ]}
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-          backgroundSize="cover"
+        <BackgroundImage
+          relativePathFromImageDir="/tools_und_daten/tools_und_daten_bundestag.jpg"
+          height="60vh"
         />
       </Section>
       <Section>

@@ -1,6 +1,12 @@
 import React from "react";
 import { BaseTemplate } from "../templates/base-template";
-import { Stack, Box, SimpleGrid, UnorderedList } from "@chakra-ui/react";
+import {
+  Stack,
+  Box,
+  SimpleGrid,
+  UnorderedList,
+  chakra,
+} from "@chakra-ui/react";
 import { HeroWithCta } from "../components/hero-with-cta";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
@@ -9,7 +15,6 @@ import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { Statistic } from "../components/statistic/index";
-import Image from "next/image";
 import { ProjectCard } from "../components/project-card";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import SEO from "../components/seo";
@@ -18,8 +23,10 @@ import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
-import styles from "./styles.module.css";
+
 const Home: React.FC = () => {
+  const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
+  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=png`);
   return (
     <BaseTemplate>
       <SEO
@@ -28,13 +35,10 @@ const Home: React.FC = () => {
         canonicalRoute="/"
       />
       <Section>
-        <HeroWithCta backgroundImageStyles={styles.indexBackgroundImage} />
+        <HeroWithCta relativePathFromImageDir={"/home_header.jpg"} />
       </Section>
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
-          {/* <DefaultHeadline as="h1" size="s">
-            Analyse von Plenarprotokollen für Mensch und Machine
-          </DefaultHeadline> */}
           <ColoredSubline as="h2" backgroundColor="pink.500">
             Wie Data Science den Weg zu politischem Diskurs demokratisiert
           </ColoredSubline>
@@ -184,7 +188,7 @@ const Home: React.FC = () => {
                 subline="Wer kommt zu Wort – Männer oder Frauen?"
                 description="Anlässlich des internationalen Frauentages 2020 haben wir untersucht, wie viele Redebeiträge der einzelnen Parteien eigentlich von Frauen kamen."
                 descriptionHighlight="Für mehr Transparenz des politischen Diskurses!"
-                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePath="/statistics/wer_kommt_zu_wort.png"
                 imagePosition="right"
                 imageAlt="Statistik"
               />
@@ -218,7 +222,7 @@ const Home: React.FC = () => {
               description='Der Datensatz wurde von Masterstudent_Innen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittels Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
               linkText="Mehr zum Projekt"
               linkHref="/analysen"
-              imagePath="/images/logos/akademische_forschung_logo.svg"
+              imagePath="/logos/akademische_forschung_logo.svg"
               imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
             />
             <ProjectCard
@@ -227,7 +231,7 @@ const Home: React.FC = () => {
               description="CorrelAid ist ein überparteiliches gemeinnütziges Netzwerk von Data Scientists, die die Welt durch die Arbeit mit Daten  verändern wollen. Ziel der Zusammenarbeit mit unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden, um Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der Gründung des Bundestages gesprochen haben."
               linkText="Mehr zum Projekt"
               linkHref="/analysen"
-              imagePath="/images/logos/correlaid_logo.svg"
+              imagePath="/logos/correlaid_logo.svg"
               imageAlt="Logo von CorrelAid"
             />
             <ProjectCard
@@ -236,7 +240,7 @@ const Home: React.FC = () => {
               description="ZDFheute untersuchte die Plenarprotokolle des Deutschen Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich unsere Politiker_innen seit dem Jahr 1949  mit dem Stichwort “Pandemie” auseinandergesetzt haben."
               linkText="Mehr zum Projekt"
               linkHref="/analysen"
-              imagePath="/images/logos/zdf_heute_logo.jpg"
+              imagePath="/logos/zdf_heute_logo.png"
               imageAlt="Logo von ZDFHeute"
             />
           </SimpleGrid>
@@ -310,14 +314,19 @@ const Home: React.FC = () => {
             Data Science trifft auf Plenarprotokolle
           </ColoredSubline>
           <Box marginBottom={{ base: 5, md: 10, lg: 10 }}>
-            <Image
-              src={"/images/regex_erkennung.png"}
-              alt={"Mustererkennung "}
-              layout="responsive"
-              width="1440px"
-              height="700px"
-              quality="75"
-            />
+            <picture>
+              <source
+                srcSet={multipleSizesRegexWebp.srcSet}
+                type="image/webp"
+              />
+              <source srcSet={multipleSizesRegex.srcSet} type="image/png" />
+              <chakra.img
+                alt="Mustererkennung"
+                src={multipleSizesRegex.src}
+                objectFit="contain"
+                loading="lazy"
+              />
+            </picture>
           </Box>
           <DefaultText>
             Wir haben mit verschiedenen Methoden der Informatik und
