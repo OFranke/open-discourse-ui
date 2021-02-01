@@ -157,15 +157,15 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@bit/limebit.chakra-ui-recipes.error-toast@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.error-toast/-/limebit.chakra-ui-recipes.error-toast-0.0.3.tgz#b2562400e5c1d1b267d92163d1702cbef5b608f8"
-  integrity sha1-slYkAOXB0bJn2SFj0XAsvvW2CPg=
+"@bit/limebit.chakra-ui-recipes.error-toast@0.0.4":
+  version "0.0.4"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.error-toast/-/limebit.chakra-ui-recipes.error-toast-0.0.4.tgz#0e55d6853d42b5c6a837ce3a2bc417c57b227286"
+  integrity sha1-DlXWhT1CtcaoN846K8QXxXsicoY=
 
-"@bit/limebit.chakra-ui-recipes.loading-spinner@0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.loading-spinner/-/limebit.chakra-ui-recipes.loading-spinner-0.0.3.tgz#71dcc30114a3608c99f7bc10139e42d0195edeef"
-  integrity sha1-cdzDARSjYIyZ97wQE55C0Ble3u8=
+"@bit/limebit.chakra-ui-recipes.loading-spinner@0.0.4":
+  version "0.0.4"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.loading-spinner/-/limebit.chakra-ui-recipes.loading-spinner-0.0.4.tgz#34b3b69014adc8146adb91f2adaf8592d012500d"
+  integrity sha1-NLO2kBStyBRq25Hyra+FktASUA0=
 
 "@bit/limebit.chakra-ui-recipes.react-table@0.0.6":
   version "0.0.6"
