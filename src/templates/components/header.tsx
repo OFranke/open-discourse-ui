@@ -13,6 +13,8 @@ export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
   const theme: any = useTheme();
+  const multipleSizesWebp = require(`../../../public/images/logos/open_discourse.png?resize&size=240&format=webp`);
+  const multipleSizes = require(`../../../public/images/logos/open_discourse.png?resize&size=240`);
   return (
     <Box position="fixed" width="100%" bg="white" zIndex="100">
       <DefaultContainer size="l" as="header">
@@ -27,14 +29,8 @@ export const Header: React.FC = () => {
           <Flex align="center" mr={5}>
             <NextChakraLink href={"/"}>
               <picture>
-                <source
-                  srcSet={require(`../../../public/images/logos/open_discourse.png?resize&size=240&format=webp`)}
-                  type="image/webp"
-                />
-                <source
-                  srcSet={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
-                  type="image/png"
-                />
+                <source srcSet={multipleSizesWebp} type="image/webp" />
+                <source srcSet={multipleSizes} type="image/png" />
                 <chakra.img
                   width={{
                     base: "120px",
@@ -44,7 +40,7 @@ export const Header: React.FC = () => {
                     xl: "240px",
                   }}
                   alt={"Open Discourse Logo"}
-                  src={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
+                  src={multipleSizes.src}
                   loading="lazy"
                 />
               </picture>
