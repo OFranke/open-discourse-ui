@@ -28,7 +28,7 @@ export const useSrcSet = (...sources: Source[]): string | undefined => {
     ); // This is a fallback for Safari and other browsers that don't support picture tags
     if (supportedSrcSets.length === 0)
       throw new Error("No compatible sources found");
-    img.srcset = supportedSrcSets[0].srcset; // This is a fallback for Safari and other browsers that don't support picture tags
+    // img.srcset = supportedSrcSets[0].srcset; // This is a fallback for Safari and other browsers that don't support picture tags
     element.appendChild(img);
 
     const onImgLoad = () => {
