@@ -8,11 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
-    "@bit/limebit.chakra-ui-recipes.error-toast": "^0.0.2",
-    "@bit/limebit.chakra-ui-recipes.loading-spinner": "^0.0.2",
-    "@bit/limebit.chakra-ui-recipes.react-table": "^0.0.5",
-    "@bit/limebit.chakra-ui-recipes.select-input": "^0.0.7",
-    "@bit/limebit.limebit-ui.card": "0.0.3",
+    "@bit/limebit.chakra-ui-recipes.error-toast": "0.0.5",
+    "@bit/limebit.chakra-ui-recipes.loading-spinner": "0.0.5",
+    "@bit/limebit.chakra-ui-recipes.react-table": "0.0.5",
+    "@bit/limebit.chakra-ui-recipes.select-input": "0.0.9",
+    "@bit/limebit.limebit-ui.card": "0.0.4",
     "@bit/limebit.limebit-ui.colored-subline": "0.0.7",
     "@bit/limebit.limebit-ui.default-button": "0.0.4",
     "@bit/limebit.limebit-ui.default-container": "0.0.2",
