@@ -179,12 +179,12 @@
     react-responsive "8.1.0"
     react-table "7.2.2"
 
-"@bit/limebit.chakra-ui-recipes.select-input@0.0.8":
-  version "0.0.8"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.select-input/-/limebit.chakra-ui-recipes.select-input-0.0.8.tgz#9eaee9a766571e12f22d804998d8c8b9d781a0f7"
-  integrity sha1-nq7pp2ZXHhLyLYBJmNjIudeBoPc=
+"@bit/limebit.chakra-ui-recipes.select-input@0.0.9":
+  version "0.0.9"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.select-input/-/limebit.chakra-ui-recipes.select-input-0.0.9.tgz#06a82239d112b6f13fe2a1df261e3a2a36b8688f"
+  integrity sha1-BqgiOdEStvE/4qHfJh46Kja4aI8=
   dependencies:
-    csstype "3.0.3"
+    csstype "3.0.6"
 
 "@bit/limebit.chakra-ui-recipes.table@0.0.3":
   version "0.0.3"
@@ -3785,7 +3785,7 @@ csstype@3.0.3:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.3.tgz#2b410bbeba38ba9633353aff34b05d9755d065f8"
   integrity sha512-jPl+wbWPOWJ7SXsWyqGRk3lGecbar0Cb0OvZF/r/ZU011R4YqiRehgkQ9p4eQfo9DSDLqLL3wHwfxeJiuIsNag==
 
-csstype@^3.0.2:
+csstype@3.0.6, csstype@^3.0.2:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.6.tgz#865d0b5833d7d8d40f4e5b8a6d76aea3de4725ef"
   integrity sha512-+ZAmfyWMT7TiIlzdqJgjMb7S4f1beorDbWbsocyK4RaiqA5RTX3K14bnBWmmA9QEM0gRdsjyyrEmcyga8Zsxmw==
