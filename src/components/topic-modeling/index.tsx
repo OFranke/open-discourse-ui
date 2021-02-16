@@ -1,8 +1,8 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { TopicFilters } from "./topic-filters";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
-import { IconButton, Box, Stack, Flex } from "@chakra-ui/react";
+import { IconButton, Flex, Stack, Box } from "@chakra-ui/react";
 import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { Card } from "@bit/limebit.limebit-ui.card";
 
@@ -41,7 +41,7 @@ interface FilterReducerAction {
   type: "group" | "person";
   entity: PersonFilter | GroupFilter | null;
 }
-const availableFilterColors = ["pink", "orange", "purple", "blue", "green"];
+const availableFilterColors = ["pink", "purple", "orange", "blue", "green"];
 
 const generateFilterId = () => {
   return Math.random().toString(36).substr(2, 5);
@@ -49,6 +49,7 @@ const generateFilterId = () => {
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
   console.log("\x1b[33m%s\x1b[0m", "%c >> event.target", event.target);
+  // resolve all queries with Promise.all
 };
 
 const filterReducer = (
@@ -189,7 +190,8 @@ export const TopicModelling: React.FC = () => {
               <IconButton
                 marginLeft={{ base: 2, lg: 4 }}
                 variant="outline"
-                colorScheme="teal"
+                // colorScheme="red"
+                colorScheme={filter.color}
                 aria-label="Filter entfernen"
                 fontSize="20px"
                 disabled={state.filters.length <= 1 ? true : false}
@@ -206,40 +208,38 @@ export const TopicModelling: React.FC = () => {
           </Card>
         );
       })}
-      <DefaultButton
-        rightIcon={<AddIcon />}
-        mt={3}
-        colorScheme="pink"
-        type="submit"
-        marginY="30px"
-        disabled={state.filters.length >= 5 ? true : false}
-        onClick={() =>
-          dispatch({ action: "ADD", type: "person", entity: null })
-        }
-      >
-        Personenfilter hinzufügen
-      </DefaultButton>
-      <DefaultButton
-        rightIcon={<AddIcon />}
-        mt={3}
-        colorScheme="pink"
-        type="submit"
-        marginY="30px"
-        disabled={state.filters.length >= 5 ? true : false}
-        onClick={() => dispatch({ action: "ADD", type: "group", entity: null })}
-      >
-        Gruppenfilter hinzufügen
-      </DefaultButton>
-
-      <DefaultButton
-        rightIcon={undefined}
-        mt={3}
-        colorScheme="pink"
-        type="submit"
-        marginY="30px"
-      >
-        Topics suchen
-      </DefaultButton>
+      <Stack direction={{ base: "column", md: "row" }}>
+        {/* <Box marginLeft="auto"> */}
+        <DefaultButton rightIcon={undefined} colorScheme={"pink"} type="submit">
+          Topics suchen
+        </DefaultButton>
+        <DefaultButton
+          colorScheme={availableFilterColors[state.filters.length]}
+          variant="outline"
+          rightIcon={<AddIcon />}
+          type="submit"
+          disabled={state.filters.length >= 5 ? true : false}
+          onClick={() =>
+            dispatch({ action: "ADD", type: "person", entity: null })
+          }
+          style={{ marginLeft: "auto" }}
+        >
+          Personenfilter hinzufügen
+        </DefaultButton>
+        <DefaultButton
+          colorScheme={availableFilterColors[state.filters.length]}
+          variant="outline"
+          rightIcon={<AddIcon />}
+          type="submit"
+          disabled={state.filters.length >= 5 ? true : false}
+          onClick={() =>
+            dispatch({ action: "ADD", type: "group", entity: null })
+          }
+        >
+          Gruppenfilter hinzufügen
+        </DefaultButton>
+        {/* </Box> */}
+      </Stack>
     </form>
   );
 };
