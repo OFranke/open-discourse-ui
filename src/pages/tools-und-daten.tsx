@@ -11,6 +11,7 @@ import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import React from "react";
 import SEO from "../components/seo";
 import { BackgroundImage } from "../components/background-image";
+import { TopicModelling } from "../components/topic-modeling/index";
 
 const Search: React.FC = () => {
   return (
@@ -25,6 +26,14 @@ const Search: React.FC = () => {
           relativePathFromImageDir="/tools_und_daten/tools_und_daten_header.jpg"
           height="60vh"
         />
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s" as="h2">
+            Topic Modelling
+          </DefaultHeadline>
+          <TopicModelling />
+        </DefaultContainer>
       </Section>
       <Section>
         <DefaultContainer size="l">
