@@ -78,6 +78,10 @@ module.exports = withPlugins(
           config,
           { buildId, dev, isServer, defaultLoaders, webpack }
         ) => {
+          config.module.rules.push({
+            test: /react-spring/,
+            sideEffects: true,
+          });
           config.plugins.push(new DuplicatePackageCheckerPlugin());
           // e.g. resolve duplicate dependencies to the latest version
           config.resolve.alias["@emotion"] = path.resolve(
