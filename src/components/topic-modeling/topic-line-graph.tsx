@@ -65,14 +65,17 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     const filters = queryString.parse(window.location.search);
     if (filters?.filters && typeof filters.filters == "string") {
       const filterObject = JSON.parse(filters.filters);
-      console.log("\x1b[33m%s\x1b[0m", "%c >> filterObject", filterObject);
-      dispatchData({ action: "pending", entity: [] });
-      Promise.all([mockFetchData("umwelt"), mockFetchData("Öl")]).then(
-        (result) => {
-          console.log("fetched data for umwelt", result);
-          dispatchData({ action: "resolved", entity: result });
+
+      const dataFetchePromises = [];
+      for (let i = 0; i <= 5; i++) {
+        if (filterObject[i]) {
+          dataFetchePromises.push(mockFetchData(`topic ${i}`));
         }
-      );
+      }
+      dispatchData({ action: "pending", entity: [] });
+      Promise.all(dataFetchePromises).then((result) => {
+        dispatchData({ action: "resolved", entity: result });
+      });
     }
   }, [router.query]);
   return (
