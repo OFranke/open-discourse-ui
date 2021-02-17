@@ -159,7 +159,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
       <form onSubmit={handleSubmit}>
         {state.filters.map((filter) => {
           return (
-            <Card marginY={5}>
+            <Card marginY={5} key={filter.filterId}>
               {filter.type === "person" ? (
                 <DefaultText
                   fontSize={{
@@ -189,7 +189,6 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
               )}
               <Flex alignItems="center">
                 <TopicFilters
-                  key={filter.filterId}
                   filterState={filter}
                   updateFilterState={(updatedFilter) =>
                     dispatch({
