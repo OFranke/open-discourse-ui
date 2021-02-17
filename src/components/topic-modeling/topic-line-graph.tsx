@@ -78,6 +78,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
       });
     }
   }, [router.query]);
+
   return (
     <Flex
       {...flexProps}

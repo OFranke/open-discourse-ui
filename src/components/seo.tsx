@@ -11,6 +11,7 @@ export const SEO: React.FC<SeoProps> = ({
   title,
   description,
   canonicalRoute,
+  ...nextSeoProps
 }) => {
   if (!process.env.HOST_URL) {
     throw new Error("environment variable HOST_URL not found.");
@@ -24,6 +25,7 @@ export const SEO: React.FC<SeoProps> = ({
       description={description}
       titleTemplate={siteConfig.seo.titleTemplate}
       canonical={canonicalUrlWithoutTrailingSlash}
+      {...nextSeoProps}
     />
   );
 };
