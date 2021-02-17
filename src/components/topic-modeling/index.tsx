@@ -2,9 +2,14 @@ import { useReducer } from "react";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { TopicFilters } from "./topic-filters";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
-import { IconButton, Flex, Stack, Box } from "@chakra-ui/react";
+import { IconButton, Flex, Stack, Box, BoxProps } from "@chakra-ui/react";
 import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { Card } from "@bit/limebit.limebit-ui.card";
+import { TopicLineGraph } from "./topic-line-graph";
+import { mockFetchData } from "./utils";
+import { useState } from "react";
+import queryString from "query-string";
+import { useRouter } from "next/router";
 
 export interface TopicFilter {
   filterId: string;
@@ -41,15 +46,17 @@ interface FilterReducerAction {
   type: "group" | "person";
   entity: PersonFilter | GroupFilter | null;
 }
+export interface TopicData {
+  id: string;
+  data: Array<{
+    x: number;
+    y: number;
+  }>;
+}
 const availableFilterColors = ["pink", "purple", "orange", "blue", "green"];
 
 const generateFilterId = () => {
   return Math.random().toString(36).substr(2, 5);
-};
-const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
-  console.log("\x1b[33m%s\x1b[0m", "%c >> event.target", event.target);
-  // resolve all queries with Promise.all
 };
 
 const filterReducer = (
@@ -92,8 +99,6 @@ const filterReducer = (
       };
     }
     case "REMOVE": {
-      console.log("\x1b[33m%s\x1b[0m", "%c >> REMOVE");
-      console.log("\x1b[33m%s\x1b[0m", "%c >> previousState", previousState);
       const updatedFilters = previousState.filters
         .filter(
           (currentFilter) => currentFilter.filterId !== action?.entity?.filterId
@@ -108,16 +113,11 @@ const filterReducer = (
       return { ...previousState, filters: updatedFiltersWithColors };
     }
     case "UPDATE": {
-      console.log("\x1b[33m%s\x1b[0m", "%c >> UPDATE");
       const updatedFilters = previousState.filters.map((currentFilter) => {
         if (currentFilter.filterId == action.entity?.filterId) {
           return action.entity;
         }
         return currentFilter;
-      });
-      console.log("result:", {
-        ...previousState,
-        filters: updatedFilters,
       });
       return {
         ...previousState,
@@ -130,7 +130,7 @@ const filterReducer = (
   }
 };
 
-export const TopicModelling: React.FC = () => {
+export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
   const [state, dispatch] = useReducer(filterReducer, {
     filters: [
       {
@@ -142,104 +142,116 @@ export const TopicModelling: React.FC = () => {
       },
     ],
   });
+  const router = useRouter();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    router.push(
+      `tools-und-daten/?${queryString.stringify({
+        filters: JSON.stringify(state.filters),
+      })}`
+    );
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {state.filters.map((filter) => {
-        return (
-          <Card marginY={5}>
-            {filter.type === "person" ? (
-              <DefaultText
-                fontSize={{
-                  base: "sm",
-                  sm: "xl",
-                  md: "xl",
-                  lg: "xl",
-                  xl: "xl",
-                }}
-                marginBottom={0}
-              >
-                Personenfilter
-              </DefaultText>
-            ) : (
-              <DefaultText
-                marginBottom={0}
-                fontSize={{
-                  base: "sm",
-                  sm: "xl",
-                  md: "xl",
-                  lg: "xl",
-                  xl: "xl",
-                }}
-              >
-                Gruppenfilter
-              </DefaultText>
-            )}
-            <Flex alignItems="center">
-              <TopicFilters
-                key={filter.filterId}
-                filterState={filter}
-                updateFilterState={(updatedFilter) =>
-                  dispatch({
-                    action: "UPDATE",
-                    entity: updatedFilter,
-                    type: updatedFilter.type,
-                  })
-                }
-              />
-              <IconButton
-                marginLeft={{ base: 2, lg: 4 }}
-                variant="outline"
-                // colorScheme="red"
-                colorScheme={filter.color}
-                aria-label="Filter entfernen"
-                fontSize="20px"
-                disabled={state.filters.length <= 1 ? true : false}
-                icon={<CloseIcon />}
-                onClick={() =>
-                  dispatch({
-                    action: "REMOVE",
-                    entity: filter,
-                    type: filter.type,
-                  })
-                }
-              />
-            </Flex>
-          </Card>
-        );
-      })}
-      <Stack direction={{ base: "column", md: "row" }}>
-        {/* <Box marginLeft="auto"> */}
-        <DefaultButton rightIcon={undefined} colorScheme={"pink"} type="submit">
-          Topics suchen
-        </DefaultButton>
-        <DefaultButton
-          colorScheme={availableFilterColors[state.filters.length]}
-          variant="outline"
-          rightIcon={<AddIcon />}
-          type="submit"
-          disabled={state.filters.length >= 5 ? true : false}
-          onClick={() =>
-            dispatch({ action: "ADD", type: "person", entity: null })
-          }
-          style={{ marginLeft: "auto" }}
-        >
-          Personenfilter hinzufügen
-        </DefaultButton>
-        <DefaultButton
-          colorScheme={availableFilterColors[state.filters.length]}
-          variant="outline"
-          rightIcon={<AddIcon />}
-          type="submit"
-          disabled={state.filters.length >= 5 ? true : false}
-          onClick={() =>
-            dispatch({ action: "ADD", type: "group", entity: null })
-          }
-        >
-          Gruppenfilter hinzufügen
-        </DefaultButton>
-        {/* </Box> */}
-      </Stack>
-    </form>
+    <Box {...boxProps}>
+      <form onSubmit={handleSubmit}>
+        {state.filters.map((filter) => {
+          return (
+            <Card marginY={5}>
+              {filter.type === "person" ? (
+                <DefaultText
+                  fontSize={{
+                    base: "sm",
+                    sm: "xl",
+                    md: "xl",
+                    lg: "xl",
+                    xl: "xl",
+                  }}
+                  marginBottom={0}
+                >
+                  Personenfilter
+                </DefaultText>
+              ) : (
+                <DefaultText
+                  marginBottom={0}
+                  fontSize={{
+                    base: "sm",
+                    sm: "xl",
+                    md: "xl",
+                    lg: "xl",
+                    xl: "xl",
+                  }}
+                >
+                  Gruppenfilter
+                </DefaultText>
+              )}
+              <Flex alignItems="center">
+                <TopicFilters
+                  key={filter.filterId}
+                  filterState={filter}
+                  updateFilterState={(updatedFilter) =>
+                    dispatch({
+                      action: "UPDATE",
+                      entity: updatedFilter,
+                      type: updatedFilter.type,
+                    })
+                  }
+                />
+                <IconButton
+                  marginLeft={{ base: 2, lg: 4 }}
+                  variant="outline"
+                  colorScheme={filter.color}
+                  aria-label="Filter entfernen"
+                  fontSize="20px"
+                  disabled={state.filters.length <= 1 ? true : false}
+                  icon={<CloseIcon />}
+                  onClick={() =>
+                    dispatch({
+                      action: "REMOVE",
+                      entity: filter,
+                      type: filter.type,
+                    })
+                  }
+                />
+              </Flex>
+            </Card>
+          );
+        })}
+        <Stack direction={{ base: "column", md: "row" }}>
+          <DefaultButton
+            rightIcon={undefined}
+            colorScheme={"pink"}
+            type="submit"
+          >
+            Topics suchen
+          </DefaultButton>
+          <DefaultButton
+            colorScheme={availableFilterColors[state.filters.length]}
+            variant="outline"
+            rightIcon={<AddIcon />}
+            disabled={state.filters.length >= 5 ? true : false}
+            onClick={() =>
+              dispatch({ action: "ADD", type: "person", entity: null })
+            }
+            style={{ marginLeft: "auto" }}
+          >
+            Personenfilter hinzufügen
+          </DefaultButton>
+          <DefaultButton
+            colorScheme={availableFilterColors[state.filters.length]}
+            variant="outline"
+            rightIcon={<AddIcon />}
+            disabled={state.filters.length >= 5 ? true : false}
+            onClick={() =>
+              dispatch({ action: "ADD", type: "group", entity: null })
+            }
+          >
+            Gruppenfilter hinzufügen
+          </DefaultButton>
+        </Stack>
+      </form>
+    </Box>
   );
 };

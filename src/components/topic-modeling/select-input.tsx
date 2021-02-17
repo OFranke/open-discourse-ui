@@ -18,7 +18,6 @@ export const ColoredSelectInput = ({
   initialValue,
   color,
 }: DefaultSelectInputProps) => {
-  console.log("\x1b[33m%s\x1b[0m", "%c >> color", color);
   return (
     <SelectInput
       width="100%"

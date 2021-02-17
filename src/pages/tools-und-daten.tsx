@@ -12,6 +12,7 @@ import React from "react";
 import SEO from "../components/seo";
 import { BackgroundImage } from "../components/background-image";
 import { TopicModelling } from "../components/topic-modeling/index";
+import { TopicLineGraph } from "../components/topic-modeling/topic-line-graph";
 
 const Search: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ const Search: React.FC = () => {
             Topic Modelling
           </DefaultHeadline>
           <TopicModelling />
+          <TopicLineGraph marginTop={{ base: 5, md: 10, lg: 20 }} />
         </DefaultContainer>
       </Section>
       <Section>
