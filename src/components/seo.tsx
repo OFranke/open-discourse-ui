@@ -11,6 +11,7 @@ export const SEO: React.FC<SeoProps> = ({
   title,
   description,
   canonicalRoute,
+  additionalMetaTags,
   ...nextSeoProps
 }) => {
   if (!process.env.HOST_URL) {
@@ -19,12 +20,25 @@ export const SEO: React.FC<SeoProps> = ({
 
   const canonicalUrl = new URL(canonicalRoute, process.env.HOST_URL).href;
   const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
+  const tags = [
+    { name: "twitter:site", content: "@OpenDiscourseDE" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "og:site_name", content: process.env.HOST_URL },
+    { name: "og:title", content: title },
+    { name: "og:description", content: description },
+    { name: "og:url", content: canonicalUrlWithoutTrailingSlash },
+    { name: "og:locale", content: "de_DE" },
+    ...(additionalMetaTags ? [...additionalMetaTags] : []),
+  ];
+
   return (
     <NextSeo
       title={title}
       description={description}
       titleTemplate={siteConfig.seo.titleTemplate}
       canonical={canonicalUrlWithoutTrailingSlash}
+      additionalMetaTags={tags}
       {...nextSeoProps}
     />
   );

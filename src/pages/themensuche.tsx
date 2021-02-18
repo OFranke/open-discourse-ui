@@ -33,18 +33,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Page: React.FC<{ data: Data }> = ({ data }) => {
+  const title = "Plenarprotokolle des deutschen Bundestages seit 1949";
+  const description =
+    "Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen.";
   return (
     <BaseTemplate>
       <SEO
-        title="Plenarprotokolle des deutschen Bundestages seit 1949"
-        description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
+        title={title}
+        description={description}
         canonicalRoute="/themensuche"
         additionalMetaTags={[
           { name: "twitter:card", content: "summary_large_image" },
-          { name: "twitter:site", content: "@OpenDiscourseDE" },
-          { name: "twitter:title", content: "Some nice Content" },
-          { name: "twitter:description", content: "Some nice Description" },
           { name: "twitter:image", content: data.imgUrl || "" },
+          { name: "og:image", content: data.imgUrl || "" },
         ]}
       />
       <Section
