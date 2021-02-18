@@ -3,11 +3,16 @@ import { Flex, FlexProps, IconButton } from "@chakra-ui/react";
 import { Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
 import { TopicData } from "./index";
-import { mockFetchData, generateTwitterShareLink } from "./utils";
+import {
+  mockFetchData,
+  generateTwitterShareLink,
+  generateFacebookShareLink,
+} from "./utils";
 import { useRouter } from "next/router";
 import queryString from "query-string";
 import LoadingSpinner from "@bit/limebit.chakra-ui-recipes.loading-spinner";
 import DefaultText from "@bit/limebit.limebit-ui.default-text";
+import { generateLinkedInShareLink } from "./utils";
 
 import {
   TwitterShareButton,
@@ -69,6 +74,15 @@ const dataReducer = (
 
 const handleTwitterButtonClick = async () => {
   const shareLink = await generateTwitterShareLink();
+  window.open(shareLink, "_blank");
+};
+
+const handleFacebookButtonClick = async () => {
+  const shareLink = await generateFacebookShareLink();
+  window.open(shareLink, "_blank");
+};
+const handleLinkedInButtonClick = async () => {
+  const shareLink = await generateLinkedInShareLink();
   window.open(shareLink, "_blank");
 };
 
@@ -149,7 +163,14 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           //   ]}
         />
       </Flex>
-      <Flex>
+      <Flex
+        marginTop={{
+          base: "4",
+          md: "4",
+          lg: "6",
+          xl: "8",
+        }}
+      >
         <IconButton
           onClick={handleTwitterButtonClick}
           justifyContent={{ base: "left", lg: "center" }}
@@ -160,33 +181,26 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           marginX="2"
           disabled={state.status == "resolved" ? false : true}
         />
-        <LinkedinShareButton
+        <IconButton
+          onClick={handleFacebookButtonClick}
+          justifyContent={{ base: "left", lg: "center" }}
+          fontSize={{ base: "md", md: "2xl", lg: "3xl", xl: "4xl" }}
+          variant="ghost"
+          aria-label="GitHub"
+          icon={<FaFacebookSquare />}
+          marginX="2"
           disabled={state.status == "resolved" ? false : true}
-          url="https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/ssr?imgUrl=https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png"
-        >
-          <IconButton
-            justifyContent={{ base: "left", lg: "center" }}
-            fontSize={{ base: "md", md: "2xl", lg: "3xl", xl: "4xl" }}
-            variant="ghost"
-            aria-label="GitHub"
-            icon={<FaLinkedin />}
-            marginX="2"
-          />
-        </LinkedinShareButton>
-        <FacebookShareButton
+        />
+        <IconButton
+          onClick={handleLinkedInButtonClick}
+          justifyContent={{ base: "left", lg: "center" }}
+          fontSize={{ base: "md", md: "2xl", lg: "3xl", xl: "4xl" }}
+          variant="ghost"
+          aria-label="GitHub"
+          icon={<FaLinkedin />}
+          marginX="2"
           disabled={state.status == "resolved" ? false : true}
-          quote="hi"
-          url="https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/ssr?imgUrl=https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png"
-        >
-          <IconButton
-            justifyContent={{ base: "left", lg: "center" }}
-            fontSize={{ base: "md", md: "2xl", lg: "3xl", xl: "4xl" }}
-            variant="ghost"
-            aria-label="GitHub"
-            icon={<FaFacebookSquare />}
-            marginX="2"
-          />
-        </FacebookShareButton>
+        />
       </Flex>
     </Flex>
   );

@@ -5,7 +5,6 @@ import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 
 import React from "react";
 import SEO from "../components/seo";
-import { BackgroundImage } from "../components/background-image";
 import { TopicModelling } from "../components/topic-modeling/index";
 import { TopicLineGraph } from "../components/topic-modeling/topic-line-graph";
 import { GetServerSideProps } from "next";
@@ -44,8 +43,18 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
         canonicalRoute="/themensuche"
         additionalMetaTags={[
           { name: "twitter:card", content: "summary_large_image" },
-          { name: "twitter:image", content: data.imgUrl || "" },
-          { name: "og:image", content: data.imgUrl || "" },
+          {
+            name: "twitter:image",
+            content:
+              data.imgUrl ||
+              "https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png",
+          },
+          {
+            name: "og:image",
+            content:
+              data.imgUrl ||
+              "https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png",
+          },
         ]}
       />
       <Section
