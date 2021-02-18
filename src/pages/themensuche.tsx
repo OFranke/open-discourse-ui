@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const data: Data = {
     test: "hello ssr",
-    imgUrl: typeof imgUrl == "string" ? imgUrl : null,
+    imgUrl: typeof imgUrl == "string" ? decodeURIComponent(imgUrl) : null,
   };
 
   return {
