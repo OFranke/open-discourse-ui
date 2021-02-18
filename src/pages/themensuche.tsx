@@ -1,10 +1,14 @@
-import React from "react";
 import { BaseTemplate } from "../templates/base-template";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
+import { Section } from "@bit/limebit.limebit-ui.section";
+import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
+
+import React from "react";
 import SEO from "../components/seo";
-
+import { BackgroundImage } from "../components/background-image";
+import { TopicModelling } from "../components/topic-modeling/index";
+import { TopicLineGraph } from "../components/topic-modeling/topic-line-graph";
 import { GetServerSideProps } from "next";
-
-import { InferGetServerSidePropsType } from "next";
 
 type Data = {
   test: string;
@@ -28,14 +32,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-const Home: React.FC<{ data: Data }> = ({ data }) => {
-  console.log("\x1b[33m%s\x1b[0m", "%c >> data.test", data.test);
+const Page: React.FC<{ data: Data }> = ({ data }) => {
   return (
     <BaseTemplate>
       <SEO
         title="Plenarprotokolle des deutschen Bundestages seit 1949"
         description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
-        canonicalRoute="/"
+        canonicalRoute="/themensuche"
         additionalMetaTags={[
           { name: "twitter:card", content: "summary_large_image" },
           { name: "twitter:site", content: "@OpenDiscourseDE" },
@@ -44,8 +47,19 @@ const Home: React.FC<{ data: Data }> = ({ data }) => {
           { name: "twitter:image", content: data.imgUrl || "" },
         ]}
       />
+      <Section
+        marginTop={{ base: "8", sm: "14", md: "20", lg: "20", xl: "32" }}
+      >
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s" as="h2">
+            Topic Modelling
+          </DefaultHeadline>
+          <TopicModelling />
+          <TopicLineGraph marginTop={{ base: 5, md: 10, lg: 20 }} />
+        </DefaultContainer>
+      </Section>
     </BaseTemplate>
   );
 };
 
-export default Home;
+export default Page;

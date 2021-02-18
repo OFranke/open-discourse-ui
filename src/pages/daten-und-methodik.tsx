@@ -379,7 +379,7 @@ const Home: React.FC = () => {
           </DefaultText>
         </DefaultContainer>
       </Section>
-      <Section marginBottom="0">
+      <Section>
         <picture>
           <source
             srcSet={multipleSizesBundestagWebp.srcSet}

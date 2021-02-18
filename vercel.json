@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/tools-und-daten", "destination": "/daten-und-methodik" },
+    {
+      "source": "/analysen",
+      "destination": "/"
+    }
+  ],
+  "version": 2
+}

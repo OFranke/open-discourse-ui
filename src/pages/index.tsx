@@ -23,8 +23,21 @@ import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
+import { PaperCarousel } from "../components/paper-carousel";
+import {
+  Slide1,
+  Slide2,
+  Slide3,
+  Slide4,
+} from "../components/paper-carousel/paper-slides";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 const Home: React.FC = () => {
+  const showArrows = useBreakpointValue({
+    md: false,
+    lg: true,
+  });
+
   const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
   const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=png`);
   return (
@@ -205,59 +218,46 @@ const Home: React.FC = () => {
           </Quote>
         </DefaultContainer>
       </Section>
-      <Section>
+      <Section
+        display="flex"
+        flexDirection="column"
+        paddingTop={{ base: 4, xl: 10 }}
+      >
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">
-            Freier Zugang zur Datenbank
+          <DefaultHeadline size="s" as="h1">
+            Die Open Discourse Daten für Forschung, Journalismus und Civil
+            Science
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteur_Innen aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
+            Verwendung und Präsenz von Open Discourse
           </ColoredSubline>
-          <SimpleGrid columns={{ base: 1, lg: 3 }} spacing="10">
-            <ProjectCard
-              headline="Akademische Forschung"
-              subline="Hypothetische Reden"
-              description='Der Datensatz wurde von Masterstudent_Innen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittels Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
-              linkText="Mehr zum Projekt"
-              linkHref="/analysen"
-              imagePath="/logos/akademische_forschung_logo.svg"
-              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
-            />
-            <ProjectCard
-              headline="CorrelAid"
-              subline="Inhaltliche Analysen"
-              description="CorrelAid ist ein überparteiliches gemeinnütziges Netzwerk von Data Scientists, die die Welt durch die Arbeit mit Daten  verändern wollen. Ziel der Zusammenarbeit mit unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden, um Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der Gründung des Bundestages gesprochen haben."
-              linkText="Mehr zum Projekt"
-              linkHref="/analysen"
-              imagePath="/logos/correlaid_logo.svg"
-              imageAlt="Logo von CorrelAid"
-            />
-            <ProjectCard
-              headline="ZDFHeute"
-              subline="Pandemiedebatte"
-              description="ZDFheute untersuchte die Plenarprotokolle des Deutschen Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich unsere Politiker_innen seit dem Jahr 1949  mit dem Stichwort “Pandemie” auseinandergesetzt haben."
-              linkText="Mehr zum Projekt"
-              linkHref="/analysen"
-              imagePath="/logos/zdf_heute_logo.png"
-              imageAlt="Logo von ZDFHeute"
-            />
-          </SimpleGrid>
-
-          <NextButtonLink
-            colorScheme="pink"
-            href="/analysen"
-            marginTop={{
-              base: "4",
-              md: "4",
-              lg: "6",
-              xl: "8",
-            }}
-          >
-            Analysen
-          </NextButtonLink>
+          <DefaultText>
+            Der Open Discourse Datensatz wurde bereits von verschiedenen
+            Akteur_Innen für Forschungsprojekte und datengetriebene
+            Berichterstattungen genutzt.
+            <br />
+            <br />
+            Wählen Sie hier aus, in welches Projekt Sie gern einmal reinschauen
+            möchten:
+          </DefaultText>
         </DefaultContainer>
+      </Section>
+      <Section overflow="hidden">
+        <PaperCarousel
+          size="50px"
+          gap="1vw"
+          top={{
+            base: "calc(50px + 30vh)",
+            md: "calc(75px + 30vh)",
+            lg: "calc(100px + 30vh)",
+          }}
+          showArrows={showArrows}
+        >
+          <Slide1 />
+          <Slide2 />
+          <Slide3 />
+          <Slide4 />
+        </PaperCarousel>
       </Section>
       <Section background="pink.500" color="white">
         <DefaultContainer size="s">

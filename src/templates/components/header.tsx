@@ -68,22 +68,27 @@ export const Header: React.FC = () => {
             alignItems={{ base: "left", lg: "center" }}
             marginTop={{ base: 4, lg: 0 }}
           >
-            <NavItem href="/methodik" underlineColor="black">
-              Methodik
+            <NavItem href="/daten-und-methodik" underlineColor="black">
+              Daten & Methodik
             </NavItem>
             <NavItem
+              href="/volltextsuche"
               underlineColor={theme.colors.pink[500]}
-              href="/tools-und-daten"
             >
-              Tools und Daten
+              Volltextsuche
             </NavItem>
             <NavItem
-              href="/analysen"
+              href="/themensuche"
               underlineColor={theme.additionalColors.yellow}
             >
-              Analysen
+              Themensuche
             </NavItem>
-            <NavItem href="/ueber-uns" underlineColor="black">
+
+            <NavItem href="/dokumentation" underlineColor={"black"}>
+              Docs
+            </NavItem>
+
+            <NavItem href="/ueber-uns" underlineColor={theme.colors.pink[500]}>
               Über uns
             </NavItem>
             <Box>
