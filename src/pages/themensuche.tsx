@@ -50,13 +50,13 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
               "https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png",
           },
           {
-            name: "og:image",
+            property: "og:image",
             content:
               data.imgUrl ||
               "https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png",
           },
           {
-            name: "og:url",
+            property: "og:url",
             content: `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=https%3A%2F%2Fopen-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app%2Fthemensuche%3FimgUrl%3Dhttps%3A%2F%2Ffra1.digitaloceanspaces.com%2Fopendiscourse%2Fad1dd050-6c72-4c43-998e-f193cd9c2712.jpg`,
           },
         ]}

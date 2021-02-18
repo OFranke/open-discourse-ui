@@ -24,11 +24,11 @@ export const SEO: React.FC<SeoProps> = ({
     { name: "twitter:site", content: "@OpenDiscourseDE" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
-    { name: "og:site_name", content: process.env.HOST_URL },
-    { name: "og:title", content: title },
-    { name: "og:description", content: description },
-    { name: "og:url", content: canonicalUrlWithoutTrailingSlash },
-    { name: "og:locale", content: "de_DE" },
+    { property: "og:site_name", content: process.env.HOST_URL },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:url", content: canonicalUrlWithoutTrailingSlash },
+    { property: "og:locale", content: "de_DE" },
     ...(additionalMetaTags ? [...additionalMetaTags] : []),
   ];
 
