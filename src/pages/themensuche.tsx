@@ -55,6 +55,12 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
               data.imgUrl ||
               "https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png",
           },
+          {
+            name: "og:url",
+            content: `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=${
+              data.imgUrl || ""
+            }`,
+          },
         ]}
       />
       <Section
