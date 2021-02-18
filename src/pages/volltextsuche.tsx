@@ -20,7 +20,7 @@ const Search: React.FC = () => {
       <SEO
         title="Volltextsuche"
         description="Die Open Discourse Volltextsuche ermöglicht eine strukturierte Suche in allen verfügbaren Plenarprotokollen des Deutschen Bundestags seit 1949."
-        canonicalRoute="tools-und-daten"
+        canonicalRoute="volltextsuche"
       />
       <Section
         marginTop={{ base: "8", sm: "14", md: "20", lg: "20", xl: "32" }}

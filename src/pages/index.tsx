@@ -155,7 +155,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <NextButtonLink
             colorScheme="pink"
-            href="/tools-und-daten"
+            href="/volltextsuche"
             marginTop={{
               base: "4",
               md: "4",
@@ -163,7 +163,7 @@ const Home: React.FC = () => {
               xl: "8",
             }}
           >
-            Tools und Daten
+            Volltextsuche
           </NextButtonLink>
         </DefaultContainer>
       </Section>
@@ -297,8 +297,8 @@ const Home: React.FC = () => {
             Open Discourse können Bürger_Innen, Journalist_Innen und
             Wissenschaftler_Innen jetzt leicht zugänglich und kostenfrei über
             die{" "}
-            <NextChakraLink color="pink.500" href="/tools-und-daten">
-              Tools und Daten
+            <NextChakraLink color="pink.500" href="/volltextsuche">
+              Volltextsuche
             </NextChakraLink>{" "}
             der Plattform die Plenarprotokolle nach Stichworten, Politiker_Innen
             und Ämtern durchsuchen und die Ergebnisse für Ihre Arbeit, Forschung

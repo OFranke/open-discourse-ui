@@ -53,7 +53,7 @@ export const SearchForm: React.FC<FormParams> = () => {
         searchValues[key] === (undefined || "") && delete searchValues[key]
     );
     router.push(
-      `tools-und-daten/?${queryString.stringify(
+      `volltextsuche/?${queryString.stringify(
         JSON.parse(JSON.stringify(searchValues))
       )}`
     );

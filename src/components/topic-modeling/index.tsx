@@ -148,7 +148,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
     event.preventDefault();
 
     router.push(
-      `tools-und-daten/?${queryString.stringify({
+      `themensuche/?${queryString.stringify({
         filters: JSON.stringify(state.filters),
       })}`
     );

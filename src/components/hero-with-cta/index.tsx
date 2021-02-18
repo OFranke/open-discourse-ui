@@ -31,7 +31,7 @@ export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
           <Box>
             <NextButtonLink
               colorScheme="pink"
-              href="/tools-und-daten"
+              href="/volltextsuche"
               marginTop={{
                 base: "4",
                 md: "4",
