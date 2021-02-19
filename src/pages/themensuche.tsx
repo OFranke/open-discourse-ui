@@ -55,10 +55,11 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
               data.imgUrl ||
               "https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png",
           },
-          // {
-          //   property: "og:url",
-          //   content: data.imgUrl || "",
-          // },
+          // we need this to trick facebook into showing the preview image provided by imgUrl parameter
+          {
+            property: "og:url",
+            content: data.imgUrl || "",
+          },
         ]}
       />
       <Section
