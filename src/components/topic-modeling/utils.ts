@@ -23,47 +23,76 @@ export const mockFetchData = async (id: string): Promise<TopicData> => {
 interface GenerateImageResponse {
   fileName: string;
 }
-const generateImage = async (): Promise<string> => {
-  //   const response = await fetch(
-  //     "https://api.opendiscourse.de:5300/screenshot?url=https://blabla&selector=#div-id"
-  //   );
-  //   const result: GenerateImageResponse = await response.json();
-  //     return result.fileName;
-  return "https://fra1.digitaloceanspaces.com/opendiscourse/ad1dd050-6c72-4c43-998e-f193cd9c2712.jpg";
-  //   return new Promise((resolve, _reject) => {
-  //     setTimeout(
-  //       () =>
-  //         resolve(
-  //           "https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png"
-  //         ),
-  //       1000
-  //     );
-  //   });
+
+interface ScreenshotApiParams {
+  urlPath: string;
+  selector: string;
+  queryObject: any;
+}
+
+const generateImage = async ({
+  urlPath,
+  selector,
+  queryObject,
+}: ScreenshotApiParams): Promise<string> => {
+  console.log("\x1b[33m%s\x1b[0m", "%c >> ", urlPath, selector, queryObject);
+  if (!process.env.HOST_URL) {
+    throw new Error("environment variable HOST_URL not found.");
+  }
+
+  const canonicalUrl = new URL(urlPath, process.env.HOST_URL).href;
+  const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
+
+  const urlEncodedFiltersParam = queryString.stringify({
+    filters: queryObject?.filters,
+  });
+  const screenshotUrl = `${canonicalUrlWithoutTrailingSlash}?${urlEncodedFiltersParam}`;
+
+  const urlEncodedFetchParams = queryString.stringify({
+    selector,
+    url: screenshotUrl,
+  });
+  const response = await fetch(
+    `https://api.opendiscourse.de:5300/screenshot?${urlEncodedFetchParams}`
+  );
+
+  const result: GenerateImageResponse = await response.json();
+  return `https://fra1.digitaloceanspaces.com/opendiscourse/${result.fileName}`;
 };
-export const generateTwitterShareLink = async () => {
+export const generateTwitterShareLink = async ({
+  urlPath,
+  selector,
+  queryObject,
+}: ScreenshotApiParams) => {
   const baseUrl = "https://twitter.com/intent/tweet";
 
-  const shareImageUrl = await generateImage();
-  console.log("\x1b[33m%s\x1b[0m", "%c >> shareImageUrl", shareImageUrl);
+  const shareImageUrl = await generateImage({
+    urlPath,
+    selector,
+    queryObject,
+  });
 
   const url = `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=${shareImageUrl}`;
   const text = "test";
   const via = "OpenDiscourseDE";
-  const hashtags = ["opendiscourse", "bla"];
+  const hashtags = ["opendiscourse"];
 
   const shareLink = queryString.stringify({ url, text, via, hashtags });
   return `${baseUrl}?${shareLink}`;
 };
 
-export const generateFacebookShareLink = async () => {
+export const generateFacebookShareLink = async ({
+  urlPath,
+  selector,
+  queryObject,
+}: ScreenshotApiParams) => {
   const baseUrl = "https://www.facebook.com/sharer/sharer.php";
 
-  const shareImageUrl = await generateImage();
-  console.log(
-    "\x1b[33m%s\x1b[0m",
-    "%c >> facenook shareImageUrl",
-    shareImageUrl
-  );
+  const shareImageUrl = await generateImage({
+    urlPath,
+    selector,
+    queryObject,
+  });
 
   const url = `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=${shareImageUrl}`;
   const text = "test";
@@ -72,23 +101,22 @@ export const generateFacebookShareLink = async () => {
   return `${baseUrl}?${shareLink}`;
 };
 
-export const generateLinkedInShareLink = async () => {
+export const generateLinkedInShareLink = async ({
+  urlPath,
+  selector,
+  queryObject,
+}: ScreenshotApiParams) => {
   const baseUrl = "https://www.linkedin.com/sharing/share-offsite/";
 
-  const shareImageUrl = await generateImage();
-  console.log(
-    "\x1b[33m%s\x1b[0m",
-    "%c >> linkedin shareImageUrl",
-    shareImageUrl
-  );
+  const shareImageUrl = await generateImage({
+    urlPath,
+    selector,
+    queryObject,
+  });
 
   const url = `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=${shareImageUrl}`;
 
   const shareLink = queryString.stringify({ url: url });
-  console.log(
-    "\x1b[33m%s\x1b[0m",
-    "%c >> linkedinUrl",
-    `${baseUrl}?${shareLink}`
-  );
+
   return `${baseUrl}?${shareLink}`;
 };

@@ -14,19 +14,7 @@ import LoadingSpinner from "@bit/limebit.chakra-ui-recipes.loading-spinner";
 import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { generateLinkedInShareLink } from "./utils";
 
-import {
-  TwitterShareButton,
-  FacebookShareButton,
-  LinkedinShareButton,
-  InstapaperShareButton,
-} from "react-share";
-import {
-  FaFacebook,
-  FaFacebookSquare,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaFacebookSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -72,28 +60,41 @@ const dataReducer = (
   }
 };
 
-const handleTwitterButtonClick = async () => {
-  const shareLink = await generateTwitterShareLink();
-  window.open(shareLink, "_blank");
-};
-
-const handleFacebookButtonClick = async () => {
-  const shareLink = await generateFacebookShareLink();
-  window.open(shareLink, "_blank");
-};
-const handleLinkedInButtonClick = async () => {
-  const shareLink = await generateLinkedInShareLink();
-  window.open(shareLink, "_blank");
-};
-
 export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
+  const router = useRouter();
+  const graphWrapperId = "topic-modelling-line-graph";
+  const handleTwitterButtonClick = async () => {
+    const shareLink = await generateTwitterShareLink({
+      urlPath: router.pathname,
+      selector: `#${graphWrapperId}`,
+      queryObject: router.query,
+    });
+    window.open(shareLink, "_blank");
+  };
+
+  const handleFacebookButtonClick = async () => {
+    const shareLink = await generateFacebookShareLink({
+      urlPath: router.pathname,
+      selector: `#${graphWrapperId}`,
+      queryObject: router.query,
+    });
+    window.open(shareLink, "_blank");
+  };
+  const handleLinkedInButtonClick = async () => {
+    const shareLink = await generateLinkedInShareLink({
+      urlPath: router.pathname,
+      selector: `#${graphWrapperId}`,
+      queryObject: router.query,
+    });
+    window.open(shareLink, "_blank");
+  };
+
   const [state, dispatchData] = useReducer(dataReducer, {
     status: "idle",
     data: [],
   });
 
-  const router = useRouter();
-
+  console.log("\x1b[33m%s\x1b[0m", "%c >> router.query", router.query);
   useEffect(() => {
     const filters = queryString.parse(window.location.search);
     if (filters?.filters && typeof filters.filters == "string") {
@@ -130,7 +131,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
       )}
       <Flex
         filter={state.status == "pending" ? "blur(4px)" : undefined}
-        id="topic-modelling-line-graph"
+        id={graphWrapperId}
       >
         <Line
           width={1100}
