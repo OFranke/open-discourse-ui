@@ -45,9 +45,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
           { name: "twitter:card", content: "summary_large_image" },
           {
             name: "twitter:image",
-            content:
-              data.imgUrl ||
-              "https://opendiscourse.de/images/statistics/wer_kommt_zu_wort.png",
+            content: data.imgUrl || "",
           },
           {
             property: "og:image",

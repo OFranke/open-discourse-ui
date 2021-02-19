@@ -24,6 +24,7 @@ export const SEO: React.FC<SeoProps> = ({
     { name: "twitter:site", content: "@OpenDiscourseDE" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
+    { property: "og:type", content: "website" },
     { property: "og:site_name", content: process.env.HOST_URL },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
