@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Data Report of the Database | Open Discourse</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Data Report of the Database | Open Discourse" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Data Report of the Database | Open Discourse" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://opendiscourse.de/"><img alt="Open Discourse" src="https://opendiscourse.de/images/github/open-discourse_full_black_transparent.png" width="230"/></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> What is Open Discouse?</a></li>
+<li class="chapter" data-level="3" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html"><i class="fa fa-check"></i><b>3</b> Data Report of the Database</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#preface"><i class="fa fa-check"></i><b>3.1</b> Preface</a></li>
+<li class="chapter" data-level="3.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#database-schema"><i class="fa fa-check"></i><b>3.2</b> Database Schema</a></li>
+<li class="chapter" data-level="3.3" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#speeches-table"><i class="fa fa-check"></i><b>3.3</b> Speeches Table</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#speeches-summary-table"><i class="fa fa-check"></i><b>3.3.1</b> Speeches summary table</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#additional-remarks"><i class="fa fa-check"></i><b>3.3.2</b> Additional Remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#factions-table"><i class="fa fa-check"></i><b>3.4</b> Factions Table</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#factions-summary-table"><i class="fa fa-check"></i><b>3.4.1</b> Factions summary table</a></li>
+<li class="chapter" data-level="3.4.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#additional-remarks-1"><i class="fa fa-check"></i><b>3.4.2</b> Additional Remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#politicians-table"><i class="fa fa-check"></i><b>3.5</b> Politicians Table</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#politicians-summary-table"><i class="fa fa-check"></i><b>3.5.1</b> Politicians summary table</a></li>
+<li class="chapter" data-level="3.5.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#additional-remarks-2"><i class="fa fa-check"></i><b>3.5.2</b> Additional Remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#contribs"><i class="fa fa-check"></i><b>3.6</b> Contributions Tables</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#contributions-simplified"><i class="fa fa-check"></i><b>3.6.1</b> Contributions Simplified</a></li>
+<li class="chapter" data-level="3.6.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#contributions-extended-experimental"><i class="fa fa-check"></i><b>3.6.2</b> Contributions Extended (experimental)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#electoral-terms-table"><i class="fa fa-check"></i><b>3.7</b> Electoral Terms Table</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#electoral-terms-summary-table"><i class="fa fa-check"></i><b>3.7.1</b> Electoral Terms summary table</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/open-discourse/open-discourse" target="blank">Check us out on GitHub</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Open Discourse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-report-of-the-database" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Data Report of the Database</h1>
+<div id="preface" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Preface</h2>
+<p>This data report serves the purpose of documenting the variables and their linkages of the Open Discourse corpus. This report is supplementary to a soon to be published data paper.</p>
+<p>The Open Discourse Corpus consists of five main tables. This report provides information about the contents of these tables and the meaning of the respective variables. A detailed documentation about the procedures used to provide this corpus can be found in aforementioned data paper soon.</p>
+<p>Furthermore the codebase developed and used to create the corpus can be retrieved from <a href="https://github.com/open-discourse/open-discourse">GitHub</a>. This open source codebase can be used to recreate the database from scratch and to contribute to the repository to further improve the quality of the data.</p>
+<p>A current data dump can be found at the associated <a href="https://dataverse.harvard.edu/dataverse/opendiscourse">Dataverse</a>. Also, a full text search engine for researching the corpus can be found on the <a href="www.opendiscourse.de">Open Discourse Website</a> (currently only available in German).</p>
+</div>
+<div id="database-schema" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Database Schema</h2>
+<p><img src=".temp/db_schema.png" /></p>
+</div>
+<div id="speeches-table" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Speeches Table</h2>
+<p>This table contains the speeches held in the parliament along with meta information and foreign keys.</p>
+<p><code>placeholder</code></p>
+<p>The speeches table has the following dimensions:</p>
+<p><code>placeholder</code></p>
+<div id="speeches-summary-table" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Speeches summary table</h3>
+<p><code>placeholder</code></p>
+</div>
+<div id="additional-remarks" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Additional Remarks</h3>
+<div id="position-variables" class="section level4" number="3.3.2.1">
+<h4><span class="header-section-number">3.3.2.1</span> Position Variables</h4>
+<p> </p>
+<p>The position variables provide information about the function of the speaker. It is divided into a short, generic form and a long form.
+The <code>positionLong</code> variable is the exact extraction of the functional description of the speaker as can be found in the original protocol.
+The <code>positionShort</code> variable is a factor variable of seven different levels. The list below provides more information about the meaning of the seven levels.</p>
+<p> </p>
+<p><strong><em>Short Position Mapping:</em></strong></p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><em>positionShort</em></th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Chancellor</td>
+<td align="left">The federal chancellor of the Federal Republic of Germany.</td>
+</tr>
+<tr class="even">
+<td align="left">Guest</td>
+<td align="left">Every speaker that does not belong to the other <code>positionShort</code> levels and thus is an external person.</td>
+</tr>
+<tr class="odd">
+<td align="left">Member of Parliament</td>
+<td align="left">Every speaker that is mentioned alongside a faction abbreviation is considered a MP.</td>
+</tr>
+<tr class="even">
+<td align="left">Minister</td>
+<td align="left">Every speaker that has the function of a minister of state is a minister.</td>
+</tr>
+<tr class="odd">
+<td align="left">Not Found</td>
+<td align="left">No <code>positionShort</code> information could be retrieved from the protocol.</td>
+</tr>
+<tr class="even">
+<td align="left">Presidium of Parliament</td>
+<td align="left">This category contains all speeches held by the (Vice-)Presidents of the Bundestag, the Father/Mother of the House (“Alterspräsident_in”), as well as secretaries (“Schriftführer_in”).</td>
+</tr>
+<tr class="odd">
+<td align="left">Secretary of State</td>
+<td align="left">This category contains both the permanent secretaries (beamtete Staatssekretär_in) as well as secretaries of state (parlamentarische Staatssekretär_in).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="speech-content-variable" class="section level4" number="3.3.2.2">
+<h4><span class="header-section-number">3.3.2.2</span> Speech Content Variable</h4>
+<p>The speech content variable only contains the actual spoken words of the respective politician. Any kind of interjection or reaction from the plenum is deleted from the speech content variable and replaced by a positional ID in the format of <code>({ID})</code>. This positional id can be used to link each speech with every contribution during the speech. The contributions can be found in the <a href="data-report-of-the-database.html#contribs">two contributions tables</a>. Furthermore the positional id represents the exact order and position a contribution occurred and hence can be used to reassemble the original structure of the speeches and interjections/contributions.</p>
+</div>
+</div>
+</div>
+<div id="factions-table" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Factions Table</h2>
+<p>This table contains every faction and parliamentary group that was represented in the Bundestag since 1949.</p>
+<p><code>placeholder</code></p>
+<p>The factions table has the following dimensions:</p>
+<p><code>placeholder</code></p>
+<div id="factions-summary-table" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Factions summary table</h3>
+<p><code>placeholder</code></p>
+</div>
+<div id="additional-remarks-1" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Additional Remarks</h3>
+<p>All factions are drawn from the base data of the MPs (<a href="https://www.bundestag.de/services/opendata">Stammdaten aller Abgeordneten seit 1949</a>). Additionally, every faction that is mentioned in the protocols but was not present in the base data of the MPs is added.
+Since we do not only include factions that appear in the protocols, some of the faction IDs in the factions table never occur in the speeches table.</p>
+</div>
+</div>
+<div id="politicians-table" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Politicians Table</h2>
+<p>This table contains information about every politician that was a member of parliament or member of the government since 1949.</p>
+<p><code>placeholder</code></p>
+<p>The politicians table has the following dimensions:</p>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Feature = col_character(),
+##   Total = col_double()
+## )</code></pre>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Feature
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Number of observations
+</td>
+<td style="text-align:right;">
+4102
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Number of variables
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
+<div id="politicians-summary-table" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Politicians summary table</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-report-of-the-database.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;../.temp/pol_sum.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="data-report-of-the-database.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">&quot;html&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="data-report-of-the-database.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>), <span class="at">latex_options =</span> <span class="st">&quot;striped&quot;</span>, <span class="at">position =</span> <span class="st">&quot;center&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="data-report-of-the-database.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="data-report-of-the-database.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">column_spec</span>(<span class="dv">5</span>, <span class="at">width =</span> <span class="st">&quot;7,5cm&quot;</span>)</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Variable = col_character(),
+##   Class = col_character(),
+##   `# unique` = col_double(),
+##   `Missing Values` = col_character(),
+##   Description = col_character()
+## )</code></pre>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Variable
+</th>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:right;">
+# unique
+</th>
+<th style="text-align:left;">
+Missing Values
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+id
+</td>
+<td style="text-align:left;">
+integer64
+</td>
+<td style="text-align:right;">
+4102
+</td>
+<td style="text-align:left;">
+0.02%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Primary Key. The missing value count is due to the fact that one ID represents missing information about a politician (-1)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+firstName
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+990
+</td>
+<td style="text-align:left;">
+0.00%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+First name of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+lastName
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+3281
+</td>
+<td style="text-align:left;">
+0.02%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Last name of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+birthPlace
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+2180
+</td>
+<td style="text-align:left;">
+0.46%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Place of birth of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+birthCountry
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:left;">
+0.39%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Country of birth of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+birthDate
+</td>
+<td style="text-align:left;">
+Date
+</td>
+<td style="text-align:right;">
+3846
+</td>
+<td style="text-align:left;">
+0.39%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Date of birth of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+deathDate
+</td>
+<td style="text-align:left;">
+Date
+</td>
+<td style="text-align:right;">
+1783
+</td>
+<td style="text-align:left;">
+54.58%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Date of death of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+gender
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+0.39%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Gender of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+profession
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+2208
+</td>
+<td style="text-align:left;">
+0.39%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Profession of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+aristocracy
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+99.05%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Royal/noble rank of the politician.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+academicTitle
+</td>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+74.43%
+</td>
+<td style="text-align:left;width: 7,5cm; ">
+Academic title of the politician.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="additional-remarks-2" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Additional Remarks</h3>
+<p>All meta information about the politicians is directly drawn from the base data of the MPs. The Open Discourse corpus only contains a selection of the publicly available personal details of the politicians. A comprehensive resource of the available meta data can be found on the <a href="https://www.bundestag.de/services/opendata">website of the Bundestag</a>.
+There are some rare cases in which people were members of the government but never held a mandate as a member of the parliament. These politicians are not covered in the base data mentioned above. To fill this gap in the base data, we merge the file with data retrieved from <a href="https://de.wikipedia.org/wiki/Liste_der_deutschen_Regierungsmitglieder_seit_1949">Wikipedia</a>.</p>
+</div>
+</div>
+<div id="contribs" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Contributions Tables</h2>
+<p>The current version of the Open Discourse database contains two contributions tables. Contributions are any kind of interjections and other types of reactions during a speech from the plenum that is recorded by the stenographers.
+There is a simplified version of the contributions table and an extended one. The simplified version only contains the raw text of the interjection and two foreign keys to map the contribution to the associated speech and the precise position in the speech where the contribution occurred.</p>
+<p>The extended contributions table has more detailed meta information but the instances in this table can be faulty. The logic needs further refinement for better results - still we wanted to provide the current state of this approach and hence we labeled this table as being experimental.</p>
+<div id="contributions-simplified" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Contributions Simplified</h3>
+<p><code>placeholder</code></p>
+<p>The simplified contributions table has the following dimensions:</p>
+<p><code>placeholder</code></p>
+<div id="simplified-contributions-summary-table" class="section level4" number="3.6.1.1">
+<h4><span class="header-section-number">3.6.1.1</span> Simplified contributions summary table</h4>
+<p><code>placeholder</code></p>
+</div>
+</div>
+<div id="contributions-extended-experimental" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Contributions Extended (experimental)</h3>
+<p><code>placeholder</code></p>
+<p>The extended contributions table has the following dimensions:</p>
+<p><code>placeholder</code></p>
+<div id="extended-contributions-summary-table" class="section level4" number="3.6.2.1">
+<h4><span class="header-section-number">3.6.2.1</span> Extended contributions summary table</h4>
+<p><code>placeholder</code></p>
+</div>
+<div id="additional-remarks-3" class="section level4" number="3.6.2.2">
+<h4><span class="header-section-number">3.6.2.2</span> Additional Remarks</h4>
+<p>This extended version of the contribution table contains detailed meta information. This table is labeled experimental since the extraction of the meta information is faulty at times. This is caused by in the way of how contributions are recorded throughout the electoral periods.</p>
+<p>This extended table also introduces a seven level category system that defines the type of the respective contribution. Following table provides an overview of these seven levels:</p>
+<p><strong>Contribution Types</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><em>type</em></th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Beifall</td>
+<td align="left">Applause</td>
+</tr>
+<tr class="even">
+<td align="left">Heiterkeit</td>
+<td align="left">Cheerfulness</td>
+</tr>
+<tr class="odd">
+<td align="left">Lachen</td>
+<td align="left">Laugther</td>
+</tr>
+<tr class="even">
+<td align="left">Personen-Einruf</td>
+<td align="left">Interjection (by a specific politician)</td>
+</tr>
+<tr class="odd">
+<td align="left">Unruhe</td>
+<td align="left">Noisiness/unrest</td>
+</tr>
+<tr class="even">
+<td align="left">Widerspruch</td>
+<td align="left">Disagreement</td>
+</tr>
+<tr class="odd">
+<td align="left">Zuruf</td>
+<td align="left">Interjection - not assigned to a specific politician</td>
+</tr>
+<tr class="even">
+<td align="left">Zustimmung</td>
+<td align="left">Agreement</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="electoral-terms-table" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Electoral Terms Table</h2>
+<p>The electoral terms table provides the date information of the beginning and ending of each electoral term.</p>
+<p><code>placeholder</code></p>
+<p>The electoral terms table has following dimensions:</p>
+<p><code>placeholder</code></p>
+<div id="electoral-terms-summary-table" class="section level3" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> Electoral Terms summary table</h3>
+<p><code>placeholder</code></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["docs.pdf", "docs.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
