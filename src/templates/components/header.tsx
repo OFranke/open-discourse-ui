@@ -1,20 +1,40 @@
 import React, { useState } from "react";
-import { Flex, Box, IconButton, Stack, chakra } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  IconButton,
+  Stack,
+  chakra,
+  MenuButton,
+  Button,
+  Menu,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
 
 import { FaGithub } from "react-icons/fa";
 
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { useTheme } from "@emotion/react";
 import { NavItem } from "./nav-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
+
+const availableDocVersions = ["1.0.0"];
 
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
   const theme: any = useTheme();
   return (
-    <Box position="fixed" width="100%" bg="white" zIndex="100">
+    <Box
+      position="fixed"
+      width="100%"
+      bg="white"
+      zIndex="100"
+      borderBottom="1px solid"
+      borderColor="gray.200"
+    >
       <DefaultContainer size="l" as="header">
         <Flex
           as="nav"
@@ -84,10 +104,29 @@ export const Header: React.FC = () => {
               Themensuche
             </NavItem>
 
-            <NavItem href="/dokumentation" underlineColor={"black"}>
-              Docs
+            <NavItem underlineColor="black">
+              <Menu>
+                <MenuButton>
+                  Docs <ChevronDownIcon />
+                </MenuButton>
+                <MenuList marginLeft="0" style={{ marginLeft: 0 }}>
+                  {availableDocVersions.map((version) => {
+                    return (
+                      <NextChakraLink
+                        marginLeft="0"
+                        style={{ marginLeft: 0 }}
+                        key={version}
+                        href={`/dokumentation/${version}`}
+                      >
+                        <MenuItem marginLeft="0" style={{ marginLeft: 0 }}>
+                          {version}
+                        </MenuItem>
+                      </NextChakraLink>
+                    );
+                  })}
+                </MenuList>
+              </Menu>
             </NavItem>
-
             <NavItem href="/ueber-uns" underlineColor={theme.colors.pink[500]}>
               Über uns
             </NavItem>
