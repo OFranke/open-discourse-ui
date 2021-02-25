@@ -1,5 +1,11 @@
 import { TopicData } from ".";
 import queryString from "query-string";
+import {
+  BaseGroupFilter,
+  BasePersonFilter,
+  GroupFilter,
+  PersonFilter,
+} from "./index";
 
 const getRandomData = () => {
   const arr = Array.from({ length: 71 }, (v, k) => {
@@ -131,4 +137,51 @@ export const generateLinkedInShareLink = async ({
   const shareLink = queryString.stringify({ url: url });
 
   return `${baseUrl}?${shareLink}`;
+};
+
+export const getCleanedFilterValues = (
+  filter: GroupFilter | PersonFilter | any
+): BaseGroupFilter | BasePersonFilter | undefined => {
+  if (filter && filter.type == "group") {
+    const keys: Array<keyof BaseGroupFilter> = [
+      "abbreviation",
+      "ageCat",
+      "electionPlace",
+      "gender",
+      "topic",
+      "job",
+    ];
+
+    keys.forEach((key) => {
+      if (!(key in filter)) {
+        console.log(`Missing Filter parameter: '${key}'`);
+        return;
+      }
+    });
+    const returnFilter: BaseGroupFilter = {
+      abbreviation: filter.abbreviation,
+      ageCat: filter.ageCat,
+      electionPlace: filter.electionPlace,
+      gender: filter.gender,
+      job: filter.job,
+      topic: filter.topic,
+    };
+    return returnFilter;
+  }
+
+  if (filter && filter.type == "person") {
+    const keys: Array<keyof BasePersonFilter> = ["topic", "politicianIdQuery"];
+    keys.forEach((key) => {
+      if (!(key in filter)) {
+        console.log(`Missing Filter parameter: '${key}'`);
+        return;
+      }
+    });
+    const returnFilter: BasePersonFilter = {
+      topic: filter.topic,
+      politicianIdQuery: filter.politicianIdQuery,
+    };
+    return returnFilter;
+  }
+  console.log("Invalid Filter parameters");
 };

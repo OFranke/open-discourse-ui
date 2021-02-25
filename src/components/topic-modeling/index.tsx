@@ -20,21 +20,26 @@ export interface TopicFilter {
 interface Filter {
   filterId: string;
   color: string;
-  topic: string | null;
 }
-export interface PersonFilter extends Filter {
-  type: "person";
+export interface BasePersonFilter {
   topic: string | null;
   politicianIdQuery: string | null;
 }
+export interface PersonFilter extends Filter, BasePersonFilter {
+  type: "person";
+  politicianIdQuery: string | null;
+}
 
-export interface GroupFilter extends Filter {
+export interface BaseGroupFilter {
+  topic: string | null;
+  abbreviation: string | null;
+  gender: string | null;
+  ageCat: string | null;
+  electionPlace: string | null;
+  job: string | null;
+}
+export interface GroupFilter extends Filter, BaseGroupFilter {
   type: "group";
-  factionIdQuery: string | null;
-  wahlbezirk: string | null;
-  gender: "male" | "female" | "all";
-  age: "<50" | ">=50" | "all";
-  jobs: "job1" | "job2" | "job3" | "all";
 }
 
 interface TopicModellingState {
@@ -88,12 +93,12 @@ const filterReducer = (
             type: "group",
             filterId: generateFilterId(),
             color: availableFilterColors[previousState.filters.length],
-            topic: "",
-            factionIdQuery: null,
-            wahlbezirk: "",
-            gender: "all",
-            age: "<50",
-            jobs: "all",
+            topic: null,
+            abbreviation: null,
+            electionPlace: null,
+            gender: null,
+            ageCat: null,
+            job: null,
           },
         ],
       };

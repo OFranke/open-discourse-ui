@@ -1,21 +1,16 @@
 import { useGetData } from "../full-text-search/hooks/use-get-data";
-import { Faction, Politician } from "../full-text-search/search-form";
+import { Politician } from "../full-text-search/search-form";
 import { ColoredSelectInput } from "./select-input";
-import { GroupFilter, PersonFilter, TopicFilter } from ".";
-import { Stack, Box, Flex } from "@chakra-ui/react";
-
-const getConvertedFactions = (factions: Faction[] | undefined) => {
-  return factions
-    ? factions
-        .filter(
-          (faction) => !["1", "8", "9", "10", "12", "19"].includes(faction.id)
-        )
-        .map((faction) => ({
-          key: faction.id,
-          label: faction.id == "-1" ? "Ohne Zuordnung" : faction.fullName,
-        }))
-    : [];
-};
+import { GroupFilter, PersonFilter } from ".";
+import { Stack, Box } from "@chakra-ui/react";
+import {
+  topicFilterOptions,
+  factionFilterOptions,
+  ageFilterOptions,
+  genderFilterOptions,
+  electionPlaceFilterOptions,
+  jobFilterOptions,
+} from "./filters";
 
 interface TopicFilterProps {
   filterState: GroupFilter | PersonFilter;
@@ -25,16 +20,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
   filterState,
   updateFilterState,
 }) => {
-  const [factions] = useGetData<Faction[]>(
-    "https://api.opendiscourse.de:5300/factions",
-    (response) => response.factions
-  );
-
-  //   const [filterState, setFilterState] = useState<TopicFilterState>({
-  //     factionIdQuery: undefined,
-  //   });
   if (filterState.type == "group") {
-    const convertedFactions = getConvertedFactions(factions);
     return (
       <>
         <Box width="100%">
@@ -44,7 +30,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
           >
             <ColoredSelectInput
               color={filterState.color}
-              rawData={[{ key: "umwelt", label: "Umwelt (blabla)" }]}
+              rawData={topicFilterOptions}
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
@@ -62,95 +48,60 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
             />
             <ColoredSelectInput
               color={filterState.color}
-              rawData={convertedFactions}
+              rawData={factionFilterOptions}
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
-                  factionIdQuery: element?.key || null,
+                  abbreviation: element?.key || null,
                 });
               }}
-              initialValue={
-                filterState.factionIdQuery
-                  ? convertedFactions.find(
-                      (faction) => faction.key == filterState.factionIdQuery
-                    )
-                  : undefined
-              }
               placeholder="Nach Fraktion Filtern"
             />
           </Stack>
           <Stack direction={{ base: "column", md: "row" }} width="100%">
             <ColoredSelectInput
               color={filterState.color}
-              rawData={convertedFactions}
-              onSelect={(element) => {
-                updateFilterState({
-                  ...filterState,
-                  factionIdQuery: element?.key || null,
-                });
-              }}
-              initialValue={
-                filterState.factionIdQuery
-                  ? convertedFactions.find(
-                      (faction) => faction.key == filterState.factionIdQuery
-                    )
-                  : undefined
-              }
+              rawData={genderFilterOptions}
               placeholder="Geschlecht"
-            />
-            <ColoredSelectInput
-              color={filterState.color}
-              rawData={convertedFactions}
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
-                  factionIdQuery: element?.key || null,
+                  gender: element?.key || null,
                 });
               }}
-              initialValue={
-                filterState.factionIdQuery
-                  ? convertedFactions.find(
-                      (faction) => faction.key == filterState.factionIdQuery
-                    )
-                  : undefined
-              }
+            />
+            <ColoredSelectInput
+              color={filterState.color}
+              rawData={ageFilterOptions}
               placeholder="Alter"
-            />
-            <ColoredSelectInput
-              color={filterState.color}
-              rawData={convertedFactions}
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
-                  factionIdQuery: element?.key || null,
+                  ageCat: element?.key || null,
                 });
               }}
-              initialValue={
-                filterState.factionIdQuery
-                  ? convertedFactions.find(
-                      (faction) => faction.key == filterState.factionIdQuery
-                    )
-                  : undefined
-              }
+            />
+            <ColoredSelectInput
+              color={filterState.color}
+              rawData={electionPlaceFilterOptions}
               placeholder="Wahlbezirk"
-            />
-            <ColoredSelectInput
-              color={filterState.color}
-              rawData={convertedFactions}
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
-                  factionIdQuery: element?.key || null,
+                  electionPlace: element?.key || null,
                 });
               }}
-              initialValue={
-                filterState.factionIdQuery
-                  ? convertedFactions.find(
-                      (faction) => faction.key == filterState.factionIdQuery
-                    )
-                  : undefined
-              }
+            />
+            <ColoredSelectInput
+              color={filterState.color}
+              rawData={jobFilterOptions}
               placeholder="Job"
+              onSelect={(element) => {
+                updateFilterState({
+                  ...filterState,
+                  job: element?.key || null,
+                });
+              }}
             />
           </Stack>
         </Box>

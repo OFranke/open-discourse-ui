@@ -2,11 +2,11 @@ import { Flex, FlexProps, IconButton } from "@chakra-ui/react";
 
 import { Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
-import { TopicData } from "./index";
+import { GroupFilter, PersonFilter, TopicData } from "./index";
 import {
-  mockFetchData,
   generateTwitterShareLink,
   generateFacebookShareLink,
+  getCleanedFilterValues,
 } from "./utils";
 import { useRouter } from "next/router";
 import queryString from "query-string";
@@ -98,18 +98,39 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
   useEffect(() => {
     const filters = queryString.parse(window.location.search);
     if (filters?.filters && typeof filters.filters == "string") {
-      const filterObject = JSON.parse(filters.filters);
+      //  todo: maybe unknown type
+      const filterObject: Array<GroupFilter | PersonFilter> = JSON.parse(
+        filters.filters
+      );
 
-      const dataFetchePromises = [];
-      for (let i = 0; i <= 5; i++) {
-        if (filterObject[i]) {
-          dataFetchePromises.push(mockFetchData(`topic ${i}`));
+      console.log("\x1b[33m%s\x1b[0m", "%c >> filterObject", filterObject);
+      if (filterObject && filterObject?.length) {
+        dispatchData({ action: "pending", entity: [] });
+        const dataFetchePromises = [];
+
+        for (let i = 0; i <= 5; i++) {
+          if (filterObject[i]) {
+            const filter = getCleanedFilterValues(filterObject[i]);
+            if (filter) {
+              // dataFetchePromises.push(mockFetchData(`topic ${i}`));
+              dataFetchePromises.push(
+                fetch(
+                  `https://api.opendiscourse.de:5400/topicmodelling?${queryString.stringify(
+                    filter
+                  )}`
+                )
+              );
+            }
+          }
         }
+        Promise.all(dataFetchePromises)
+          .then((result) => {
+            console.log("\x1b[33m%s\x1b[0m", "%c >> result", result);
+            // dispatchData({ action: "resolved", entity: result });
+          })
+          .catch((error) => console.log(error));
       }
-      dispatchData({ action: "pending", entity: [] });
-      Promise.all(dataFetchePromises).then((result) => {
-        dispatchData({ action: "resolved", entity: result });
-      });
+      console.log("\x1b[33m%s\x1b[0m", "%c >> filters", filters);
     }
   }, [router.query]);
 
