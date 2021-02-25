@@ -37,13 +37,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   topic: element?.key || null,
                 });
               }}
-              //   initialValue={
-              //     formParams.politicianIdQuery
-              //       ? convertedPoliticians.find(
-              //           (politician) => politician.key == formParams.politicianIdQuery
-              //         )
-              //       : undefined
-              //   }
+              initialValue={topicFilterOptions[0]}
               placeholder="Nach Thema Filtern"
             />
             <ColoredSelectInput
@@ -138,21 +132,15 @@ const PersonFilters: React.FC<PersonFilterProps> = ({
     <Stack direction={{ base: "column", md: "row" }} width="100%">
       <ColoredSelectInput
         color={filter.color}
-        rawData={[{ key: "umwelt", label: "Umwelt (blabla)" }]}
+        rawData={topicFilterOptions}
         onSelect={(element) => {
           updateFilter({
             ...filter,
             topic: element?.key || null,
           });
         }}
-        //   initialValue={
-        //     formParams.politicianIdQuery
-        //       ? convertedPoliticians.find(
-        //           (politician) => politician.key == formParams.politicianIdQuery
-        //         )
-        //       : undefined
-        //   }
         placeholder="Nach Thema Filtern"
+        initialValue={topicFilterOptions[0]}
       />
       <ColoredSelectInput
         color={filter.color}
