@@ -27,49 +27,44 @@ export const topicFilterOptions: DataProps[] = [
 ];
 
 export const genderFilterOptions: DataProps[] = [
-  { key: "0", label: "Alle" },
-  { key: "1", label: "Männlich" },
-  { key: "2", label: "Weiblich" },
+  { key: "0", label: "Männlich" },
+  { key: "1", label: "Weiblich" },
 ];
 
 export const factionFilterOptions: DataProps[] = [
-  { key: "0", label: "Alle" },
-  { key: "1", label: "FDP" },
-  { key: "2", label: "SPD" },
-  { key: "3", label: "CDU/CSU" },
-  { key: "4", label: "Grüne" },
-  { key: "5", label: "DIE LINKE" },
-  { key: "6", label: "AfD" },
+  { key: "0", label: "FDP" },
+  { key: "1", label: "SPD" },
+  { key: "2", label: "CDU/CSU" },
+  { key: "3", label: "Grüne" },
+  { key: "4", label: "DIE LINKE" },
+  { key: "5", label: "AfD" },
 ];
 
 export const electionPlaceFilterOptions: DataProps[] = [
-  { key: "0", label: "Alle" },
-  { key: "1", label: "Hessen" },
-  { key: "2", label: "Niedersachsen" },
-  { key: "3", label: "Baden-Württemberg" },
-  { key: "4", label: "Nordrhein-Westfalen" },
-  { key: "5", label: "Hamburg" },
-  { key: "6", label: "Schleswig-Holstein" },
-  { key: "7", label: "Bayern" },
-  { key: "8", label: "Rheinland-Pfalz" },
-  { key: "9", label: "Bremen" },
-  { key: "10", label: "Saarland" },
-  { key: "11", label: "Thüringen" },
-  { key: "12", label: "Berlin" },
-  { key: "13", label: "Sachsen" },
-  { key: "14", label: "Mecklenburg-Vorpommern" },
-  { key: "15", label: "Brandenburg" },
-  { key: "16", label: "Sachsen-Anhalt" },
+  { key: "0", label: "Hessen" },
+  { key: "1", label: "Niedersachsen" },
+  { key: "2", label: "Baden-Württemberg" },
+  { key: "3", label: "Nordrhein-Westfalen" },
+  { key: "4", label: "Hamburg" },
+  { key: "5", label: "Schleswig-Holstein" },
+  { key: "6", label: "Bayern" },
+  { key: "7", label: "Rheinland-Pfalz" },
+  { key: "8", label: "Bremen" },
+  { key: "9", label: "Saarland" },
+  { key: "10", label: "Thüringen" },
+  { key: "11", label: "Berlin" },
+  { key: "12", label: "Sachsen" },
+  { key: "13", label: "Mecklenburg-Vorpommern" },
+  { key: "14", label: "Brandenburg" },
+  { key: "15", label: "Sachsen-Anhalt" },
 ];
 
 export const ageFilterOptions: DataProps[] = [
-  { key: "0", label: "Alle" },
-  { key: "1", label: "< 50" },
-  { key: "2", label: "> = 50" },
+  { key: "0", label: "< 50" },
+  { key: "1", label: "> = 50" },
 ];
 
 export const jobFilterOptions: DataProps[] = [
-  { key: "0", label: "Alle" },
-  { key: "1", label: "Handwerk" },
-  { key: "2", label: "Sonstiges" },
+  { key: "0", label: "Handwerk" },
+  { key: "1", label: "Sonstiges" },
 ];

@@ -6,7 +6,7 @@ import { GroupFilter, PersonFilter, TopicData, TopicDataEntry } from "./index";
 import {
   generateTwitterShareLink,
   generateFacebookShareLink,
-  getCleanedFilterValues,
+  getCleanedBaseFilterValues,
 } from "./utils";
 import { useRouter } from "next/router";
 import queryString from "query-string";
@@ -15,7 +15,12 @@ import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { generateLinkedInShareLink } from "./utils";
 
 import { FaFacebookSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { topicFilterOptions } from "./filters";
+import {
+  ageFilterOptions,
+  genderFilterOptions,
+  electionPlaceFilterOptions,
+} from "./filters";
+import { factionFilterOptions, topicFilterOptions } from "./filters";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -27,6 +32,41 @@ interface TopicLineGraphState {
   data: TopicData[];
 }
 
+const getResultLabel = (
+  filterObject: Array<GroupFilter | PersonFilter>,
+  index: number
+): string => {
+  const filter = filterObject?.[index];
+
+  if (filter) {
+    if (filterObject[index].type == "person") {
+    }
+    if (filter.type == "group") {
+      const abbreviation = factionFilterOptions.find(
+        (faction) => faction.key == filter.abbreviation
+      );
+
+      const topic = topicFilterOptions.find(
+        (topic) => topic.key == filter.topic
+      );
+
+      const gender = genderFilterOptions.find(
+        (gender) => gender.key == filter.gender
+      );
+      const age = ageFilterOptions.find((age) => age.key == filter.ageCat);
+      const electionPlace = electionPlaceFilterOptions.find(
+        (electionPlace) => electionPlace.key == filter.electionPlace
+      );
+
+      return `${topic?.label}, ${abbreviation?.label || "Alle Parteien"}, ${
+        gender?.label || "Alle Geschlechter"
+      }, ${age?.label || "Alle Altersgruppen"}, ${
+        electionPlace?.label || "Alle Bundesländer"
+      } `;
+    }
+  }
+  return `${index} Unbekanntes Thema`;
+};
 const dataReducer = (
   previousState: TopicLineGraphState,
   action: TopicReducerAction
@@ -95,7 +135,6 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     data: [],
   });
 
-  console.log("\x1b[33m%s\x1b[0m", "%c >> router.query", router.query);
   useEffect(() => {
     const filters = queryString.parse(window.location.search);
     if (filters?.filters && typeof filters.filters == "string") {
@@ -104,19 +143,13 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
         filters.filters
       );
 
-      console.log("\x1b[33m%s\x1b[0m", "%c >> filterObject", filterObject);
       if (filterObject && filterObject?.length) {
         dispatchData({ action: "pending", entity: [] });
         const dataFetchePromises = [];
 
         for (let i = 0; i <= 5; i++) {
           if (filterObject[i]) {
-            console.log(
-              "\x1b[33m%s\x1b[0m",
-              "%c >> filterObject[i]",
-              filterObject[i]
-            );
-            const filter = getCleanedFilterValues(filterObject[i]);
+            const filter = getCleanedBaseFilterValues(filterObject[i]);
             if (filter) {
               // dataFetchePromises.push(mockFetchData(`topic ${i}`));
               dataFetchePromises.push(
@@ -139,13 +172,10 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             resultArray.map((result) => getBodyPromises.push(result.json()));
             Promise.all(getBodyPromises).then((dataResultArray) => {
               const topicResult: TopicData[] = [];
-              console.log(dataResultArray);
               dataResultArray.map((data, index) => {
-                const topic = topicFilterOptions.find(
-                  (topic) => topic.key == filterObject[index].topic
-                );
+                const id = getResultLabel(filterObject, index);
                 topicResult.push({
-                  id: topic?.label || "Unbekanntes Thema",
+                  id: id,
                   data: data.data,
                 });
               });

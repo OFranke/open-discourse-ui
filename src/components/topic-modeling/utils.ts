@@ -41,7 +41,6 @@ const generateImage = async ({
   selector,
   queryObject,
 }: ScreenshotApiParams): Promise<string> => {
-  console.log("\x1b[33m%s\x1b[0m", "%c >> ", urlPath, selector, queryObject);
   if (!process.env.HOST_URL) {
     throw new Error("environment variable HOST_URL not found.");
   }
@@ -139,7 +138,7 @@ export const generateLinkedInShareLink = async ({
   return `${baseUrl}?${shareLink}`;
 };
 
-export const getCleanedFilterValues = (
+export const getCleanedBaseFilterValues = (
   filter: GroupFilter | PersonFilter | any
 ): BaseGroupFilter | BasePersonFilter | undefined => {
   if (filter && filter.type == "group") {
@@ -184,4 +183,88 @@ export const getCleanedFilterValues = (
     return returnFilter;
   }
   console.log("Invalid Filter parameters");
+};
+
+export const getCleanedFilterValuesFromUrlParams = (
+  queryParams: any
+): Array<GroupFilter | PersonFilter> | [] => {
+  const returnFilters: Array<GroupFilter | PersonFilter> = [];
+  if (queryParams?.filters) {
+    try {
+      const queryParamsFilterArray = JSON.parse(queryParams.filters);
+
+      console.log(
+        "\x1b[33m%s\x1b[0m",
+        "%c >> queryParamsFilterArray",
+        queryParamsFilterArray
+      );
+      console.log(
+        "\x1b[33m%s\x1b[0m",
+        "%c >> typeof queryParamsFilterArray",
+        typeof queryParamsFilterArray
+      );
+      if (queryParamsFilterArray && queryParamsFilterArray?.length) {
+        queryParamsFilterArray.map((filter: any) => {
+          if (filter?.type == "group") {
+            const keys: Array<keyof GroupFilter> = [
+              "filterId",
+              "color",
+              "type",
+              "abbreviation",
+              "ageCat",
+              "electionPlace",
+              "gender",
+              "topic",
+              "job",
+            ];
+            keys.forEach((key) => {
+              if (!(key in filter)) {
+                console.log(`Missing Filter parameter: '${key}'`);
+                return;
+              }
+            });
+            const returnFilter: GroupFilter = {
+              filterId: filter.filterId,
+              color: filter.color,
+              type: filter.type,
+              abbreviation: filter.abbreviation,
+              ageCat: filter.ageCat,
+              electionPlace: filter.electionPlace,
+              gender: filter.gender,
+              job: filter.job,
+              topic: filter.topic,
+            };
+            returnFilters.push(returnFilter);
+          }
+          if (filter && filter.type == "person") {
+            const keys: Array<keyof PersonFilter> = [
+              "filterId",
+              "color",
+              "type",
+              "topic",
+              "politicianIdQuery",
+            ];
+            keys.forEach((key) => {
+              if (!(key in filter)) {
+                console.log(`Missing Filter parameter: '${key}'`);
+                return;
+              }
+            });
+            const returnFilter: PersonFilter = {
+              filterId: filter.filterId,
+              color: filter.color,
+              type: filter.type,
+              topic: filter.topic,
+              politicianIdQuery: filter.politicianIdQuery,
+            };
+            returnFilters.push(returnFilter);
+          }
+          console.log("Invalid Filter parameters");
+        });
+      }
+    } catch (e) {
+      console.log("Unexpected error when parsing URL parameters", e.message);
+    }
+  }
+  return returnFilters;
 };

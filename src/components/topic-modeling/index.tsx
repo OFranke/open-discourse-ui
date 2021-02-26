@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useLayoutEffect, useReducer, useEffect } from "react";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { TopicFilters } from "./topic-filters";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
@@ -7,15 +7,9 @@ import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { Card } from "@bit/limebit.limebit-ui.card";
 import queryString from "query-string";
 import { useRouter } from "next/router";
-import {
-  factionFilterOptions,
-  topicFilterOptions,
-  electionPlaceFilterOptions,
-  jobFilterOptions,
-  genderFilterOptions,
-  ageFilterOptions,
-} from "./filters";
+import { topicFilterOptions } from "./filters";
 import { Serie } from "@nivo/line";
+import { getCleanedFilterValuesFromUrlParams } from "./utils";
 
 export interface TopicFilter {
   filterId: string;
@@ -55,7 +49,7 @@ interface TopicModellingState {
 interface FilterReducerAction {
   action: "ADD" | "REMOVE" | "UPDATE";
   type: "group" | "person";
-  entity: PersonFilter | GroupFilter | null;
+  entity: PersonFilter | GroupFilter;
 }
 export interface TopicData extends Serie {
   data: TopicDataEntry[];
@@ -82,32 +76,25 @@ const filterReducer = (
           filters: [
             ...previousState.filters,
             {
-              type: "person",
-              filterId: generateFilterId(),
+              ...action.entity,
               color: availableFilterColors[previousState.filters.length],
-              topic: "",
-              politicianIdQuery: null,
             },
           ],
         };
       }
-      return {
-        ...previousState,
-        filters: [
-          ...previousState.filters,
-          {
-            type: "group",
-            filterId: generateFilterId(),
-            color: availableFilterColors[previousState.filters.length],
-            topic: topicFilterOptions[0].key,
-            abbreviation: factionFilterOptions[0].key,
-            electionPlace: electionPlaceFilterOptions[0].key,
-            gender: genderFilterOptions[0].key,
-            ageCat: ageFilterOptions[0].key,
-            job: jobFilterOptions[0].key,
-          },
-        ],
-      };
+      if (action.type == "group") {
+        return {
+          ...previousState,
+          filters: [
+            ...previousState.filters,
+            {
+              ...action.entity,
+              color: availableFilterColors[previousState.filters.length],
+            },
+          ],
+        };
+      }
+      throw new Error(`Unsupported action type: ${action.action}`);
     }
     case "REMOVE": {
       const updatedFilters = previousState.filters
@@ -144,16 +131,52 @@ const filterReducer = (
 export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
   const [state, dispatch] = useReducer(filterReducer, {
     filters: [
-      {
-        type: "person",
-        filterId: generateFilterId(),
-        color: availableFilterColors[0],
-        topic: null,
-        politicianIdQuery: null,
-      },
+      // {
+      //   type: "person",
+      //   filterId: generateFilterId(),
+      //   color: availableFilterColors[0],
+      //   topic: null,
+      //   politicianIdQuery: null,
+      // },
     ],
   });
   const router = useRouter();
+
+  useEffect(() => {
+    console.log("\x1b[33m%s\x1b[0m", "%c >> router.query", router.query);
+    const validatedFilters = getCleanedFilterValuesFromUrlParams(router.query);
+    console.log(
+      "\x1b[33m%s\x1b[0m",
+      "%c >> validatedFilters",
+      validatedFilters
+    );
+    if (validatedFilters && validatedFilters.length) {
+      validatedFilters.forEach((filter) => {
+        dispatch({ action: "ADD", type: filter.type, entity: filter });
+      });
+    } else {
+      dispatch({
+        action: "ADD",
+        type: "person",
+        entity: {
+          type: "person",
+          filterId: generateFilterId(),
+          color: availableFilterColors[0],
+          topic: null,
+          politicianIdQuery: null,
+        },
+      });
+    }
+    // if (router.query?.filters && typeof router.query.filters == "string") {
+    //   const filters = JSON.parse(router.query.filters);
+    //   console.log("\x1b[33m%s\x1b[0m", "%c >> filters", filters);
+    //   if (filters && filters.length > 0) {
+    //     filters.forEach((filter: GroupFilter | PersonFilter) => {
+    //       dispatch({ action: "ADD", type: filter.type, entity: filter });
+    //     });
+    //   }
+    // }
+  }, []);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -243,7 +266,17 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
             rightIcon={<AddIcon />}
             disabled={state.filters.length >= 5 ? true : false}
             onClick={() =>
-              dispatch({ action: "ADD", type: "person", entity: null })
+              dispatch({
+                action: "ADD",
+                type: "person",
+                entity: {
+                  type: "person",
+                  color: "",
+                  filterId: generateFilterId(),
+                  politicianIdQuery: null,
+                  topic: null,
+                },
+              })
             }
             style={{ marginLeft: "auto" }}
           >
@@ -255,7 +288,21 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
             rightIcon={<AddIcon />}
             disabled={state.filters.length >= 5 ? true : false}
             onClick={() =>
-              dispatch({ action: "ADD", type: "group", entity: null })
+              dispatch({
+                action: "ADD",
+                type: "group",
+                entity: {
+                  type: "group",
+                  color: "",
+                  filterId: generateFilterId(),
+                  abbreviation: null,
+                  ageCat: null,
+                  electionPlace: null,
+                  gender: null,
+                  job: null,
+                  topic: null,
+                },
+              })
             }
           >
             Gruppenfilter hinzufügen

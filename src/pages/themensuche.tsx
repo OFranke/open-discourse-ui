@@ -15,8 +15,6 @@ type Data = {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log("\x1b[33m%s\x1b[0m", "%c >> context.", context.query);
-
   const imgUrl = context?.query?.imgUrl;
 
   const data: Data = {

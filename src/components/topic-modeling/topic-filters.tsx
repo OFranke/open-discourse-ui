@@ -7,9 +7,9 @@ import {
   topicFilterOptions,
   factionFilterOptions,
   ageFilterOptions,
-  genderFilterOptions,
   electionPlaceFilterOptions,
   jobFilterOptions,
+  genderFilterOptions,
 } from "./filters";
 
 interface TopicFilterProps {
@@ -21,6 +21,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
   updateFilterState,
 }) => {
   if (filterState.type == "group") {
+    console.log("\x1b[33m%s\x1b[0m", "%c >> filterState", filterState);
     return (
       <>
         <Box width="100%">
@@ -38,7 +39,9 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   topic: element?.key || null,
                 });
               }}
-              initialValue={topicFilterOptions[0]}
+              initialValue={topicFilterOptions.find(
+                (filter) => filter.key == filterState.topic
+              )}
             />
             <ColoredSelectInput
               color={filterState.color}
@@ -50,7 +53,9 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   abbreviation: element?.key || null,
                 });
               }}
-              initialValue={factionFilterOptions[0]}
+              initialValue={factionFilterOptions.find(
+                (filter) => filter.key == filterState.abbreviation
+              )}
             />
           </Stack>
           <Stack direction={{ base: "column", md: "row" }} width="100%">
@@ -64,7 +69,9 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   gender: element?.key || null,
                 });
               }}
-              initialValue={genderFilterOptions[0]}
+              initialValue={genderFilterOptions.find(
+                (filter) => filter.key == filterState.gender
+              )}
             />
             <ColoredSelectInput
               color={filterState.color}
@@ -76,7 +83,9 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   ageCat: element?.key || null,
                 });
               }}
-              initialValue={ageFilterOptions[0]}
+              initialValue={ageFilterOptions.find(
+                (filter) => filter.key == filterState.ageCat
+              )}
             />
             <ColoredSelectInput
               color={filterState.color}
@@ -88,7 +97,9 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   electionPlace: element?.key || null,
                 });
               }}
-              initialValue={electionPlaceFilterOptions[0]}
+              initialValue={electionPlaceFilterOptions.find(
+                (filter) => filter.key == filterState.electionPlace
+              )}
             />
             <ColoredSelectInput
               color={filterState.color}
@@ -100,7 +111,9 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   job: element?.key || null,
                 });
               }}
-              initialValue={jobFilterOptions[0]}
+              initialValue={jobFilterOptions.find(
+                (filter) => filter.key == filterState.job
+              )}
             />
           </Stack>
         </Box>
@@ -108,20 +121,22 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
     );
   } else {
     return (
-      <PersonFilters filter={filterState} updateFilter={updateFilterState} />
+      <PersonFilters
+        filterState={filterState}
+        updateFilter={updateFilterState}
+      />
     );
   }
 };
 
 interface PersonFilterProps {
-  filter: PersonFilter;
+  filterState: PersonFilter;
   updateFilter: (newFilter: PersonFilter) => void;
 }
 const PersonFilters: React.FC<PersonFilterProps> = ({
-  filter,
+  filterState,
   updateFilter,
 }) => {
-  console.log("\x1b[33m%s\x1b[0m", "%c >> filter", filter);
   const [politicians] = useGetData<Politician[]>(
     "https://api.opendiscourse.de:5300/politicians",
     (response) => response.politicians
@@ -136,30 +151,32 @@ const PersonFilters: React.FC<PersonFilterProps> = ({
   return (
     <Stack direction={{ base: "column", md: "row" }} width="100%">
       <ColoredSelectInput
-        color={filter.color}
+        color={filterState.color}
         rawData={topicFilterOptions}
         onSelect={(element) => {
           updateFilter({
-            ...filter,
+            ...filterState,
             topic: element?.key || null,
           });
         }}
         placeholder="Nach Thema Filtern"
-        initialValue={topicFilterOptions[0]}
+        initialValue={topicFilterOptions.find(
+          (filter) => filter.key == filterState.topic
+        )}
       />
       <ColoredSelectInput
-        color={filter.color}
+        color={filterState.color}
         rawData={convertedPoliticians}
         onSelect={(element) => {
           updateFilter({
-            ...filter,
+            ...filterState,
             politicianIdQuery: element?.key || null,
           });
         }}
         initialValue={
-          filter.politicianIdQuery
+          filterState.politicianIdQuery
             ? convertedPoliticians.find(
-                (politician) => politician.key == filter.politicianIdQuery
+                (politician) => politician.key == filterState.politicianIdQuery
               )
             : undefined
         }
