@@ -31,6 +31,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
             <ColoredSelectInput
               color={filterState.color}
               rawData={topicFilterOptions}
+              placeholder="Nach Thema Filtern"
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
@@ -38,18 +39,18 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                 });
               }}
               initialValue={topicFilterOptions[0]}
-              placeholder="Nach Thema Filtern"
             />
             <ColoredSelectInput
               color={filterState.color}
               rawData={factionFilterOptions}
+              placeholder="Nach Fraktion Filtern"
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
                   abbreviation: element?.key || null,
                 });
               }}
-              placeholder="Nach Fraktion Filtern"
+              initialValue={factionFilterOptions[0]}
             />
           </Stack>
           <Stack direction={{ base: "column", md: "row" }} width="100%">
@@ -63,6 +64,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   gender: element?.key || null,
                 });
               }}
+              initialValue={genderFilterOptions[0]}
             />
             <ColoredSelectInput
               color={filterState.color}
@@ -74,6 +76,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   ageCat: element?.key || null,
                 });
               }}
+              initialValue={ageFilterOptions[0]}
             />
             <ColoredSelectInput
               color={filterState.color}
@@ -85,6 +88,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   electionPlace: element?.key || null,
                 });
               }}
+              initialValue={electionPlaceFilterOptions[0]}
             />
             <ColoredSelectInput
               color={filterState.color}
@@ -96,6 +100,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                   job: element?.key || null,
                 });
               }}
+              initialValue={jobFilterOptions[0]}
             />
           </Stack>
         </Box>

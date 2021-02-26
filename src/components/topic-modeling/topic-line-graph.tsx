@@ -2,7 +2,7 @@ import { Flex, FlexProps, IconButton } from "@chakra-ui/react";
 
 import { Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
-import { GroupFilter, PersonFilter, TopicData } from "./index";
+import { GroupFilter, PersonFilter, TopicData, TopicDataEntry } from "./index";
 import {
   generateTwitterShareLink,
   generateFacebookShareLink,
@@ -15,6 +15,7 @@ import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { generateLinkedInShareLink } from "./utils";
 
 import { FaFacebookSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { topicFilterOptions } from "./filters";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -110,6 +111,11 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
 
         for (let i = 0; i <= 5; i++) {
           if (filterObject[i]) {
+            console.log(
+              "\x1b[33m%s\x1b[0m",
+              "%c >> filterObject[i]",
+              filterObject[i]
+            );
             const filter = getCleanedFilterValues(filterObject[i]);
             if (filter) {
               // dataFetchePromises.push(mockFetchData(`topic ${i}`));
@@ -117,20 +123,37 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
                 fetch(
                   `https://api.opendiscourse.de:5400/topicmodelling?${queryString.stringify(
                     filter
-                  )}`
+                  )}`,
+                  {
+                    method: "GET",
+                    headers: { "content-type": "application/json" },
+                  }
                 )
               );
             }
           }
         }
         Promise.all(dataFetchePromises)
-          .then((result) => {
-            console.log("\x1b[33m%s\x1b[0m", "%c >> result", result);
-            // dispatchData({ action: "resolved", entity: result });
+          .then((resultArray) => {
+            const getBodyPromises: Promise<{ data: TopicDataEntry[] }>[] = [];
+            resultArray.map((result) => getBodyPromises.push(result.json()));
+            Promise.all(getBodyPromises).then((dataResultArray) => {
+              const topicResult: TopicData[] = [];
+              console.log(dataResultArray);
+              dataResultArray.map((data, index) => {
+                const topic = topicFilterOptions.find(
+                  (topic) => topic.key == filterObject[index].topic
+                );
+                topicResult.push({
+                  id: topic?.label || "Unbekanntes Thema",
+                  data: data.data,
+                });
+              });
+              dispatchData({ action: "resolved", entity: topicResult });
+            });
           })
           .catch((error) => console.log(error));
       }
-      console.log("\x1b[33m%s\x1b[0m", "%c >> filters", filters);
     }
   }, [router.query]);
 

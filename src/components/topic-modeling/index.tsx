@@ -5,11 +5,17 @@ import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 import { IconButton, Flex, Stack, Box, BoxProps } from "@chakra-ui/react";
 import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { Card } from "@bit/limebit.limebit-ui.card";
-import { TopicLineGraph } from "./topic-line-graph";
-import { mockFetchData } from "./utils";
-import { useState } from "react";
 import queryString from "query-string";
 import { useRouter } from "next/router";
+import {
+  factionFilterOptions,
+  topicFilterOptions,
+  electionPlaceFilterOptions,
+  jobFilterOptions,
+  genderFilterOptions,
+  ageFilterOptions,
+} from "./filters";
+import { Serie } from "@nivo/line";
 
 export interface TopicFilter {
   filterId: string;
@@ -51,12 +57,12 @@ interface FilterReducerAction {
   type: "group" | "person";
   entity: PersonFilter | GroupFilter | null;
 }
-export interface TopicData {
-  id: string;
-  data: Array<{
-    x: number;
-    y: number;
-  }>;
+export interface TopicData extends Serie {
+  data: TopicDataEntry[];
+}
+export interface TopicDataEntry {
+  x: number;
+  y: number;
 }
 const availableFilterColors = ["pink", "purple", "orange", "blue", "green"];
 
@@ -93,12 +99,12 @@ const filterReducer = (
             type: "group",
             filterId: generateFilterId(),
             color: availableFilterColors[previousState.filters.length],
-            topic: null,
-            abbreviation: null,
-            electionPlace: null,
-            gender: null,
-            ageCat: null,
-            job: null,
+            topic: topicFilterOptions[0].key,
+            abbreviation: factionFilterOptions[0].key,
+            electionPlace: electionPlaceFilterOptions[0].key,
+            gender: genderFilterOptions[0].key,
+            ageCat: ageFilterOptions[0].key,
+            job: jobFilterOptions[0].key,
           },
         ],
       };
