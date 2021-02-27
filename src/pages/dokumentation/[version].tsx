@@ -33,11 +33,15 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
         description=""
         canonicalRoute="dokumentation"
       />
-      <iframe
-        style={{ height: `calc(100vh - ${headerHeight}px - ${footerHeight}px` }}
-        width="100%"
-        src={`/docs/${data.version}/index.html`}
-      ></iframe>
+      {data.version && (
+        <iframe
+          style={{
+            height: `calc(100vh - ${headerHeight}px - ${footerHeight}px`,
+          }}
+          width="100%"
+          src={`/docs/${data.version}/index.html`}
+        ></iframe>
+      )}
     </BaseTemplate>
   );
 };

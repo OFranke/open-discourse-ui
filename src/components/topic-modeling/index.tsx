@@ -1,4 +1,4 @@
-import { useLayoutEffect, useReducer, useEffect } from "react";
+import { useReducer } from "react";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { TopicFilters } from "./topic-filters";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
@@ -7,57 +7,18 @@ import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { Card } from "@bit/limebit.limebit-ui.card";
 import queryString from "query-string";
 import { useRouter } from "next/router";
-import { topicFilterOptions } from "./filters";
-import { Serie } from "@nivo/line";
-import { getCleanedFilterValuesFromUrlParams } from "./utils";
-
-export interface TopicFilter {
-  filterId: string;
-  color: string;
-  factionIdQuery: string | null;
-}
-
-interface Filter {
-  filterId: string;
-  color: string;
-}
-export interface BasePersonFilter {
-  topic: string | null;
-  politicianIdQuery: string | null;
-}
-export interface PersonFilter extends Filter, BasePersonFilter {
-  type: "person";
-  politicianIdQuery: string | null;
-}
-
-export interface BaseGroupFilter {
-  topic: string | null;
-  abbreviation: string | null;
-  gender: string | null;
-  ageCat: string | null;
-  electionPlace: string | null;
-  job: string | null;
-}
-export interface GroupFilter extends Filter, BaseGroupFilter {
-  type: "group";
-}
+import { getCleanedFilterValuesFromUrlParams } from "./helpers/utils";
+import { PersonFilter, GroupFilter } from "./helpers/types";
 
 interface TopicModellingState {
   filters: Array<PersonFilter | GroupFilter>;
 }
-
 interface FilterReducerAction {
   action: "ADD" | "REMOVE" | "UPDATE";
   type: "group" | "person";
   entity: PersonFilter | GroupFilter;
 }
-export interface TopicData extends Serie {
-  data: TopicDataEntry[];
-}
-export interface TopicDataEntry {
-  x: number;
-  y: number;
-}
+
 const availableFilterColors = ["pink", "purple", "orange", "blue", "green"];
 
 const generateFilterId = () => {
@@ -129,54 +90,24 @@ const filterReducer = (
 };
 
 export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
-  const [state, dispatch] = useReducer(filterReducer, {
-    filters: [
-      // {
-      //   type: "person",
-      //   filterId: generateFilterId(),
-      //   color: availableFilterColors[0],
-      //   topic: null,
-      //   politicianIdQuery: null,
-      // },
-    ],
-  });
   const router = useRouter();
+  const validatedFilters = getCleanedFilterValuesFromUrlParams(router.query);
 
-  useEffect(() => {
-    console.log("\x1b[33m%s\x1b[0m", "%c >> router.query", router.query);
-    const validatedFilters = getCleanedFilterValuesFromUrlParams(router.query);
-    console.log(
-      "\x1b[33m%s\x1b[0m",
-      "%c >> validatedFilters",
-      validatedFilters
-    );
-    if (validatedFilters && validatedFilters.length) {
-      validatedFilters.forEach((filter) => {
-        dispatch({ action: "ADD", type: filter.type, entity: filter });
-      });
-    } else {
-      dispatch({
-        action: "ADD",
-        type: "person",
-        entity: {
-          type: "person",
-          filterId: generateFilterId(),
-          color: availableFilterColors[0],
-          topic: null,
-          politicianIdQuery: null,
-        },
-      });
-    }
-    // if (router.query?.filters && typeof router.query.filters == "string") {
-    //   const filters = JSON.parse(router.query.filters);
-    //   console.log("\x1b[33m%s\x1b[0m", "%c >> filters", filters);
-    //   if (filters && filters.length > 0) {
-    //     filters.forEach((filter: GroupFilter | PersonFilter) => {
-    //       dispatch({ action: "ADD", type: filter.type, entity: filter });
-    //     });
-    //   }
-    // }
-  }, []);
+  const [state, dispatch] = useReducer(filterReducer, {
+    filters: validatedFilters.length
+      ? validatedFilters
+      : [
+          {
+            type: "person",
+            filterId: generateFilterId(),
+            color: availableFilterColors[0],
+            topic: null,
+            politicianIdQuery: null,
+          },
+        ],
+  });
+  console.log("\x1b[33m%s\x1b[0m", "%c >> state", state);
+  console.log("\x1b[33m%s\x1b[0m", "%c >> router.query", router.query);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
