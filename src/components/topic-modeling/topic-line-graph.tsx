@@ -2,25 +2,30 @@ import { Flex, FlexProps, IconButton } from "@chakra-ui/react";
 
 import { Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
-import { GroupFilter, PersonFilter, TopicData, TopicDataEntry } from "./index";
+import {
+  GroupFilter,
+  PersonFilter,
+  TopicData,
+  TopicDataEntry,
+} from "./helpers/types";
 import {
   generateTwitterShareLink,
   generateFacebookShareLink,
   getCleanedBaseFilterValues,
-} from "./utils";
+} from "./helpers/utils";
 import { useRouter } from "next/router";
 import queryString from "query-string";
 import LoadingSpinner from "@bit/limebit.chakra-ui-recipes.loading-spinner";
 import DefaultText from "@bit/limebit.limebit-ui.default-text";
-import { generateLinkedInShareLink } from "./utils";
+import { generateLinkedInShareLink } from "./helpers/utils";
 
 import { FaFacebookSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
 import {
   ageFilterOptions,
   genderFilterOptions,
   electionPlaceFilterOptions,
-} from "./filters";
-import { factionFilterOptions, topicFilterOptions } from "./filters";
+} from "./helpers/filters";
+import { factionFilterOptions, topicFilterOptions } from "./helpers/filters";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";

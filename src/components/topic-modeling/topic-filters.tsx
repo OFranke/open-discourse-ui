@@ -1,7 +1,7 @@
 import { useGetData } from "../full-text-search/hooks/use-get-data";
 import { Politician } from "../full-text-search/search-form";
 import { ColoredSelectInput } from "./select-input";
-import { GroupFilter, PersonFilter } from ".";
+import { GroupFilter, PersonFilter } from "./helpers/types";
 import { Stack, Box } from "@chakra-ui/react";
 import {
   topicFilterOptions,
@@ -10,7 +10,7 @@ import {
   electionPlaceFilterOptions,
   jobFilterOptions,
   genderFilterOptions,
-} from "./filters";
+} from "./helpers/filters";
 
 interface TopicFilterProps {
   filterState: GroupFilter | PersonFilter;
@@ -21,7 +21,6 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
   updateFilterState,
 }) => {
   if (filterState.type == "group") {
-    console.log("\x1b[33m%s\x1b[0m", "%c >> filterState", filterState);
     return (
       <>
         <Box width="100%">
@@ -58,7 +57,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
               )}
             />
           </Stack>
-          <Stack direction={{ base: "column", md: "row" }} width="100%">
+          <Stack direction={{ base: "column", md: "row" }} with="100%">
             <ColoredSelectInput
               color={filterState.color}
               rawData={genderFilterOptions}
