@@ -25,7 +25,11 @@ import {
   genderFilterOptions,
   stateFilterOptions,
 } from "./helpers/filters";
-import { partyFilterOptions, topicFilterOptions } from "./helpers/filters";
+import {
+  partyFilterOptions,
+  topicFilterOptions,
+  jobFilterOptions,
+} from "./helpers/filters";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -62,12 +66,15 @@ const getResultLabel = (
       const electionPlace = stateFilterOptions.find(
         (electionPlace) => electionPlace.key == filter.state
       );
+      const job = jobFilterOptions.find((job) => job.key == filter.job);
 
-      return `${topic?.label}, ${abbreviation?.label || "Alle Parteien"}, ${
-        gender?.label || "Alle Geschlechter"
-      }, ${age?.label || "Alle Altersgruppen"}, ${
-        electionPlace?.label || "Alle Bundesländer"
-      } `;
+      return `${index + 1}: ${topic?.label}, ${
+        abbreviation?.label || "Alle Parteien"
+      }, ${gender?.label || "Alle Geschlechter"}, ${
+        age?.label || "Alle Altersgruppen"
+      }, ${electionPlace?.label || "Alle Bundesländer"}, ${
+        job?.label || "Alle Berufsgruppen"
+      }`;
     }
   }
   return `${index} Unbekanntes Thema`;
