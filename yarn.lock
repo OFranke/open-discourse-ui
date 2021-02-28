@@ -161,10 +161,10 @@
     react-responsive "8.1.0"
     react-table "7.2.2"
 
-"@bit/limebit.chakra-ui-recipes.select-input@^0.0.10":
-  version "0.0.10"
-  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.select-input/-/limebit.chakra-ui-recipes.select-input-0.0.10.tgz#27429f23e4cc708acd19eeda24369524ac9c64d9"
-  integrity sha1-J0KfI+TMcIrNGe7aJDaVJKycZNk=
+"@bit/limebit.chakra-ui-recipes.select-input@^0.0.11":
+  version "0.0.11"
+  resolved "https://node.bit.dev/limebit.chakra-ui-recipes.select-input/-/limebit.chakra-ui-recipes.select-input-0.0.11.tgz#73e704111ea13d38c47279ecf2d2f68bc93ce6d5"
+  integrity sha1-c+cEER6hPTjEcnns8tL2i8k85tU=
   dependencies:
     csstype "3.0.6"
 
