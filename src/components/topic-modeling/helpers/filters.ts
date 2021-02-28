@@ -84,8 +84,8 @@ export const topicFilterOptions: DataProps[] = [
   { key: "72", label: "Öffentliche Verwaltung: Korruption & Lobbyismus" },
 ];
 export const genderFilterOptions: DataProps[] = [
-  { key: "0", label: "m" },
-  { key: "1", label: "w" },
+  { key: "0", label: "Männer" },
+  { key: "1", label: "Frauen" },
   // { key: "2", label: "unknown" },
 ];
 export const factionFilterOptions: DataProps[] = [
