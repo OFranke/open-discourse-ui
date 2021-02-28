@@ -52,7 +52,7 @@ const getResultLabel = (
       );
 
       const topic = topicFilterOptions.find(
-        (topic) => topic.key == filter.topic
+        (topic) => topic.key == filter.topics
       );
 
       const gender = genderFilterOptions.find(

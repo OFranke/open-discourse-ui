@@ -101,17 +101,15 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
             type: "person",
             filterId: generateFilterId(),
             color: availableFilterColors[0],
-            topic: null,
+            topics: null,
             politicianIdQuery: null,
           },
         ],
   });
-  console.log("\x1b[33m%s\x1b[0m", "%c >> state", state);
-  console.log("\x1b[33m%s\x1b[0m", "%c >> router.query", router.query);
 
+  console.log("\x1b[33m%s\x1b[0m", "%c >> state.filters", state.filters);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     router.push(
       `themensuche/?${queryString.stringify({
         filters: JSON.stringify(state.filters),
@@ -205,7 +203,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
                   color: "",
                   filterId: generateFilterId(),
                   politicianIdQuery: null,
-                  topic: null,
+                  topics: null,
                 },
               })
             }
@@ -231,7 +229,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
                   electionPlace: null,
                   gender: null,
                   job: null,
-                  topic: null,
+                  topics: null,
                 },
               })
             }

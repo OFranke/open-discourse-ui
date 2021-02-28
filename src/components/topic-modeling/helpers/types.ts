@@ -12,7 +12,7 @@ export interface TopicFilter {
 }
 
 export interface BasePersonFilter {
-  topic: string | null;
+  topics: string | null;
   politicianIdQuery: string | null;
 }
 export interface PersonFilter extends Filter, BasePersonFilter {
@@ -21,7 +21,7 @@ export interface PersonFilter extends Filter, BasePersonFilter {
 }
 
 export interface BaseGroupFilter {
-  topic: string | null;
+  topics: string | null;
   abbreviation: string | null;
   gender: string | null;
   ageCat: string | null;

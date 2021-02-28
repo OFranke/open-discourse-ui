@@ -147,7 +147,7 @@ export const getCleanedBaseFilterValues = (
       "ageCat",
       "electionPlace",
       "gender",
-      "topic",
+      "topics",
       "job",
     ];
 
@@ -163,13 +163,13 @@ export const getCleanedBaseFilterValues = (
       electionPlace: filter.electionPlace,
       gender: filter.gender,
       job: filter.job,
-      topic: filter.topic,
+      topics: filter.topics,
     };
     return returnFilter;
   }
 
   if (filter && filter.type == "person") {
-    const keys: Array<keyof BasePersonFilter> = ["topic", "politicianIdQuery"];
+    const keys: Array<keyof BasePersonFilter> = ["topics", "politicianIdQuery"];
     keys.forEach((key) => {
       if (!(key in filter)) {
         console.log(`Missing Filter parameter: '${key}'`);
@@ -177,7 +177,7 @@ export const getCleanedBaseFilterValues = (
       }
     });
     const returnFilter: BasePersonFilter = {
-      topic: filter.topic,
+      topics: filter.topics,
       politicianIdQuery: filter.politicianIdQuery,
     };
     return returnFilter;
@@ -209,7 +209,7 @@ export const getCleanedFilterValuesFromUrlParams = (
               "ageCat",
               "electionPlace",
               "gender",
-              "topic",
+              "topics",
               "job",
             ];
             keys.forEach((key) => {
@@ -227,7 +227,7 @@ export const getCleanedFilterValuesFromUrlParams = (
               electionPlace: filter.electionPlace,
               gender: filter.gender,
               job: filter.job,
-              topic: filter.topic,
+              topics: filter.topics,
             };
             returnFilters.push(returnFilter);
             return;
@@ -237,7 +237,7 @@ export const getCleanedFilterValuesFromUrlParams = (
               "filterId",
               "color",
               "type",
-              "topic",
+              "topics",
               "politicianIdQuery",
             ];
             keys.forEach((key) => {
@@ -250,7 +250,7 @@ export const getCleanedFilterValuesFromUrlParams = (
               filterId: filter.filterId,
               color: filter.color,
               type: filter.type,
-              topic: filter.topic,
+              topics: filter.topics,
               politicianIdQuery: filter.politicianIdQuery,
             };
             returnFilters.push(returnFilter);

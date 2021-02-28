@@ -29,9 +29,17 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
   filterState,
   updateFilterState,
 }) => {
+  console.log("\x1b[33m%s\x1b[0m", "%c >> filterState.type", filterState.type);
   if (filterState.type == "group") {
-    <GroupFilters filterState={filterState} updateFilter={updateFilterState} />;
-  } else if (filterState.type == "person") {
+    return (
+      <GroupFilters
+        filterState={filterState}
+        updateFilter={updateFilterState}
+      />
+    );
+  }
+
+  if (filterState.type == "person") {
     return (
       <PersonFilters
         filterState={filterState}
@@ -39,7 +47,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
       />
     );
   }
-  throw new Error("Unknown filter type: " + filterState.type);
+  throw new Error("Unexpected value in filterState.type: " + filterState);
 };
 
 const GroupFilters: React.FC<GroupFilterProps> = ({
@@ -59,11 +67,11 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
           onSelect={(element) => {
             updateFilter({
               ...filterState,
-              topic: element?.key || null,
+              topics: element?.key || null,
             });
           }}
           initialValue={topicFilterOptions.find(
-            (filter) => filter.key == filterState.topic
+            (filter) => filter.key == filterState.topics
           )}
         />
         <ColoredSelectInput
@@ -166,12 +174,12 @@ const PersonFilters: React.FC<PersonFilterProps> = ({
         onSelect={(element) => {
           updateFilter({
             ...filterState,
-            topic: element?.key || null,
+            topics: element?.key || null,
           });
         }}
         placeholder="Nach Thema Filtern"
         initialValue={topicFilterOptions.find(
-          (filter) => filter.key == filterState.topic
+          (filter) => filter.key == filterState.topics
         )}
       />
       <ColoredSelectInput
