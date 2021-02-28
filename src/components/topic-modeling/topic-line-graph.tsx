@@ -23,9 +23,9 @@ import { FaFacebookSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
 import {
   ageFilterOptions,
   genderFilterOptions,
-  electionPlaceFilterOptions,
+  stateFilterOptions,
 } from "./helpers/filters";
-import { factionFilterOptions, topicFilterOptions } from "./helpers/filters";
+import { partyFilterOptions, topicFilterOptions } from "./helpers/filters";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -47,8 +47,8 @@ const getResultLabel = (
     if (filterObject[index].type == "person") {
     }
     if (filter.type == "group") {
-      const abbreviation = factionFilterOptions.find(
-        (faction) => faction.key == filter.abbreviation
+      const abbreviation = partyFilterOptions.find(
+        (faction) => faction.key == filter.party
       );
 
       const topic = topicFilterOptions.find(
@@ -58,9 +58,9 @@ const getResultLabel = (
       const gender = genderFilterOptions.find(
         (gender) => gender.key == filter.gender
       );
-      const age = ageFilterOptions.find((age) => age.key == filter.ageCat);
-      const electionPlace = electionPlaceFilterOptions.find(
-        (electionPlace) => electionPlace.key == filter.electionPlace
+      const age = ageFilterOptions.find((age) => age.key == filter.age);
+      const electionPlace = stateFilterOptions.find(
+        (electionPlace) => electionPlace.key == filter.state
       );
 
       return `${topic?.label}, ${abbreviation?.label || "Alle Parteien"}, ${

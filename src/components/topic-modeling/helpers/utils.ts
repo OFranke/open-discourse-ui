@@ -140,12 +140,12 @@ export const generateLinkedInShareLink = async ({
 
 export const getCleanedBaseFilterValues = (
   filter: GroupFilter | PersonFilter | any
-): BaseGroupFilter | BasePersonFilter | undefined => {
+): Partial<BaseGroupFilter> | Partial<BasePersonFilter> | undefined => {
   if (filter && filter.type == "group") {
     const keys: Array<keyof BaseGroupFilter> = [
-      "abbreviation",
-      "ageCat",
-      "electionPlace",
+      "party",
+      "age",
+      "state",
       "gender",
       "topics",
       "job",
@@ -157,14 +157,16 @@ export const getCleanedBaseFilterValues = (
         return;
       }
     });
-    const returnFilter: BaseGroupFilter = {
-      abbreviation: filter.abbreviation,
-      ageCat: filter.ageCat,
-      electionPlace: filter.electionPlace,
-      gender: filter.gender,
-      job: filter.job,
-      topics: filter.topics,
+
+    const returnFilter = {
+      ...(filter.topics && { topics: filter.topics }),
+      ...(filter.job && { job: filter.job }),
+      ...(filter.gender && { gender: filter.gender }),
+      ...(filter.state && { state: filter.state }),
+      ...(filter.age && { age: filter.age }),
+      ...(filter.party && { party: filter.party }),
     };
+    console.log("\x1b[33m%s\x1b[0m", "%c >> returnFilter", returnFilter);
     return returnFilter;
   }
 
@@ -176,9 +178,11 @@ export const getCleanedBaseFilterValues = (
         return;
       }
     });
-    const returnFilter: BasePersonFilter = {
-      topics: filter.topics,
-      politicianIdQuery: filter.politicianIdQuery,
+    const returnFilter = {
+      ...(filter.topics ? { party: filter.topics } : undefined),
+      ...(filter.politicianIdQuery
+        ? { politicianIdQuery: filter.politicianIdQuery }
+        : undefined),
     };
     return returnFilter;
   }
@@ -205,9 +209,9 @@ export const getCleanedFilterValuesFromUrlParams = (
               "filterId",
               "color",
               "type",
-              "abbreviation",
-              "ageCat",
-              "electionPlace",
+              "party",
+              "age",
+              "state",
               "gender",
               "topics",
               "job",
@@ -222,9 +226,9 @@ export const getCleanedFilterValuesFromUrlParams = (
               filterId: filter.filterId,
               color: filter.color,
               type: filter.type,
-              abbreviation: filter.abbreviation,
-              ageCat: filter.ageCat,
-              electionPlace: filter.electionPlace,
+              party: filter.party,
+              age: filter.age,
+              state: filter.state,
               gender: filter.gender,
               job: filter.job,
               topics: filter.topics,

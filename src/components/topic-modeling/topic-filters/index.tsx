@@ -5,9 +5,9 @@ import { GroupFilter, PersonFilter } from "../helpers/types";
 import { Stack, Box } from "@chakra-ui/react";
 import {
   topicFilterOptions,
-  factionFilterOptions,
+  partyFilterOptions,
   ageFilterOptions,
-  electionPlaceFilterOptions,
+  stateFilterOptions,
   jobFilterOptions,
   genderFilterOptions,
 } from "../helpers/filters";
@@ -76,16 +76,16 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
         />
         <ColoredSelectInput
           color={filterState.color}
-          rawData={factionFilterOptions}
+          rawData={partyFilterOptions}
           placeholder="Nach Fraktion Filtern"
           onSelect={(element) => {
             updateFilter({
               ...filterState,
-              abbreviation: element?.key || null,
+              party: element?.key || null,
             });
           }}
-          initialValue={factionFilterOptions.find(
-            (filter) => filter.key == filterState.abbreviation
+          initialValue={partyFilterOptions.find(
+            (filter) => filter.key == filterState.party
           )}
         />
       </Stack>
@@ -111,25 +111,25 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
           onSelect={(element) => {
             updateFilter({
               ...filterState,
-              ageCat: element?.key || null,
+              age: element?.key || null,
             });
           }}
           initialValue={ageFilterOptions.find(
-            (filter) => filter.key == filterState.ageCat
+            (filter) => filter.key == filterState.age
           )}
         />
         <ColoredSelectInput
           color={filterState.color}
-          rawData={electionPlaceFilterOptions}
+          rawData={stateFilterOptions}
           placeholder="Wahlbezirk"
           onSelect={(element) => {
             updateFilter({
               ...filterState,
-              electionPlace: element?.key || null,
+              state: element?.key || null,
             });
           }}
-          initialValue={electionPlaceFilterOptions.find(
-            (filter) => filter.key == filterState.electionPlace
+          initialValue={stateFilterOptions.find(
+            (filter) => filter.key == filterState.state
           )}
         />
         <ColoredSelectInput

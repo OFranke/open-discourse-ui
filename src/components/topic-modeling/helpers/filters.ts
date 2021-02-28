@@ -88,7 +88,7 @@ export const genderFilterOptions: DataProps[] = [
   { key: "1", label: "Frauen" },
   // { key: "2", label: "unknown" },
 ];
-export const factionFilterOptions: DataProps[] = [
+export const partyFilterOptions: DataProps[] = [
   { key: "0", label: "CDU/CSU" },
   { key: "1", label: "SPD" },
   { key: "2", label: "FDP" },
@@ -97,7 +97,7 @@ export const factionFilterOptions: DataProps[] = [
   { key: "5", label: "AfD" },
   // { key: "6", label: "other" },
 ];
-export const electionPlaceFilterOptions: DataProps[] = [
+export const stateFilterOptions: DataProps[] = [
   { key: "0", label: "Ost" },
   { key: "1", label: "West" },
   // { key: "2", label: "unknown" },

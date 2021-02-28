@@ -22,10 +22,10 @@ export interface PersonFilter extends Filter, BasePersonFilter {
 
 export interface BaseGroupFilter {
   topics: string | null;
-  abbreviation: string | null;
+  party: string | null;
   gender: string | null;
-  ageCat: string | null;
-  electionPlace: string | null;
+  age: string | null;
+  state: string | null;
   job: string | null;
 }
 export interface GroupFilter extends Filter, BaseGroupFilter {
