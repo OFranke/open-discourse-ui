@@ -1,6 +1,9 @@
-import { Flex, FlexProps, IconButton } from "@chakra-ui/react";
+import { Button, Flex, FlexProps, IconButton } from "@chakra-ui/react";
+import { area, curveMonotoneX } from "d3-shape";
 
-import { Line } from "@nivo/line";
+import { AnnotationLabel } from "react-annotation";
+
+import { CustomLayer, CustomLayerProps, Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
 import {
   GroupFilter,
@@ -31,6 +34,8 @@ import {
   topicFilterOptions,
   jobFilterOptions,
 } from "./helpers/filters";
+import { Defs } from "@nivo/core";
+import { useState } from "react";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -41,6 +46,45 @@ interface TopicLineGraphState {
   status: "idle" | "pending" | "resolved" | "rejected";
   data: TopicData[];
 }
+
+const CustomThing = ({
+  series,
+  xScale,
+  yScale,
+  innerHeight,
+}: CustomLayerProps) => {
+  console.log("\x1b[33m%s\x1b[0m", "%c >> series", series);
+
+  const Annotations = series.map((serie) => {
+    return serie.data.map((serieDataEntry) => {
+      if (serieDataEntry.data?.annotation) {
+        return (
+          <AnnotationLabel
+            x={serieDataEntry.position.x}
+            y={serieDataEntry.position.y}
+            dx={600}
+            dy={-10}
+            color={"#9610ff"}
+            className="show-bg"
+            editMode={true}
+            note={{
+              title: "Annotations :)",
+              label: "Longer text to show text wrapping",
+              align: "middle",
+              orientation: "topBottom",
+              bgPadding: 20,
+              padding: 15,
+              titleColor: "#59039c",
+            }}
+          />
+        );
+      }
+      return null;
+    });
+  });
+
+  return <>{Annotations}</>;
+};
 
 const getResultLabel = (
   filterObject: Array<GroupFilter | PersonFilter>,
@@ -202,6 +246,8 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
   }, [router.query]);
 
   const addedHeight = state.data.length ? state.data.length * 50 : 0;
+
+  const [toggleAnnotations, setToggleAnnotations] = useState(true);
   return (
     <Flex
       {...flexProps}
@@ -230,7 +276,20 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           animate={true}
           enableSlices={"x"}
           yFormat=" >-.2f"
-          enablePoints={false}
+          enablePoints={true}
+          layers={[
+            "grid",
+            "markers",
+            "axes",
+            "areas",
+            "crosshair",
+            "lines",
+            "points",
+            "slices",
+            "mesh",
+            "legends",
+            toggleAnnotations ? CustomThing : "legends",
+          ]}
           curve="cardinal"
           colors={["#B83280", "#6B46C1", "#C05621", "#3182ce", "#38A169"]}
           yScale={{
@@ -264,6 +323,9 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           ]}
         />
       </Flex>
+      <Button onClick={() => setToggleAnnotations(!toggleAnnotations)}>
+        Toggle Annotation
+      </Button>
       <Flex
         marginTop={{
           base: "4",

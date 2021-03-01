@@ -288,7 +288,14 @@ export const smoothTopicResultData = (
     ) => {
       // if first or last item, dont calculate average
       if (currentIndex == 0 || currentIndex == initialValue.length - 1) {
-        return [...accumulator, currentValue];
+        return [
+          ...accumulator,
+          {
+            ...currentValue,
+            annotation: { headline: "1 blöde FDP" },
+          },
+        ];
+        // return [...accumulator, currentValue];
       }
 
       // get average of item before, currentItem and item after
@@ -297,7 +304,13 @@ export const smoothTopicResultData = (
         initialValue[currentIndex].y,
         initialValue[currentIndex + 1].y
       );
-      return [...accumulator, { x: currentValue.x, y: averageY }];
+      return [
+        ...accumulator,
+        {
+          x: currentValue.x,
+          y: averageY,
+        },
+      ];
     },
     []
   );
