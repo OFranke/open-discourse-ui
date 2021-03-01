@@ -1,7 +1,10 @@
 import { DataProps } from "@bit/limebit.chakra-ui-recipes.select-input";
 
 export const topicFilterOptions: DataProps[] = [
-  { key: "0", label: "Volkswirtschaft" },
+  {
+    key: "0",
+    label: "Volkswirtschaft",
+  },
   { key: "1", label: "Bürger_Innenrechte" },
   { key: "2", label: "Gesundheitswesen" },
   { key: "3", label: "Landwirtschaft" },

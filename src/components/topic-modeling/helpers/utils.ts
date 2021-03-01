@@ -1,4 +1,5 @@
 import queryString from "query-string";
+import { TopicDataEntry } from "./types";
 import {
   TopicData,
   BaseGroupFilter,
@@ -268,4 +269,37 @@ export const getCleanedFilterValuesFromUrlParams = (
     }
   }
   return returnFilters;
+};
+
+const getAverage = (...args: number[]) => {
+  let sum = 0;
+  args.map((arg) => (sum += arg));
+  return sum / args.length;
+};
+export const smoothTopicResultData = (
+  data: TopicDataEntry[]
+): TopicDataEntry[] => {
+  const averageData = data.reduce(
+    (
+      accumulator: TopicDataEntry[],
+      currentValue: TopicDataEntry,
+      currentIndex,
+      initialValue
+    ) => {
+      // if first or last item, dont calculate average
+      if (currentIndex == 0 || currentIndex == initialValue.length - 1) {
+        return [...accumulator, currentValue];
+      }
+
+      // get average of item before, currentItem and item after
+      const averageY = getAverage(
+        initialValue[currentIndex - 1].y,
+        initialValue[currentIndex].y,
+        initialValue[currentIndex + 1].y
+      );
+      return [...accumulator, { x: currentValue.x, y: averageY }];
+    },
+    []
+  );
+  return averageData;
 };

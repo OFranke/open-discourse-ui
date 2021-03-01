@@ -12,6 +12,7 @@ import {
   generateTwitterShareLink,
   generateFacebookShareLink,
   getCleanedBaseFilterValues,
+  smoothTopicResultData,
 } from "./helpers/utils";
 import { useRouter } from "next/router";
 import queryString from "query-string";
@@ -186,9 +187,10 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
               const topicResult: TopicData[] = [];
               dataResultArray.map((data, index) => {
                 const id = getResultLabel(filterObject, index);
+                const smoothedData = smoothTopicResultData(data.data);
                 topicResult.push({
                   id: id,
-                  data: data.data,
+                  data: smoothedData,
                 });
               });
               dispatchData({ action: "resolved", entity: topicResult });
@@ -199,6 +201,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     }
   }, [router.query]);
 
+  const addedHeight = state.data.length ? state.data.length * 50 : 0;
   return (
     <Flex
       {...flexProps}
@@ -220,13 +223,15 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
         id={graphWrapperId}
       >
         <Line
-          width={1100}
-          height={400}
-          margin={{ top: 20, right: 20, bottom: 60, left: 80 }}
+          width={1200}
+          height={400 + addedHeight}
+          margin={{ top: 20, right: 20, bottom: 50 + addedHeight, left: 80 }}
           data={state.data || []}
           animate={true}
           enableSlices={"x"}
-          curve="monotoneX"
+          yFormat=" >-.2f"
+          enablePoints={false}
+          curve="cardinal"
           colors={["#B83280", "#6B46C1", "#C05621", "#3182ce", "#38A169"]}
           yScale={{
             type: "linear",
@@ -240,14 +245,23 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           axisLeft={{
             format: (value) => `${Number(value)}`,
           }}
-          //   markers={[
-          //     {
-          //       axis: "x",
-          //       value: 1991,
-          //       lineStyle: { stroke: "#b0413e", strokeWidth: 2 },
-          //       legend: "Pariser Klimaabkommen",
-          //     },
-          //   ]}
+          legends={[
+            {
+              anchor: "bottom-left",
+              direction: "column",
+              itemWidth: 600,
+              itemHeight: 40,
+              translateY: 25 + addedHeight,
+            },
+          ]}
+          markers={[
+            {
+              axis: "x",
+              value: 1991,
+              lineStyle: { stroke: "gray", strokeWidth: 2 },
+              legend: "Pariser Klimaabkommen",
+            },
+          ]}
         />
       </Flex>
       <Flex
