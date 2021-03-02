@@ -29,7 +29,6 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
   filterState,
   updateFilterState,
 }) => {
-  console.log("\x1b[33m%s\x1b[0m", "%c >> filterState.type", filterState.type);
   if (filterState.type == "group") {
     return (
       <GroupFilters

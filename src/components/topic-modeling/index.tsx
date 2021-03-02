@@ -107,7 +107,6 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
         ],
   });
 
-  console.log("\x1b[33m%s\x1b[0m", "%c >> state.filters", state.filters);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     router.push(

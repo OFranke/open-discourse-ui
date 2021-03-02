@@ -1,7 +1,4 @@
-import {
-  DataProps,
-  SelectInput,
-} from "@bit/limebit.chakra-ui-recipes.select-input";
+import { DataProps, SelectInput } from "./select-input";
 
 export interface DefaultSelectInputProps {
   rawData: DataProps[];

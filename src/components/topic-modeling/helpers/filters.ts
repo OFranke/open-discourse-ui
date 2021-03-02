@@ -1,5 +1,4 @@
-import { DataProps } from "@bit/limebit.chakra-ui-recipes.select-input";
-
+import { DataProps } from "../topic-filters/select-input";
 export const topicFilterOptions: DataProps[] = [
   {
     key: "0",
@@ -97,7 +96,16 @@ export const partyFilterOptions: DataProps[] = [
   { key: "2", label: "FDP" },
   { key: "3", label: "Gruene" },
   { key: "4", label: "DIE LINKE" },
-  { key: "5", label: "AfD" },
+  {
+    key: "5",
+    label: "AfD",
+    searchList: [
+      "Fetter Mann mit Hundekrawatte",
+      "Alter Iltis",
+      "Hoden Sack",
+      "Stinkende Nille",
+    ],
+  },
   // { key: "6", label: "other" },
 ];
 export const stateFilterOptions: DataProps[] = [

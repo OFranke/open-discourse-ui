@@ -52,13 +52,12 @@ const CustomThing = ({
   yScale,
   innerHeight,
 }: CustomLayerProps) => {
-  console.log("\x1b[33m%s\x1b[0m", "%c >> series", series);
-
   const Annotations = series.map((serie) => {
     return serie.data.map((serieDataEntry) => {
       if (serieDataEntry.data?.annotation) {
         return (
           <AnnotationLabel
+            key={`${serieDataEntry.position.x} - ${serieDataEntry.position.y}`}
             x={serieDataEntry.position.x}
             y={serieDataEntry.position.y}
             dx={600}

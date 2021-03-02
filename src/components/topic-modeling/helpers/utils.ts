@@ -167,7 +167,6 @@ export const getCleanedBaseFilterValues = (
       ...(filter.age && { age: filter.age }),
       ...(filter.party && { party: filter.party }),
     };
-    console.log("\x1b[33m%s\x1b[0m", "%c >> returnFilter", returnFilter);
     return returnFilter;
   }
 
@@ -193,11 +192,6 @@ export const getCleanedBaseFilterValues = (
 export const getCleanedFilterValuesFromUrlParams = (
   queryParams: any
 ): Array<GroupFilter | PersonFilter> | [] => {
-  console.log(
-    "\x1b[33m%s\x1b[0m",
-    "%c >> getCleanedFilterValuesFromUrlParams",
-    queryParams
-  );
   const returnFilters: Array<GroupFilter | PersonFilter> = [];
   if (queryParams?.filters) {
     try {
