@@ -1,9 +1,8 @@
 import { Button, Flex, FlexProps, IconButton } from "@chakra-ui/react";
-import { area, curveMonotoneX } from "d3-shape";
 
 import { AnnotationLabel } from "react-annotation";
 
-import { CustomLayer, CustomLayerProps, Line } from "@nivo/line";
+import { CustomLayerProps, Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
 import {
   GroupFilter,
