@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Input,
   Box,
@@ -19,6 +19,10 @@ export interface DataProps {
   label: string;
   key: string;
   searchList?: string[];
+}
+
+interface FilteredResult extends DataProps {
+  searchHit?: string;
 }
 interface SearchResult {
   key: string | null;
@@ -41,38 +45,17 @@ export interface SelectInputProps {
   initialValue?: DataProps;
 }
 
-// const searchFilter = (element: DataProps) => {
-//   const concatenatedSearchList =
-//     element.searchList && element.searchList.join(" ");
-
-//   console.log(
-//     "\x1b[33m%s\x1b[0m",
-//     "%c >> searchList",
-//     concatenatedSearchList
-//   );
-
-//   if (
-//     state.searchInput &&
-//     element.label.toLowerCase().includes(state.searchInput.toLowerCase())
-//   ) {
-//     return true;
-//   }
-//   if (
-//     state.searchInput &&
-//     element.searchList &&
-//     concatenatedSearchList
-//       ?.toLocaleLowerCase()
-//       .includes(state.searchInput.toLowerCase())
-//   ) {
-//     const searchHit = element.searchList.find((searchListEntry) =>
-//       searchListEntry.toLowerCase().includes(state.searchInput.toLowerCase())
-//     );
-//     if (searchHit) {
-//       setState({ ...state, searchResult: { searchHit, key: element.key } });
-//     }
-//     return true;
-//   }
-// };
+interface MarkSearchHighlightProps {
+  word: string;
+  searchHit: string;
+}
+const markSearchHighlight = ({ word, searchHit }: MarkSearchHighlightProps) => {
+  const highlightedWord = word.replace(
+    new RegExp(searchHit, "gi"),
+    (match) => `<b>${match}</b>`
+  );
+  return highlightedWord;
+};
 
 export const SelectInput = ({
   width,
@@ -102,6 +85,39 @@ export const SelectInput = ({
   });
   const [input, _setInput] = useState(initialValue?.label || "");
 
+  const [filteredResults, setFilteredResults] = useState<FilteredResult[]>(
+    rawData
+  );
+
+  useEffect(() => {
+    if (input == "") {
+      setFilteredResults(rawData);
+    } else {
+      const results: Array<FilteredResult | undefined> = rawData.map(
+        (element) => {
+          const searchList = element.searchList && element.searchList.join(" ");
+          if (element.label.toLowerCase().includes(input.toLowerCase())) {
+            return element;
+          }
+          if (searchList?.toLocaleLowerCase().includes(input.toLowerCase())) {
+            calculateSearchResultMatch(
+              element.searchList as string[],
+              input,
+              element.key
+            );
+
+            const searchHit = element?.searchList?.find((item) =>
+              item.toLowerCase().includes(input.toLowerCase())
+            );
+            return { ...element, searchHit };
+          }
+        }
+      );
+      const resultsWithoutUndefinedValues = results.filter(Boolean);
+      setFilteredResults(resultsWithoutUndefinedValues as FilteredResult[]);
+    }
+  }, [input]);
+
   const setInput = (input: string) => {
     if (input && input.length >= 1) {
       _setInput(input);
@@ -110,14 +126,11 @@ export const SelectInput = ({
       setSearchResult({ key: null, searchHit: null });
     }
   };
-  console.log("\x1b[33m%s\x1b[0m", "%c >> input", input);
   const calculateSearchResultMatch = (
     searchList: string[],
     match: string,
     key: string
   ) => {
-    console.log("\x1b[33m%s\x1b[0m", "%c >> searchList", searchList);
-    console.log("\x1b[33m%s\x1b[0m", "%c >> match", match);
     const searchHit = searchList.find((item) =>
       item.toLowerCase().includes(match.toLowerCase())
     );
@@ -127,7 +140,6 @@ export const SelectInput = ({
         searchHit,
       });
     }
-    console.log("\x1b[33m%s\x1b[0m", "%c >> searchHit", searchHit);
   };
 
   return (
@@ -190,60 +202,47 @@ export const SelectInput = ({
           onBlur={() => setFocusedButton(false)}
           _focus={{ outline: "None" }}
         >
-          {rawData
-            .filter((element) => {
-              const searchList =
-                element.searchList && element.searchList.join(" ");
-              console.log("\x1b[33m%s\x1b[0m", "%c >> searchList", searchList);
-              if (element.label.toLowerCase().includes(input.toLowerCase())) {
-                return true;
-              }
-              if (
-                searchList?.toLocaleLowerCase().includes(input.toLowerCase())
-              ) {
-                calculateSearchResultMatch(
-                  element.searchList as string[],
-                  input,
-                  element.key
-                );
-                return true;
-              }
-              // return element.label.toLowerCase().includes(input.toLowerCase());
-            })
-            .slice(0, first)
-            .map((element) => (
-              <Button
-                key={element.key}
-                justifyContent="left"
-                _hover={{ backgroundColor: boxHoverColor }}
-                {...ButtonProps}
-                variant="ghost"
-                width="100%"
-                textAlign="left"
-                onClick={() => {
-                  setInput(element.label);
-                  setSelected(element);
-                  setFocusedButton(false);
-                  setFocusedInput(false);
-                  setSearchResult({ key: null, searchHit: null });
-                  if (onSelect) onSelect(element);
-                }}
-              >
-                <Text {...TextProps} fontWeight="normal" paddingLeft="10px">
-                  {element.label}
+          {filteredResults.map((element) => (
+            <Button
+              key={element.key}
+              justifyContent="left"
+              _hover={{ backgroundColor: boxHoverColor }}
+              {...ButtonProps}
+              variant="ghost"
+              width="100%"
+              textAlign="left"
+              onClick={() => {
+                setInput(element.label);
+                setSelected(element);
+                setFocusedButton(false);
+                setFocusedInput(false);
+                setSearchResult({ key: null, searchHit: null });
+                if (onSelect) onSelect(element);
+              }}
+            >
+              <Text {...TextProps} fontWeight="normal" paddingLeft="10px">
+                {element.label}
+              </Text>
+              {element.searchHit && (
+                <Text
+                  {...TextProps}
+                  fontWeight="300"
+                  color="grey"
+                  paddingLeft="10px"
+                >
+                  enthält:{" "}
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: markSearchHighlight({
+                        word: element.searchHit,
+                        searchHit: input,
+                      }),
+                    }}
+                  ></span>
                 </Text>
-                {searchResult.key == element.key && (
-                  <Text
-                    {...TextProps}
-                    fontWeight="300"
-                    color="grey"
-                    paddingLeft="10px"
-                  >
-                    enthält: {searchResult.searchHit}
-                  </Text>
-                )}
-              </Button>
-            ))}
+              )}
+            </Button>
+          ))}
         </Box>
       ) : null}
     </Box>
