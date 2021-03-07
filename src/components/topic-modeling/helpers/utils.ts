@@ -1,12 +1,6 @@
 import queryString from "query-string";
 import { TopicDataEntry } from "./types";
-import {
-  TopicData,
-  BaseGroupFilter,
-  BasePersonFilter,
-  GroupFilter,
-  PersonFilter,
-} from "./types";
+import { TopicData, BaseGroupFilter, GroupFilter } from "./types";
 
 const getRandomData = () => {
   const arr = Array.from({ length: 71 }, (v, k) => {
@@ -140,122 +134,73 @@ export const generateLinkedInShareLink = async ({
 };
 
 export const getCleanedBaseFilterValues = (
-  filter: GroupFilter | PersonFilter | any
-): Partial<BaseGroupFilter> | Partial<BasePersonFilter> | undefined => {
-  if (filter && filter.type == "group") {
-    const keys: Array<keyof BaseGroupFilter> = [
-      "party",
-      "age",
-      "state",
-      "gender",
-      "topics",
-      "job",
-    ];
+  filter: GroupFilter
+): Partial<BaseGroupFilter> | undefined => {
+  const keys: Array<keyof BaseGroupFilter> = [
+    "party",
+    "age",
+    "state",
+    "gender",
+    "topics",
+    "job",
+  ];
 
-    keys.forEach((key) => {
-      if (!(key in filter)) {
-        console.log(`Missing Filter parameter: '${key}'`);
-        return;
-      }
-    });
+  keys.forEach((key) => {
+    if (!(key in filter)) {
+      console.log(`Missing Filter parameter: '${key}'`);
+      return;
+    }
+  });
 
-    const returnFilter = {
-      ...(filter.topics && { topics: filter.topics }),
-      ...(filter.job && { job: filter.job }),
-      ...(filter.gender && { gender: filter.gender }),
-      ...(filter.state && { state: filter.state }),
-      ...(filter.age && { age: filter.age }),
-      ...(filter.party && { party: filter.party }),
-    };
-    return returnFilter;
-  }
-
-  if (filter && filter.type == "person") {
-    const keys: Array<keyof BasePersonFilter> = ["topics", "politicianIdQuery"];
-    keys.forEach((key) => {
-      if (!(key in filter)) {
-        console.log(`Missing Filter parameter: '${key}'`);
-        return;
-      }
-    });
-    const returnFilter = {
-      ...(filter.topics ? { party: filter.topics } : undefined),
-      ...(filter.politicianIdQuery
-        ? { politicianIdQuery: filter.politicianIdQuery }
-        : undefined),
-    };
-    return returnFilter;
-  }
-  console.log("Invalid Filter parameters");
+  const returnFilter = {
+    ...(filter.topics && { topics: filter.topics }),
+    ...(filter.job && { job: filter.job }),
+    ...(filter.gender && { gender: filter.gender }),
+    ...(filter.state && { state: filter.state }),
+    ...(filter.age && { age: filter.age }),
+    ...(filter.party && { party: filter.party }),
+  };
+  return returnFilter;
 };
 
 export const getCleanedFilterValuesFromUrlParams = (
   queryParams: any
-): Array<GroupFilter | PersonFilter> | [] => {
-  const returnFilters: Array<GroupFilter | PersonFilter> = [];
+): Array<GroupFilter> | [] => {
+  const returnFilters: Array<GroupFilter> = [];
   if (queryParams?.filters) {
     try {
       const queryParamsFilterArray = JSON.parse(queryParams.filters);
 
       if (queryParamsFilterArray && queryParamsFilterArray?.length) {
         queryParamsFilterArray.map((filter: any) => {
-          if (filter?.type == "group") {
-            const keys: Array<keyof GroupFilter> = [
-              "filterId",
-              "color",
-              "type",
-              "party",
-              "age",
-              "state",
-              "gender",
-              "topics",
-              "job",
-            ];
-            keys.forEach((key) => {
-              if (!(key in filter)) {
-                console.log(`Missing Filter parameter: '${key}'`);
-                return;
-              }
-            });
-            const returnFilter: GroupFilter = {
-              filterId: filter.filterId,
-              color: filter.color,
-              type: filter.type,
-              party: filter.party,
-              age: filter.age,
-              state: filter.state,
-              gender: filter.gender,
-              job: filter.job,
-              topics: filter.topics,
-            };
-            returnFilters.push(returnFilter);
-            return;
-          }
-          if (filter && filter.type == "person") {
-            const keys: Array<keyof PersonFilter> = [
-              "filterId",
-              "color",
-              "type",
-              "topics",
-              "politicianIdQuery",
-            ];
-            keys.forEach((key) => {
-              if (!(key in filter)) {
-                console.log(`Missing Filter parameter: '${key}'`);
-                return;
-              }
-            });
-            const returnFilter: PersonFilter = {
-              filterId: filter.filterId,
-              color: filter.color,
-              type: filter.type,
-              topics: filter.topics,
-              politicianIdQuery: filter.politicianIdQuery,
-            };
-            returnFilters.push(returnFilter);
-            return;
-          }
-          console.log("Invalid Filter parameters", filter);
+          const keys: Array<keyof GroupFilter> = [
+            "filterId",
+            "color",
+            "party",
+            "age",
+            "state",
+            "gender",
+            "topics",
+            "job",
+          ];
+          keys.forEach((key) => {
+            if (!(key in filter)) {
+              console.log(`Missing Filter parameter: '${key}'`);
+              return;
+            }
+          });
+          const returnFilter: GroupFilter = {
+            filterId: filter.filterId,
+            color: filter.color,
+            party: filter.party,
+            age: filter.age,
+            state: filter.state,
+            gender: filter.gender,
+            job: filter.job,
+            topics: filter.topics,
+          };
+          returnFilters.push(returnFilter);
+          return;
         });
       }
     } catch (e) {

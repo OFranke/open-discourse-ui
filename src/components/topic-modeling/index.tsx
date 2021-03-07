@@ -85,7 +85,11 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
             filterId: generateFilterId(),
             color: availableFilterColors[0],
             topics: null,
-            politicianIdQuery: null,
+            age: null,
+            gender: null,
+            job: null,
+            party: null,
+            state: null,
           },
         ],
   });
