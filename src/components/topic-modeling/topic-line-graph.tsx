@@ -4,12 +4,7 @@ import { AnnotationLabel } from "react-annotation";
 
 import { CustomLayerProps, Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
-import {
-  GroupFilter,
-  PersonFilter,
-  TopicData,
-  TopicDataEntry,
-} from "./helpers/types";
+import { GroupFilter, TopicData, TopicDataEntry } from "./helpers/types";
 import {
   generateTwitterShareLink,
   generateFacebookShareLink,
@@ -33,7 +28,6 @@ import {
   topicFilterOptions,
   jobFilterOptions,
 } from "./helpers/filters";
-import { Defs } from "@nivo/core";
 import { useState } from "react";
 
 interface TopicReducerAction {
@@ -85,40 +79,36 @@ const CustomThing = ({
 };
 
 const getResultLabel = (
-  filterObject: Array<GroupFilter | PersonFilter>,
+  filterObject: Array<GroupFilter>,
   index: number
 ): string => {
   const filter = filterObject?.[index];
 
   if (filter) {
-    if (filterObject[index].type == "person") {
-    }
-    if (filter.type == "group") {
-      const abbreviation = partyFilterOptions.find(
-        (faction) => faction.key == filter.party
-      );
+    const abbreviation = partyFilterOptions.find(
+      (faction) => faction.key == filter.party
+    );
 
-      const topic = topicFilterOptions.find(
-        (topic) => topic.key == filter.topics
-      );
+    const topic = topicFilterOptions.find(
+      (topic) => topic.key == filter.topics
+    );
 
-      const gender = genderFilterOptions.find(
-        (gender) => gender.key == filter.gender
-      );
-      const age = ageFilterOptions.find((age) => age.key == filter.age);
-      const electionPlace = stateFilterOptions.find(
-        (electionPlace) => electionPlace.key == filter.state
-      );
-      const job = jobFilterOptions.find((job) => job.key == filter.job);
+    const gender = genderFilterOptions.find(
+      (gender) => gender.key == filter.gender
+    );
+    const age = ageFilterOptions.find((age) => age.key == filter.age);
+    const electionPlace = stateFilterOptions.find(
+      (electionPlace) => electionPlace.key == filter.state
+    );
+    const job = jobFilterOptions.find((job) => job.key == filter.job);
 
-      return `${index + 1}: ${topic?.label}, ${
-        abbreviation?.label || "Alle Parteien"
-      }, ${gender?.label || "Alle Geschlechter"}, ${
-        age?.label || "Alle Altersgruppen"
-      }, ${electionPlace?.label || "Alle Bundesländer"}, ${
-        job?.label || "Alle Berufsgruppen"
-      }`;
-    }
+    return `${index + 1}: ${topic?.label}, ${
+      abbreviation?.label || "Alle Parteien"
+    }, ${gender?.label || "Alle Geschlechter"}, ${
+      age?.label || "Alle Altersgruppen"
+    }, ${electionPlace?.label || "Alle Bundesländer"}, ${
+      job?.label || "Alle Berufsgruppen"
+    }`;
   }
   return `${index} Unbekanntes Thema`;
 };
@@ -194,9 +184,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     const filters = queryString.parse(window.location.search);
     if (filters?.filters && typeof filters.filters == "string") {
       //  todo: maybe unknown type
-      const filterObject: Array<GroupFilter | PersonFilter> = JSON.parse(
-        filters.filters
-      );
+      const filterObject: Array<GroupFilter> = JSON.parse(filters.filters);
 
       if (filterObject && filterObject?.length) {
         dispatchData({ action: "pending", entity: [] });

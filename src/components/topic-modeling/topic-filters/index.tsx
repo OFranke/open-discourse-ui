@@ -1,7 +1,5 @@
-import { useGetData } from "../../full-text-search/hooks/use-get-data";
-import { Politician } from "../../full-text-search/search-form";
 import { ColoredSelectInput } from "./colored-select-input";
-import { GroupFilter, PersonFilter } from "../helpers/types";
+import { GroupFilter } from "../helpers/types";
 import { Stack, Box } from "@chakra-ui/react";
 import {
   topicFilterOptions,
@@ -17,36 +15,17 @@ interface GroupFilterProps {
   updateFilter: (newFilter: GroupFilter) => void;
 }
 
-interface PersonFilterProps {
-  filterState: PersonFilter;
-  updateFilter: (newFilter: PersonFilter) => void;
-}
 interface TopicFilterProps {
-  filterState: GroupFilter | PersonFilter;
-  updateFilterState: (newFilter: GroupFilter | PersonFilter) => void;
+  filterState: GroupFilter;
+  updateFilterState: (newFilter: GroupFilter) => void;
 }
 export const TopicFilters: React.FC<TopicFilterProps> = ({
   filterState,
   updateFilterState,
 }) => {
-  if (filterState.type == "group") {
-    return (
-      <GroupFilters
-        filterState={filterState}
-        updateFilter={updateFilterState}
-      />
-    );
-  }
-
-  if (filterState.type == "person") {
-    return (
-      <PersonFilters
-        filterState={filterState}
-        updateFilter={updateFilterState}
-      />
-    );
-  }
-  throw new Error("Unexpected value in filterState.type: " + filterState);
+  return (
+    <GroupFilters filterState={filterState} updateFilter={updateFilterState} />
+  );
 };
 
 const GroupFilters: React.FC<GroupFilterProps> = ({
@@ -147,58 +126,5 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
         />
       </Stack>
     </Box>
-  );
-};
-
-const PersonFilters: React.FC<PersonFilterProps> = ({
-  filterState,
-  updateFilter,
-}) => {
-  const [politicians] = useGetData<Politician[]>(
-    "https://api.opendiscourse.de:5300/politicians",
-    (response) => response.politicians
-  );
-  const convertedPoliticians = politicians
-    ? politicians.map((politician) => ({
-        key: politician.id,
-        label: `${politician.firstName} ${politician.lastName}`,
-      }))
-    : [];
-
-  return (
-    <Stack direction={{ base: "column", md: "row" }} width="100%">
-      <ColoredSelectInput
-        color={filterState.color}
-        rawData={topicFilterOptions}
-        onSelect={(element) => {
-          updateFilter({
-            ...filterState,
-            topics: element?.key || null,
-          });
-        }}
-        placeholder="Nach Thema Filtern"
-        initialValue={topicFilterOptions.find(
-          (filter) => filter.key == filterState.topics
-        )}
-      />
-      <ColoredSelectInput
-        color={filterState.color}
-        rawData={convertedPoliticians}
-        onSelect={(element) => {
-          updateFilter({
-            ...filterState,
-            politicianIdQuery: element?.key || null,
-          });
-        }}
-        initialValue={
-          filterState.politicianIdQuery
-            ? convertedPoliticians.find(
-                (politician) => politician.key == filterState.politicianIdQuery
-              )
-            : undefined
-        }
-        placeholder="Nach Politiker_Innen Filtern"
-      />
-    </Stack>
   );
 };
