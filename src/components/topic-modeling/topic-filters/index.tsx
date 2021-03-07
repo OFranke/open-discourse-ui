@@ -8,6 +8,7 @@ import {
   stateFilterOptions,
   jobFilterOptions,
   genderFilterOptions,
+  politicianFilterOptions,
 } from "../helpers/filters";
 
 interface GroupFilterProps {
@@ -54,7 +55,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
         />
         <ColoredSelectInput
           color={filterState.color}
-          rawData={partyFilterOptions}
+          rawData={[...partyFilterOptions, ...politicianFilterOptions]}
           placeholder="Nach Fraktion Filtern"
           onSelect={(element) => {
             updateFilter({
