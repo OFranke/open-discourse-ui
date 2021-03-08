@@ -1,24 +1,29 @@
 import { Serie } from "@nivo/line";
 
-interface Filter {
+interface UiFilterParams {
   filterId: string;
   color: string;
 }
 
-export interface TopicFilter {
-  filterId: string;
-  color: string;
-  factionIdQuery: string | null;
-}
-export interface BaseGroupFilter {
+export interface FormFilterParams {
   topics: string | null;
-  party: string | null;
+  actor: string | null;
   gender: string | null;
   age: string | null;
   state: string | null;
   job: string | null;
 }
-export interface GroupFilter extends Filter, BaseGroupFilter {}
+export interface FilterParams extends UiFilterParams, FormFilterParams {}
+
+export interface ApiFilterPerson
+  extends Required<Pick<FormFilterParams, "topics">> {
+  politicians: string;
+}
+export interface ApiFilterParty
+  extends Required<Pick<FormFilterParams, "topics">>,
+    Partial<Pick<FormFilterParams, "gender" | "age" | "state" | "job">> {
+  party: string;
+}
 
 export interface TopicData extends Serie {
   data: TopicDataEntry[];

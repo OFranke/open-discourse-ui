@@ -1,6 +1,7 @@
 import queryString from "query-string";
-import { TopicDataEntry } from "./types";
-import { TopicData, BaseGroupFilter, GroupFilter } from "./types";
+import { ApiFilterParty, ApiFilterPerson, TopicDataEntry } from "./types";
+import { TopicData, FormFilterParams, FilterParams } from "./types";
+import { partyFilterOptions, politicianFilterOptions } from "./filters";
 
 const getRandomData = () => {
   const arr = Array.from({ length: 71 }, (v, k) => {
@@ -133,50 +134,57 @@ export const generateLinkedInShareLink = async ({
   return `${baseUrl}?${shareLink}`;
 };
 
-export const getCleanedBaseFilterValues = (
-  filter: GroupFilter
-): Partial<BaseGroupFilter> | undefined => {
-  const keys: Array<keyof BaseGroupFilter> = [
-    "party",
-    "age",
-    "state",
-    "gender",
-    "topics",
-    "job",
-  ];
+export const getApiCallParamsFromUrlParams = (
+  filter: FilterParams
+): ApiFilterPerson | ApiFilterParty | undefined => {
+  if (!filter.topics || !filter.actor) {
+    console.log("No filter topic/actor specified.");
+    return undefined;
+  }
 
-  keys.forEach((key) => {
-    if (!(key in filter)) {
-      console.log(`Missing Filter parameter: '${key}'`);
-      return;
-    }
-  });
+  const actorIsParty = partyFilterOptions.find(
+    (partyFilter) => partyFilter.key == filter.actor
+  );
+  if (actorIsParty) {
+    const apiFilters: ApiFilterParty = {
+      topics: filter.topics,
+      party: filter.actor,
+      ...(filter.job && { job: filter.job }),
+      ...(filter.gender && { gender: filter.gender }),
+      ...(filter.state && { state: filter.state }),
+      ...(filter.age && { age: filter.age }),
+    };
+    return apiFilters;
+  }
 
-  const returnFilter = {
-    ...(filter.topics && { topics: filter.topics }),
-    ...(filter.job && { job: filter.job }),
-    ...(filter.gender && { gender: filter.gender }),
-    ...(filter.state && { state: filter.state }),
-    ...(filter.age && { age: filter.age }),
-    ...(filter.party && { party: filter.party }),
-  };
-  return returnFilter;
+  const actorIsPolitician = politicianFilterOptions.find(
+    (politicianFilter) => politicianFilter.key == filter.actor
+  );
+  if (actorIsPolitician) {
+    const apiFilters: ApiFilterPerson = {
+      topics: filter.topics,
+      politicians: filter.actor,
+    };
+    return apiFilters;
+  }
+
+  return undefined;
 };
 
 export const getCleanedFilterValuesFromUrlParams = (
   queryParams: any
-): Array<GroupFilter> | [] => {
-  const returnFilters: Array<GroupFilter> = [];
+): Array<FilterParams> | [] => {
+  const returnFilters: Array<FilterParams> = [];
   if (queryParams?.filters) {
     try {
       const queryParamsFilterArray = JSON.parse(queryParams.filters);
 
       if (queryParamsFilterArray && queryParamsFilterArray?.length) {
-        queryParamsFilterArray.map((filter: any) => {
-          const keys: Array<keyof GroupFilter> = [
+        queryParamsFilterArray.map((filter: FilterParams) => {
+          const keys: Array<keyof FilterParams> = [
             "filterId",
             "color",
-            "party",
+            "actor",
             "age",
             "state",
             "gender",
@@ -189,10 +197,10 @@ export const getCleanedFilterValuesFromUrlParams = (
               return;
             }
           });
-          const returnFilter: GroupFilter = {
+          const returnFilter: FilterParams = {
             filterId: filter.filterId,
             color: filter.color,
-            party: filter.party,
+            actor: filter.actor,
             age: filter.age,
             state: filter.state,
             gender: filter.gender,

@@ -3,19 +3,18 @@ import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { TopicFilters } from "./topic-filters";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 import { IconButton, Flex, Stack, Box, BoxProps } from "@chakra-ui/react";
-import DefaultText from "@bit/limebit.limebit-ui.default-text";
 import { Card } from "@bit/limebit.limebit-ui.card";
 import queryString from "query-string";
 import { useRouter } from "next/router";
 import { getCleanedFilterValuesFromUrlParams } from "./helpers/utils";
-import { GroupFilter } from "./helpers/types";
+import { FilterParams } from "./helpers/types";
 
 interface TopicModellingState {
-  filters: Array<GroupFilter>;
+  filters: Array<FilterParams>;
 }
 interface FilterReducerAction {
   action: "ADD" | "REMOVE" | "UPDATE";
-  entity: GroupFilter;
+  entity: FilterParams;
 }
 
 const availableFilterColors = ["pink", "purple", "orange", "blue", "green"];
@@ -88,7 +87,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
             age: null,
             gender: null,
             job: null,
-            party: null,
+            actor: null,
             state: null,
           },
         ],
@@ -157,7 +156,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
                 entity: {
                   color: "",
                   filterId: generateFilterId(),
-                  party: null,
+                  actor: null,
                   age: null,
                   state: null,
                   gender: null,

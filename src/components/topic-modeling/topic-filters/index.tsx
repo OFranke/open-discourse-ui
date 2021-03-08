@@ -1,5 +1,5 @@
 import { ColoredSelectInput } from "./colored-select-input";
-import { GroupFilter } from "../helpers/types";
+import { FilterParams } from "../helpers/types";
 import { Stack, Box } from "@chakra-ui/react";
 import {
   topicFilterOptions,
@@ -12,13 +12,13 @@ import {
 } from "../helpers/filters";
 
 interface GroupFilterProps {
-  filterState: GroupFilter;
-  updateFilter: (newFilter: GroupFilter) => void;
+  filterState: FilterParams;
+  updateFilter: (newFilter: FilterParams) => void;
 }
 
 interface TopicFilterProps {
-  filterState: GroupFilter;
-  updateFilterState: (newFilter: GroupFilter) => void;
+  filterState: FilterParams;
+  updateFilterState: (newFilter: FilterParams) => void;
 }
 export const TopicFilters: React.FC<TopicFilterProps> = ({
   filterState,
@@ -60,11 +60,11 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
           onSelect={(element) => {
             updateFilter({
               ...filterState,
-              party: element?.key || null,
+              actor: element?.key || null,
             });
           }}
           initialValue={partyFilterOptions.find(
-            (filter) => filter.key == filterState.party
+            (filter) => filter.key == filterState.actor
           )}
         />
       </Stack>

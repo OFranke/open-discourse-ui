@@ -4,18 +4,20 @@ import { AnnotationLabel } from "react-annotation";
 
 import { CustomLayerProps, Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
-import { GroupFilter, TopicData, TopicDataEntry } from "./helpers/types";
+import { FilterParams, TopicData, TopicDataEntry } from "./helpers/types";
 import {
   generateTwitterShareLink,
   generateFacebookShareLink,
-  getCleanedBaseFilterValues,
   smoothTopicResultData,
 } from "./helpers/utils";
 import { useRouter } from "next/router";
 import queryString from "query-string";
 import LoadingSpinner from "@bit/limebit.chakra-ui-recipes.loading-spinner";
 import DefaultText from "@bit/limebit.limebit-ui.default-text";
-import { generateLinkedInShareLink } from "./helpers/utils";
+import {
+  generateLinkedInShareLink,
+  getApiCallParamsFromUrlParams,
+} from "./helpers/utils";
 
 import { FaFacebookSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
 import {
@@ -79,14 +81,14 @@ const CustomThing = ({
 };
 
 const getResultLabel = (
-  filterObject: Array<GroupFilter>,
+  filterObject: Array<FilterParams>,
   index: number
 ): string => {
   const filter = filterObject?.[index];
 
   if (filter) {
     const abbreviation = partyFilterOptions.find(
-      (faction) => faction.key == filter.party
+      (faction) => faction.key == filter.actor
     );
 
     const topic = topicFilterOptions.find(
@@ -184,7 +186,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     const filters = queryString.parse(window.location.search);
     if (filters?.filters && typeof filters.filters == "string") {
       //  todo: maybe unknown type
-      const filterObject: Array<GroupFilter> = JSON.parse(filters.filters);
+      const filterObject: Array<FilterParams> = JSON.parse(filters.filters);
 
       if (filterObject && filterObject?.length) {
         dispatchData({ action: "pending", entity: [] });
@@ -192,13 +194,16 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
 
         for (let i = 0; i <= 5; i++) {
           if (filterObject[i]) {
-            const filter = getCleanedBaseFilterValues(filterObject[i]);
-            if (filter) {
+            const apiCallParams = getApiCallParamsFromUrlParams(
+              filterObject[i]
+            );
+
+            if (apiCallParams) {
               // dataFetchePromises.push(mockFetchData(`topic ${i}`));
               dataFetchePromises.push(
                 fetch(
                   `https://api.opendiscourse.de:5400/topicmodelling?${queryString.stringify(
-                    filter
+                    apiCallParams
                   )}`,
                   {
                     method: "GET",
