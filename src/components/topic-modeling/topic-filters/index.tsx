@@ -33,6 +33,16 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
   filterState,
   updateFilter,
 }) => {
+  const isPoliticianSelected = Boolean(
+    politicianFilterOptions.find(
+      (politicianFilter) => politicianFilter.key == filterState.actor
+    )
+  );
+  console.log(
+    "\x1b[33m%s\x1b[0m",
+    "%c >> isPoliticianSelected",
+    isPoliticianSelected
+  );
   return (
     <Box width="100%">
       <Stack
@@ -56,7 +66,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
         <ColoredSelectInput
           color={filterState.color}
           rawData={[...partyFilterOptions, ...politicianFilterOptions]}
-          placeholder="Nach Fraktion Filtern"
+          placeholder="Nach Akteur Filtern"
           onSelect={(element) => {
             updateFilter({
               ...filterState,
@@ -70,6 +80,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
       </Stack>
       <Stack direction={{ base: "column", md: "row" }} with="100%">
         <ColoredSelectInput
+          disabled={isPoliticianSelected}
           color={filterState.color}
           rawData={genderFilterOptions}
           placeholder="Geschlecht"
@@ -84,6 +95,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
           )}
         />
         <ColoredSelectInput
+          disabled={isPoliticianSelected}
           color={filterState.color}
           rawData={ageFilterOptions}
           placeholder="Alter"
@@ -98,6 +110,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
           )}
         />
         <ColoredSelectInput
+          disabled={isPoliticianSelected}
           color={filterState.color}
           rawData={stateFilterOptions}
           placeholder="Wahlbezirk"
@@ -112,6 +125,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
           )}
         />
         <ColoredSelectInput
+          disabled={isPoliticianSelected}
           color={filterState.color}
           rawData={jobFilterOptions}
           placeholder="Job"

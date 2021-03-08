@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
 import * as CSS from "csstype";
+import { Tooltip } from "@chakra-ui/react";
 
 export interface DataProps {
   label: string;
@@ -28,7 +29,9 @@ interface SearchResult {
   key: string | null;
   searchHit: string | null;
 }
-
+interface ExtendedInputProps extends InputProps {
+  disabled?: boolean;
+}
 export interface SelectInputProps {
   placeholder: string;
   rawData: DataProps[];
@@ -36,7 +39,7 @@ export interface SelectInputProps {
   first?: number;
   onSelect?: (element: DataProps | undefined) => void;
   BoxProps?: BoxProps;
-  InputProps?: InputProps;
+  InputProps?: ExtendedInputProps;
   ButtonProps?: ButtonProps;
   TextProps?: TextProps;
   iconColor?: ResponsiveValue<CSS.Property.BackgroundImage>;
@@ -144,49 +147,55 @@ export const SelectInput = ({
 
   return (
     <Box position="relative" display="inline-block" width={width}>
-      <InputGroup
-        onFocus={() => setFocusedInput(true)}
-        onBlur={() => {
-          setTimeout(() => {
-            if (!selected) setInput("");
-            setFocusedInput(false);
-            setSearchResult({ key: null, searchHit: null });
-          }, 150);
-        }}
+      <Tooltip
+        label="Dieser Filter funktioniert nur, wenn Sie ein Partei ausgewählt haben"
+        isDisabled={!Boolean(InputProps?.disabled)}
       >
-        <Input
-          {...InputProps}
-          placeholder={placeholder}
-          onChange={(e) => {
-            setInput(e.target.value);
-            setSelected(null);
+        <InputGroup
+          onFocus={() => setFocusedInput(true)}
+          onBlur={() => {
+            setTimeout(() => {
+              if (!selected) setInput("");
+              setFocusedInput(false);
+              setSearchResult({ key: null, searchHit: null });
+            }, 150);
           }}
-          value={selected ? selected.label : input}
-          width="100%"
-        />
-        <InputRightElement
-          children={
-            selected ? (
-              <CloseIcon
-                boxSize="25px"
-                color={iconColor}
-                borderRadius="0.5em"
-                padding="4px"
-                cursor="pointer"
-                _hover={{ backgroundColor: iconHoverColor }}
-                onClick={() => {
-                  setInput("");
-                  setSelected(null);
-                  setSearchResult({ key: null, searchHit: null });
-                  if (onSelect) onSelect(undefined);
-                }}
-              />
-            ) : (
-              <SearchIcon color={iconColor} />
-            )
-          }
-        />
-      </InputGroup>
+        >
+          <Input
+            {...InputProps}
+            placeholder={placeholder}
+            onChange={(e) => {
+              setInput(e.target.value);
+              setSelected(null);
+            }}
+            value={selected ? selected.label : input}
+            width="100%"
+          />
+
+          <InputRightElement
+            children={
+              selected ? (
+                <CloseIcon
+                  boxSize="25px"
+                  color={iconColor}
+                  borderRadius="0.5em"
+                  padding="4px"
+                  cursor="pointer"
+                  _hover={{ backgroundColor: iconHoverColor }}
+                  onClick={() => {
+                    setInput("");
+                    setSelected(null);
+                    setSearchResult({ key: null, searchHit: null });
+                    if (onSelect) onSelect(undefined);
+                  }}
+                />
+              ) : (
+                <SearchIcon color={iconColor} />
+              )
+            }
+          />
+        </InputGroup>
+      </Tooltip>
       {focusedInput || focusedButton ? (
         <Box
           {...BoxProps}
