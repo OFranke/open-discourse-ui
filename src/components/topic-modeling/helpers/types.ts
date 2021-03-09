@@ -22,7 +22,7 @@ export interface ApiFilterPerson
 export interface ApiFilterParty
   extends Required<Pick<FormFilterParams, "topics">>,
     Partial<Pick<FormFilterParams, "gender" | "age" | "state" | "job">> {
-  party: string;
+  party?: string;
 }
 
 export interface TopicData extends Serie {

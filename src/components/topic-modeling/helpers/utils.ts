@@ -137,30 +137,15 @@ export const generateLinkedInShareLink = async ({
 export const getApiCallParamsFromUrlParams = (
   filter: FilterParams
 ): ApiFilterPerson | ApiFilterParty | undefined => {
-  if (!filter.topics || !filter.actor) {
+  if (!filter.topics) {
     console.log("No filter topic/actor specified.");
     return undefined;
-  }
-
-  const actorIsParty = partyFilterOptions.find(
-    (partyFilter) => partyFilter.key == filter.actor
-  );
-  if (actorIsParty) {
-    const apiFilters: ApiFilterParty = {
-      topics: filter.topics,
-      party: filter.actor,
-      ...(filter.job && { job: filter.job }),
-      ...(filter.gender && { gender: filter.gender }),
-      ...(filter.state && { state: filter.state }),
-      ...(filter.age && { age: filter.age }),
-    };
-    return apiFilters;
   }
 
   const actorIsPolitician = politicianFilterOptions.find(
     (politicianFilter) => politicianFilter.key == filter.actor
   );
-  if (actorIsPolitician) {
+  if (filter.actor && actorIsPolitician) {
     const apiFilters: ApiFilterPerson = {
       topics: filter.topics,
       politicians: filter.actor,
@@ -168,7 +153,15 @@ export const getApiCallParamsFromUrlParams = (
     return apiFilters;
   }
 
-  return undefined;
+  const apiFilters: ApiFilterParty = {
+    topics: filter.topics,
+    ...(filter.actor && { party: filter.actor }),
+    ...(filter.job && { job: filter.job }),
+    ...(filter.gender && { gender: filter.gender }),
+    ...(filter.state && { state: filter.state }),
+    ...(filter.age && { age: filter.age }),
+  };
+  return apiFilters;
 };
 
 export const getCleanedFilterValuesFromUrlParams = (
@@ -220,8 +213,9 @@ export const getCleanedFilterValuesFromUrlParams = (
 
 const getAverage = (...args: number[]) => {
   let sum = 0;
-  args.map((arg) => (sum += arg));
-  return sum / args.length;
+  const filteredZero = args.filter((number) => Boolean(number));
+  filteredZero.map((arg) => (sum += arg));
+  return sum / filteredZero.length;
 };
 export const smoothTopicResultData = (
   data: TopicDataEntry[]
@@ -233,8 +227,8 @@ export const smoothTopicResultData = (
       currentIndex,
       initialValue
     ) => {
-      // if first or last item, dont calculate average
-      if (currentIndex == 0 || currentIndex == initialValue.length - 1) {
+      // if y == 0
+      if (initialValue[currentIndex].y == 0) {
         return [
           ...accumulator,
           {
@@ -242,7 +236,35 @@ export const smoothTopicResultData = (
             annotation: { headline: "1 blöde FDP" },
           },
         ];
-        // return [...accumulator, currentValue];
+      }
+      // first item
+      if (currentIndex == 0) {
+        const averageY = getAverage(
+          initialValue[currentIndex].y,
+          initialValue[currentIndex + 1].y
+        );
+        return [
+          ...accumulator,
+          {
+            x: currentValue.x,
+            y: initialValue[currentIndex].y == 0 ? 0 : averageY,
+          },
+        ];
+      }
+
+      // last item
+      if (currentIndex == initialValue.length - 1) {
+        const averageY = getAverage(
+          initialValue[currentIndex - 1].y,
+          initialValue[currentIndex].y
+        );
+        return [
+          ...accumulator,
+          {
+            x: currentValue.x,
+            y: initialValue[currentIndex].y == 0 ? 0 : averageY,
+          },
+        ];
       }
 
       // get average of item before, currentItem and item after
@@ -251,11 +273,12 @@ export const smoothTopicResultData = (
         initialValue[currentIndex].y,
         initialValue[currentIndex + 1].y
       );
+
       return [
         ...accumulator,
         {
           x: currentValue.x,
-          y: averageY,
+          y: initialValue[currentIndex].y == 0 ? 0 : averageY,
         },
       ];
     },

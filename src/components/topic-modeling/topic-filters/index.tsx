@@ -113,7 +113,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
           disabled={isPoliticianSelected}
           color={filterState.color}
           rawData={stateFilterOptions}
-          placeholder="Wahlbezirk"
+          placeholder="Wahlbundesland"
           onSelect={(element) => {
             updateFilter({
               ...filterState,
@@ -128,7 +128,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
           disabled={isPoliticianSelected}
           color={filterState.color}
           rawData={jobFilterOptions}
-          placeholder="Job"
+          placeholder="Berufsgruppe"
           onSelect={(element) => {
             updateFilter({
               ...filterState,

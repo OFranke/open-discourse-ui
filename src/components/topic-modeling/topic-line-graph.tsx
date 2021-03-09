@@ -31,15 +31,18 @@ import {
   jobFilterOptions,
 } from "./helpers/filters";
 import { useState } from "react";
+import { CartesianMarkerProps } from "@nivo/core";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
-  entity: TopicData[];
+  data: TopicData[];
+  markers: CartesianMarkerProps[];
 }
 
 interface TopicLineGraphState {
   status: "idle" | "pending" | "resolved" | "rejected";
   data: TopicData[];
+  markers: CartesianMarkerProps[];
 }
 
 const CustomThing = ({
@@ -131,10 +134,22 @@ const dataReducer = (
       };
     }
     case "resolved": {
+      const uniqueMarkerHelper: string[] = [];
+      const uniqueMarkers = action.markers.filter((marker) => {
+        if (!marker.legend) {
+          return false;
+        }
+        if (!uniqueMarkerHelper.includes(marker.legend)) {
+          uniqueMarkerHelper.push(marker.legend);
+          return true;
+        }
+        return false;
+      });
       return {
         ...previousState,
         status: "resolved",
-        data: action.entity,
+        data: action.data,
+        markers: uniqueMarkers,
       };
     }
     case "rejected": {
@@ -180,6 +195,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
   const [state, dispatchData] = useReducer(dataReducer, {
     status: "idle",
     data: [],
+    markers: [],
   });
 
   useEffect(() => {
@@ -189,7 +205,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
       const filterObject: Array<FilterParams> = JSON.parse(filters.filters);
 
       if (filterObject && filterObject?.length) {
-        dispatchData({ action: "pending", entity: [] });
+        dispatchData({ action: "pending", data: [], markers: [] });
         const dataFetchePromises = [];
 
         for (let i = 0; i <= 5; i++) {
@@ -216,19 +232,29 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
         }
         Promise.all(dataFetchePromises)
           .then((resultArray) => {
-            const getBodyPromises: Promise<{ data: TopicDataEntry[] }>[] = [];
+            const getBodyPromises: Promise<{
+              data: TopicDataEntry[];
+              markers: CartesianMarkerProps[];
+            }>[] = [];
             resultArray.map((result) => getBodyPromises.push(result.json()));
             Promise.all(getBodyPromises).then((dataResultArray) => {
               const topicResult: TopicData[] = [];
+              const markers: CartesianMarkerProps[] = [];
               dataResultArray.map((data, index) => {
                 const id = getResultLabel(filterObject, index);
                 const smoothedData = smoothTopicResultData(data.data);
+                console.log("\x1b[33m%s\x1b[0m", "%c >> markers", data.markers);
                 topicResult.push({
                   id: id,
                   data: smoothedData,
                 });
+                markers.push(...data.markers);
               });
-              dispatchData({ action: "resolved", entity: topicResult });
+              dispatchData({
+                action: "resolved",
+                data: topicResult,
+                markers: markers,
+              });
             });
           })
           .catch((error) => console.log(error));
@@ -239,6 +265,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
   const addedHeight = state.data.length ? state.data.length * 50 : 0;
 
   const [toggleAnnotations, setToggleAnnotations] = useState(true);
+
   return (
     <Flex
       {...flexProps}
@@ -304,14 +331,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
               translateY: 25 + addedHeight,
             },
           ]}
-          markers={[
-            {
-              axis: "x",
-              value: 1991,
-              lineStyle: { stroke: "gray", strokeWidth: 2 },
-              legend: "Pariser Klimaabkommen",
-            },
-          ]}
+          markers={state.markers}
         />
       </Flex>
       <Button onClick={() => setToggleAnnotations(!toggleAnnotations)}>
