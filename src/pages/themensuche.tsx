@@ -63,10 +63,10 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
       >
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h2">
-            Topic Modelling
+            Worüber spricht der Bundestag?
           </DefaultHeadline>
-          <TopicModelling />
           <TopicLineGraph marginTop={{ base: 5, md: 10, lg: 20 }} />
+          <TopicModelling />
         </DefaultContainer>
       </Section>
     </BaseTemplate>

@@ -1,4 +1,11 @@
-import { Button, Flex, FlexProps, IconButton } from "@chakra-ui/react";
+import {
+  Button,
+  Checkbox,
+  Flex,
+  FlexProps,
+  HStack,
+  IconButton,
+} from "@chakra-ui/react";
 
 import { AnnotationLabel } from "react-annotation";
 
@@ -28,6 +35,7 @@ import { FaFacebookSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
 import {
   ageFilterOptions,
   genderFilterOptions,
+  politicianFilterOptions,
   stateFilterOptions,
 } from "./helpers/filters";
 import {
@@ -98,8 +106,8 @@ const getResultLabel = (
   const filter = filterObject?.[index];
 
   if (filter) {
-    const abbreviation = partyFilterOptions.find(
-      (faction) => faction.key == filter.actor
+    const actor = [...partyFilterOptions, ...politicianFilterOptions].find(
+      (actor) => actor.key == filter.actor
     );
 
     const topic = topicFilterOptions.find(
@@ -115,13 +123,18 @@ const getResultLabel = (
     );
     const job = jobFilterOptions.find((job) => job.key == filter.job);
 
-    return `${index + 1}: ${topic?.label}, ${
-      abbreviation?.label || "Alle Parteien"
-    }, ${gender?.label || "Alle Geschlechter"}, ${
-      age?.label || "Alle Altersgruppen"
-    }, ${electionPlace?.label || "Alle Bundesländer"}, ${
-      job?.label || "Alle Berufsgruppen"
-    }`;
+    const labels = [
+      topic?.label,
+      actor?.label,
+      gender?.label,
+      age?.label,
+      electionPlace?.label,
+      job?.label,
+    ].filter(Boolean);
+
+    console.log("\x1b[33m%s\x1b[0m", "%c >> labels", labels);
+
+    return `${index + 1}: ${labels.join(", ")}`;
   }
   return `${index} Unbekanntes Thema`;
 };
@@ -270,14 +283,18 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     }
   }, [router.query]);
 
-  const addedHeight = state.data.length ? state.data.length * 50 : 0;
+  const legendItemHeight = 40;
+  const addedHeight = state.data.length
+    ? state.data.length * legendItemHeight
+    : 0;
 
   const [showAnnotations, setToggleAnnotations] = useState(true);
+  const [showMarkers, setToggleMarkers] = useState(true);
 
+  console.log("\x1b[33m%s\x1b[0m", "%c >> addedHeight", addedHeight);
   return (
     <Flex
       {...flexProps}
-      position="relative"
       alignItems="center"
       justifyContent="center"
       flexDirection="column"
@@ -293,11 +310,17 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
       <Flex
         filter={state.status == "pending" ? "blur(4px)" : undefined}
         id={graphWrapperId}
+        position="relative"
       >
         <Line
           width={1200}
-          height={400 + addedHeight}
-          margin={{ top: 20, right: 20, bottom: 50 + addedHeight, left: 80 }}
+          height={400 + state.data.length * legendItemHeight}
+          margin={{
+            top: 15,
+            right: 20,
+            bottom: 50 + state.data.length * legendItemHeight,
+            left: 80,
+          }}
           data={state.data || []}
           animate={true}
           enableSlices={"x"}
@@ -310,7 +333,6 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             "areas",
             "crosshair",
             "lines",
-            "points",
             "slices",
             "mesh",
             "legends",
@@ -335,16 +357,37 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
               anchor: "bottom-left",
               direction: "column",
               itemWidth: 600,
-              itemHeight: 40,
-              translateY: 25 + addedHeight,
+              itemHeight: legendItemHeight,
+              translateY: 30 + state.data.length * legendItemHeight,
             },
           ]}
-          markers={state.markers}
+          markers={showMarkers ? state.markers : undefined}
         />
+        <HStack
+          spacing={5}
+          position="absolute"
+          zIndex="1000"
+          bottom={`${
+            state.data.length ? state.data.length * legendItemHeight - 15 : -15
+          }px`}
+          right={0}
+        >
+          <Checkbox
+            colorScheme="gray"
+            defaultIsChecked={showAnnotations}
+            onChange={() => setToggleAnnotations(!showAnnotations)}
+          >
+            Hinweise Anzeigen
+          </Checkbox>
+          <Checkbox
+            colorScheme="gray"
+            defaultIsChecked={showMarkers}
+            onChange={() => setToggleMarkers(!showMarkers)}
+          >
+            Ereignisse Anzeigen
+          </Checkbox>
+        </HStack>
       </Flex>
-      <Button onClick={() => setToggleAnnotations(!showAnnotations)}>
-        Toggle Annotation
-      </Button>
       <Flex
         marginTop={{
           base: "4",
