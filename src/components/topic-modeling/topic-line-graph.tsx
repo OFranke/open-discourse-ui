@@ -160,12 +160,19 @@ const dataReducer = (
         if (!marker.legend) {
           return false;
         }
+
         if (!uniqueMarkerHelper.includes(marker.legend)) {
           uniqueMarkerHelper.push(marker.legend);
           return true;
         }
         return false;
       });
+      uniqueMarkers.forEach(
+        (marker) =>
+          (marker.lineStyle = {
+            // stroke: "red",
+          })
+      );
       return {
         ...previousState,
         status: "resolved",
@@ -261,6 +268,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             Promise.all(getBodyPromises).then((dataResultArray) => {
               const topicResult: TopicData[] = [];
               const markers: CartesianMarkerProps[] = [];
+
               dataResultArray.map((data, index) => {
                 const id = getResultLabel(filterObject, index);
                 const smoothedData = smoothTopicResultData(data.data);
