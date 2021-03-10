@@ -4,7 +4,12 @@ import { AnnotationLabel } from "react-annotation";
 
 import { CustomLayerProps, Line } from "@nivo/line";
 import { useEffect, useReducer } from "react";
-import { FilterParams, TopicData, TopicDataEntry } from "./helpers/types";
+import {
+  Annotation,
+  FilterParams,
+  TopicData,
+  TopicDataEntry,
+} from "./helpers/types";
 import {
   generateTwitterShareLink,
   generateFacebookShareLink,
@@ -45,7 +50,7 @@ interface TopicLineGraphState {
   markers: CartesianMarkerProps[];
 }
 
-const CustomThing = ({
+const CustomAnnotation = ({
   series,
   xScale,
   yScale,
@@ -54,24 +59,27 @@ const CustomThing = ({
   const Annotations = series.map((serie) => {
     return serie.data.map((serieDataEntry) => {
       if (serieDataEntry.data?.annotation) {
+        const annotation: Annotation = serieDataEntry.data.annotation;
+        console.log(
+          "\x1b[33m%s\x1b[0m",
+          "%c >> serieDataEntry.position.x",
+          serieDataEntry.position.x
+        );
+        console.log(
+          "\x1b[33m%s\x1b[0m",
+          "%c >> serieDataEntry.position.y",
+          serieDataEntry.position.y
+        );
         return (
           <AnnotationLabel
             key={`${serieDataEntry.position.x} - ${serieDataEntry.position.y}`}
             x={serieDataEntry.position.x}
             y={serieDataEntry.position.y}
-            dx={600}
-            dy={-10}
-            color={"#9610ff"}
-            className="show-bg"
-            editMode={true}
+            nx={serieDataEntry.position.x}
+            ny={serieDataEntry.position.y - 200}
             note={{
-              title: "Annotations :)",
-              label: "Longer text to show text wrapping",
-              align: "middle",
-              orientation: "topBottom",
-              bgPadding: 20,
-              padding: 15,
-              titleColor: "#59039c",
+              title: annotation.title,
+              label: annotation.description,
             }}
           />
         );
@@ -264,7 +272,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
 
   const addedHeight = state.data.length ? state.data.length * 50 : 0;
 
-  const [toggleAnnotations, setToggleAnnotations] = useState(true);
+  const [showAnnotations, setToggleAnnotations] = useState(true);
 
   return (
     <Flex
@@ -306,7 +314,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             "slices",
             "mesh",
             "legends",
-            toggleAnnotations ? CustomThing : "legends",
+            showAnnotations ? CustomAnnotation : "legends",
           ]}
           curve="cardinal"
           colors={["#B83280", "#6B46C1", "#C05621", "#3182ce", "#38A169"]}
@@ -334,7 +342,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           markers={state.markers}
         />
       </Flex>
-      <Button onClick={() => setToggleAnnotations(!toggleAnnotations)}>
+      <Button onClick={() => setToggleAnnotations(!showAnnotations)}>
         Toggle Annotation
       </Button>
       <Flex

@@ -233,7 +233,6 @@ export const smoothTopicResultData = (
           ...accumulator,
           {
             ...currentValue,
-            annotation: { headline: "1 blöde FDP" },
           },
         ];
       }

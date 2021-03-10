@@ -32,3 +32,8 @@ export interface TopicDataEntry {
   x: number;
   y: number;
 }
+
+export interface Annotation {
+  title: string;
+  description: string;
+}
