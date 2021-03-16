@@ -1,7 +1,7 @@
 import queryString from "query-string";
 import { ApiFilterParty, ApiFilterPerson, TopicDataEntry } from "./types";
-import { TopicData, FormFilterParams, FilterParams } from "./types";
-import { partyFilterOptions, politicianFilterOptions } from "./filters";
+import { TopicData, FilterParams } from "./types";
+import { politicianFilterOptions } from "./filters";
 
 const getRandomData = () => {
   const arr = Array.from({ length: 71 }, (v, k) => {
@@ -166,7 +166,7 @@ export const getApiCallParamsFromUrlParams = (
 
 export const getCleanedFilterValuesFromUrlParams = (
   queryParams: any
-): Array<FilterParams> | [] => {
+): Array<FilterParams> => {
   const returnFilters: Array<FilterParams> = [];
   if (queryParams?.filters) {
     try {

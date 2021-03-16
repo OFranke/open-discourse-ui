@@ -35,27 +35,25 @@ import { FaFacebookSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
 import {
   ageFilterOptions,
   genderFilterOptions,
-  politicianFilterOptions,
   stateFilterOptions,
 } from "./helpers/filters";
-import {
-  partyFilterOptions,
-  topicFilterOptions,
-  jobFilterOptions,
-} from "./helpers/filters";
+import { topicFilterOptions, jobFilterOptions } from "./helpers/filters";
 import { useState } from "react";
 import { CartesianMarkerProps } from "@nivo/core";
+import { actorFilterOptions } from "./helpers/filters";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
   data: TopicData[];
   markers: CartesianMarkerProps[];
+  colors: string[];
 }
 
 interface TopicLineGraphState {
   status: "idle" | "pending" | "resolved" | "rejected";
   data: TopicData[];
   markers: CartesianMarkerProps[];
+  colors: string[];
 }
 
 const CustomAnnotation = ({
@@ -106,9 +104,7 @@ const getResultLabel = (
   const filter = filterObject?.[index];
 
   if (filter) {
-    const actor = [...partyFilterOptions, ...politicianFilterOptions].find(
-      (actor) => actor.key == filter.actor
-    );
+    const actor = actorFilterOptions.find((actor) => actor.key == filter.actor);
 
     const topic = topicFilterOptions.find(
       (topic) => topic.key == filter.topics
@@ -131,8 +127,6 @@ const getResultLabel = (
       electionPlace?.label,
       job?.label,
     ].filter(Boolean);
-
-    console.log("\x1b[33m%s\x1b[0m", "%c >> labels", labels);
 
     return `${index + 1}: ${labels.join(", ")}`;
   }
@@ -160,7 +154,6 @@ const dataReducer = (
         if (!marker.legend) {
           return false;
         }
-
         if (!uniqueMarkerHelper.includes(marker.legend)) {
           uniqueMarkerHelper.push(marker.legend);
           return true;
@@ -178,6 +171,7 @@ const dataReducer = (
         status: "resolved",
         data: action.data,
         markers: uniqueMarkers,
+        colors: action.colors,
       };
     }
     case "rejected": {
@@ -224,6 +218,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     status: "idle",
     data: [],
     markers: [],
+    colors: [],
   });
 
   useEffect(() => {
@@ -233,16 +228,17 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
       const filterObject: Array<FilterParams> = JSON.parse(filters.filters);
 
       if (filterObject && filterObject?.length) {
-        dispatchData({ action: "pending", data: [], markers: [] });
+        dispatchData({ action: "pending", data: [], markers: [], colors: [] });
         const dataFetchePromises = [];
 
+        const uniqueGraphColors: string[] = [];
         for (let i = 0; i <= 5; i++) {
           if (filterObject[i]) {
             const apiCallParams = getApiCallParamsFromUrlParams(
               filterObject[i]
             );
-
             if (apiCallParams) {
+              uniqueGraphColors.push(filterObject[i].color);
               // dataFetchePromises.push(mockFetchData(`topic ${i}`));
               dataFetchePromises.push(
                 fetch(
@@ -272,7 +268,6 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
               dataResultArray.map((data, index) => {
                 const id = getResultLabel(filterObject, index);
                 const smoothedData = smoothTopicResultData(data.data);
-                console.log("\x1b[33m%s\x1b[0m", "%c >> markers", data.markers);
                 topicResult.push({
                   id: id,
                   data: smoothedData,
@@ -283,6 +278,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
                 action: "resolved",
                 data: topicResult,
                 markers: markers,
+                colors: uniqueGraphColors,
               });
             });
           })
@@ -292,14 +288,10 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
   }, [router.query]);
 
   const legendItemHeight = 40;
-  const addedHeight = state.data.length
-    ? state.data.length * legendItemHeight
-    : 0;
 
   const [showAnnotations, setToggleAnnotations] = useState(true);
   const [showMarkers, setToggleMarkers] = useState(true);
 
-  console.log("\x1b[33m%s\x1b[0m", "%c >> addedHeight", addedHeight);
   return (
     <Flex
       {...flexProps}
@@ -347,7 +339,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             showAnnotations ? CustomAnnotation : "legends",
           ]}
           curve="cardinal"
-          colors={["#B83280", "#6B46C1", "#C05621", "#3182ce", "#38A169"]}
+          colors={state.colors}
           yScale={{
             type: "linear",
             stacked: false,

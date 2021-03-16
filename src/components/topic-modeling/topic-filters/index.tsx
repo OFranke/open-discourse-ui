@@ -3,12 +3,12 @@ import { FilterParams } from "../helpers/types";
 import { Stack, Box } from "@chakra-ui/react";
 import {
   topicFilterOptions,
-  partyFilterOptions,
   ageFilterOptions,
   stateFilterOptions,
   jobFilterOptions,
   genderFilterOptions,
   politicianFilterOptions,
+  actorFilterOptions,
 } from "../helpers/filters";
 
 interface GroupFilterProps {
@@ -38,11 +38,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
       (politicianFilter) => politicianFilter.key == filterState.actor
     )
   );
-  console.log(
-    "\x1b[33m%s\x1b[0m",
-    "%c >> isPoliticianSelected",
-    isPoliticianSelected
-  );
+
   return (
     <Box width="100%">
       <Stack
@@ -65,7 +61,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
         />
         <ColoredSelectInput
           color={filterState.color}
-          rawData={[...partyFilterOptions, ...politicianFilterOptions]}
+          rawData={actorFilterOptions}
           placeholder="Nach Akteur Filtern"
           onSelect={(element) => {
             updateFilter({
@@ -73,7 +69,7 @@ const GroupFilters: React.FC<GroupFilterProps> = ({
               actor: element?.key || null,
             });
           }}
-          initialValue={partyFilterOptions.find(
+          initialValue={actorFilterOptions.find(
             (filter) => filter.key == filterState.actor
           )}
         />

@@ -8,6 +8,7 @@ import queryString from "query-string";
 import { useRouter } from "next/router";
 import { getCleanedFilterValuesFromUrlParams } from "./helpers/utils";
 import { FilterParams } from "./helpers/types";
+import { actorFilterOptions } from "./helpers/filters";
 
 interface TopicModellingState {
   filters: Array<FilterParams>;
@@ -17,12 +18,22 @@ interface FilterReducerAction {
   entity: FilterParams;
 }
 
-const availableFilterColors = ["pink", "purple", "orange", "blue", "green"];
+const usedColors: Set<string> = new Set();
+const defaultFilterColor = "black";
 
 const generateFilterId = () => {
   return Math.random().toString(36).substr(2, 5);
 };
 
+const calculateNextColor = ({
+  currentColor,
+  actorId,
+}: {
+  currentColor: string;
+  actorId: string;
+}) => {
+  // let nextColor =
+};
 const filterReducer = (
   previousState: TopicModellingState,
   action: FilterReducerAction
@@ -35,29 +46,70 @@ const filterReducer = (
           ...previousState.filters,
           {
             ...action.entity,
-            color: availableFilterColors[previousState.filters.length],
+            color: defaultFilterColor,
           },
         ],
       };
     }
     case "REMOVE": {
-      const updatedFilters = previousState.filters
+      const remainingFilters = previousState.filters
         .filter(
           (currentFilter) => currentFilter.filterId !== action?.entity?.filterId
         )
         .filter(Boolean);
-      const updatedFiltersWithColors = updatedFilters.map(
-        (currentFilter, index) => {
-          return { ...currentFilter, color: availableFilterColors[index] };
-        }
-      );
 
-      return { ...previousState, filters: updatedFiltersWithColors };
+      const uniqueUsedColors: Set<string> = new Set();
+      const updatedFilters = remainingFilters.map((currentFilter) => {
+        if (currentFilter.actor) {
+          const actor = actorFilterOptions.find(
+            (actor) => actor.key == currentFilter.actor
+          );
+          const color = actor?.partyColors.find(
+            (color) => !uniqueUsedColors.has(color)
+          );
+          if (color) {
+            uniqueUsedColors.add(color);
+            return { ...currentFilter, color };
+          }
+        }
+        return currentFilter;
+      });
+
+      return {
+        ...previousState,
+        filters: updatedFilters,
+      };
     }
     case "UPDATE": {
+      const uniqueUsedColors: Set<string> = new Set();
       const updatedFilters = previousState.filters.map((currentFilter) => {
         if (currentFilter.filterId == action.entity?.filterId) {
-          return action.entity;
+          if (action.entity?.actor) {
+            const actor = actorFilterOptions.find(
+              (actor) => actor.key == action.entity.actor
+            );
+            const color = actor?.partyColors.find(
+              (color) => !uniqueUsedColors.has(color)
+            );
+            if (color) {
+              uniqueUsedColors.add(color);
+              return { ...action.entity, color };
+            }
+          }
+          return { ...action.entity };
+        } else {
+          if (currentFilter.actor) {
+            const actor = actorFilterOptions.find(
+              (actor) => actor.key == currentFilter.actor
+            );
+            const color = actor?.partyColors.find(
+              (color) => !uniqueUsedColors.has(color)
+            );
+            if (color) {
+              uniqueUsedColors.add(color);
+              return { ...currentFilter, color };
+            }
+          }
         }
         return currentFilter;
       });
@@ -82,7 +134,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
       : [
           {
             filterId: generateFilterId(),
-            color: availableFilterColors[0],
+            color: defaultFilterColor,
             topics: null,
             age: null,
             gender: null,
@@ -93,6 +145,10 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
         ],
   });
 
+  if (validatedFilters.length > 0) {
+    validatedFilters.map((filter) => usedColors.add(filter.color));
+  }
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     router.push(
@@ -101,7 +157,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
       })}`
     );
   };
-
+  console.log("\x1b[33m%s\x1b[0m", "%c >> state", state);
   return (
     <Box {...boxProps}>
       <form onSubmit={handleSubmit}>
@@ -121,7 +177,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
                 <IconButton
                   marginLeft={{ base: 2, lg: 4 }}
                   variant="outline"
-                  colorScheme={filter.color}
+                  colorScheme={"pink"}
                   aria-label="Filter entfernen"
                   fontSize="20px"
                   disabled={state.filters.length <= 1 ? true : false}
@@ -146,7 +202,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
             Topics suchen
           </DefaultButton>
           <DefaultButton
-            colorScheme={availableFilterColors[state.filters.length]}
+            colorScheme={"pink"}
             variant="outline"
             rightIcon={<AddIcon />}
             disabled={state.filters.length >= 5 ? true : false}
@@ -154,7 +210,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
               dispatch({
                 action: "ADD",
                 entity: {
-                  color: "",
+                  color: defaultFilterColor,
                   filterId: generateFilterId(),
                   actor: null,
                   age: null,
