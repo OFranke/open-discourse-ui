@@ -139,26 +139,36 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
             </Stack>
           )}
         </Box>
-        <Box width="20%" textAlign="right">
-          <Link
-            as="span"
-            href="#"
-            onClick={(_e) => setShowMoreFilters((prevState) => !prevState)}
-          >
-            {showMoreFilters ? "Weniger optionen" : "Mehr optionen"}
-          </Link>
-
-          <IconButton
-            marginLeft={{ base: 2, lg: 4 }}
-            variant="outline"
-            colorScheme={"pink"}
-            aria-label="Filter entfernen"
-            fontSize="20px"
-            disabled={!Boolean(removeFilter)}
-            icon={<CloseIcon />}
-            onClick={removeFilter}
-          />
-        </Box>
+        <Flex
+          width="20%"
+          marginLeft={1}
+          flexDirection={{ base: "column-reverse", md: "row" }}
+          alignItems={{ md: "center" }}
+          textAlign="center"
+          justifyContent="center"
+        >
+          <Box>
+            <Link
+              as="span"
+              href="#"
+              onClick={(_e) => setShowMoreFilters((prevState) => !prevState)}
+            >
+              {showMoreFilters ? "Weniger optionen" : "Mehr optionen"}
+            </Link>
+          </Box>
+          <Box>
+            <IconButton
+              marginLeft={{ base: 2, lg: 4 }}
+              variant="outline"
+              colorScheme={"pink"}
+              aria-label="Filter entfernen"
+              fontSize="20px"
+              disabled={!Boolean(removeFilter)}
+              icon={<CloseIcon />}
+              onClick={removeFilter}
+            />
+          </Box>
+        </Flex>
       </Flex>
     </Card>
   );
