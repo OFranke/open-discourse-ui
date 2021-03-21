@@ -9,7 +9,7 @@ import {
 
 import { AnnotationLabel } from "react-annotation";
 
-import { CustomLayerProps, Line } from "@nivo/line";
+import { CustomLayerProps, Line, ResponsiveLine } from "@nivo/line";
 import { useEffect, useReducer } from "react";
 import {
   Annotation,
@@ -41,6 +41,7 @@ import { topicFilterOptions, jobFilterOptions } from "./helpers/filters";
 import { useState } from "react";
 import { CartesianMarkerProps } from "@nivo/core";
 import { actorFilterOptions } from "./helpers/filters";
+import { containerSizes } from "@bit/limebit.limebit-ui.default-container";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -311,15 +312,24 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
         filter={state.status == "pending" ? "blur(4px)" : undefined}
         id={graphWrapperId}
         position="relative"
+        height={{
+          base: `${320 + state.data.length * legendItemHeight}px`,
+          sm: `${320 + state.data.length * legendItemHeight}px`,
+          md: `${320 + state.data.length * legendItemHeight}px`,
+          lg: `${450 + state.data.length * legendItemHeight}px`,
+          xl: `${600 + state.data.length * legendItemHeight}px`,
+        }}
+        width={{
+          base: "95vw",
+          xl: "70vw",
+        }}
+        maxWidth={{ lg: "1218px", xl: "calc(70vw - 32px)" }}
       >
-        <Line
-          width={1200}
-          height={400 + state.data.length * legendItemHeight}
+        <ResponsiveLine
           margin={{
-            top: 15,
-            right: 20,
+            right: 10,
             bottom: 50 + state.data.length * legendItemHeight,
-            left: 80,
+            left: 40,
           }}
           data={state.data || []}
           animate={true}
@@ -338,16 +348,6 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             "legends",
             showAnnotations ? CustomAnnotation : "legends",
           ]}
-          //           basis
-          // cardinal
-          // catmullRom
-          // linear
-          // monotoneX
-          // monotoneY
-          // natural
-          // step
-          // stepAfter
-          // stepBefore
           curve="monotoneX"
           colors={state.colors}
           yScale={{
@@ -361,9 +361,6 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             stacked: false,
             // tickSize: 5,
           }}
-          // axisBottom={{
-          //   tickSize: 5,
-          // }}
           axisLeft={{
             format: (value) => `${Number(value)}`,
           }}
@@ -386,6 +383,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             state.data.length ? state.data.length * legendItemHeight - 15 : -15
           }px`}
           right={0}
+          display={{ base: "none", md: "initial" }}
         >
           <Checkbox
             colorScheme="gray"
