@@ -148,7 +148,7 @@ export const SelectInput = ({
   return (
     <Box position="relative" display="inline-block" width={width}>
       <Tooltip
-        label="Dieser Filter funktioniert nur, wenn Sie ein Partei ausgewählt haben"
+        label="Dieser Filter ist nicht verfügbar, wenn Sie als Akteur eine Einzelperson gewählt haben."
         isDisabled={!Boolean(InputProps?.disabled)}
       >
         <InputGroup

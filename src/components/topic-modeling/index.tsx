@@ -158,39 +158,30 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
     );
   };
   console.log("\x1b[33m%s\x1b[0m", "%c >> state", state);
+
   return (
     <Box {...boxProps}>
       <form onSubmit={handleSubmit}>
         {state.filters.map((filter) => {
+          const removeFilterHandler = () =>
+            dispatch({
+              action: "REMOVE",
+              entity: filter,
+            });
           return (
-            <Card marginY={5} key={filter.filterId}>
-              <Flex alignItems="center">
-                <TopicFilters
-                  filterState={filter}
-                  updateFilterState={(updatedFilter) =>
-                    dispatch({
-                      action: "UPDATE",
-                      entity: updatedFilter,
-                    })
-                  }
-                />
-                <IconButton
-                  marginLeft={{ base: 2, lg: 4 }}
-                  variant="outline"
-                  colorScheme={"pink"}
-                  aria-label="Filter entfernen"
-                  fontSize="20px"
-                  disabled={state.filters.length <= 1 ? true : false}
-                  icon={<CloseIcon />}
-                  onClick={() =>
-                    dispatch({
-                      action: "REMOVE",
-                      entity: filter,
-                    })
-                  }
-                />
-              </Flex>
-            </Card>
+            <TopicFilters
+              key={filter.filterId}
+              removeFilter={
+                state.filters.length > 1 ? removeFilterHandler : undefined
+              }
+              filterState={filter}
+              updateFilterState={(updatedFilter) =>
+                dispatch({
+                  action: "UPDATE",
+                  entity: updatedFilter,
+                })
+              }
+            />
           );
         })}
         <Stack direction={{ base: "column", md: "row" }}>

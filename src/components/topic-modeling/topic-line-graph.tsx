@@ -121,7 +121,7 @@ const getResultLabel = (
 
     const labels = [
       topic?.label,
-      actor?.label,
+      actor?.label || "Gesamter Bundestag",
       gender?.label,
       age?.label,
       electionPlace?.label,
