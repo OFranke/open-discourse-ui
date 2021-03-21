@@ -338,17 +338,32 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             "legends",
             showAnnotations ? CustomAnnotation : "legends",
           ]}
-          curve="cardinal"
+          //           basis
+          // cardinal
+          // catmullRom
+          // linear
+          // monotoneX
+          // monotoneY
+          // natural
+          // step
+          // stepAfter
+          // stepBefore
+          curve="monotoneX"
           colors={state.colors}
           yScale={{
             type: "linear",
             stacked: false,
           }}
           xScale={{
-            type: "symlog",
-            min: 1950,
-            max: 2020,
+            type: "linear",
+            min: 1949,
+            max: 2021,
+            stacked: false,
+            // tickSize: 5,
           }}
+          // axisBottom={{
+          //   tickSize: 5,
+          // }}
           axisLeft={{
             format: (value) => `${Number(value)}`,
           }}

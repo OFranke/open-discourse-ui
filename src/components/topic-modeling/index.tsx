@@ -8,7 +8,7 @@ import queryString from "query-string";
 import { useRouter } from "next/router";
 import { getCleanedFilterValuesFromUrlParams } from "./helpers/utils";
 import { FilterParams } from "./helpers/types";
-import { actorFilterOptions } from "./helpers/filters";
+import { actorFilterOptions, politicianFilterOptions } from "./helpers/filters";
 
 interface TopicModellingState {
   filters: Array<FilterParams>;
@@ -84,6 +84,10 @@ const filterReducer = (
       const uniqueUsedColors: Set<string> = new Set();
       const updatedFilters = previousState.filters.map((currentFilter) => {
         if (currentFilter.filterId == action.entity?.filterId) {
+          const currentFilterIsPolitician = politicianFilterOptions.find(
+            (actor) => actor.key == action.entity.actor
+          );
+
           if (action.entity?.actor) {
             const actor = actorFilterOptions.find(
               (actor) => actor.key == action.entity.actor
@@ -91,12 +95,30 @@ const filterReducer = (
             const color = actor?.partyColors.find(
               (color) => !uniqueUsedColors.has(color)
             );
+
             if (color) {
               uniqueUsedColors.add(color);
-              return { ...action.entity, color };
+              return {
+                ...action.entity,
+                color,
+                ...(currentFilterIsPolitician && {
+                  gender: null,
+                  age: null,
+                  state: null,
+                  job: null,
+                }),
+              };
             }
           }
-          return { ...action.entity };
+          return {
+            ...action.entity,
+            ...(currentFilterIsPolitician && {
+              gender: null,
+              age: null,
+              state: null,
+              job: null,
+            }),
+          };
         } else {
           if (currentFilter.actor) {
             const actor = actorFilterOptions.find(
