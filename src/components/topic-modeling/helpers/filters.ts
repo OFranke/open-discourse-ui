@@ -100,7 +100,7 @@ export const partyFilterOptions: ActorDataProps[] = [
   { key: "party_2", label: "FDP", partyColors: filterColors.party_2 },
   {
     key: "party_3",
-    label: "B’90/Die B’90/Die Grünenn",
+    label: "B’90/Die Grünen",
     partyColors: filterColors.party_3,
   },
   { key: "party_4", label: "DIE LINKE.", partyColors: filterColors.party_4 },
