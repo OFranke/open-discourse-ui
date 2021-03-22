@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Data Report of the Database | Open Discourse - Documentation</title>
+  <title>2.1 Download a data dump | Open Discourse - Documentation</title>
   <meta name="description" content="This is the official documentation of the Open Discourse project" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Data Report of the Database | Open Discourse - Documentation" />
+  <meta property="og:title" content="2.1 Download a data dump | Open Discourse - Documentation" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://opendiscourse.de" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="open-discourse/open-discourse" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Data Report of the Database | Open Discourse - Documentation" />
+  <meta name="twitter:title" content="2.1 Download a data dump | Open Discourse - Documentation" />
   
   <meta name="twitter:description" content="This is the official documentation of the Open Discourse project" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="recreate-the-database-locally.html"/>
-<link rel="next" href="database-schema.html"/>
+<link rel="prev" href="get-the-data.html"/>
+<link rel="next" href="run-the-database-locally.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -196,20 +196,27 @@ Based on database v1.0.0.</li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-report-of-the-database" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Data Report of the Database</h1>
-<p>This data report serves the purpose of documenting the variables and their linkages of the Open Discourse corpus. This report is supplementary to a soon to be published data paper.</p>
-<p>The Open Discourse Corpus consists of five main tables. This report provides information about the contents of these tables and the meaning of the respective variables. A detailed documentation about the procedures used to provide this corpus can be found in aforementioned data paper soon.</p>
-<p>Furthermore the codebase developed and used to create the corpus can be retrieved from <a href="https://github.com/open-discourse/open-discourse">GitHub</a>. This open source codebase can be used to recreate the database from scratch and to contribute to the repository to further improve the quality of the data.</p>
-<p>A current data dump can be found at the associated <a href="https://dataverse.harvard.edu/dataverse/opendiscourse">Dataverse</a>. Also, a full text search engine for researching the corpus can be found on the <a href="www.opendiscourse.de">Open Discourse Website</a> (currently only available in German).</p>
+<div id="download-a-data-dump" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Download a data dump</h2>
+<p>The associated <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FIKIBO">Harvard Dataverse of Open Discourse</a> hosts full exports of the database in four different formats. You can easily download the data in your preferred data format and use it for your projects.</p>
+<p>The following data formats are available:</p>
+<ul>
+<li><p>CSV/Tab (Universal)</p></li>
+<li><p>Pickle (Python)</p></li>
+<li><p>RDS (R)</p></li>
+<li><p>Feather (R &amp; Python)</p></li>
+</ul>
+<p>The dataverse hosts all database tables in these four formats (see Section <a href="data-report-of-the-database.html#data-report-of-the-database">3</a> for a full documentation on the database tables).</p>
+<p>The following widget provides direct access to the data files in the dataverse:</p>
+<script src="https://dataverse.harvard.edu/resources/js/widgets.js?persistentId=doi:10.7910/DVN/FIKIBO&amp;dvUrl=https://dataverse.harvard.edu&amp;widget=iframe&amp;heightPx=500"></script>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="recreate-the-database-locally.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="database-schema.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="get-the-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="run-the-database-locally.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

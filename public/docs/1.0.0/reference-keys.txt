@@ -1,7 +1,12 @@
 prerequisites
-intro
+get-the-data
+download-a-data-dump
+run-the-database-locally
+get-and-launch-the-database
+use-the-database
+code-examples
+recreate-the-database-locally
 data-report-of-the-database
-preface
 database-schema
 speeches-table
 speeches-summary-table

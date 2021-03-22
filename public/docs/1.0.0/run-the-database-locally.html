@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Data Report of the Database | Open Discourse - Documentation</title>
+  <title>2.2 Run the database locally | Open Discourse - Documentation</title>
   <meta name="description" content="This is the official documentation of the Open Discourse project" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Data Report of the Database | Open Discourse - Documentation" />
+  <meta property="og:title" content="2.2 Run the database locally | Open Discourse - Documentation" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://opendiscourse.de" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="open-discourse/open-discourse" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Data Report of the Database | Open Discourse - Documentation" />
+  <meta name="twitter:title" content="2.2 Run the database locally | Open Discourse - Documentation" />
   
   <meta name="twitter:description" content="This is the official documentation of the Open Discourse project" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="recreate-the-database-locally.html"/>
-<link rel="next" href="database-schema.html"/>
+<link rel="prev" href="download-a-data-dump.html"/>
+<link rel="next" href="recreate-the-database-locally.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -196,20 +196,138 @@ Based on database v1.0.0.</li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-report-of-the-database" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Data Report of the Database</h1>
-<p>This data report serves the purpose of documenting the variables and their linkages of the Open Discourse corpus. This report is supplementary to a soon to be published data paper.</p>
-<p>The Open Discourse Corpus consists of five main tables. This report provides information about the contents of these tables and the meaning of the respective variables. A detailed documentation about the procedures used to provide this corpus can be found in aforementioned data paper soon.</p>
-<p>Furthermore the codebase developed and used to create the corpus can be retrieved from <a href="https://github.com/open-discourse/open-discourse">GitHub</a>. This open source codebase can be used to recreate the database from scratch and to contribute to the repository to further improve the quality of the data.</p>
-<p>A current data dump can be found at the associated <a href="https://dataverse.harvard.edu/dataverse/opendiscourse">Dataverse</a>. Also, a full text search engine for researching the corpus can be found on the <a href="www.opendiscourse.de">Open Discourse Website</a> (currently only available in German).</p>
+<div id="run-the-database-locally" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Run the database locally</h2>
+<p>You can download and run a docker image of the Postgres database. The docker image contains the latest version of the database.</p>
+<div id="get-and-launch-the-database" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Get and launch the database</h3>
+<p><strong>Three steps are necessary to run the database on your machine:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Authenticate to GitHub Container Registry</em></p>
+<p><a href="https://docs.github.com/en/packages/guides/pushing-and-pulling-docker-images#authenticating-to-github-container-registry">Click here</a> for a detailed documentation on how to get and use your personal access token.</p></li>
+<li><p><em>Pull the docker container</em></p>
+<p>After you are authenticated run the following command from your terminal:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="run-the-database-locally.html#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">docker</span> pull docker.pkg.github.com/open-discourse/open-discourse/database:latest</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li><p><em>Run the database</em></p>
+<p>Finally you just need to start the docker container with the database:</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="run-the-database-locally.html#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">docker</span> run --env POSTGRES_USER=postgres --env POSTGRES_DB=postgres --env POSTGRES_PASSWORD=postgres  -p 5432:5432 -d docker.pkg.github.com/open-discourse/open-discourse/database</span></code></pre></div>
+<p>You need to pass on some environment variables, to login to the database locally:</p>
+<table>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>–env POSTGRES_USER</td>
+<td>postgres</td>
+</tr>
+<tr class="even">
+<td>–env POSTGRES_DB</td>
+<td>postgres</td>
+</tr>
+<tr class="odd">
+<td>–env POSTGRES_PASSWORD</td>
+<td>postgres</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="use-the-database" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Use the database</h3>
+<p>After these steps are done, the database is running locally on port <code>5432</code>. You can access the database by using a database tool (e.g. <a href="https://dbeaver.io/">DBeaver</a>) or by using your preferred programming language.</p>
+<p>Use following credentials to log in to your database:</p>
+<table>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>db_name</td>
+<td>next</td>
+</tr>
+<tr class="even">
+<td>host_db</td>
+<td>localhost</td>
+</tr>
+<tr class="odd">
+<td>db_port</td>
+<td>5432</td>
+</tr>
+<tr class="even">
+<td>db_user</td>
+<td>postgres</td>
+</tr>
+<tr class="odd">
+<td>db_password</td>
+<td>postgres</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="code-examples" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Code examples</h3>
+<details>
+<summary>
+R Code
+</summary>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="run-the-database-locally.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;RPostgreSQL&quot;</span>)</span>
+<span id="cb3-2"><a href="run-the-database-locally.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="run-the-database-locally.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># db_connection -----------------------------------------------------------</span></span>
+<span id="cb3-4"><a href="run-the-database-locally.html#cb3-4" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="st">&quot;next&quot;</span></span>
+<span id="cb3-5"><a href="run-the-database-locally.html#cb3-5" aria-hidden="true" tabindex="-1"></a>host_db <span class="ot">&lt;-</span> <span class="st">&quot;localhost&quot;</span></span>
+<span id="cb3-6"><a href="run-the-database-locally.html#cb3-6" aria-hidden="true" tabindex="-1"></a>db_port <span class="ot">&lt;-</span> <span class="st">&quot;5432&quot;</span></span>
+<span id="cb3-7"><a href="run-the-database-locally.html#cb3-7" aria-hidden="true" tabindex="-1"></a>db_user <span class="ot">&lt;-</span> <span class="st">&quot;postgres&quot;</span></span>
+<span id="cb3-8"><a href="run-the-database-locally.html#cb3-8" aria-hidden="true" tabindex="-1"></a>db_password <span class="ot">&lt;-</span> <span class="st">&quot;postgres&quot;</span></span>
+<span id="cb3-9"><a href="run-the-database-locally.html#cb3-9" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span></span>
+<span id="cb3-10"><a href="run-the-database-locally.html#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbConnect</span>(</span>
+<span id="cb3-11"><a href="run-the-database-locally.html#cb3-11" aria-hidden="true" tabindex="-1"></a>    RPostgres<span class="sc">::</span><span class="fu">Postgres</span>(),</span>
+<span id="cb3-12"><a href="run-the-database-locally.html#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">dbname =</span> db,</span>
+<span id="cb3-13"><a href="run-the-database-locally.html#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">host =</span> host_db,</span>
+<span id="cb3-14"><a href="run-the-database-locally.html#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">port =</span> db_port,</span>
+<span id="cb3-15"><a href="run-the-database-locally.html#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">user =</span> db_user,</span>
+<span id="cb3-16"><a href="run-the-database-locally.html#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">password =</span> db_password</span>
+<span id="cb3-17"><a href="run-the-database-locally.html#cb3-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-18"><a href="run-the-database-locally.html#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="run-the-database-locally.html#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># get data tables ---------------------------------------------------------</span></span>
+<span id="cb3-20"><a href="run-the-database-locally.html#cb3-20" aria-hidden="true" tabindex="-1"></a>speeches <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con,</span>
+<span id="cb3-21"><a href="run-the-database-locally.html#cb3-21" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&quot;SELECT *</span></span>
+<span id="cb3-22"><a href="run-the-database-locally.html#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="st">                       FROM open_discourse.speeches;&quot;</span>)</span></code></pre></div>
+</details>
+<details>
+<summary>
+Python Code
+</summary>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="run-the-database-locally.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> psycopg2</span>
+<span id="cb4-2"><a href="run-the-database-locally.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-3"><a href="run-the-database-locally.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="run-the-database-locally.html#cb4-4" aria-hidden="true" tabindex="-1"></a>con_details <span class="op">=</span> {</span>
+<span id="cb4-5"><a href="run-the-database-locally.html#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;host&quot;</span>      : <span class="st">&quot;localhost&quot;</span>,</span>
+<span id="cb4-6"><a href="run-the-database-locally.html#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;database&quot;</span>  : <span class="st">&quot;next&quot;</span>,</span>
+<span id="cb4-7"><a href="run-the-database-locally.html#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;user&quot;</span>      : <span class="st">&quot;postgres&quot;</span>,</span>
+<span id="cb4-8"><a href="run-the-database-locally.html#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;password&quot;</span>  : <span class="st">&quot;postgres&quot;</span>,</span>
+<span id="cb4-9"><a href="run-the-database-locally.html#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;port&quot;</span>      : <span class="st">&quot;5432&quot;</span></span>
+<span id="cb4-10"><a href="run-the-database-locally.html#cb4-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-11"><a href="run-the-database-locally.html#cb4-11" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> psycopg2.<span class="ex">connect</span>(<span class="op">**</span>con_details)</span>
+<span id="cb4-12"><a href="run-the-database-locally.html#cb4-12" aria-hidden="true" tabindex="-1"></a>speeches <span class="op">=</span> pd.read_sql_query(<span class="st">&quot;select * from open_discours.speeches&quot;</span>, con)</span></code></pre></div>
+</details>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="recreate-the-database-locally.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="database-schema.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="download-a-data-dump.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="recreate-the-database-locally.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,25 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Open Discourse</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <title>Open Discourse - Documentation</title>
+  <meta name="description" content="This is the official documentation of the Open Discourse project" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Open Discourse" />
+  <meta property="og:title" content="Open Discourse - Documentation" />
   <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://opendiscourse.de" />
   
-  
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  
+  <meta property="og:description" content="This is the official documentation of the Open Discourse project" />
+  <meta name="github-repo" content="open-discourse/open-discourse" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Open Discourse" />
+  <meta name="twitter:title" content="Open Discourse - Documentation" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="This is the official documentation of the Open Discourse project" />
   
 
+<meta name="author" content="Open Discourse Team" />
 
 
+<meta name="date" content="2021-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -30,7 +32,7 @@
   
   
 
-<link rel="next" href="intro.html"/>
+<link rel="next" href="get-the-data.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,6 +52,7 @@
 
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -129,38 +132,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://opendiscourse.de/"><img alt="Open Discourse" src="https://opendiscourse.de/images/github/open-discourse_full_black_transparent.png" width="230"/></li>
+<li>Documentation of Open Discourse <br>
+Based on database v1.0.0.</li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> What is Open Discouse?</a></li>
+<li class="chapter" data-level="2" data-path="get-the-data.html"><a href="get-the-data.html"><i class="fa fa-check"></i><b>2</b> Get the Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="download-a-data-dump.html"><a href="download-a-data-dump.html"><i class="fa fa-check"></i><b>2.1</b> Download a data dump</a></li>
+<li class="chapter" data-level="2.2" data-path="run-the-database-locally.html"><a href="run-the-database-locally.html"><i class="fa fa-check"></i><b>2.2</b> Run the database locally</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="run-the-database-locally.html"><a href="run-the-database-locally.html#get-and-launch-the-database"><i class="fa fa-check"></i><b>2.2.1</b> Get and launch the database</a></li>
+<li class="chapter" data-level="2.2.2" data-path="run-the-database-locally.html"><a href="run-the-database-locally.html#use-the-database"><i class="fa fa-check"></i><b>2.2.2</b> Use the database</a></li>
+<li class="chapter" data-level="2.2.3" data-path="run-the-database-locally.html"><a href="run-the-database-locally.html#code-examples"><i class="fa fa-check"></i><b>2.2.3</b> Code examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="recreate-the-database-locally.html"><a href="recreate-the-database-locally.html"><i class="fa fa-check"></i><b>2.3</b> Recreate the database locally</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html"><i class="fa fa-check"></i><b>3</b> Data Report of the Database</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#preface"><i class="fa fa-check"></i><b>3.1</b> Preface</a></li>
-<li class="chapter" data-level="3.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#database-schema"><i class="fa fa-check"></i><b>3.2</b> Database Schema</a></li>
-<li class="chapter" data-level="3.3" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#speeches-table"><i class="fa fa-check"></i><b>3.3</b> Speeches Table</a>
+<li class="chapter" data-level="3.1" data-path="database-schema.html"><a href="database-schema.html"><i class="fa fa-check"></i><b>3.1</b> Database Schema</a></li>
+<li class="chapter" data-level="3.2" data-path="speeches-table.html"><a href="speeches-table.html"><i class="fa fa-check"></i><b>3.2</b> Speeches Table</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#speeches-summary-table"><i class="fa fa-check"></i><b>3.3.1</b> Speeches summary table</a></li>
-<li class="chapter" data-level="3.3.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#additional-remarks"><i class="fa fa-check"></i><b>3.3.2</b> Additional Remarks</a></li>
+<li class="chapter" data-level="3.2.1" data-path="speeches-table.html"><a href="speeches-table.html#speeches-summary-table"><i class="fa fa-check"></i><b>3.2.1</b> Speeches summary table</a></li>
+<li class="chapter" data-level="3.2.2" data-path="speeches-table.html"><a href="speeches-table.html#additional-remarks"><i class="fa fa-check"></i><b>3.2.2</b> Additional Remarks</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#factions-table"><i class="fa fa-check"></i><b>3.4</b> Factions Table</a>
+<li class="chapter" data-level="3.3" data-path="factions-table.html"><a href="factions-table.html"><i class="fa fa-check"></i><b>3.3</b> Factions Table</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#factions-summary-table"><i class="fa fa-check"></i><b>3.4.1</b> Factions summary table</a></li>
-<li class="chapter" data-level="3.4.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#additional-remarks-1"><i class="fa fa-check"></i><b>3.4.2</b> Additional Remarks</a></li>
+<li class="chapter" data-level="3.3.1" data-path="factions-table.html"><a href="factions-table.html#factions-summary-table"><i class="fa fa-check"></i><b>3.3.1</b> Factions summary table</a></li>
+<li class="chapter" data-level="3.3.2" data-path="factions-table.html"><a href="factions-table.html#additional-remarks-1"><i class="fa fa-check"></i><b>3.3.2</b> Additional Remarks</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#politicians-table"><i class="fa fa-check"></i><b>3.5</b> Politicians Table</a>
+<li class="chapter" data-level="3.4" data-path="politicians-table.html"><a href="politicians-table.html"><i class="fa fa-check"></i><b>3.4</b> Politicians Table</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#politicians-summary-table"><i class="fa fa-check"></i><b>3.5.1</b> Politicians summary table</a></li>
-<li class="chapter" data-level="3.5.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#additional-remarks-2"><i class="fa fa-check"></i><b>3.5.2</b> Additional Remarks</a></li>
+<li class="chapter" data-level="3.4.1" data-path="politicians-table.html"><a href="politicians-table.html#politicians-summary-table"><i class="fa fa-check"></i><b>3.4.1</b> Politicians summary table</a></li>
+<li class="chapter" data-level="3.4.2" data-path="politicians-table.html"><a href="politicians-table.html#additional-remarks-2"><i class="fa fa-check"></i><b>3.4.2</b> Additional Remarks</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#contribs"><i class="fa fa-check"></i><b>3.6</b> Contributions Tables</a>
+<li class="chapter" data-level="3.5" data-path="contribs.html"><a href="contribs.html"><i class="fa fa-check"></i><b>3.5</b> Contributions Tables</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#contributions-simplified"><i class="fa fa-check"></i><b>3.6.1</b> Contributions Simplified</a></li>
-<li class="chapter" data-level="3.6.2" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#contributions-extended-experimental"><i class="fa fa-check"></i><b>3.6.2</b> Contributions Extended (experimental)</a></li>
+<li class="chapter" data-level="3.5.1" data-path="contribs.html"><a href="contribs.html#contributions-simplified"><i class="fa fa-check"></i><b>3.5.1</b> Contributions Simplified</a></li>
+<li class="chapter" data-level="3.5.2" data-path="contribs.html"><a href="contribs.html#contributions-extended-experimental"><i class="fa fa-check"></i><b>3.5.2</b> Contributions Extended (experimental)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#electoral-terms-table"><i class="fa fa-check"></i><b>3.7</b> Electoral Terms Table</a>
+<li class="chapter" data-level="3.6" data-path="electoral-terms-table.html"><a href="electoral-terms-table.html"><i class="fa fa-check"></i><b>3.6</b> Electoral Terms Table</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="data-report-of-the-database.html"><a href="data-report-of-the-database.html#electoral-terms-summary-table"><i class="fa fa-check"></i><b>3.7.1</b> Electoral Terms summary table</a></li>
+<li class="chapter" data-level="3.6.1" data-path="electoral-terms-table.html"><a href="electoral-terms-table.html#electoral-terms-summary-table"><i class="fa fa-check"></i><b>3.6.1</b> Electoral Terms summary table</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -175,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Open Discourse</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Open Discourse - Documentation</a>
           </h1>
         </div>
 
@@ -184,13 +197,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Open Discourse</h1>
+<h1 class="title">Open Discourse - Documentation</h1>
+<p class="author"><em>Open Discourse Team</em></p>
+<p class="date"><em>2021-03-21</em></p>
 </div>
 <div id="prerequisites" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Prerequisites</h1>
-<p>This is the official documentation of <a href="opendiscourse.de">Open Discourse</a>.</p>
-<p>This documentation serves the purpose of providing a description of the latest data base build. Also, you can find basic instructions on how to use the Open Discourse data base for your own analyses.</p>
-<div style="page-break-after: always;"></div>
+<p>This is the official documentation space of the <a href="opendiscourse.de">Open Discourse</a> corpus.</p>
+<p>Currently you can find detailed documentation about these topics:</p>
+<ul>
+<li><a href="get-the-data.html#get-the-data">Get the Data</a></li>
+<li><a href="data-report-of-the-database.html#data-report-of-the-database">Data Report of the Database</a></li>
+</ul>
+<hr />
+<div class="infobox caution">
+<p><strong>Citing Open Discourse</strong></p>
+<p>If you want to cite the Open Discourse corpus, please cite the resource by referring to the associated data paper published at the Harvard Dataverse as:</p>
+<blockquote>
+<p><em>Richter, F.; Koch, P.; Franke, O.; Kraus, J.; Kuruc, F.; Thiem, A.; Högerl, J.; Heine, S.; Schöps, K., 2020, “Open Discourse”, <a href="https://doi.org/10.7910/DVN/FIKIBO" class="uri">https://doi.org/10.7910/DVN/FIKIBO</a>, Harvard Dataverse</em></p>
+</blockquote>
+</div>
 
 </div>
             </section>
@@ -199,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="get-the-data.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -214,21 +240,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
+"sharing": false,
+"fontsettings": false,
 "edit": {
 "link": null,
 "text": null
@@ -241,10 +254,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["docs.pdf", "docs.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
-}
+},
+"info": false
 });
 });
 </script>
