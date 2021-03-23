@@ -79,7 +79,7 @@ interface StatisticImageProps {
   imagePath: string;
   imageAlt: string;
 }
-const StatisticImage: React.FC<StatisticImageProps> = ({
+export const StatisticImage: React.FC<StatisticImageProps> = ({
   imagePath,
   imageAlt,
 }) => {
