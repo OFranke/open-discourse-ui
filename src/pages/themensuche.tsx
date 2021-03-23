@@ -75,7 +75,12 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
           <DefaultHeadline size="s" as="h2">
             Worüber spricht der Bundestag?
           </DefaultHeadline>
-          <TopicLineGraph marginTop={{ base: 5, md: 10, lg: 20 }} />
+          <DefaultText>
+            Analysieren Sie selbst, über welche Themen der deutsche Bundestag
+            seit 1949 spricht. Wählen Sie aus 73 Themen und filtern Sie die
+            Sprecher_Innen nach Geschlecht, Alter, Partei und mehr.
+          </DefaultText>
+          <TopicLineGraph marginTop={{ base: 5, md: 10, lg: 10 }} />
           <TopicModelling />
         </DefaultContainer>
       </Section>
@@ -83,6 +88,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
         marginTop={{ base: "8", sm: "14", md: "20", lg: "20", xl: "32" }}
       >
         <DefaultContainer size="l">
+          <DefaultHeadline size="s">FAQ</DefaultHeadline>
           <Accordion allowToggle>
             <AccordionItem>
               <h2>
@@ -107,7 +113,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
                   Häufigkeit des Begriffes “Klimaschutz” über die Jahre
                   ausgezählt und dargestellt werden. Allerdings kann über das
                   Thema “Klimaschutz” gesprochen werden, ohne dieses Wort direkt
-                  zu verwenden: So können Politiker*Innen zum Beispiel von
+                  zu verwenden: So können Politiker_Innen zum Beispiel von
                   Naturschutz, Energiewende, CO2-Reduktion oder dem Pariser
                   Abkommen sprechen, und sich damit auch im Themenkomplex
                   “Klimaschutz” bewegen. Um also die Intensität eines Themas und

@@ -5,6 +5,7 @@ import {
   FlexProps,
   HStack,
   IconButton,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 import { AnnotationLabel } from "react-annotation";
@@ -25,7 +26,7 @@ import {
 import { useRouter } from "next/router";
 import queryString from "query-string";
 import LoadingSpinner from "@bit/limebit.chakra-ui-recipes.loading-spinner";
-import DefaultText from "@bit/limebit.limebit-ui.default-text";
+import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import {
   generateLinkedInShareLink,
   getApiCallParamsFromUrlParams,
@@ -42,6 +43,7 @@ import { useState } from "react";
 import { CartesianMarkerProps } from "@nivo/core";
 import { actorFilterOptions } from "./helpers/filters";
 import { containerSizes } from "@bit/limebit.limebit-ui.default-container";
+import { Box } from "@chakra-ui/react";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -67,16 +69,7 @@ const CustomAnnotation = ({
     return serie.data.map((serieDataEntry) => {
       if (serieDataEntry.data?.annotation) {
         const annotation: Annotation = serieDataEntry.data.annotation;
-        console.log(
-          "\x1b[33m%s\x1b[0m",
-          "%c >> serieDataEntry.position.x",
-          serieDataEntry.position.x
-        );
-        console.log(
-          "\x1b[33m%s\x1b[0m",
-          "%c >> serieDataEntry.position.y",
-          serieDataEntry.position.y
-        );
+
         return (
           <AnnotationLabel
             key={`${serieDataEntry.position.x} - ${serieDataEntry.position.y}`}
@@ -233,7 +226,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
         const dataFetchePromises = [];
 
         const uniqueGraphColors: string[] = [];
-        for (let i = 0; i <= 5; i++) {
+        for (let i = filterObject.length - 1; i >= 0; i--) {
           if (filterObject[i]) {
             const apiCallParams = getApiCallParamsFromUrlParams(
               filterObject[i]
@@ -267,7 +260,10 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
               const markers: CartesianMarkerProps[] = [];
 
               dataResultArray.map((data, index) => {
-                const id = getResultLabel(filterObject, index);
+                const id = getResultLabel(
+                  filterObject,
+                  dataResultArray.length - 1 - index
+                );
                 const smoothedData = smoothTopicResultData(data.data);
                 topicResult.push({
                   id: id,
@@ -290,9 +286,14 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
 
   const legendItemHeight = 40;
 
+  // show annotations/markers only on desktop
   const [showAnnotations, setToggleAnnotations] = useState(true);
   const [showMarkers, setToggleMarkers] = useState(true);
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
+  const hasAnnotations = state.data.find((item) =>
+    item.data.find((innerItem) => Boolean(innerItem?.annotation))
+  );
   return (
     <Flex
       {...flexProps}
@@ -305,7 +306,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
       )}
       {state.status == "idle" && !state.data.length && (
         <DefaultText position="absolute" zIndex={1}>
-          Wählen Sie Filter aus und starten Sie die Topic Suche
+          Wählen Sie unten das erste Thema für Ihre Analyse
         </DefaultText>
       )}
       <Flex
@@ -327,6 +328,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
       >
         <ResponsiveLine
           margin={{
+            top: legendItemHeight,
             right: 10,
             bottom: 50 + state.data.length * legendItemHeight,
             left: 40,
@@ -334,18 +336,17 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           data={state.data || []}
           animate={true}
           enableSlices={"x"}
-          yFormat=" >-.2f"
+          yFormat=" >-.3f"
           enablePoints={true}
           layers={[
             "grid",
             "markers",
             "axes",
             "areas",
-            "crosshair",
             "lines",
-            "slices",
             "mesh",
             "legends",
+            isMobile ? "legends" : "slices",
             showAnnotations ? CustomAnnotation : "legends",
           ]}
           curve="monotoneX"
@@ -375,31 +376,98 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           ]}
           markers={showMarkers ? state.markers : undefined}
         />
+
         <HStack
           spacing={5}
           position="absolute"
           zIndex="1000"
-          bottom={`${
-            state.data.length ? state.data.length * legendItemHeight - 15 : -15
-          }px`}
+          marginX="2"
+          // bottom={`${
+          //   state.data.length ? state.data.length * legendItemHeight - 15 : -15
+          // }px`}
+          top={0}
           right={0}
           display={{ base: "none", md: "initial" }}
         >
-          <Checkbox
-            colorScheme="gray"
-            defaultIsChecked={showAnnotations}
-            onChange={() => setToggleAnnotations(!showAnnotations)}
-          >
-            Hinweise Anzeigen
-          </Checkbox>
-          <Checkbox
-            colorScheme="gray"
-            defaultIsChecked={showMarkers}
-            onChange={() => setToggleMarkers(!showMarkers)}
-          >
-            Ereignisse Anzeigen
-          </Checkbox>
+          {hasAnnotations && (
+            <Checkbox
+              colorScheme="gray"
+              defaultIsChecked={showAnnotations}
+              onChange={() => setToggleAnnotations(!showAnnotations)}
+            >
+              Hinweise Anzeigen
+            </Checkbox>
+          )}
+          {state.markers.length > 0 && (
+            <Checkbox
+              colorScheme="gray"
+              defaultIsChecked={showMarkers}
+              onChange={() => setToggleMarkers(!showMarkers)}
+            >
+              Ereignisse Anzeigen
+            </Checkbox>
+          )}
         </HStack>
+        {state.data.length > 0 && (
+          <Box
+            position="absolute"
+            zIndex="1000"
+            bottom={{
+              base: "unset",
+              md: `${
+                state.data.length
+                  ? state.data.length * legendItemHeight - 50
+                  : -50
+              }px`,
+            }}
+            right={{ base: "unset", md: 0 }}
+            left={{ base: 0, md: "unset" }}
+            top={{ base: "-10px", md: "unset" }}
+            textAlign="center"
+            display={{ base: "inline-flex", md: "initial" }}
+            alignItems={{ base: "center", md: "initial" }}
+          >
+            <DefaultText
+              as="label"
+              fontSize={{ base: "14px" }}
+              marginBottom={0}
+            >
+              Diese Analyse teilen
+            </DefaultText>
+            <Box>
+              <IconButton
+                onClick={handleTwitterButtonClick}
+                justifyContent={"center"}
+                fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
+                variant="ghost"
+                aria-label="GitHub"
+                icon={<FaTwitter color="#1DA1F2" />}
+                marginX="2"
+                disabled={state.status == "resolved" ? false : true}
+              />
+              <IconButton
+                onClick={handleLinkedInButtonClick}
+                justifyContent={"center"}
+                fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
+                variant="ghost"
+                aria-label="GitHub"
+                icon={<FaLinkedin color="#2867B2" />}
+                marginX="2"
+                disabled={state.status == "resolved" ? false : true}
+              />
+              <IconButton
+                onClick={handleFacebookButtonClick}
+                justifyContent={"center"}
+                fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
+                variant="ghost"
+                aria-label="GitHub"
+                icon={<FaFacebookSquare color="#4267B2" />}
+                marginX="2"
+                disabled={state.status == "resolved" ? false : true}
+              />
+            </Box>
+          </Box>
+        )}
       </Flex>
       <Flex
         marginTop={{
@@ -408,38 +476,9 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           lg: "6",
           xl: "8",
         }}
-      >
-        <IconButton
-          onClick={handleTwitterButtonClick}
-          justifyContent={{ base: "left", lg: "center" }}
-          fontSize={{ base: "md", md: "2xl", lg: "3xl", xl: "4xl" }}
-          variant="ghost"
-          aria-label="GitHub"
-          icon={<FaTwitter />}
-          marginX="2"
-          disabled={state.status == "resolved" ? false : true}
-        />
-        <IconButton
-          onClick={handleFacebookButtonClick}
-          justifyContent={{ base: "left", lg: "center" }}
-          fontSize={{ base: "md", md: "2xl", lg: "3xl", xl: "4xl" }}
-          variant="ghost"
-          aria-label="GitHub"
-          icon={<FaFacebookSquare />}
-          marginX="2"
-          disabled={state.status == "resolved" ? false : true}
-        />
-        <IconButton
-          onClick={handleLinkedInButtonClick}
-          justifyContent={{ base: "left", lg: "center" }}
-          fontSize={{ base: "md", md: "2xl", lg: "3xl", xl: "4xl" }}
-          variant="ghost"
-          aria-label="GitHub"
-          icon={<FaLinkedin />}
-          marginX="2"
-          disabled={state.status == "resolved" ? false : true}
-        />
-      </Flex>
+        width="100%"
+        justifyContent="flex-end"
+      ></Flex>
     </Flex>
   );
 };

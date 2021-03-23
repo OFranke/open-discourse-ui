@@ -2,7 +2,7 @@ import { ColoredSelectInput } from "./colored-select-input";
 import { FilterParams } from "../helpers/types";
 import { Stack, Box, Link, IconButton, Flex } from "@chakra-ui/react";
 import { useState } from "react";
-import { CloseIcon } from "@chakra-ui/icons";
+import { CloseIcon, ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { Card } from "@bit/limebit.limebit-ui.card";
 import {
   topicFilterOptions,
@@ -32,15 +32,10 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
   );
   const [showMoreFilters, setShowMoreFilters] = useState(false);
 
-  console.log(
-    "\x1b[33m%s\x1b[0m",
-    "%c >>filterState.color ",
-    filterState.color
-  );
   return (
     <Card marginY={5} borderLeft={`8px solid ${filterState.color}`}>
       <Flex width="100%" justifyContent="space-around">
-        <Box width="80%">
+        <Box width={{ base: "80%", sm: "85%" }}>
           <Stack
             direction={{ base: "column", md: "row" }}
             marginBottom={{ base: 2, lg: 2 }}
@@ -48,7 +43,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
             <ColoredSelectInput
               color={filterState.color}
               rawData={topicFilterOptions}
-              placeholder="Nach Thema Filtern"
+              placeholder="Thema auswählen"
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
@@ -62,7 +57,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
             <ColoredSelectInput
               color={filterState.color}
               rawData={actorFilterOptions}
-              placeholder="Nach Akteur Filtern"
+              placeholder="Nach Personen & Parteien filtern"
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
@@ -140,12 +135,12 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
           )}
         </Box>
         <Flex
-          width="20%"
+          width={{ base: "20%", sm: "15%" }}
           marginLeft={1}
           flexDirection={{ base: "column-reverse", md: "row" }}
-          alignItems={{ md: "center" }}
+          // alignItems={{ md: "center" }}
           textAlign="center"
-          justifyContent="center"
+          justifyContent="flex-end"
         >
           <Box>
             <Link
@@ -153,7 +148,25 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
               href="#"
               onClick={(_e) => setShowMoreFilters((prevState) => !prevState)}
             >
-              {showMoreFilters ? "Weniger optionen" : "Mehr optionen"}
+              {showMoreFilters ? (
+                <IconButton
+                  marginLeft={{ base: 2, lg: 4 }}
+                  variant="outline"
+                  colorScheme={"pink"}
+                  aria-label="Mehr Filter anzeigen"
+                  fontSize="40px"
+                  icon={<ChevronUpIcon />}
+                />
+              ) : (
+                <IconButton
+                  marginLeft={{ base: 2, lg: 4 }}
+                  variant="outline"
+                  colorScheme={"pink"}
+                  aria-label="Weniger Filter anzeigen"
+                  fontSize="40px"
+                  icon={<ChevronDownIcon />}
+                />
+              )}
             </Link>
           </Box>
           <Box>
@@ -166,6 +179,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
               disabled={!Boolean(removeFilter)}
               icon={<CloseIcon />}
               onClick={removeFilter}
+              marginBottom={{ base: 2, md: 0 }}
             />
           </Box>
         </Flex>

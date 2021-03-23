@@ -18,22 +18,12 @@ interface FilterReducerAction {
   entity: FilterParams;
 }
 
-const usedColors: Set<string> = new Set();
-const defaultFilterColor = "black";
-
 const generateFilterId = () => {
   return Math.random().toString(36).substr(2, 5);
 };
 
-const calculateNextColor = ({
-  currentColor,
-  actorId,
-}: {
-  currentColor: string;
-  actorId: string;
-}) => {
-  // let nextColor =
-};
+const defaultColors = ["#FBB6CE", "#ED64A6", "#97266D", "#90CDF4", "#3182CE"];
+
 const filterReducer = (
   previousState: TopicModellingState,
   action: FilterReducerAction
@@ -46,7 +36,7 @@ const filterReducer = (
           ...previousState.filters,
           {
             ...action.entity,
-            color: defaultFilterColor,
+            color: "transparent",
           },
         ],
       };
@@ -72,7 +62,15 @@ const filterReducer = (
             return { ...currentFilter, color };
           }
         }
-        return currentFilter;
+        const selectedDefaultColor = defaultColors.find(
+          (color) => !uniqueUsedColors.has(color)
+        );
+        selectedDefaultColor && uniqueUsedColors.add(selectedDefaultColor);
+
+        return {
+          ...currentFilter,
+          color: selectedDefaultColor || "transparent",
+        };
       });
 
       return {
@@ -82,6 +80,7 @@ const filterReducer = (
     }
     case "UPDATE": {
       const uniqueUsedColors: Set<string> = new Set();
+
       const updatedFilters = previousState.filters.map((currentFilter) => {
         if (currentFilter.filterId == action.entity?.filterId) {
           const currentFilterIsPolitician = politicianFilterOptions.find(
@@ -110,8 +109,13 @@ const filterReducer = (
               };
             }
           }
+          const selectedDefaultColor = defaultColors.find(
+            (color) => !uniqueUsedColors.has(color)
+          );
+          selectedDefaultColor && uniqueUsedColors.add(selectedDefaultColor);
           return {
             ...action.entity,
+            color: selectedDefaultColor || "transparent",
             ...(currentFilterIsPolitician && {
               gender: null,
               age: null,
@@ -133,7 +137,14 @@ const filterReducer = (
             }
           }
         }
-        return currentFilter;
+        const selectedDefaultColor = defaultColors.find(
+          (color) => !uniqueUsedColors.has(color)
+        );
+        selectedDefaultColor && uniqueUsedColors.add(selectedDefaultColor);
+        return {
+          ...currentFilter,
+          color: selectedDefaultColor || "transparent",
+        };
       });
       return {
         ...previousState,
@@ -156,7 +167,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
       : [
           {
             filterId: generateFilterId(),
-            color: defaultFilterColor,
+            color: "transparent",
             topics: null,
             age: null,
             gender: null,
@@ -167,9 +178,9 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
         ],
   });
 
-  if (validatedFilters.length > 0) {
-    validatedFilters.map((filter) => usedColors.add(filter.color));
-  }
+  // if (validatedFilters.length > 0) {
+  //   validatedFilters.map((filter) => usedColors.add(filter.color));
+  // }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -179,7 +190,6 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
       })}`
     );
   };
-  console.log("\x1b[33m%s\x1b[0m", "%c >> state", state);
 
   return (
     <Box {...boxProps}>
@@ -212,7 +222,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
             colorScheme={"pink"}
             type="submit"
           >
-            Topics suchen
+            Analysieren
           </DefaultButton>
           <DefaultButton
             colorScheme={"pink"}
@@ -223,7 +233,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
               dispatch({
                 action: "ADD",
                 entity: {
-                  color: defaultFilterColor,
+                  color: "transparent",
                   filterId: generateFilterId(),
                   actor: null,
                   age: null,
@@ -235,7 +245,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
               })
             }
           >
-            Filter hinzufügen
+            Linie hinzufügen
           </DefaultButton>
         </Stack>
       </form>

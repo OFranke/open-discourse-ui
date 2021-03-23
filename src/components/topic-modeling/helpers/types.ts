@@ -31,6 +31,7 @@ export interface TopicData extends Serie {
 export interface TopicDataEntry {
   x: number;
   y: number;
+  annotation?: Annotation;
 }
 
 export interface Annotation {
