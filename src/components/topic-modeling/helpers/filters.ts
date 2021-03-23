@@ -86,14 +86,15 @@ export const genderFilterOptions: DataProps[] = [
 ];
 
 const filterColors: FilterColors = {
-  party_0: ["#212529", "#343a40", "#495057", "#6c757d", "#adb5bd"],
-  party_1: ["#ff0a54", "#ff477e", "#ff5c8a", "#ff7096", "#ff85a1"],
-  party_2: ["#F7CA18", "#E1BC49", "#CBAF66", "#B2A27F", "#969696"],
-  party_3: ["#007f5f", "#2b9348", "#55a630", "#80b918", "#aacc00"],
-  party_4: ["#e0aaff", "#c77dff", "#9d4edd", "#7b2cbf", "#5a189a"],
-  party_5: ["#91e5f6", "#84d2f6", "#59a5d8", "#386fa4", "#133c55"],
+  party_0: ["#212529", "#d9d9d9", "#bdbdbd", "#969696", "#737373"],
+  party_1: ["#ff0a54", "#fee0d2", "#fcbba1", "#fc9272", "#fb6a4a"],
+  party_2: ["#ffed00", "#fee391", "#fec44f", "#fe9929", "#ec7014"],
+  party_3: ["#46962b", "#74c476", "#a1d99b", "#c7e9c0", "#e5f5e0"],
+  party_4: ["#dadaeb", "#bcbddc", "#9e9ac8", "#807dba", "#6a51a3"],
+  party_5: ["#009ee0", "#9ecae1", "#6baed6", "#2171b5", "#08306b"],
 };
 
+// colors taken from here: https://colorbrewer2.org/?type=sequential&scheme=BuGn&n=9#type=sequential&scheme=Blues&n=9
 export const partyFilterOptions: ActorDataProps[] = [
   { key: "party_0", label: "CDU/CSU", partyColors: filterColors.party_0 },
   { key: "party_1", label: "SPD", partyColors: filterColors.party_1 },
