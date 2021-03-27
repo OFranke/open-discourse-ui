@@ -78,7 +78,7 @@ export const generateTwitterShareLink = async ({
   });
 
   const url = `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`;
-  const text = "test";
+  const text = "So spricht der Bundestag:";
   const via = "OpenDiscourseDE";
   const hashtags = ["opendiscourse"];
 

@@ -23,6 +23,7 @@ import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { Image } from "../components/image";
 import { Card } from "@bit/limebit.limebit-ui.card";
 import { useRouter } from "next/router";
+import { TopicModellingFaqs } from "../components/topic-modeling/faqs/index";
 
 type Data = {
   test: string;
@@ -148,75 +149,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
       >
         <DefaultContainer size="l">
           <DefaultHeadline size="s">FAQ</DefaultHeadline>
-          <Accordion allowToggle>
-            <AccordionItem>
-              <h2>
-                <AccordionButton>
-                  <Box flex="1" textAlign="left">
-                    <DefaultHeadline size="s" as="span">
-                      Was sehe ich hier?
-                    </DefaultHeadline>
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4}>
-                <DefaultText>
-                  Abgebildet ist die Intensität, mit der sich der Deutsche
-                  Bundestag verschiedenen Themen seit seiner Gründung gewidmet
-                  hat. Auf der X-Achse sind die Jahre 1949-2020 abgebildet, die
-                  Y-Achse entspricht [].
-                </DefaultText>
-                <DefaultText>
-                  Zur Ermittlung der Intensität könnte beispielsweise die
-                  Häufigkeit des Begriffes “Klimaschutz” über die Jahre
-                  ausgezählt und dargestellt werden. Allerdings kann über das
-                  Thema “Klimaschutz” gesprochen werden, ohne dieses Wort direkt
-                  zu verwenden: So können Politiker_Innen zum Beispiel von
-                  Naturschutz, Energiewende, CO2-Reduktion oder dem Pariser
-                  Abkommen sprechen, und sich damit auch im Themenkomplex
-                  “Klimaschutz” bewegen. Um also die Intensität eines Themas und
-                  nicht nur eines Wortes zu ermitteln kann ein Topic Model
-                  verwendet werden. Ein Topic Model ist ein statistisches Modell
-                  zur Identifikation latenter Themen. Der Algorithmus sucht nach
-                  Begriffen, die häufig zusammen genutzt werden und clustert
-                  diese Begriffe zu einem Thema. Somit liegen hinter jedem Thema
-                  hunderte Worte, die eine Indikation geben, dass über dieses
-                  Thema geredet wird. Diese Intensität ist im Graphen
-                  abgebildet.
-                </DefaultText>
-              </AccordionPanel>
-            </AccordionItem>
-
-            <AccordionItem>
-              <h2>
-                <AccordionButton>
-                  <Box flex="1" textAlign="left">
-                    <DefaultHeadline size="s" as="span">
-                      Wie wurde dabei vorgegangen?
-                    </DefaultHeadline>
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4}>
-                <DefaultText>
-                  Als Grundlage für die Analyse dient der Open Discourse
-                  Datensatz mit knapp 900.000 Redebeiträgen. Die Schritte bis
-                  zum Modell sind dabei wie folgt:
-                </DefaultText>
-                <ColoredSubline as="h3" backgroundColor="pink.500">
-                  Part-of-Speech Tagging, Lemmatisierung & Stemming
-                </ColoredSubline>
-                <DefaultText>
-                  Zuerst werden mittels eines Part-of-Speech Tagging nur die
-                  Substantive von Reden extrahiert. Diese werden dann auf ihre
-                  lexikalische Grundform zurückgeführt. Zusätzlich werden die
-                  Worte gestemmt um sicherzugehen, dass
-                </DefaultText>
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
+          <TopicModellingFaqs />
         </DefaultContainer>
       </Section>
     </BaseTemplate>

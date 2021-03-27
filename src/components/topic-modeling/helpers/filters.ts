@@ -401,5 +401,4 @@ export const jobFilterOptions: DataProps[] = [
   { key: "job_4", label: "Agrar" },
   { key: "job_5", label: "Journalismus" },
   { key: "job_6", label: "Handwerk" },
-  { key: "job_7", label: "Andere" },
 ];
