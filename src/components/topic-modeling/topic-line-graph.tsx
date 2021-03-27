@@ -338,6 +338,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           enableSlices={"x"}
           yFormat=" >-.3f"
           enablePoints={true}
+          lineWidth={2.5}
           layers={[
             "grid",
             "markers",

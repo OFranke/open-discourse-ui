@@ -19,11 +19,10 @@ import {
 } from "@chakra-ui/react";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
-import NextButtonLink from "@bit/limebit.limebit-ui.next-button-link";
-import { StatisticImage } from "../components/statistic/index";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { Image } from "../components/image";
 import { Card } from "@bit/limebit.limebit-ui.card";
+import { useRouter } from "next/router";
 
 type Data = {
   test: string;
@@ -46,6 +45,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Page: React.FC<{ data: Data }> = ({ data }) => {
+  const router = useRouter();
   const title = "Plenarprotokolle des deutschen Bundestages seit 1949";
   const description =
     "Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen.";
@@ -102,7 +102,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
             </NextChakraLink>
             <NextChakraLink
               _hover={{ textDecoration: "none" }}
-              href="/themensuche?filters=%5B%7B%22filterId%22%3A%22799st%22%2C%22color%22%3A%22%23212529%22%2C%22actor%22%3A%22politician_11001478%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22filterId%22%3A%22a8f14%22%2C%22color%22%3A%22%23ff0a54%22%2C%22actor%22%3A%22politician_11002078%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22filterId%22%3A%22cl2m3%22%2C%22color%22%3A%22%23d9d9d9%22%2C%22actor%22%3A%22politician_11001165%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22filterId%22%3A%22mmyfd%22%2C%22color%22%3A%22%23fee0d2%22%2C%22actor%22%3A%22politician_11002007%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22filterId%22%3A%222w9x0%22%2C%22color%22%3A%22%23fcbba1%22%2C%22actor%22%3A%22politician_11000246%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%5D"
+              href="/themensuche?filters=%5B%7B%22filterId%22%3A%22a1za6%22%2C%22color%22%3A%22%23212529%22%2C%22topics%22%3A%22topic_72%22%2C%22age%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22actor%22%3A%22politician_11001478%22%2C%22state%22%3Anull%7D%2C%7B%22color%22%3A%22%23ff0a54%22%2C%22filterId%22%3A%22hv48v%22%2C%22actor%22%3A%22politician_11002078%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22color%22%3A%22%23d9d9d9%22%2C%22filterId%22%3A%22fum5p%22%2C%22actor%22%3A%22politician_11001165%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22color%22%3A%22%23fee0d2%22%2C%22filterId%22%3A%22mh3yi%22%2C%22actor%22%3A%22politician_11002007%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22color%22%3A%22%23fcbba1%22%2C%22filterId%22%3A%22f8rfb%22%2C%22actor%22%3A%22politician_11000246%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%5D"
             >
               <Card textAlign="center">
                 <DefaultText>Korruption & Lobbyismus</DefaultText>
@@ -113,6 +113,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
                 />
               </Card>
             </NextChakraLink>
+
             {/* <NextChakraLink
               href="/themensuche"
               display={{ base: "none", md: "initial" }}
