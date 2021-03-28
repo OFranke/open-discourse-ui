@@ -6,7 +6,10 @@ import {
 } from "@chakra-ui/accordion";
 import { Card } from "@bit/limebit.limebit-ui.card";
 import { Box } from "@chakra-ui/react";
-import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
+import {
+  DefaultHeadline,
+  headingMarginBottom,
+} from "@bit/limebit.limebit-ui.default-headline";
 import { ReactNode } from "react";
 
 interface FaqAccordionItemProps {
@@ -20,17 +23,17 @@ export const FaqAccordionItem = ({
   return (
     <AccordionItem marginBottom={{ base: "4", md: "6", lg: "10" }}>
       <Card>
-        <h2>
+        <h3>
           <AccordionButton>
             <Box flex="1" textAlign="left">
-              <DefaultHeadline size="s" as="span">
+              <DefaultHeadline size="xs" as="span">
                 {headline}
               </DefaultHeadline>
             </Box>
             <AccordionIcon />
           </AccordionButton>
-        </h2>
-        <AccordionPanel marginTop={{ base: "4", md: "6", lg: "10" }} pb={4}>
+        </h3>
+        <AccordionPanel marginTop={headingMarginBottom["xs"]} pb={4}>
           {children}
         </AccordionPanel>
       </Card>
