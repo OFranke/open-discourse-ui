@@ -87,7 +87,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
             seit 1949 spricht. Wählen Sie aus 73 Themen und filtern Sie die
             Sprecher_Innen nach Geschlecht, Alter, Partei und mehr.
           </DefaultText>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
             <NextChakraLink
               _hover={{ textDecoration: "none" }}
               href="/themensuche?filters=%5B%7B%22filterId%22%3A%22799st%22%2C%22color%22%3A%22%23212529%22%2C%22actor%22%3A%22party_0%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22a8f14%22%2C%22color%22%3A%22%23ff0a54%22%2C%22actor%22%3A%22party_1%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22cl2m3%22%2C%22color%22%3A%22%23ffed00%22%2C%22actor%22%3A%22party_2%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22mmyfd%22%2C%22color%22%3A%22%2346962b%22%2C%22actor%22%3A%22party_3%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%222w9x0%22%2C%22color%22%3A%22%23dadaeb%22%2C%22actor%22%3A%22party_4%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%5D"
@@ -109,6 +109,19 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
                 <DefaultText>Korruption & Lobbyismus</DefaultText>
                 <Image
                   imagePath={"/themensuche/plot-korruption-und-lobbyismus.jpg"}
+                  imageAlt={"imageAlt"}
+                  sizes={[425, 768]}
+                />
+              </Card>
+            </NextChakraLink>
+            <NextChakraLink
+              _hover={{ textDecoration: "none" }}
+              href="/themensuche?filters=%5B%7B%22filterId%22%3A%22h759c%22%2C%22color%22%3A%22%23212529%22%2C%22actor%22%3A%22party_0%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%2C%7B%22filterId%22%3A%22ow6er%22%2C%22color%22%3A%22%23ff0a54%22%2C%22actor%22%3A%22party_1%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%2C%7B%22filterId%22%3A%22mohuw%22%2C%22color%22%3A%22%23ffed00%22%2C%22actor%22%3A%22party_2%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%2C%7B%22filterId%22%3A%227m2nv%22%2C%22color%22%3A%22%2346962b%22%2C%22actor%22%3A%22party_3%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%2C%7B%22filterId%22%3A%22m40o4%22%2C%22color%22%3A%22%23dadaeb%22%2C%22actor%22%3A%22party_4%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%5D"
+            >
+              <Card textAlign="center">
+                <DefaultText>Verteidigungspolitik</DefaultText>
+                <Image
+                  imagePath={"/themensuche/plot-verteidigungspolitik.jpg"}
                   imageAlt={"imageAlt"}
                   sizes={[425, 768]}
                 />

@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { TopicFilters } from "./topic-filters";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
@@ -9,13 +9,15 @@ import { useRouter } from "next/router";
 import { getCleanedFilterValuesFromUrlParams } from "./helpers/utils";
 import { FilterParams } from "./helpers/types";
 import { actorFilterOptions, politicianFilterOptions } from "./helpers/filters";
+import { ParsedUrlQuery } from "querystring";
 
 interface TopicModellingState {
   filters: Array<FilterParams>;
 }
 interface FilterReducerAction {
-  action: "ADD" | "REMOVE" | "UPDATE";
+  action: "ADD" | "REMOVE" | "UPDATE" | "PARSE_FROM_URL";
   entity: FilterParams;
+  urlQuery?: ParsedUrlQuery;
 }
 
 const generateFilterId = () => {
@@ -151,6 +153,15 @@ const filterReducer = (
         filters: updatedFilters,
       };
     }
+    case "PARSE_FROM_URL": {
+      const validatedFilters = getCleanedFilterValuesFromUrlParams(
+        action.urlQuery
+      );
+
+      return {
+        filters: validatedFilters.length ? validatedFilters : [action.entity],
+      };
+    }
     default: {
       throw new Error(`Unsupported action type: ${action.action}`);
     }
@@ -177,10 +188,22 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
           },
         ],
   });
-
-  // if (validatedFilters.length > 0) {
-  //   validatedFilters.map((filter) => usedColors.add(filter.color));
-  // }
+  useEffect(() => {
+    dispatch({
+      action: "PARSE_FROM_URL",
+      entity: {
+        filterId: generateFilterId(),
+        color: "transparent",
+        topics: null,
+        age: null,
+        gender: null,
+        job: null,
+        actor: null,
+        state: null,
+      },
+      urlQuery: router.query,
+    });
+  }, [router.query]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
