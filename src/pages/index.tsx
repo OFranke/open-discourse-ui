@@ -31,6 +31,7 @@ import {
   Slide4,
 } from "../components/paper-carousel/paper-slides";
 import { useBreakpointValue } from "@chakra-ui/react";
+import { HomeHero } from "../components/home/home-hero";
 
 const Home: React.FC = () => {
   const showArrows = useBreakpointValue({
@@ -47,8 +48,26 @@ const Home: React.FC = () => {
         description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
         canonicalRoute="/"
       />
-      <Section>
-        <HeroWithCta relativePathFromImageDir={"/home_header.jpg"} />
+      <Section
+        marginTop={{
+          base: "8",
+          sm: "14",
+          md: "20",
+          lg: "20",
+          xl: "32",
+        }}
+      >
+        <DefaultContainer size="l">
+          <DefaultHeadline size="m" as="h1">
+            Open Discourse - Analyse aller Plenarprotokolle des Deutschen
+            Bundestages seit 1949
+          </DefaultHeadline>
+          <DefaultText>
+            Mit unserem neuesten Update können Sie alle Texte und Themen
+            durchsuchen, blabla...
+          </DefaultText>
+        </DefaultContainer>
+        <HomeHero />
       </Section>
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">

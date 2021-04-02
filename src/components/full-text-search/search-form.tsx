@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { Stack, Input, useBreakpointValue } from "@chakra-ui/react";
+import { Stack, Input } from "@chakra-ui/react";
 import { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/router";
 import { useGetData } from "./hooks/use-get-data";
@@ -96,14 +96,13 @@ export const SearchForm: React.FC<FormParams> = () => {
           label: faction.id == "-1" ? "Ohne Zuordnung" : faction.fullName,
         }))
     : [];
-  const inputSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
+
   if (politicians && factions) {
     return (
       <>
         <form onSubmit={handleSubmit}>
           <Stack spacing={{ base: 2, md: 3 }}>
             <Input
-              size={inputSize}
               value={formParams?.contentQuery || ""}
               placeholder="Redeinhalt Durchsuchen"
               focusBorderColor="pink.500"

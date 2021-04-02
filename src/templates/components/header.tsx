@@ -10,6 +10,7 @@ import {
   Menu,
   MenuItem,
   MenuList,
+  Badge,
 } from "@chakra-ui/react";
 
 import { FaGithub } from "react-icons/fa";
@@ -95,12 +96,18 @@ export const Header: React.FC = () => {
               href="/volltextsuche"
               underlineColor={theme.colors.pink[500]}
             >
+              <Badge marginRight="3" colorScheme="pink">
+                Neu
+              </Badge>
               Volltextsuche
             </NavItem>
             <NavItem
               href="/themensuche"
               underlineColor={theme.additionalColors.yellow}
             >
+              <Badge marginRight="3" colorScheme="yellow">
+                Neu
+              </Badge>
               Themensuche
             </NavItem>
 
