@@ -1,13 +1,6 @@
 import React from "react";
 import { BaseTemplate } from "../templates/base-template";
-import {
-  Stack,
-  Box,
-  SimpleGrid,
-  UnorderedList,
-  chakra,
-} from "@chakra-ui/react";
-import { HeroWithCta } from "../components/hero-with-cta";
+import { Stack, Box, UnorderedList, chakra } from "@chakra-ui/react";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { Section } from "@bit/limebit.limebit-ui.section";
@@ -15,7 +8,6 @@ import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { Statistic } from "../components/statistic/index";
-import { ProjectCard } from "../components/project-card";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import SEO from "../components/seo";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
@@ -48,29 +40,15 @@ const Home: React.FC = () => {
         description="Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen."
         canonicalRoute="/"
       />
-      <Section
-        marginTop={{
-          base: "8",
-          sm: "14",
-          md: "20",
-          lg: "20",
-          xl: "32",
-        }}
-      >
-        <DefaultContainer size="l">
-          <DefaultHeadline size="m" as="h1">
-            Open Discourse - Analyse aller Plenarprotokolle des Deutschen
-            Bundestages seit 1949
-          </DefaultHeadline>
-          <DefaultText>
-            Mit unserem neuesten Update können Sie alle Texte und Themen
-            durchsuchen, blabla...
-          </DefaultText>
-        </DefaultContainer>
+      <Section>
         <HomeHero />
       </Section>
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
+          <DefaultHeadline size="s" as="h1">
+            Open Discourse - Analyse der Plenarprotokolle des Deutschen
+            Bundestages seit 1949
+          </DefaultHeadline>
           <ColoredSubline as="h2" backgroundColor="pink.500">
             Wie Data Science den Weg zu politischem Diskurs demokratisiert
           </ColoredSubline>

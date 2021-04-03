@@ -22,7 +22,7 @@ export const Question2 = () => {
           mit über 900.000 Redebeiträgen des deutschen Bundestages. Die Schritte
           bis zum Modell sind dabei wie folgt:
         </DefaultText>
-        <OrderedList listStyle="none" listStyleType="none" marginLeft={0}>
+        <OrderedList listStyleType="none" marginLeft={0}>
           <DefaultListItem fontWeight="bold">
             <DefaultText>
               1. Part-of-Speech Tagging, Lemmatisierung & Stemming

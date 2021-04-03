@@ -84,7 +84,7 @@ export const Header: React.FC = () => {
           <Stack
             direction={{ base: "column", lg: "row" }}
             display={{ base: show ? "flex" : "none", lg: "flex" }}
-            spacing={{ base: 4, lg: 10, xl: 14 }}
+            spacing={{ base: 4, lg: 8, xl: 14 }}
             width={{ base: "full", lg: "auto" }}
             alignItems={{ base: "left", lg: "center" }}
             marginTop={{ base: 4, lg: 0 }}

@@ -8,19 +8,9 @@ import SEO from "../components/seo";
 import { TopicModelling } from "../components/topic-modeling/index";
 import { TopicLineGraph } from "../components/topic-modeling/topic-line-graph";
 import { GetServerSideProps } from "next";
-import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Box,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
-import { Image } from "../components/image";
 import { Card } from "@bit/limebit.limebit-ui.card";
 import { useRouter } from "next/router";
 import { TopicModellingFaqs } from "../components/topic-modeling/faqs/index";
@@ -43,6 +33,31 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       data,
     },
   };
+};
+
+import { chakra } from "@chakra-ui/react";
+
+interface ImageProps {
+  imagePath: string;
+  imageAlt: string;
+}
+const Image: React.FC<ImageProps> = ({ imagePath, imageAlt }) => {
+  const multipleSizesWebp = require(`../../public/images${imagePath}?resize&sizes[]=320&sizes[]=640&format=webp`);
+  const multipleSizes = require(`../../public/images${imagePath}?resize&sizes[]=320&sizes[]=640&format=jpg`);
+  return (
+    <picture>
+      <source srcSet={multipleSizesWebp.srcSet} type="image/webp" />
+      <source srcSet={multipleSizes.srcSet} type="image/jpg" />
+      <chakra.img
+        alt={imageAlt}
+        src={multipleSizes.src}
+        width="100%"
+        height="100%"
+        objectFit="contain"
+        loading="lazy"
+      />
+    </picture>
+  );
 };
 
 const Page: React.FC<{ data: Data }> = ({ data }) => {
@@ -87,6 +102,16 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
             seit 1949 spricht. Wählen Sie aus 73 Themen und filtern Sie die
             Sprecher_Innen nach Geschlecht, Alter, Partei und mehr.
           </DefaultText>
+
+          <TopicLineGraph marginTop={{ base: 5, md: 10, lg: 10 }} />
+          <TopicModelling />
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s" as="h2">
+            Beispielanalysen
+          </DefaultHeadline>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
             <NextChakraLink
               _hover={{ textDecoration: "none" }}
@@ -97,7 +122,6 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
                 <Image
                   imagePath={"/themensuche/plot-umwelt-und-klimaschutz.jpg"}
                   imageAlt={"imageAlt"}
-                  sizes={[425, 768]}
                 />
               </Card>
             </NextChakraLink>
@@ -110,7 +134,6 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
                 <Image
                   imagePath={"/themensuche/plot-korruption-und-lobbyismus.jpg"}
                   imageAlt={"imageAlt"}
-                  sizes={[425, 768]}
                 />
               </Card>
             </NextChakraLink>
@@ -123,38 +146,10 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
                 <Image
                   imagePath={"/themensuche/plot-verteidigungspolitik.jpg"}
                   imageAlt={"imageAlt"}
-                  sizes={[425, 768]}
                 />
               </Card>
             </NextChakraLink>
-
-            {/* <NextChakraLink
-              href="/themensuche"
-              display={{ base: "none", md: "initial" }}
-            >
-              <Card>
-                <Image
-                  imagePath={"/themensuche/plot-umwelt-und-klimaschutz.jpg"}
-                  imageAlt={"imageAlt"}
-                  sizes={[425, 768]}
-                />
-              </Card>
-            </NextChakraLink>
-            <NextChakraLink
-              href="/themensuche"
-              display={{ base: "none", md: "initial" }}
-            >
-              <Card>
-                <Image
-                  imagePath={"/themensuche/plot-umwelt-und-klimaschutz.jpg"}
-                  imageAlt={"imageAlt"}
-                  sizes={[425, 768]}
-                />
-              </Card>
-            </NextChakraLink> */}
           </SimpleGrid>
-          <TopicLineGraph marginTop={{ base: 5, md: 10, lg: 10 }} />
-          <TopicModelling />
         </DefaultContainer>
       </Section>
       <Section
