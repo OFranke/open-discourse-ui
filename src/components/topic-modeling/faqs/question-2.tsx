@@ -109,7 +109,7 @@ export const Question2 = () => {
               >
                 Comparative Agenda Projektes <ExternalLinkIcon mx="2px" />
               </NextChakraLink>
-              )* orientiert. Eine Übersicht der relevanten Wörter pro Thema ist
+              )* orientiert. Eine Übersicht der relevanten Wörter pro Thema ist{" "}
               <NextChakraLink
                 color="pink.500"
                 href="https://open-discourse.github.io/open-discourse-documentation/1.0.0/topics-documentation.html"
