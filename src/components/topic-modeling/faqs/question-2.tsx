@@ -28,7 +28,13 @@ export const Question2 = () => {
               1. Part-of-Speech Tagging, Lemmatisierung & Stemming
             </DefaultText>
             <DefaultText fontWeight="initial">
-              Zuerst werden mittels eines Part-of-Speech Taggings nur die
+              Zuerst werden mittels eines <NextChakraLink
+                color="pink.500"
+                href="https://de.wikipedia.org/wiki/Part-of-speech-Tagging"
+                isExternal
+              >
+                Part-of-Speech Taggings <ExternalLinkIcon mx="2px" />
+              </NextChakraLink> nur die
               Substantive von Reden extrahiert. Diese werden dann auf ihre
               lexikalische Grundform zurückgeführt. Zusätzlich werden die Worte
               gestemmt. Somit werden Wörter normalisiert und damit besser
