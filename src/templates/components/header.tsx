@@ -102,13 +102,13 @@ export const Header: React.FC = () => {
               Volltextsuche
             </NavItem>
             <NavItem
-              href="/themensuche"
+              href="/diskursanalyse"
               underlineColor={theme.additionalColors.yellow}
             >
               <Badge marginRight="3" colorScheme="yellow">
                 Neu
               </Badge>
-              Themensuche
+              Diskursanalyse
             </NavItem>
 
             <NavItem underlineColor="black">

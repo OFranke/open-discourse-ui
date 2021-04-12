@@ -102,13 +102,13 @@ export const HomeHero = () => {
               Analysieren Sie, wie relevant Themen waren
             </DefaultText> */}
               <Image
-                imagePath="/home/themensuche.jpg"
+                imagePath="/home/diskursanalyse.jpg"
                 imageAlt="Volltextsuche für alle Debatten im Bundesttag seit 1949"
               />
               <Box textAlign="right">
                 <NextButtonLink
                   colorScheme="pink"
-                  href="/themensuche"
+                  href="/diskursanalyse"
                   marginTop={{
                     base: "4",
                     md: "4",
@@ -116,7 +116,7 @@ export const HomeHero = () => {
                     xl: "8",
                   }}
                 >
-                  Zur Themensuche
+                  Zur Diskursanalyse
                 </NextButtonLink>
               </Box>
             </Card>
