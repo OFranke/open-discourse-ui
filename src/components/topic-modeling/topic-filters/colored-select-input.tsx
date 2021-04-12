@@ -16,17 +16,8 @@ export const ColoredSelectInput = ({
   onSelect,
   placeholder,
   initialValue,
-  color,
   disabled,
 }: DefaultSelectInputProps) => {
-  const Wrapper = ({ children }: { children: ReactNode }) =>
-    disabled ? (
-      <Tooltip label="Hey, I'm here!" aria-label="A tooltip">
-        {children}
-      </Tooltip>
-    ) : (
-      <>{children}</>
-    );
   return (
     <SelectInput
       width="100%"

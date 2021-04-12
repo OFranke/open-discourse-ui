@@ -77,7 +77,10 @@ export const generateTwitterShareLink = async ({
     filters: queryObject?.filters,
   });
 
-  const url = `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`;
+  const url = new URL(
+    `diskursanalyse?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`,
+    process.env.HOST_URL
+  ).href;
   const text = "So spricht der Bundestag:";
   const via = "OpenDiscourseDE";
   const hashtags = ["opendiscourse"];
@@ -103,7 +106,11 @@ export const generateFacebookShareLink = async ({
     filters: queryObject?.filters,
   });
 
-  const url = `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`;
+  const url = new URL(
+    `diskursanalyse?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`,
+    process.env.HOST_URL
+  ).href;
+
   const text = "test";
 
   const shareLink = queryString.stringify({ u: url, quote: text });
@@ -126,8 +133,10 @@ export const generateLinkedInShareLink = async ({
   const urlEncodedFiltersParam = queryString.stringify({
     filters: queryObject?.filters,
   });
-
-  const url = `https://open-discourse-ui-git-implement-topic-modelling.ofranke.vercel.app/themensuche?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`;
+  const url = new URL(
+    `diskursanalyse?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`,
+    process.env.HOST_URL
+  ).href;
 
   const shareLink = queryString.stringify({ url: url });
 

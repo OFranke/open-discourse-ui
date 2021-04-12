@@ -39,7 +39,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
             height: `calc(100vh - ${headerHeight}px - ${footerHeight}px`,
           }}
           width="100%"
-          src={`/docs/${data.version}/index.html`}
+          src={`https://open-discourse.github.io/open-discourse-documentation/${data.version}/index.html`}
         ></iframe>
       )}
     </BaseTemplate>

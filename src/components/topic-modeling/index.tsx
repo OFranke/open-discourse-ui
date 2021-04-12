@@ -2,7 +2,15 @@ import { useEffect, useReducer } from "react";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { TopicFilters } from "./topic-filters";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
-import { IconButton, Flex, Stack, Box, BoxProps } from "@chakra-ui/react";
+import {
+  IconButton,
+  Flex,
+  Stack,
+  Box,
+  BoxProps,
+  Tooltip,
+  Button,
+} from "@chakra-ui/react";
 import { Card } from "@bit/limebit.limebit-ui.card";
 import queryString from "query-string";
 import { useRouter } from "next/router";
@@ -10,6 +18,7 @@ import { getCleanedFilterValuesFromUrlParams } from "./helpers/utils";
 import { FilterParams } from "./helpers/types";
 import { actorFilterOptions, politicianFilterOptions } from "./helpers/filters";
 import { ParsedUrlQuery } from "querystring";
+import { ButtonWithTooltipDisable } from "./button-with-tooltip-disable";
 
 interface TopicModellingState {
   filters: Array<FilterParams>;
@@ -208,7 +217,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     router.push(
-      `themensuche/?${queryString.stringify({
+      `diskursanalyse/?${queryString.stringify({
         filters: JSON.stringify(state.filters),
       })}`
     );
@@ -247,29 +256,35 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
           >
             Analysieren
           </DefaultButton>
-          <DefaultButton
-            colorScheme={"pink"}
-            variant="outline"
-            rightIcon={<AddIcon />}
-            disabled={state.filters.length >= 5 ? true : false}
-            onClick={() =>
-              dispatch({
-                action: "ADD",
-                entity: {
-                  color: "transparent",
-                  filterId: generateFilterId(),
-                  actor: null,
-                  age: null,
-                  state: null,
-                  gender: null,
-                  job: null,
-                  topics: null,
-                },
-              })
-            }
+
+          <Tooltip
+            label="Maximum von fünf Graphen erreicht."
+            isDisabled={state.filters.length >= 5 ? false : true}
           >
-            Linie hinzufügen
-          </DefaultButton>
+            <ButtonWithTooltipDisable
+              colorScheme={"pink"}
+              variant="outline"
+              rightIcon={<AddIcon />}
+              isDisabled={state.filters.length >= 5 ? true : false}
+              onClick={() =>
+                dispatch({
+                  action: "ADD",
+                  entity: {
+                    color: "transparent",
+                    filterId: generateFilterId(),
+                    actor: null,
+                    age: null,
+                    state: null,
+                    gender: null,
+                    job: null,
+                    topics: null,
+                  },
+                })
+              }
+            >
+              Linie hinzufügen
+            </ButtonWithTooltipDisable>
+          </Tooltip>
         </Stack>
       </form>
     </Box>
