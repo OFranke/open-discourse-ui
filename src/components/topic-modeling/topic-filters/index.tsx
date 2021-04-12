@@ -43,7 +43,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
             <ColoredSelectInput
               color={filterState.color}
               rawData={topicFilterOptions}
-              placeholder="Thema auswählen"
+              placeholder="Thema auswählen oder Keywords tippen"
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
@@ -57,7 +57,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
             <ColoredSelectInput
               color={filterState.color}
               rawData={actorFilterOptions}
-              placeholder="Nach Personen & Parteien filtern"
+              placeholder="Nach Personen & Parteien filtern (optional)"
               onSelect={(element) => {
                 updateFilterState({
                   ...filterState,
@@ -75,7 +75,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                 disabled={isPoliticianSelected}
                 color={filterState.color}
                 rawData={genderFilterOptions}
-                placeholder="Geschlecht"
+                placeholder="Geschlecht (optional)"
                 onSelect={(element) => {
                   updateFilterState({
                     ...filterState,
@@ -105,7 +105,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                 disabled={isPoliticianSelected}
                 color={filterState.color}
                 rawData={stateFilterOptions}
-                placeholder="Wahlbundesland"
+                placeholder="Wahlbundesland (optional)"
                 onSelect={(element) => {
                   updateFilterState({
                     ...filterState,
@@ -120,7 +120,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                 disabled={isPoliticianSelected}
                 color={filterState.color}
                 rawData={jobFilterOptions}
-                placeholder="Berufsgruppe"
+                placeholder="Berufsgruppe (optional)"
                 onSelect={(element) => {
                   updateFilterState({
                     ...filterState,
