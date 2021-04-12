@@ -45,7 +45,13 @@ export const Question2 = () => {
               des “Wörterbuches” (die Anzahl der einzelnen Substantive im
               Korpus) zu reduzieren. Insgesamt wurden rund 519.000 dieser
               seltenen Wörter entfernt. Dies verbessert das Modell und die
-              Trainingszeit. Die vollständige Liste seltener Begriffe ist hier
+              Trainingszeit. Die vollständige Liste seltener Begriffe ist <NextChakraLink
+                color="pink.500"
+                href="https://opendiscourse-diskursanalyse.s3.eu-central-1.amazonaws.com/master_stopwords.xlsx"
+                isExternal
+              >
+                hier <ExternalLinkIcon mx="2px" />
+              </NextChakraLink>
               zu finden.
             </DefaultText>
           </DefaultListItem>
@@ -71,7 +77,13 @@ export const Question2 = () => {
               die spezifischen Stoppwörter des Bundestages, bspw.{" "}
               <em>Gesetzesvorlage, Gegenstimmen</em> oder <em>Ausschuss</em>.
               Dabei wurden etwa 4.500 solcher Wörter identifiziert und aus dem
-              Korpus entfernt. Eine vollständige Liste dieser Worte kann hier
+              Korpus entfernt. Eine vollständige Liste dieser Worte kann <NextChakraLink
+                color="pink.500"
+                href="https://opendiscourse-diskursanalyse.s3.eu-central-1.amazonaws.com/master_stopwords.xlsx"
+                isExternal
+              >
+                hier <ExternalLinkIcon mx="2px" />
+              </NextChakraLink>
               eingesehen werden. Als Ergebnis aus diesem Schritt entsteht eine
               große Tabelle, die jeder Rede zu jedem der 400 Themen einen Wert
               zuweist. Dieser Wert beschreibt, wie stark ein Thema in dieser
@@ -98,7 +110,13 @@ export const Question2 = () => {
                 Comparative Agenda Projektes <ExternalLinkIcon mx="2px" />
               </NextChakraLink>
               )* orientiert. Eine Übersicht der relevanten Wörter pro Thema ist
-              hier zu finden.
+              <NextChakraLink
+                color="pink.500"
+                href="https://open-discourse.github.io/open-discourse-documentation/1.0.0/topics-documentation.html"
+                isExternal
+              >
+                hier <ExternalLinkIcon mx="2px" />
+              </NextChakraLink> zu finden.
             </DefaultText>
             <DefaultText fontWeight="initial">
               *Quelle:{" "}
