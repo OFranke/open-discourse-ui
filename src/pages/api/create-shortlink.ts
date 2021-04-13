@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import queryString from "query-string";
-
+import * as path from "path";
 export interface CreateShortlinkApiResponse {
   shortUrl: string;
   longUrl: string;
@@ -99,5 +99,10 @@ export default async (
       res.status(500).json({ message: "Could not create shortlink." });
     });
 
-  return res.status(200).json(shareUrlResponse);
+  const shortUrl = new URL(
+    path.join("l", shareUrlResponse.shortCode),
+    process.env.HOST_URL
+  ).href;
+
+  return res.status(200).json({ ...shareUrlResponse, shortUrl });
 };
