@@ -82,11 +82,7 @@ export default async (
     process.env.HOST_URL
   ).href;
 
-  const text = "So spricht der Bundestag:";
-  const via = "OpenDiscourseDE";
-  const hashtags = ["opendiscourse"];
-
-  const longUrl = queryString.stringify({ url, text, via, hashtags });
+  console.log("\x1b[33m%s\x1b[0m", "%c >> url", url);
 
   const shareUrlResponse: ShlinkShortUrlResponse = await fetch(
     "https://api.opendiscourse.de/rest/v2/short-urls",
@@ -97,7 +93,7 @@ export default async (
         "x-api-key": process.env.SHLINK_API_KEY,
       },
       body: JSON.stringify({
-        longUrl,
+        longUrl: url,
       }),
     }
   )
@@ -107,6 +103,7 @@ export default async (
       // @TODO: find way for typescript to scream if you add shortUrl property
       res.status(500).json({ message: "Could not create shortlink." });
     });
+  console.log("\x1b[33m%s\x1b[0m", "%c >> shareUrlResponse", shareUrlResponse);
 
   return res.status(200).json({ shortUrl: shareUrlResponse.shortUrl });
 };
