@@ -28,10 +28,28 @@ export const Question2 = () => {
               1. Part-of-Speech Tagging, Lemmatisierung & Stemming
             </DefaultText>
             <DefaultText fontWeight="initial">
-              Zuerst werden mittels eines Part-of-Speech Taggings nur die
-              Substantive von Reden extrahiert. Diese werden dann auf ihre
-              lexikalische Grundform zurückgeführt. Zusätzlich werden die Worte
-              gestemmt. Somit werden Wörter normalisiert und damit besser
+              Zuerst werden mittels eines <NextChakraLink
+                color="pink.500"
+                href="https://de.wikipedia.org/wiki/Part-of-speech-Tagging"
+                isExternal
+              >
+                Part-of-Speech Taggings <ExternalLinkIcon mx="2px" />
+              </NextChakraLink> nur die
+              Substantive von Reden extrahiert. Diese werden dann auf ihre{" "}
+              <NextChakraLink
+                color="pink.500"
+                href="https://de.wikipedia.org/wiki/Lemma_(Lexikographie)#Lemmatisierung"
+                isExternal
+              >
+                lexikalische Grundform <ExternalLinkIcon mx="2px" />
+              </NextChakraLink> zurückgeführt. Zusätzlich werden die Worte{" "}
+              <NextChakraLink
+                color="pink.500"
+                href="https://de.wikipedia.org/wiki/Stemming"
+                isExternal
+              >
+                gestemmed <ExternalLinkIcon mx="2px" />
+              </NextChakraLink>. Somit werden Wörter normalisiert und damit besser
               vergleichbar gemacht.
             </DefaultText>
           </DefaultListItem>
@@ -109,7 +127,7 @@ export const Question2 = () => {
               >
                 Comparative Agenda Projektes <ExternalLinkIcon mx="2px" />
               </NextChakraLink>
-              )* orientiert. Eine Übersicht der relevanten Wörter pro Thema ist
+              )* orientiert. Eine Übersicht der relevanten Wörter pro Thema ist{" "}
               <NextChakraLink
                 color="pink.500"
                 href="https://open-discourse.github.io/open-discourse-documentation/1.0.0/topics-documentation.html"
