@@ -8,5 +8,11 @@
       "destination": "/"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/l/:shortlink",
+      "destination": "https://api.opendiscourse.de/:shortlink"
+    }
+  ],
   "version": 2
 }
