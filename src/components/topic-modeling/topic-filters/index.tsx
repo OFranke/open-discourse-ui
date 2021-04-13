@@ -1,6 +1,14 @@
 import { ColoredSelectInput } from "./colored-select-input";
 import { FilterParams } from "../helpers/types";
-import { Stack, Box, Link, IconButton, Flex } from "@chakra-ui/react";
+import {
+  Stack,
+  Box,
+  Link,
+  IconButton,
+  Flex,
+  Text,
+  Button,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { CloseIcon, ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { Card } from "@bit/limebit.limebit-ui.card";
@@ -35,7 +43,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
   return (
     <Card marginY={5} borderLeft={`8px solid ${filterState.color}`}>
       <Flex width="100%" justifyContent="space-around">
-        <Box width={{ base: "80%", sm: "85%" }}>
+        <Box width={{ base: "80%", sm: "85%", lg: "80%", xl: "85%" }}>
           <Stack
             direction={{ base: "column", md: "row" }}
             marginBottom={{ base: 2, lg: 2 }}
@@ -135,7 +143,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
           )}
         </Box>
         <Flex
-          width={{ base: "20%", sm: "15%" }}
+          width={{ base: "20%", sm: "15%", lg: "20%", xl: "15%" }}
           marginLeft={1}
           flexDirection={{ base: "column-reverse", md: "row" }}
           // alignItems={{ md: "center" }}
@@ -149,23 +157,43 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
               onClick={(_e) => setShowMoreFilters((prevState) => !prevState)}
             >
               {showMoreFilters ? (
-                <IconButton
-                  marginLeft={{ base: 2, lg: 4 }}
-                  variant="outline"
-                  colorScheme={"pink"}
-                  aria-label="Mehr Filter anzeigen"
-                  fontSize="40px"
-                  icon={<ChevronUpIcon />}
-                />
+                <>
+                  <IconButton
+                    display={{ base: "inline-flex", lg: "none" }}
+                    marginLeft={{ base: 2, lg: 4 }}
+                    variant="outline"
+                    colorScheme={"pink"}
+                    aria-label="Weniger Filter anzeigen"
+                    fontSize="40px"
+                    icon={<ChevronUpIcon />}
+                  />
+                  <Button
+                    display={{ base: "none", lg: "initial" }}
+                    variant="unstyled"
+                    color="pink.600"
+                  >
+                    Weniger Optionen
+                  </Button>
+                </>
               ) : (
-                <IconButton
-                  marginLeft={{ base: 2, lg: 4 }}
-                  variant="outline"
-                  colorScheme={"pink"}
-                  aria-label="Weniger Filter anzeigen"
-                  fontSize="40px"
-                  icon={<ChevronDownIcon />}
-                />
+                <>
+                  <IconButton
+                    display={{ base: "inline-flex", lg: "none" }}
+                    marginLeft={{ base: 2, lg: 4 }}
+                    variant="outline"
+                    colorScheme={"pink"}
+                    aria-label="Mehr Filter anzeigen"
+                    fontSize="40px"
+                    icon={<ChevronDownIcon />}
+                  />
+                  <Button
+                    display={{ base: "none", lg: "initial" }}
+                    variant="unstyled"
+                    color="pink.600"
+                  >
+                    Mehr Optionen
+                  </Button>
+                </>
               )}
             </Link>
           </Box>

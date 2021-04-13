@@ -248,7 +248,7 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
             />
           );
         })}
-        <Stack direction={{ base: "column", md: "row" }}>
+        <Stack direction={{ base: "column-reverse", md: "row" }}>
           <DefaultButton
             rightIcon={undefined}
             colorScheme={"pink"}
@@ -256,12 +256,12 @@ export const TopicModelling: React.FC<BoxProps> = ({ ...boxProps }) => {
           >
             Analysieren
           </DefaultButton>
-
           <Tooltip
             label="Maximum von fünf Graphen erreicht."
             isDisabled={state.filters.length >= 5 ? false : true}
           >
             <ButtonWithTooltipDisable
+              width="100%"
               colorScheme={"pink"}
               variant="outline"
               rightIcon={<AddIcon />}
