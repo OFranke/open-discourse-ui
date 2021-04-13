@@ -33,41 +33,11 @@ interface ScreenshotApiParams {
   queryObject: any;
 }
 
-const generateImage = async ({
-  urlPath,
-  selector,
-  queryObject,
-}: ScreenshotApiParams): Promise<string> => {
-  if (!process.env.HOST_URL) {
-    throw new Error("environment variable HOST_URL not found.");
-  }
-
-  const canonicalUrl = new URL(urlPath, process.env.HOST_URL).href;
-  const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
-
-  const urlEncodedFiltersParam = queryString.stringify({
-    filters: queryObject?.filters,
-  });
-  const screenshotUrl = `${canonicalUrlWithoutTrailingSlash}?${urlEncodedFiltersParam}`;
-
-  const urlEncodedFetchParams = queryString.stringify({
-    selector,
-    url: screenshotUrl,
-  });
-  const response = await fetch(
-    `https://api.opendiscourse.de:5300/screenshot?${urlEncodedFetchParams}`
-  );
-
-  const result: GenerateImageResponse = await response.json();
-  return `https://fra1.digitaloceanspaces.com/opendiscourse/${result.fileName}`;
-};
-export const generateTwitterShareLink = async ({
+const getShortUrl = async ({
   urlPath,
   selector,
   queryObject,
 }: ScreenshotApiParams) => {
-  const baseUrl = "https://twitter.com/intent/tweet";
-
   const shortUrlResponse: CreateShortlinkApiResponse = await fetch(
     "/api/create-shortlink",
     {
@@ -75,12 +45,21 @@ export const generateTwitterShareLink = async ({
       body: JSON.stringify({ urlPath, selector, queryObject }),
     }
   ).then((res) => res.json());
+  return shortUrlResponse;
+};
 
-  console.log(
-    "\x1b[33m%s\x1b[0m",
-    "%c >> result shortUrlResponse",
-    shortUrlResponse
-  );
+export const generateTwitterShareLink = async ({
+  urlPath,
+  selector,
+  queryObject,
+}: ScreenshotApiParams) => {
+  const baseUrl = "https://twitter.com/intent/tweet";
+
+  const shortUrlResponse = await getShortUrl({
+    urlPath,
+    selector,
+    queryObject,
+  });
 
   const text = "So spricht der Bundestag:";
   const via = "OpenDiscourseDE";
@@ -103,24 +82,18 @@ export const generateFacebookShareLink = async ({
 }: ScreenshotApiParams) => {
   const baseUrl = "https://www.facebook.com/sharer/sharer.php";
 
-  const shareImageUrl = await generateImage({
+  const shortUrlResponse = await getShortUrl({
     urlPath,
     selector,
     queryObject,
   });
 
-  const urlEncodedFiltersParam = queryString.stringify({
-    filters: queryObject?.filters,
+  const text = "So spricht der Bundestag:";
+
+  const shareLink = queryString.stringify({
+    u: shortUrlResponse.shortUrl,
+    quote: text,
   });
-
-  const url = new URL(
-    `diskursanalyse?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`,
-    process.env.HOST_URL
-  ).href;
-
-  const text = "test";
-
-  const shareLink = queryString.stringify({ u: url, quote: text });
   return `${baseUrl}?${shareLink}`;
 };
 
@@ -131,21 +104,13 @@ export const generateLinkedInShareLink = async ({
 }: ScreenshotApiParams) => {
   const baseUrl = "https://www.linkedin.com/sharing/share-offsite/";
 
-  const shareImageUrl = await generateImage({
+  const shortUrlResponse = await getShortUrl({
     urlPath,
     selector,
     queryObject,
   });
 
-  const urlEncodedFiltersParam = queryString.stringify({
-    filters: queryObject?.filters,
-  });
-  const url = new URL(
-    `diskursanalyse?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`,
-    process.env.HOST_URL
-  ).href;
-
-  const shareLink = queryString.stringify({ url: url });
+  const shareLink = queryString.stringify({ url: shortUrlResponse.shortUrl });
 
   return `${baseUrl}?${shareLink}`;
 };
