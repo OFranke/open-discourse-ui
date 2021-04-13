@@ -2,6 +2,7 @@ import queryString from "query-string";
 import { ApiFilterParty, ApiFilterPerson, TopicDataEntry } from "./types";
 import { TopicData, FilterParams } from "./types";
 import { politicianFilterOptions } from "./filters";
+import { CreateShortlinkApiResponse } from "../../../pages/api/create-shortlink";
 
 const getRandomData = () => {
   const arr = Array.from({ length: 71 }, (v, k) => {
@@ -67,25 +68,27 @@ export const generateTwitterShareLink = async ({
 }: ScreenshotApiParams) => {
   const baseUrl = "https://twitter.com/intent/tweet";
 
-  const shareImageUrl = await generateImage({
-    urlPath,
-    selector,
-    queryObject,
-  });
+  const shortUrlResponse: CreateShortlinkApiResponse = await fetch(
+    "/api/create-shortlink",
+    {
+      method: "POST",
+      body: JSON.stringify({ urlPath, selector, queryObject }),
+    }
+  ).then((res) => res.json());
 
-  const urlEncodedFiltersParam = queryString.stringify({
-    filters: queryObject?.filters,
-  });
+  console.log("\x1b[33m%s\x1b[0m", "%c >> result share img", shortUrlResponse);
 
-  const url = new URL(
-    `diskursanalyse?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`,
-    process.env.HOST_URL
-  ).href;
   const text = "So spricht der Bundestag:";
   const via = "OpenDiscourseDE";
   const hashtags = ["opendiscourse"];
 
-  const shareLink = queryString.stringify({ url, text, via, hashtags });
+  const shareLink = queryString.stringify({
+    url: shortUrlResponse.shortUrl,
+    text,
+    via,
+    hashtags,
+  });
+
   return `${baseUrl}?${shareLink}`;
 };
 
