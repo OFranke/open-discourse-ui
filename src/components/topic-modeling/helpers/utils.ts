@@ -97,22 +97,17 @@ export const generateFacebookShareLink = async ({
   return `${baseUrl}?${shareLink}`;
 };
 
-export const generateLinkedInShareLink = async ({
+export const generateShortLink = async ({
   urlPath,
   selector,
   queryObject,
 }: ScreenshotApiParams) => {
-  const baseUrl = "https://www.linkedin.com/sharing/share-offsite/";
-
   const shortUrlResponse = await getShortUrl({
     urlPath,
     selector,
     queryObject,
   });
-
-  const shareLink = queryString.stringify({ url: shortUrlResponse.shortUrl });
-
-  return `${baseUrl}?${shareLink}`;
+  return shortUrlResponse.shortUrl;
 };
 
 export const getApiCallParamsFromUrlParams = (

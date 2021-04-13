@@ -6,6 +6,7 @@ import {
   HStack,
   IconButton,
   useBreakpointValue,
+  useClipboard,
 } from "@chakra-ui/react";
 
 import { AnnotationLabel } from "react-annotation";
@@ -28,7 +29,7 @@ import queryString from "query-string";
 import LoadingSpinner from "@bit/limebit.chakra-ui-recipes.loading-spinner";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import {
-  generateLinkedInShareLink,
+  generateShortLink,
   getApiCallParamsFromUrlParams,
 } from "./helpers/utils";
 
@@ -44,6 +45,8 @@ import { CartesianMarkerProps } from "@nivo/core";
 import { actorFilterOptions } from "./helpers/filters";
 import { containerSizes } from "@bit/limebit.limebit-ui.default-container";
 import { Box } from "@chakra-ui/react";
+import { CopyIcon } from "@chakra-ui/icons";
+import { CopyButton } from "../copy-button";
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -182,6 +185,7 @@ const dataReducer = (
 export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
   const router = useRouter();
   const graphWrapperId = "topic-modelling-line-graph";
+
   const handleTwitterButtonClick = async () => {
     const shareLink = await generateTwitterShareLink({
       urlPath: router.pathname,
@@ -199,13 +203,13 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     });
     window.open(shareLink, "_blank");
   };
-  const handleLinkedInButtonClick = async () => {
-    const shareLink = await generateLinkedInShareLink({
+
+  const handleCopyButtonClick = async () => {
+    return generateShortLink({
       urlPath: router.pathname,
       selector: `#${graphWrapperId}`,
       queryObject: router.query,
     });
-    window.open(shareLink, "_blank");
   };
 
   const [state, dispatchData] = useReducer(dataReducer, {
@@ -447,22 +451,22 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
                 disabled={state.status == "resolved" ? false : true}
               />
               <IconButton
-                onClick={handleLinkedInButtonClick}
-                justifyContent={"center"}
-                fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
-                variant="ghost"
-                aria-label="GitHub"
-                icon={<FaLinkedin color="#2867B2" />}
-                marginX="2"
-                disabled={state.status == "resolved" ? false : true}
-              />
-              <IconButton
                 onClick={handleFacebookButtonClick}
                 justifyContent={"center"}
                 fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
                 variant="ghost"
                 aria-label="GitHub"
                 icon={<FaFacebookSquare color="#4267B2" />}
+                marginX="2"
+                disabled={state.status == "resolved" ? false : true}
+              />
+              <CopyButton
+                copyCallback={handleCopyButtonClick}
+                justifyContent={"center"}
+                fontSize={{ base: "xl", md: "xl", lg: "2xl", xl: "4xl" }}
+                variant="ghost"
+                aria-label="Link zum Teilen kopieren"
+                icon={<CopyIcon />}
                 marginX="2"
                 disabled={state.status == "resolved" ? false : true}
               />

@@ -77,8 +77,6 @@ export default async (
     process.env.HOST_URL
   ).href;
 
-  console.log("\x1b[33m%s\x1b[0m", "%c >> url", url);
-
   const shareUrlResponse: CreateShortlinkApiResponse = await fetch(
     "https://api.opendiscourse.de/rest/v2/short-urls",
     {
