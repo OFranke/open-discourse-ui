@@ -76,7 +76,11 @@ export const generateTwitterShareLink = async ({
     }
   ).then((res) => res.json());
 
-  console.log("\x1b[33m%s\x1b[0m", "%c >> result share img", shortUrlResponse);
+  console.log(
+    "\x1b[33m%s\x1b[0m",
+    "%c >> result shortUrlResponse",
+    shortUrlResponse
+  );
 
   const text = "So spricht der Bundestag:";
   const via = "OpenDiscourseDE";

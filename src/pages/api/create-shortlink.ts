@@ -1,15 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import queryString from "query-string";
 
-interface ShlinkShortUrlResponse {
+export interface CreateShortlinkApiResponse {
   shortUrl: string;
   longUrl: string;
   shortCode: string;
-}
-
-export interface CreateShortlinkApiResponse
-  extends Pick<ShlinkShortUrlResponse, "shortUrl"> {
-  shortUrl: string;
 }
 
 export type CreateShortlinkApiError = {
@@ -84,7 +79,7 @@ export default async (
 
   console.log("\x1b[33m%s\x1b[0m", "%c >> url", url);
 
-  const shareUrlResponse: ShlinkShortUrlResponse = await fetch(
+  const shareUrlResponse: CreateShortlinkApiResponse = await fetch(
     "https://api.opendiscourse.de/rest/v2/short-urls",
     {
       method: "POST",
@@ -103,7 +98,6 @@ export default async (
       // @TODO: find way for typescript to scream if you add shortUrl property
       res.status(500).json({ message: "Could not create shortlink." });
     });
-  console.log("\x1b[33m%s\x1b[0m", "%c >> shareUrlResponse", shareUrlResponse);
 
-  return res.status(200).json({ shortUrl: shareUrlResponse.shortUrl });
+  return res.status(200).json(shareUrlResponse);
 };
