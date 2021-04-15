@@ -240,7 +240,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
               // dataFetchePromises.push(mockFetchData(`topic ${i}`));
               dataFetchePromises.push(
                 fetch(
-                  `https://api.opendiscourse.de:5400/topicmodelling?${queryString.stringify(
+                  `https://api.opendiscourse.de:5300/topicmodelling?${queryString.stringify(
                     apiCallParams
                   )}`,
                   {
