@@ -134,7 +134,7 @@ const Home: React.FC = () => {
             jede Parlamentssitzung des Deutschen Bundestages erstellt werden.
             Diese Berichte dokumentieren jede Rede im Parlament sowie jede
             Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
-            Applaus usw.) der Politker_Innen, die während der Reden stattfanden.
+            Applaus usw.) der Politker:innen, die während der Reden stattfanden.
             Insgesamt besteht das Korpus aus über 200 Millionen Tokens aus fast
             900.000 Reden in mehr als 4.000 verarbeiteten Protokollen. Das Open
             Discourse Korpus deckt insgesamt 99,7 Prozent aller Plenarprotokolle
@@ -201,9 +201,9 @@ const Home: React.FC = () => {
                   gepflegt.
                 </DefaultListItem>
                 <DefaultListItem>
-                  Es gibt seltene Fälle, in denen Politiker_Innen Mitglied der
+                  Es gibt seltene Fälle, in denen Politiker:innen Mitglied der
                   Regierung (MG) sind und nie ein Mandat als Abgeordnete hatten.
-                  Diese Politiker_Innen sind in den oben genannten Stammdaten
+                  Diese Politiker:innen sind in den oben genannten Stammdaten
                   nicht enthalten. Daher werden die{" "}
                   <NextChakraLink
                     color="pink.500"
@@ -248,7 +248,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Im nächsten Schritt wurden eine die Fraktionstabelle, eine
-            Politiker_Innentabelle und eine Tabelle mit den gesprochenen
+            Politiker:innentabelle und eine Tabelle mit den gesprochenen
             Inhalten erstellt und extrahiert. Mit umfangreichen Regex-Muster
             können die Reden, die Person, die die Rede hält, die assoziierte
             Partei und Zwischenrufe durch das Plenum extrahieren werden. Ab der

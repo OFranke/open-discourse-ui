@@ -100,7 +100,7 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
           <DefaultText>
             Analysieren Sie selbst, über welche Themen der deutsche Bundestag
             seit 1949 spricht. Wählen Sie aus 73 Themen und filtern Sie die
-            Sprecher:Innen nach Geschlecht, Alter, Partei und mehr.
+            Sprecher:innen nach Geschlecht, Alter, Partei und mehr.
           </DefaultText>
 
           <TopicLineGraph marginTop={{ base: 5, md: 10, lg: 10 }} />

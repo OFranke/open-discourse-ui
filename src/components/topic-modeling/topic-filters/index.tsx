@@ -98,7 +98,7 @@ export const TopicFilters: React.FC<TopicFilterProps> = ({
                 disabled={isPoliticianSelected}
                 color={filterState.color}
                 rawData={ageFilterOptions}
-                placeholder="Alter"
+                placeholder="Alter (optional)"
                 onSelect={(element) => {
                   updateFilterState({
                     ...filterState,

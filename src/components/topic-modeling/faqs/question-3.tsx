@@ -22,12 +22,12 @@ export const Question3 = () => {
             {
               filter: "Geschlecht",
               description:
-                "Geschlecht der Sprecher*In auf Grundlage der Stammdaten des Deutschen Bundestages",
+                "Geschlecht der Sprecher:in auf Grundlage der Stammdaten des Deutschen Bundestages",
             },
             {
               filter: "Alter",
               description:
-                "Alter der Sprecher*In zum Zeitpunkt der Rede. Geteilt in über 50 und unter 50 Jahre (Durchschnittsalter des Bundestages)",
+                "Alter der Sprecher:in zum Zeitpunkt der Rede. Geteilt in über 50 und unter 50 Jahre (Durchschnittsalter des Bundestages)",
             },
             {
               filter: "Partei",
@@ -36,12 +36,12 @@ export const Question3 = () => {
             {
               filter: "Beruflicher Hintergrund",
               description:
-                "Berufsgruppe der Politiker*In auf Grundlage der Stammdaten. Für mehr Informationen siehe den Link unten.",
+                "Berufsgruppe der Politiker:in auf Grundlage der Stammdaten. Mehr Informationen finden Sie unterhalb dieser Tabelle.",
             },
             {
               filter: "Wahlbundesland",
               description:
-                "Bundesland über welches die Politiker*In eingezogen ist, geteilt in Neue und Alte Bundesländer. Für mehr Informationen siehe den Link unten.",
+                "Bundesland über welches die Politiker:in eingezogen ist, geteilt in neue und alte Bundesländer. Mehr Informationen finden Sie unterhalb dieser Tabelle.",
             },
           ]}
           pageSize={10}

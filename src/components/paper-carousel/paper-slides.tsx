@@ -46,7 +46,7 @@ export const Slide1: React.FC = () => {
       <DefaultText>
         Das Team hinter ZDFheute untersuchte die Plenarprotokolle des Deutschen
         Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich
-        Politiker_Innen des Bundestages seit dem Jahr 1949 mit dem Stichwort
+        Politiker:innen des Bundestages seit dem Jahr 1949 mit dem Stichwort
         “Pandemie” auseinandergesetzt haben.
       </DefaultText>
       <ColoredSubline as="h3" backgroundColor="pink.500">
@@ -88,7 +88,7 @@ export const Slide2: React.FC = () => {
         kam, wie die Daten aufbereitet wurden und wie man auf die Daten
         zugreifen kann. Zusätzlich zeigen die Beiden anhand der Themenfelder
         Datenschutz und Klimawandel, wie der Bundestag sich mit diesen Themen
-        historisch auseinander gesetzt hat und welche Politiker_Innen und
+        historisch auseinander gesetzt hat und welche Politiker:innen und
         Parteien die Themen besonders (un-)interessant fanden.
       </DefaultText>
       <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>

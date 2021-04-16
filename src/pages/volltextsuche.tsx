@@ -30,13 +30,13 @@ const Search: React.FC = () => {
             Volltextsuche für Plenarprotokolle des Bundestages
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Hier können Sie die Datenbank nach Stichworten, Politiker_Innen,
-            Fraktionen oder Rollen der Politiker_Innen durchsuchen.
+            Hier können Sie die Datenbank nach Stichworten, Politiker:innen,
+            Fraktionen oder Rollen der Politiker:innen durchsuchen.
           </ColoredSubline>
           <DefaultText>
             Mit der Volltextsuche können Sie alle verfügbaren Plenarprotokollen
             des Deutschen Bundestags seit 1949 nach Stichworten filtern und
-            somit in den Redebeiträgen der Politiker_Innen zielgerichtet
+            somit in den Redebeiträgen der Politiker:innen zielgerichtet
             stöbern.
           </DefaultText>
           <Callout calloutText="Aktuell werden nur die 100 ersten Suchergebnisse ausgegeben, um sicherzustellen, dass unsere Datenbank alle Suchanfragen beantworten kann. Wir beabsichtigen dieses Limit zeitnah zu erhöhen, um die Recherche in den Daten noch weiter zu vereinfachen." />

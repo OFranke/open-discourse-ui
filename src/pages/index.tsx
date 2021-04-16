@@ -65,7 +65,7 @@ const Home: React.FC = () => {
             umfassende und maschinenlesbare Aufbereitung jedes jemals
             gesprochenen Wortes in den Parlamentssitzungen des deutschen
             Bundestages. Sie ermöglicht erstmalig gefilterte Recherchen in den
-            Reden und Zwischenrufen der Politker_Innen und Fraktionen.
+            Reden und Zwischenrufen der Politker:innen und Fraktionen.
           </DefaultText>
           <DefaultText>
             Für einen offenen Diskurs und eine wissenschaftliche
@@ -119,11 +119,11 @@ const Home: React.FC = () => {
           <ColoredSubline backgroundColor="pink.500">
             Open Discourse erleichtert den Zugang zu über 800.000 Reden seit
             1949 und ermöglicht eine strukturierte Stichwortrecherche auf der
-            Grundlage von Politiker_Innen, Koalitionen und Positionen.
+            Grundlage von Politiker:innen, Koalitionen und Positionen.
           </ColoredSubline>
           <DefaultText>
             Mit Methoden der Informatik und Computerlinguistik haben wir alle
-            Reden, Zwischenrufe, Anfragen uvm. den jeweiligen Politiker_Innen
+            Reden, Zwischenrufe, Anfragen uvm. den jeweiligen Politiker:innen
             und Fraktionen zugeordnet und durchsuchbar gemacht, sowie zahlreiche
             Metainformationen hinzugefügt.
           </DefaultText>
@@ -133,7 +133,7 @@ const Home: React.FC = () => {
               verändert?
             </DefaultListItem>
             <DefaultListItem>
-              Wie ist die thematische Nähe von Politiker_Innen zueinander?
+              Wie ist die thematische Nähe von Politiker:innen zueinander?
             </DefaultListItem>
             <DefaultListItem>
               Wie hoch ist der relative Anteil von Frauen und Männern, die als
@@ -141,7 +141,7 @@ const Home: React.FC = () => {
             </DefaultListItem>
           </UnorderedList>
           <DefaultText>
-            Bürger_Innen, Journalist_Innen und Wissenschaftler_Innen können
+            Bürger:innen, Journalist:innen und Wissenschaftler:innen können
             jetzt den gesamten Datensatz für ihre eigene Forschung herunterladen
             und auf Muster untersuchen.
           </DefaultText>
@@ -213,7 +213,7 @@ const Home: React.FC = () => {
       <Section background="pink.500" color="white">
         <DefaultContainer size="s">
           <Quote>
-            Die Zusammenarbeit mit anderen Partner_Innen kann dazu beitragen,
+            Die Zusammenarbeit mit anderen Partner:innen kann dazu beitragen,
             deutsche Parlamente dauerhaft zu öffnen und politischen Diskurs zu
             demokratisieren.
           </Quote>
@@ -234,7 +234,7 @@ const Home: React.FC = () => {
           </ColoredSubline>
           <DefaultText>
             Der Open Discourse Datensatz wurde bereits von verschiedenen
-            Akteur_Innen für Forschungsprojekte und datengetriebene
+            Akteur:innen für Forschungsprojekte und datengetriebene
             Berichterstattungen genutzt.
             <br />
             <br />
@@ -285,7 +285,7 @@ const Home: React.FC = () => {
             ziemlich jedes Thema wurde besprochen, kritisiert oder beklatscht.
             Praktisch alle Dinge in der täglichen Lebenswelt haben eine
             politische Dimension, insbesondere eine bundespolitische. Im
-            Grundgesetz ist definiert, dass die Abgeordneten die Vertreter_Innen
+            Grundgesetz ist definiert, dass die Abgeordneten die Vertreter:innen
             des gesamten Volkes sind und dass der Bundestag öffentlich
             verhandelt. Wir alle haben somit das Recht, die Inhalte und Vorgänge
             im Parlament transparent mitverfolgen zu dürfen.
@@ -295,13 +295,13 @@ const Home: React.FC = () => {
             Bisher lagen die Protokolle zwar auf den Serven des Bundestages,
             aber die Einsicht in die Dokumenten ist umständlich und das Format
             der Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
-            Open Discourse können Bürger_Innen, Journalist_Innen und
-            Wissenschaftler_Innen jetzt leicht zugänglich und kostenfrei über
+            Open Discourse können Bürger:innen, Journalist:innen und
+            Wissenschaftler:innen jetzt leicht zugänglich und kostenfrei über
             die{" "}
             <NextChakraLink color="pink.500" href="/volltextsuche">
               Volltextsuche
             </NextChakraLink>{" "}
-            der Plattform die Plenarprotokolle nach Stichworten, Politiker_Innen
+            der Plattform die Plenarprotokolle nach Stichworten, Politiker:innen
             und Ämtern durchsuchen und die Ergebnisse für Ihre Arbeit, Forschung
             und natürlich für das eigene Interesse nutzen.
           </DefaultText>
@@ -333,7 +333,7 @@ const Home: React.FC = () => {
             Wir haben mit verschiedenen Methoden der Informatik und
             Computerlinguistik die Plenarprotokolle aufgebrochen und alle
             Redebeiträge, Zwischenrufe, Rückfragen etc. der jeweiligen
-            Politiker_Innen und Fraktionen zugeordnet und durchsuchbar gemacht.
+            Politiker:innen und Fraktionen zugeordnet und durchsuchbar gemacht.
           </DefaultText>
           <DefaultText>
             Open Discourse verfügt damit über eine Datenbank, die jedes bisher
@@ -376,7 +376,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Das Open Discourse Korpus ist selbstfinanziert, unabhängig und aus
-            den Fähigkeiten und Motivationen der Mitarbeiter_Innen der Limebit
+            den Fähigkeiten und Motivationen der Mitarbeiter:innen der Limebit
             GmbH gewachsen. Die Plattform ist unser Beitrag zur Demokratisierung
             des Zugangs zu politischen Themen und eine Herzensangelegenheit.
           </DefaultText>

@@ -42,8 +42,8 @@ export const Question1 = () => {
               <ExternalLinkIcon mx="2px" />
             </NextChakraLink>{" "}
             behandelte er das Thema Wiedervereinigung, aber auch Themen wie
-            Verteidigungspolitik, Außenpolitik: Ost-West Konflikt, Öffentliche
-            Verwaltung, Arbeit und andere werden in der Rede angeschnitten.{" "}
+            Verteidigungspolitik, Ost-West Konflikt, öffentliche Verwaltung,
+            Arbeit und andere werden in der Rede angeschnitten.{" "}
           </DefaultText>
           <DefaultText>
             Bei dieser Rede ergeben sich folgende Relevanzwerte für die

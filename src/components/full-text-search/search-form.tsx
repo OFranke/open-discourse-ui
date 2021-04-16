@@ -26,9 +26,9 @@ export const positions = [
   { key: "Member of Parliament", label: "Mitglied des Bundestages" },
   { key: "Presidium of Parliament", label: "Mitglied des Präsidiums" },
   { key: "Guest", label: "Gast" },
-  { key: "Chancellor", label: "Kanzler_in" },
-  { key: "Minister", label: "Minister_in" },
-  { key: "Secretary of State", label: "Staatssekretär_in" },
+  { key: "Chancellor", label: "Kanzler:in" },
+  { key: "Minister", label: "Minister:in" },
+  { key: "Secretary of State", label: "Staatssekretär:in" },
   { key: "Not found", label: "Unbekannt" },
 ];
 
@@ -131,7 +131,7 @@ export const SearchForm: React.FC<FormParams> = () => {
                       )
                     : undefined
                 }
-                placeholder="Nach Politiker_Innen Filtern"
+                placeholder="Nach Politiker:innen Filtern"
               />
               <DefaultSelectInput
                 rawData={convertedFactions}

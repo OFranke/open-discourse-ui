@@ -7,21 +7,21 @@ import { DefaultListItem } from "../../default-list-item";
 
 export const Question4 = () => {
   return (
-    <FaqAccordionItem headline="Warum gibt es eine/n spezielle/n Politiker*In nicht zur Auswahl?">
+    <FaqAccordionItem headline="Warum gibt es eine:n spezielle:n Politiker:in nicht zur Auswahl?">
       <>
         <DefaultText>
           Um die Visualisierungen zuverlässig auf dieser Website zu ermöglichen,
-          mussten wir uns auf eine Teilmenge der über 4000 Politiker*Innen im
+          mussten wir uns auf eine Teilmenge der über 4000 Politiker:innen im
           Open Discourse Datensatz beschränken. Dabei haben wir folgende Auswahl
           getroffen:
         </DefaultText>
         <OrderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
           <DefaultListItem>
-            Alle Minister*Innen und Kanzler*Innen seit der 14. Legislaturperiode
+            Alle Minister:innen und Kanzler:innen seit der 14. Legislaturperiode
             (26.10.1998)
           </DefaultListItem>
           <DefaultListItem>
-            Alle Oppositionsführer*Innen seit 1949 basierend auf dieser{" "}
+            Alle Oppositionsführer:innen seit 1949 basierend auf dieser{" "}
             <NextChakraLink
               color="pink.500"
               href="https://de.wikipedia.org/wiki/Fraktionsvorsitzender"
@@ -31,7 +31,7 @@ export const Question4 = () => {
             </NextChakraLink>
           </DefaultListItem>
           <DefaultListItem>
-            Die zweihundert Politiker*Innen mit den meisten Followern bei
+            Die zweihundert Politiker:innen mit den meisten Followern bei
             Twitter basierend auf dieser{" "}
             <NextChakraLink
               color="pink.500"
@@ -43,9 +43,9 @@ export const Question4 = () => {
           </DefaultListItem>
         </OrderedList>
         <DefaultText>
-          Zusätzlich haben wir alle Politiker*Innen aus dieser Liste entfernt,
+          Zusätzlich haben wir alle Politiker:innen aus dieser Liste entfernt,
           die unter 30 Reden gehalten haben. Als Ergebnis stehen nun 261
-          Politiker*Innen zur Auswahl.
+          Politiker:innen zur Auswahl.
         </DefaultText>
       </>
     </FaqAccordionItem>
