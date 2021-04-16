@@ -143,6 +143,10 @@ export const PaperCarousel: React.FC<PaperCarouselProps> = ({
           ]}
         >
           <NavigationSlide
+            imagePath="/logos/correlaid_logo.svg"
+            imageAlt="Correlaid Logo"
+          />
+          <NavigationSlide
             imagePath="/logos/zdf_heute_logo.png"
             imageAlt="ZDF Heute Logo"
           />
@@ -153,10 +157,6 @@ export const PaperCarousel: React.FC<PaperCarouselProps> = ({
           <NavigationSlide
             imagePath="/logos/akademische_forschung_logo.svg"
             imageAlt="Akademische Forschung Logo"
-          />
-          <NavigationSlide
-            imagePath="/logos/correlaid_logo.svg"
-            imageAlt="Correlaid Logo"
           />
         </Slider>
       </Box>
