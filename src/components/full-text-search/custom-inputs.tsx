@@ -41,7 +41,17 @@ export const DefaultDateInput = ({
         focusBorderColor="pink.500"
         onChange={onChange}
       />
-      <InputRightElement children={<CalendarIcon color="pink.500" />} />
+      <InputRightElement
+        children={
+          <CalendarIcon
+            color="pink.500"
+            boxSize="25px"
+            borderRadius="0.5em"
+            padding="4px"
+            cursor="pointer"
+          />
+        }
+      />
     </InputGroup>
   );
 };

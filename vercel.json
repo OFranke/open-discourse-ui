@@ -1,0 +1,18 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/tools-und-daten", "destination": "/daten-und-methodik" },
+    {
+      "source": "/analysen",
+      "destination": "/"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/l/:shortlink",
+      "destination": "https://api.opendiscourse.de/:shortlink"
+    }
+  ],
+  "version": 2
+}

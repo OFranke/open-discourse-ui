@@ -1,30 +1,24 @@
-const {
-  PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_BUILD,
-} = require("next/constants");
 const path = require("path");
-const { withPlugins, extend } = require("next-compose-plugins");
+const { withPlugins } = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 
-const envConfig = (phase) => {
+const envConfig = () => {
   // when started in development mode `next dev` or `npm run dev` regardless of the value of STAGING environmental variable
-  const isDev = phase === PHASE_DEVELOPMENT_SERVER;
-  // when `next build` or `npm run build` is used
-  const isStaging =
-    phase === PHASE_PRODUCTION_BUILD && process.env.STAGING === "1";
-  // when `next build` or `npm run build` is used
-  const isProd =
-    phase === PHASE_PRODUCTION_BUILD && process.env.STAGING !== "1";
+  const isDev = process.env.VERCEL_ENV === "development";
+  const isPreview = process.env.VERCEL_ENV === "preview";
+  const isProd = process.env.VERCEL_ENV === "production";
 
-  console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`);
+  console.log(`isDev:${isDev} isProd:${isProd} isStaging:${isPreview}`);
 
   const env = {
     HOST_URL: isDev
       ? "http://localhost:3000/"
-      : process.env.VERCEL_ENV == "production"
+      : isPreview
+      ? `https://${process.env.VERCEL_GIT_REPO_SLUG}-git-${process.env.VERCEL_GIT_COMMIT_REF}.ofranke.vercel.app`
+      : isProduction
       ? `https://opendiscourse.de`
-      : `https://${process.env.VERCEL_GIT_REPO_SLUG}-git-${process.env.VERCEL_GIT_COMMIT_REF}.ofranke.vercel.app`,
+      : undefined,
   };
 
   const experimental = {
@@ -69,7 +63,7 @@ module.exports = withPlugins(
         },
         webp: {
           preset: "default",
-          quality: 75,
+          quality: 80,
         },
         responsive: {
           adapter: require("responsive-loader/sharp"),
@@ -78,6 +72,10 @@ module.exports = withPlugins(
           config,
           { buildId, dev, isServer, defaultLoaders, webpack }
         ) => {
+          config.module.rules.push({
+            test: /react-spring/,
+            sideEffects: true,
+          });
           config.plugins.push(new DuplicatePackageCheckerPlugin());
           // e.g. resolve duplicate dependencies to the latest version
           config.resolve.alias["@emotion"] = path.resolve(

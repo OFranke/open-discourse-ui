@@ -1,7 +1,6 @@
 import React from "react";
 import { BaseTemplate } from "../templates/base-template";
-import { Stack, Box, SimpleGrid, UnorderedList } from "@chakra-ui/react";
-import { HeroWithCta } from "../components/hero-with-cta";
+import { Stack, Box, UnorderedList, chakra } from "@chakra-ui/react";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { Section } from "@bit/limebit.limebit-ui.section";
@@ -9,8 +8,6 @@ import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { Statistic } from "../components/statistic/index";
-import Image from "next/image";
-import { ProjectCard } from "../components/project-card";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import SEO from "../components/seo";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
@@ -18,8 +15,25 @@ import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import ConditionallyRender from "../components/conditionally-render";
 import { DefaultListItem } from "../components/default-list-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
-import styles from "./styles.module.css";
+import { PaperCarousel } from "../components/paper-carousel";
+import {
+  Slide1,
+  Slide2,
+  Slide3,
+  Slide4,
+} from "../components/paper-carousel/paper-slides";
+import { useBreakpointValue } from "@chakra-ui/react";
+import { HomeHero } from "../components/home/home-hero";
+import { HomeShowcase } from "../components/home/home-showcase";
+
 const Home: React.FC = () => {
+  const showArrows = useBreakpointValue({
+    md: false,
+    lg: true,
+  });
+
+  const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
+  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=png`);
   return (
     <BaseTemplate>
       <SEO
@@ -28,13 +42,14 @@ const Home: React.FC = () => {
         canonicalRoute="/"
       />
       <Section>
-        <HeroWithCta backgroundImageStyles={styles.indexBackgroundImage} />
+        <HomeHero />
       </Section>
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
-          {/* <DefaultHeadline as="h1" size="s">
-            Analyse von Plenarprotokollen für Mensch und Machine
-          </DefaultHeadline> */}
+          <DefaultHeadline size="s" as="h1">
+            Open Discourse - Analyse der Plenarprotokolle des Deutschen
+            Bundestages seit 1949
+          </DefaultHeadline>
           <ColoredSubline as="h2" backgroundColor="pink.500">
             Wie Data Science den Weg zu politischem Diskurs demokratisiert
           </ColoredSubline>
@@ -50,7 +65,7 @@ const Home: React.FC = () => {
             umfassende und maschinenlesbare Aufbereitung jedes jemals
             gesprochenen Wortes in den Parlamentssitzungen des deutschen
             Bundestages. Sie ermöglicht erstmalig gefilterte Recherchen in den
-            Reden und Zwischenrufen der Politker_Innen und Fraktionen.
+            Reden und Zwischenrufen der Politker:innen und Fraktionen.
           </DefaultText>
           <DefaultText>
             Für einen offenen Diskurs und eine wissenschaftliche
@@ -104,11 +119,11 @@ const Home: React.FC = () => {
           <ColoredSubline backgroundColor="pink.500">
             Open Discourse erleichtert den Zugang zu über 800.000 Reden seit
             1949 und ermöglicht eine strukturierte Stichwortrecherche auf der
-            Grundlage von Politiker_Innen, Koalitionen und Positionen.
+            Grundlage von Politiker:innen, Koalitionen und Positionen.
           </ColoredSubline>
           <DefaultText>
             Mit Methoden der Informatik und Computerlinguistik haben wir alle
-            Reden, Zwischenrufe, Anfragen uvm. den jeweiligen Politiker_Innen
+            Reden, Zwischenrufe, Anfragen uvm. den jeweiligen Politiker:innen
             und Fraktionen zugeordnet und durchsuchbar gemacht, sowie zahlreiche
             Metainformationen hinzugefügt.
           </DefaultText>
@@ -118,7 +133,7 @@ const Home: React.FC = () => {
               verändert?
             </DefaultListItem>
             <DefaultListItem>
-              Wie ist die thematische Nähe von Politiker_Innen zueinander?
+              Wie ist die thematische Nähe von Politiker:innen zueinander?
             </DefaultListItem>
             <DefaultListItem>
               Wie hoch ist der relative Anteil von Frauen und Männern, die als
@@ -126,7 +141,7 @@ const Home: React.FC = () => {
             </DefaultListItem>
           </UnorderedList>
           <DefaultText>
-            Bürger_Innen, Journalist_Innen und Wissenschaftler_Innen können
+            Bürger:innen, Journalist:innen und Wissenschaftler:innen können
             jetzt den gesamten Datensatz für ihre eigene Forschung herunterladen
             und auf Muster untersuchen.
           </DefaultText>
@@ -138,7 +153,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <NextButtonLink
             colorScheme="pink"
-            href="/tools-und-daten"
+            href="/volltextsuche"
             marginTop={{
               base: "4",
               md: "4",
@@ -146,7 +161,7 @@ const Home: React.FC = () => {
               xl: "8",
             }}
           >
-            Tools und Daten
+            Volltextsuche
           </NextButtonLink>
         </DefaultContainer>
       </Section>
@@ -158,6 +173,9 @@ const Home: React.FC = () => {
             Jahrhundert.
           </Quote>
         </DefaultContainer>
+      </Section>
+      <Section>
+        <HomeShowcase />
       </Section>
       <Section>
         <DefaultContainer size="l">
@@ -184,7 +202,7 @@ const Home: React.FC = () => {
                 subline="Wer kommt zu Wort – Männer oder Frauen?"
                 description="Anlässlich des internationalen Frauentages 2020 haben wir untersucht, wie viele Redebeiträge der einzelnen Parteien eigentlich von Frauen kamen."
                 descriptionHighlight="Für mehr Transparenz des politischen Diskurses!"
-                imagePath="/images/statistics/wer_kommt_zu_wort.png"
+                imagePath="/statistics/wer_kommt_zu_wort.png"
                 imagePosition="right"
                 imageAlt="Statistik"
               />
@@ -195,65 +213,52 @@ const Home: React.FC = () => {
       <Section background="pink.500" color="white">
         <DefaultContainer size="s">
           <Quote>
-            Die Zusammenarbeit mit anderen Partner_Innen kann dazu beitragen,
+            Die Zusammenarbeit mit anderen Partner:innen kann dazu beitragen,
             deutsche Parlamente dauerhaft zu öffnen und politischen Diskurs zu
             demokratisieren.
           </Quote>
         </DefaultContainer>
       </Section>
-      <Section>
+      <Section
+        display="flex"
+        flexDirection="column"
+        paddingTop={{ base: 4, xl: 10 }}
+      >
         <DefaultContainer size="l">
-          <DefaultHeadline size="s">
-            Freier Zugang zur Datenbank
+          <DefaultHeadline size="s" as="h1">
+            Die Open Discourse Daten für Forschung, Journalismus und Civil
+            Science
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
-            Das Open Discourse Korpus steht Akteur_Innen aus Politik,
-            Journalisten_Innen, Wissenschaftler_Innen und Bürger_Innen zur
-            freien Verfügung.
+            Verwendung und Präsenz von Open Discourse
           </ColoredSubline>
-          <SimpleGrid columns={{ base: 1, lg: 3 }} spacing="10">
-            <ProjectCard
-              headline="Akademische Forschung"
-              subline="Hypothetische Reden"
-              description='Der Datensatz wurde von Masterstudent_Innen des 3.Semesters in "Big Data Analytics" für ein Lehrforschungsprojekt verwendet und mittels Generative Adversarial Networks (GAN) werden hypothetische Reden generiert.'
-              linkText="Mehr zum Projekt"
-              linkHref="/analysen"
-              imagePath="/images/logos/akademische_forschung_logo.svg"
-              imageAlt="Logo der FOM - Hochschule für Ökonomie und Management"
-            />
-            <ProjectCard
-              headline="CorrelAid"
-              subline="Inhaltliche Analysen"
-              description="CorrelAid ist ein überparteiliches gemeinnütziges Netzwerk von Data Scientists, die die Welt durch die Arbeit mit Daten  verändern wollen. Ziel der Zusammenarbeit mit unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden, um Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der Gründung des Bundestages gesprochen haben."
-              linkText="Mehr zum Projekt"
-              linkHref="/analysen"
-              imagePath="/images/logos/correlaid_logo.svg"
-              imageAlt="Logo von CorrelAid"
-            />
-            <ProjectCard
-              headline="ZDFHeute"
-              subline="Pandemiedebatte"
-              description="ZDFheute untersuchte die Plenarprotokolle des Deutschen Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich unsere Politiker_innen seit dem Jahr 1949  mit dem Stichwort “Pandemie” auseinandergesetzt haben."
-              linkText="Mehr zum Projekt"
-              linkHref="/analysen"
-              imagePath="/images/logos/zdf_heute_logo.jpg"
-              imageAlt="Logo von ZDFHeute"
-            />
-          </SimpleGrid>
-
-          <NextButtonLink
-            colorScheme="pink"
-            href="/analysen"
-            marginTop={{
-              base: "4",
-              md: "4",
-              lg: "6",
-              xl: "8",
-            }}
-          >
-            Analysen
-          </NextButtonLink>
+          <DefaultText>
+            Der Open Discourse Datensatz wurde bereits von verschiedenen
+            Akteur:innen für Forschungsprojekte und datengetriebene
+            Berichterstattungen genutzt.
+            <br />
+            <br />
+            Wählen Sie hier aus, in welches Projekt Sie gern einmal reinschauen
+            möchten:
+          </DefaultText>
         </DefaultContainer>
+      </Section>
+      <Section overflow="hidden">
+        <PaperCarousel
+          size="50px"
+          gap="1vw"
+          top={{
+            base: "calc(50px + 30vh)",
+            md: "calc(75px + 30vh)",
+            lg: "calc(100px + 30vh)",
+          }}
+          showArrows={showArrows}
+        >
+          <Slide1 />
+          <Slide2 />
+          <Slide3 />
+          <Slide4 />
+        </PaperCarousel>
       </Section>
       <Section background="pink.500" color="white">
         <DefaultContainer size="s">
@@ -280,7 +285,7 @@ const Home: React.FC = () => {
             ziemlich jedes Thema wurde besprochen, kritisiert oder beklatscht.
             Praktisch alle Dinge in der täglichen Lebenswelt haben eine
             politische Dimension, insbesondere eine bundespolitische. Im
-            Grundgesetz ist definiert, dass die Abgeordneten die Vertreter_Innen
+            Grundgesetz ist definiert, dass die Abgeordneten die Vertreter:innen
             des gesamten Volkes sind und dass der Bundestag öffentlich
             verhandelt. Wir alle haben somit das Recht, die Inhalte und Vorgänge
             im Parlament transparent mitverfolgen zu dürfen.
@@ -290,13 +295,13 @@ const Home: React.FC = () => {
             Bisher lagen die Protokolle zwar auf den Serven des Bundestages,
             aber die Einsicht in die Dokumenten ist umständlich und das Format
             der Dokumente für eine moderne Datenverarbeitung nicht geeignet. Auf
-            Open Discourse können Bürger_Innen, Journalist_Innen und
-            Wissenschaftler_Innen jetzt leicht zugänglich und kostenfrei über
+            Open Discourse können Bürger:innen, Journalist:innen und
+            Wissenschaftler:innen jetzt leicht zugänglich und kostenfrei über
             die{" "}
-            <NextChakraLink color="pink.500" href="/tools-und-daten">
-              Tools und Daten
+            <NextChakraLink color="pink.500" href="/volltextsuche">
+              Volltextsuche
             </NextChakraLink>{" "}
-            der Plattform die Plenarprotokolle nach Stichworten, Politiker_Innen
+            der Plattform die Plenarprotokolle nach Stichworten, Politiker:innen
             und Ämtern durchsuchen und die Ergebnisse für Ihre Arbeit, Forschung
             und natürlich für das eigene Interesse nutzen.
           </DefaultText>
@@ -310,20 +315,25 @@ const Home: React.FC = () => {
             Data Science trifft auf Plenarprotokolle
           </ColoredSubline>
           <Box marginBottom={{ base: 5, md: 10, lg: 10 }}>
-            <Image
-              src={"/images/regex_erkennung.png"}
-              alt={"Mustererkennung "}
-              layout="responsive"
-              width="1440px"
-              height="700px"
-              quality="75"
-            />
+            <picture>
+              <source
+                srcSet={multipleSizesRegexWebp.srcSet}
+                type="image/webp"
+              />
+              <source srcSet={multipleSizesRegex.srcSet} type="image/png" />
+              <chakra.img
+                alt="Mustererkennung"
+                src={multipleSizesRegex.src}
+                objectFit="contain"
+                loading="lazy"
+              />
+            </picture>
           </Box>
           <DefaultText>
             Wir haben mit verschiedenen Methoden der Informatik und
             Computerlinguistik die Plenarprotokolle aufgebrochen und alle
             Redebeiträge, Zwischenrufe, Rückfragen etc. der jeweiligen
-            Politiker_Innen und Fraktionen zugeordnet und durchsuchbar gemacht.
+            Politiker:innen und Fraktionen zugeordnet und durchsuchbar gemacht.
           </DefaultText>
           <DefaultText>
             Open Discourse verfügt damit über eine Datenbank, die jedes bisher
@@ -366,7 +376,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Das Open Discourse Korpus ist selbstfinanziert, unabhängig und aus
-            den Fähigkeiten und Motivationen der Mitarbeiter_Innen der Limebit
+            den Fähigkeiten und Motivationen der Mitarbeiter:innen der Limebit
             GmbH gewachsen. Die Plattform ist unser Beitrag zur Demokratisierung
             des Zugangs zu politischen Themen und eine Herzensangelegenheit.
           </DefaultText>

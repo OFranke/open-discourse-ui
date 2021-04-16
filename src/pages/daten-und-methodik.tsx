@@ -5,17 +5,21 @@ import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-import { UnorderedList, Flex } from "@chakra-ui/react";
+import { UnorderedList, Flex, chakra } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import Image from "next/image";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import React from "react";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
 import styles from "./styles.module.css";
+import { BackgroundImage } from "../components/background-image";
 
 const Home: React.FC = () => {
+  const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
+  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=png`);
+  const multipleSizesBundestagWebp = require(`../../public/images/methodik/reichstagsgebäude_wiese.jpg?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
+  const multipleSizesBundestag = require(`../../public/images/methodik/reichstagsgebäude_wiese.jpg?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
   return (
     <BaseTemplate>
       <SEO
@@ -24,18 +28,9 @@ const Home: React.FC = () => {
         canonicalRoute="methodik"
       />
       <Section>
-        <Flex
-          className={styles.methodikBackgroundImage}
-          height={"60vh"}
-          maxHeight={[
-            "350px", // 0-30em
-            "600px", // 30em-48em
-            "600px", // 48em-62em
-            "750px", // 62em+
-          ]}
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-          backgroundSize="cover"
+        <BackgroundImage
+          relativePathFromImageDir="/methodik/header_methodik.jpg"
+          height="60vh"
         />
       </Section>
 
@@ -139,7 +134,7 @@ const Home: React.FC = () => {
             jede Parlamentssitzung des Deutschen Bundestages erstellt werden.
             Diese Berichte dokumentieren jede Rede im Parlament sowie jede
             Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
-            Applaus usw.) der Politker_Innen, die während der Reden stattfanden.
+            Applaus usw.) der Politker:innen, die während der Reden stattfanden.
             Insgesamt besteht das Korpus aus über 200 Millionen Tokens aus fast
             900.000 Reden in mehr als 4.000 verarbeiteten Protokollen. Das Open
             Discourse Korpus deckt insgesamt 99,7 Prozent aller Plenarprotokolle
@@ -206,9 +201,9 @@ const Home: React.FC = () => {
                   gepflegt.
                 </DefaultListItem>
                 <DefaultListItem>
-                  Es gibt seltene Fälle, in denen Politiker_Innen Mitglied der
+                  Es gibt seltene Fälle, in denen Politiker:innen Mitglied der
                   Regierung (MG) sind und nie ein Mandat als Abgeordnete hatten.
-                  Diese Politiker_Innen sind in den oben genannten Stammdaten
+                  Diese Politiker:innen sind in den oben genannten Stammdaten
                   nicht enthalten. Daher werden die{" "}
                   <NextChakraLink
                     color="pink.500"
@@ -253,7 +248,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Im nächsten Schritt wurden eine die Fraktionstabelle, eine
-            Politiker_Innentabelle und eine Tabelle mit den gesprochenen
+            Politiker:innentabelle und eine Tabelle mit den gesprochenen
             Inhalten erstellt und extrahiert. Mit umfangreichen Regex-Muster
             können die Reden, die Person, die die Rede hält, die assoziierte
             Partei und Zwischenrufe durch das Plenum extrahieren werden. Ab der
@@ -268,14 +263,16 @@ const Home: React.FC = () => {
             Learning etc. auf die Daten anwenden, um Fragen zu beantworten, die
             bisher nicht (ohne großen Aufwand) beantwortbar waren.
           </DefaultText>
-          <Image
-            src={"/images/regex_erkennung.png"}
-            alt={"imageAlt"}
-            layout="responsive"
-            width="1024px"
-            height="512px"
-            quality="75"
-          />
+          <picture>
+            <source srcSet={multipleSizesRegexWebp.srcSet} type="image/webp" />
+            <source srcSet={multipleSizesRegex.srcSet} type="image/png" />
+            <chakra.img
+              alt="Mustererkennung"
+              src={multipleSizesRegex.src}
+              objectFit="contain"
+              loading="lazy"
+            />
+          </picture>
         </DefaultContainer>
       </Section>
       <Section>
@@ -382,16 +379,22 @@ const Home: React.FC = () => {
           </DefaultText>
         </DefaultContainer>
       </Section>
-      <Section marginBottom="0">
-        <Image
-          src={"/images/methodik/reichstagsgebäude_wiese.jpg"}
-          // src={"/images/statistics/wer_kommt_zu_wort.png"}
-          alt={"imageAlt"}
-          layout="responsive"
-          width="320px"
-          height="160px"
-          quality="75"
-        />
+      <Section>
+        <picture>
+          <source
+            srcSet={multipleSizesBundestagWebp.srcSet}
+            type="image/webp"
+          />
+          <source srcSet={multipleSizesBundestag.srcSet} type="image/jpg" />
+          <chakra.img
+            alt="imageAlt"
+            src={multipleSizesBundestag.src}
+            width="100%"
+            height="100vh"
+            objectFit="cover"
+            loading="lazy"
+          />
+        </picture>
       </Section>
       {/* <Section>
         <DefaultContainer size="l">
@@ -400,6 +403,90 @@ const Home: React.FC = () => {
           </DefaultHeadline>
         </DefaultContainer>
       </Section> */}
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s">
+            Datenzugriff über das Harvard Dataverse
+          </DefaultHeadline>
+          <ColoredSubline backgroundColor="pink.500">
+            Sie möchten den Datensatz für eine eigene Analyse nutzen oder ihn
+            einfach eigenständig durchstöbern?
+          </ColoredSubline>
+          <DefaultText>
+            Wir stellen unsere aufbereitete Datenbank* open source zur
+            Verfügung. Wir würden uns freuen, wenn Sie uns bei Nutzung des
+            Datensatzes zitieren:
+          </DefaultText>
+          <DefaultText fontStyle="italic">
+            <q>
+              Richter, F.; Koch, P.; Franke, O.; Kraus, J.; Kuruc, F.; Thiem,
+              A.; Högerl, J.; Heine, S.; Schöps, K., 2020, "Open Discourse",
+              https://doi.org/10.7910/DVN/FIKIBO, Harvard Dataverse
+            </q>
+          </DefaultText>
+          <DefaultText>
+            Wir arbeiten gerade an einer detaillierten, wissenschaftlichen
+            Dokumentation über die Open Discourse Daten. Wir werden dieses Data
+            Paper in Q1 2021 veröffentlichen - die entsprechenden Informationen
+            finden Sie dann ebenfalls hier.
+          </DefaultText>
+
+          <DefaultText>
+            <NextChakraLink
+              color="pink.500"
+              href="https://dataverse.harvard.edu/dataverse/opendiscourse"
+              isExternal
+            >
+              Hier geht’s zu unserem Datensatz <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>
+          </DefaultText>
+          <DefaultText as="i">
+            * Die Datenbank befindet sich momentan in Version 1 und soll
+            zukünftig weiter verbessert und um neue Plenarprotokolle erweitert
+            werden.
+          </DefaultText>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline size="s">GitHub Repository</DefaultHeadline>{" "}
+          <ColoredSubline backgroundColor="pink.500">
+            Unseren Source Code und Docker Container finden Sie in unserem
+            Github Repository
+          </ColoredSubline>
+          <DefaultText>
+            Für vollständige Reproduzierbarkeit und Offenheit, stellen wir den
+            Source Code, mit dem die Open-Discourse Daten erstellt wurden, auf
+            GitHub zur Verfügung.
+            <br />
+            <br />
+            Auch stellen wir hier ein Docker Image der Datenbank zur Verfügung.{" "}
+            <br />
+            Diese können Sie benutzen, um die Datenbank ganz einfach lokal
+            aufzusetzen.
+            <br />
+            <br />
+            Ebenso können Sie so die Limitierungen, der obigen Volltextsuche
+            (max. 50 Suchergebnisse) entfernen und erhalten ein noch
+            umfangreicheres Werkzeug für Ihre Recherchen.
+            <br />
+            <br />
+            Wir bieten Ihnen auch die Möglichkeit sich am Projekt durch Pull
+            Requests zu beteiligen oder das Repository zu Forken und an Ihre
+            Anforderungen anzupassen.
+          </DefaultText>
+          <DefaultText>
+            <NextChakraLink
+              color="pink.500"
+              href="https://github.com/open-discourse/open-discourse"
+              isExternal
+            >
+              Hier geht’s zum GitHub repository
+              <ExternalLinkIcon mx="2px" />
+            </NextChakraLink>
+          </DefaultText>
+        </DefaultContainer>
+      </Section>
     </BaseTemplate>
   );
 };

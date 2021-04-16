@@ -1,7 +1,6 @@
 import { BaseTemplate } from "../templates/base-template";
 import React from "react";
 import { Section } from "@bit/limebit.limebit-ui.section";
-import Image from "next/image";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
@@ -11,23 +10,29 @@ import { ContactForm } from "../components/contact-form";
 import SEO from "../components/seo";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { SimpleGrid, Box } from "@chakra-ui/react";
+import { SimpleGrid, Box, chakra } from "@chakra-ui/react";
 
 interface TeamMemberProps {
   src: string;
   name: string;
 }
 const TeamMember: React.FC<TeamMemberProps> = ({ src, name }) => {
+  const multipleSizesWebp = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
+  const multipleSizes = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=png`);
   return (
     <Box textAlign="center">
-      <Image
-        src={src}
-        alt={`Comic Karikatur von ${name}`}
-        layout="responsive"
-        width="1417px"
-        height="1890px"
-        quality="75"
-      />
+      <picture>
+        <source srcSet={multipleSizesWebp.srcSet} type="image/webp" />
+        <source srcSet={multipleSizes.srcSet} type="image/png" />
+        <chakra.img
+          alt={`Comic Karikatur von ${name}`}
+          src={multipleSizes.src}
+          width="100%"
+          height="100%"
+          objectFit="contain"
+          loading="lazy"
+        />
+      </picture>
       <DefaultText as="span">{name}</DefaultText>
     </Box>
   );
@@ -61,14 +66,14 @@ const Home: React.FC = () => {
               Limebit GmbH. <ExternalLinkIcon mx="2px" />
             </NextChakraLink>{" "}
             Entstanden ist die Idee aus den Fähigkeiten und Motivationen der
-            Mitarbeiter_Innen, in Pausengesprächen und aus den gemeinsamen
+            Mitarbeiter:innen, in Pausengesprächen und aus den gemeinsamen
             Vorstellungen von Demokratie.
           </DefaultText>
           <DefaultText>
             Wir hoffen, dass durch unsere Vorarbeit datenbasierter Journalismus,
             Wissenschaft und Zivilbevölkerung profitieren und der erleichterte
             Zugang zu den Daten dazu anregt, die politische Geschichte des
-            Bundestags auf Basis der verwendeten Sprache der Politiker_Innen zu
+            Bundestags auf Basis der verwendeten Sprache der Politiker:innen zu
             analysieren.
           </DefaultText>
           <DefaultText>

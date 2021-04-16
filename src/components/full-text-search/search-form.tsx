@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { Stack, Input, useBreakpointValue } from "@chakra-ui/react";
+import { Stack, Input } from "@chakra-ui/react";
 import { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/router";
 import { useGetData } from "./hooks/use-get-data";
@@ -26,9 +26,9 @@ export const positions = [
   { key: "Member of Parliament", label: "Mitglied des Bundestages" },
   { key: "Presidium of Parliament", label: "Mitglied des Präsidiums" },
   { key: "Guest", label: "Gast" },
-  { key: "Chancellor", label: "Kanzler_in" },
-  { key: "Minister", label: "Minister_in" },
-  { key: "Secretary of State", label: "Staatssekretär_in" },
+  { key: "Chancellor", label: "Kanzler:in" },
+  { key: "Minister", label: "Minister:in" },
+  { key: "Secretary of State", label: "Staatssekretär:in" },
   { key: "Not found", label: "Unbekannt" },
 ];
 
@@ -53,7 +53,7 @@ export const SearchForm: React.FC<FormParams> = () => {
         searchValues[key] === (undefined || "") && delete searchValues[key]
     );
     router.push(
-      `tools-und-daten/?${queryString.stringify(
+      `volltextsuche/?${queryString.stringify(
         JSON.parse(JSON.stringify(searchValues))
       )}`
     );
@@ -96,14 +96,13 @@ export const SearchForm: React.FC<FormParams> = () => {
           label: faction.id == "-1" ? "Ohne Zuordnung" : faction.fullName,
         }))
     : [];
-  const inputSize = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
+
   if (politicians && factions) {
     return (
       <>
         <form onSubmit={handleSubmit}>
           <Stack spacing={{ base: 2, md: 3 }}>
             <Input
-              size={inputSize}
               value={formParams?.contentQuery || ""}
               placeholder="Redeinhalt Durchsuchen"
               focusBorderColor="pink.500"
@@ -132,7 +131,7 @@ export const SearchForm: React.FC<FormParams> = () => {
                       )
                     : undefined
                 }
-                placeholder="Nach Politiker_Innen Filtern"
+                placeholder="Nach Politiker:innen Filtern"
               />
               <DefaultSelectInput
                 rawData={convertedFactions}

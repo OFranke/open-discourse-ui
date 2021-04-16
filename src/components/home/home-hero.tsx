@@ -2,26 +2,12 @@ import { Box, Flex } from "@chakra-ui/react";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
-interface HeroWithCtaProps {
-  backgroundImageStyles: string;
-}
-export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
-  backgroundImageStyles,
-}) => {
+import React from "react";
+import { BackgroundImage } from "../background-image";
+
+export const HomeHero = () => {
   return (
-    <Flex
-      className={backgroundImageStyles}
-      height={"60vh"}
-      maxHeight={[
-        "350px", // 0-30em
-        "600px", // 30em-48em
-        "600px", // 48em-62em
-        "750px", // 62em+
-      ]}
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      backgroundSize="cover"
-    >
+    <BackgroundImage relativePathFromImageDir={"/home_header.jpg"}>
       <Flex
         width="100%"
         height="100%"
@@ -41,8 +27,14 @@ export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
           <Box>
             <NextButtonLink
               colorScheme="pink"
-              href="/tools-und-daten"
+              href="/volltextsuche"
               marginTop={{
+                base: "4",
+                md: "4",
+                lg: "6",
+                xl: "8",
+              }}
+              marginRight={{
                 base: "4",
                 md: "4",
                 lg: "6",
@@ -51,9 +43,22 @@ export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
             >
               Zur Volltextsuche
             </NextButtonLink>
+            <NextButtonLink
+              colorScheme="yellow"
+              textColor="white"
+              href="/diskursanalyse"
+              marginTop={{
+                base: "4",
+                md: "4",
+                lg: "6",
+                xl: "8",
+              }}
+            >
+              Zur Diskursanalyse
+            </NextButtonLink>
           </Box>
         </DefaultContainer>
       </Flex>
-    </Flex>
+    </BackgroundImage>
   );
 };

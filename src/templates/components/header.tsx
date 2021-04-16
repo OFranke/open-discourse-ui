@@ -2,29 +2,40 @@ import React, { useState } from "react";
 import {
   Flex,
   Box,
-  // useColorMode,
   IconButton,
-  // useColorModeValue,
   Stack,
+  chakra,
+  MenuButton,
+  Button,
+  Menu,
+  MenuItem,
+  MenuList,
+  Badge,
 } from "@chakra-ui/react";
 
 import { FaGithub } from "react-icons/fa";
 
-import { HamburgerIcon } from "@chakra-ui/icons";
-import Image from "next/image";
+import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { useTheme } from "@emotion/react";
 import { NavItem } from "./nav-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
+const availableDocVersions = ["1.0.0"];
+
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
-  // const text = useColorModeValue("dark", "light");
-  // const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const theme: any = useTheme();
   return (
-    <Box position="fixed" width="100%" bg="white" zIndex="100">
+    <Box
+      position="fixed"
+      width="100%"
+      bg="white"
+      zIndex="100"
+      borderBottom="1px solid"
+      borderColor="gray.200"
+    >
       <DefaultContainer size="l" as="header">
         <Flex
           as="nav"
@@ -36,24 +47,28 @@ export const Header: React.FC = () => {
         >
           <Flex align="center" mr={5}>
             <NextChakraLink href={"/"}>
-              <Box
-                width={{
-                  base: "120px",
-                  sm: "120px",
-                  md: "150px",
-                  lg: "150px",
-                  xl: "240px",
-                }}
-              >
-                <Image
-                  src={"/images/logos/open_discourse.png"}
-                  alt={"Open Discourse Logo"}
-                  layout="responsive"
-                  width="1250px"
-                  height="400px"
-                  quality="75"
+              <picture>
+                <source
+                  srcSet={require(`../../../public/images/logos/open_discourse.png?resize&size=240&format=webp`)}
+                  type="image/webp"
                 />
-              </Box>
+                <source
+                  srcSet={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
+                  type="image/png"
+                />
+                <chakra.img
+                  width={{
+                    base: "120px",
+                    sm: "120px",
+                    md: "150px",
+                    lg: "150px",
+                    xl: "240px",
+                  }}
+                  alt={"Open Discourse Logo"}
+                  src={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
+                  loading="lazy"
+                />
+              </picture>
             </NextChakraLink>
           </Flex>
 
@@ -69,27 +84,58 @@ export const Header: React.FC = () => {
           <Stack
             direction={{ base: "column", lg: "row" }}
             display={{ base: show ? "flex" : "none", lg: "flex" }}
-            spacing={{ base: 4, lg: 10, xl: 14 }}
+            spacing={{ base: 4, lg: 8, xl: 14 }}
             width={{ base: "full", lg: "auto" }}
             alignItems={{ base: "left", lg: "center" }}
             marginTop={{ base: 4, lg: 0 }}
           >
-            <NavItem href="/methodik" underlineColor="black">
-              Methodik
+            <NavItem href="/daten-und-methodik" underlineColor="black">
+              Daten & Methodik
             </NavItem>
             <NavItem
+              href="/volltextsuche"
               underlineColor={theme.colors.pink[500]}
-              href="/tools-und-daten"
             >
-              Tools und Daten
+              <Badge marginRight="3" colorScheme="pink">
+                Neu
+              </Badge>
+              Volltextsuche
             </NavItem>
             <NavItem
-              href="/analysen"
+              href="/diskursanalyse"
               underlineColor={theme.additionalColors.yellow}
             >
-              Analysen
+              <Badge marginRight="3" colorScheme="yellow">
+                Neu
+              </Badge>
+              Diskursanalyse
             </NavItem>
-            <NavItem href="/ueber-uns" underlineColor="black">
+
+            <NavItem underlineColor="black">
+              <Menu>
+                <MenuButton>
+                  Docs <ChevronDownIcon />
+                </MenuButton>
+                <MenuList marginLeft="0" style={{ marginLeft: 0 }}>
+                  {availableDocVersions.map((version) => {
+                    return (
+                      <NextChakraLink
+                        marginLeft="0"
+                        style={{ marginLeft: 0 }}
+                        key={version}
+                        href={`https://open-discourse.github.io/open-discourse-documentation/${version}/index.html`}
+                        isExternal
+                      >
+                        <MenuItem marginLeft="0" style={{ marginLeft: 0 }}>
+                          {version}
+                        </MenuItem>
+                      </NextChakraLink>
+                    );
+                  })}
+                </MenuList>
+              </Menu>
+            </NavItem>
+            <NavItem href="/ueber-uns" underlineColor={theme.colors.pink[500]}>
               Über uns
             </NavItem>
             <Box>
@@ -107,17 +153,6 @@ export const Header: React.FC = () => {
                 />
               </NextChakraLink>
             </Box>
-            {/* <Box>
-              <IconButton
-                justifyContent={{ base: "left", lg: "center" }}
-                fontSize={{ base: "md", md: "xl", xl: "4xl" }}
-                aria-label={`Switch to ${text} mode`}
-                variant="ghost"
-                color="current"
-                onClick={toggleColorMode}
-                icon={<SwitchIcon />}
-              />
-            </Box> */}
           </Stack>
         </Flex>
       </DefaultContainer>
