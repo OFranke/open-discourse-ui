@@ -49,33 +49,34 @@ export const Question3 = () => {
         />
         <DefaultText>
           Diese Filter können beliebig kombiniert werden. Ein Beispiel für
-          komplexe Filter ist{" "}<NextChakraLink
-                color="pink.500"
-                href="/diskursanalyse?filters=%5B%7B%22filterId%22%3A%22799st%22%2C%22color%22%3A%22%23212529%22%2C%22actor%22%3A%22party_0%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22a8f14%22%2C%22color%22%3A%22%23ff0a54%22%2C%22actor%22%3A%22party_1%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22cl2m3%22%2C%22color%22%3A%22%23ffed00%22%2C%22actor%22%3A%22party_2%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22mmyfd%22%2C%22color%22%3A%22%2346962b%22%2C%22actor%22%3A%22party_3%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%222w9x0%22%2C%22color%22%3A%22%23dadaeb%22%2C%22actor%22%3A%22party_4%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%5D"
-                isExternal
-              >
-                hier <ExternalLinkIcon mx="2px" />
-              </NextChakraLink> zu finden. Weitere Informationen zum beruflichen Hintergrund von Politiker:innen sind DefaultText>
-          Diese Filter können beliebig kombiniert werden. Ein Beispiel für
-          komplexe Filter ist{" "}<NextChakraLink
-                color="pink.500"
-                href="https://open-discourse.github.io/open-discourse-documentation/1.0.0/jobs.html"
-                isExternal
-              >
-                hier <ExternalLinkIcon mx="2px" />
-              </NextChakraLink> zu finden, Informationen zum Wahlbundesland sind DefaultText>
-          Diese Filter können beliebig kombiniert werden. Ein Beispiel für
-          komplexe Filter ist{" "}<NextChakraLink
-                color="pink.500"
-                href="https://open-discourse.github.io/open-discourse-documentation/1.0.0/state-affiliation-wahlbundesland.html"
-                isExternal
-              >
-                hier <ExternalLinkIcon mx="2px" />
-              </NextChakraLink> zu finden.
+          komplexe Filter ist{" "}
+          <NextChakraLink
+            color="pink.500"
+            href="/diskursanalyse?filters=%5B%7B%22filterId%22%3A%22799st%22%2C%22color%22%3A%22%23212529%22%2C%22actor%22%3A%22party_0%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22a8f14%22%2C%22color%22%3A%22%23ff0a54%22%2C%22actor%22%3A%22party_1%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22cl2m3%22%2C%22color%22%3A%22%23ffed00%22%2C%22actor%22%3A%22party_2%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22mmyfd%22%2C%22color%22%3A%22%2346962b%22%2C%22actor%22%3A%22party_3%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%222w9x0%22%2C%22color%22%3A%22%23dadaeb%22%2C%22actor%22%3A%22party_4%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%5D"
+            isExternal
+          >
+            hier <ExternalLinkIcon mx="2px" />
+          </NextChakraLink>{" "}
+          zu finden. Weitere Informationen zum beruflichen Hintergrund von
+          Politiker:innen sind{" "}
+          <NextChakraLink
+            color="pink.500"
+            href="https://open-discourse.github.io/open-discourse-documentation/1.0.0/jobs.html"
+            isExternal
+          >
+            hier <ExternalLinkIcon mx="2px" />
+          </NextChakraLink>{" "}
+          zu finden, Informationen zum Wahlbundesland sind{" "}
+          <NextChakraLink
+            color="pink.500"
+            href="https://open-discourse.github.io/open-discourse-documentation/1.0.0/state-affiliation-wahlbundesland.html"
+            isExternal
+          >
+            hier <ExternalLinkIcon mx="2px" />
+          </NextChakraLink>{" "}
+          zu finden.
         </DefaultText>
       </>
     </FaqAccordionItem>
   );
 };
-
-
