@@ -4,11 +4,18 @@ import DefaultText from "@bit/limebit.limebit-ui.default-text";
 
 export interface BackgroundImageProps extends FlexProps {
   relativePathFromImageDir: string;
-  height?: string;
-  width?: string;
   imageAuthor?: string;
   backgroundPosition?: string;
 }
+
+export const backgroundImageHeight = {
+  base: "50vh",
+  sm: "64vh",
+  md: "70vh",
+  lg: "75vh",
+  xl: "80vh",
+};
+
 export const BackgroundImage: React.FC<BackgroundImageProps> = ({
   children,
   relativePathFromImageDir,
@@ -16,6 +23,7 @@ export const BackgroundImage: React.FC<BackgroundImageProps> = ({
   width,
   imageAuthor,
   backgroundPosition,
+  ...flexProps
 }) => {
   const multipleSizesWebp = require(`../../public/images${relativePathFromImageDir}?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
   const multipleSizes = require(`../../public/images${relativePathFromImageDir}?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
@@ -36,16 +44,9 @@ export const BackgroundImage: React.FC<BackgroundImageProps> = ({
       width={width || "100%"}
       backgroundPosition={backgroundPosition || "center"}
       backgroundSize="cover"
-      height={
-        height || {
-          base: "50vh",
-          sm: "64vh",
-          md: "70vh",
-          lg: "75vh",
-          xl: "80vh",
-        }
-      }
+      height={height || backgroundImageHeight}
       backgroundImage={backgroundUrl ? `url(${backgroundUrl})` : undefined}
+      {...flexProps}
     >
       {imageAuthor && (
         <Box position="absolute" top="0" right="0" paddingRight={2}>

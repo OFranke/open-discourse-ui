@@ -4,14 +4,10 @@ import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import React from "react";
 import { BackgroundImage } from "../background-image";
-interface HeroWithCtaProps {
-  relativePathFromImageDir: string;
-}
-export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
-  relativePathFromImageDir,
-}) => {
+
+export const HomeHero = () => {
   return (
-    <BackgroundImage relativePathFromImageDir={relativePathFromImageDir}>
+    <BackgroundImage relativePathFromImageDir={"/home_header.jpg"}>
       <Flex
         width="100%"
         height="100%"
@@ -31,8 +27,14 @@ export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
           <Box>
             <NextButtonLink
               colorScheme="pink"
-              href="/tools-und-daten"
+              href="/volltextsuche"
               marginTop={{
+                base: "4",
+                md: "4",
+                lg: "6",
+                xl: "8",
+              }}
+              marginRight={{
                 base: "4",
                 md: "4",
                 lg: "6",
@@ -40,6 +42,19 @@ export const HeroWithCta: React.FC<HeroWithCtaProps> = ({
               }}
             >
               Zur Volltextsuche
+            </NextButtonLink>
+            <NextButtonLink
+              colorScheme="yellow"
+              textColor="white"
+              href="/diskursanalyse"
+              marginTop={{
+                base: "4",
+                md: "4",
+                lg: "6",
+                xl: "8",
+              }}
+            >
+              Zur Diskursanalyse
             </NextButtonLink>
           </Box>
         </DefaultContainer>

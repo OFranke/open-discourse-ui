@@ -35,3 +35,10 @@ https://next.chakra-ui.com/docs/getting-started
 
 For sitemap generation:
 https://github.com/iamvishnusankar/next-sitemap
+
+## Charts
+
+- Nivo Docs: https://nivo.rocks/line/
+- Nivo Storybook: https://nivo.rocks/storybook/?path=/story/line--custom-tooltip
+- Nivo API for server side image generation: https://github.com/plouc/nivo-api
+- Example how to export PNG: https://github.com/plouc/nivo/issues/698

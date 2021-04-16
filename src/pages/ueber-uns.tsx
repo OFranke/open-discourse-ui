@@ -66,14 +66,14 @@ const Home: React.FC = () => {
               Limebit GmbH. <ExternalLinkIcon mx="2px" />
             </NextChakraLink>{" "}
             Entstanden ist die Idee aus den Fähigkeiten und Motivationen der
-            Mitarbeiter_Innen, in Pausengesprächen und aus den gemeinsamen
+            Mitarbeiter:innen, in Pausengesprächen und aus den gemeinsamen
             Vorstellungen von Demokratie.
           </DefaultText>
           <DefaultText>
             Wir hoffen, dass durch unsere Vorarbeit datenbasierter Journalismus,
             Wissenschaft und Zivilbevölkerung profitieren und der erleichterte
             Zugang zu den Daten dazu anregt, die politische Geschichte des
-            Bundestags auf Basis der verwendeten Sprache der Politiker_Innen zu
+            Bundestags auf Basis der verwendeten Sprache der Politiker:innen zu
             analysieren.
           </DefaultText>
           <DefaultText>

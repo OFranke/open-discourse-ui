@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 interface NavItemProps {
-  href: string;
   underlineColor: string;
+  href?: string;
   isExternal?: boolean;
 }
 export const NavItem: React.FC<NavItemProps> = ({
@@ -23,13 +23,25 @@ export const NavItem: React.FC<NavItemProps> = ({
     xl: "4xl",
   };
   const router = useRouter();
+
   const isActiveLink = router.pathname == href;
+
+  const Wrapper: React.FC = ({ children }) => {
+    if (href) {
+      return (
+        <NextChakraLink
+          href={href}
+          _hover={{ textDecoration: "none" }}
+          isExternal={isExternal}
+        >
+          {children}
+        </NextChakraLink>
+      );
+    }
+    return <>{children}</>;
+  };
   return (
-    <NextChakraLink
-      href={href}
-      _hover={{ textDecoration: "none" }}
-      isExternal={isExternal}
-    >
+    <Wrapper>
       <Box>
         <DefaultText
           as="span"
@@ -46,6 +58,6 @@ export const NavItem: React.FC<NavItemProps> = ({
           {children}
         </DefaultText>
       </Box>
-    </NextChakraLink>
+    </Wrapper>
   );
 };

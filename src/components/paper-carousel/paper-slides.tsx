@@ -33,6 +33,67 @@ const SlideWrapper: React.FC<SliderWrapper> = ({ children, imagePath }) => {
 
 export const Slide1: React.FC = () => {
   return (
+    <SlideWrapper imagePath="/analysen/background_correlaid.jpg">
+      <DefaultHeadline size="s">CorrelAid</DefaultHeadline>
+      <ColoredSubline as="h3" backgroundColor="pink.500">
+        Datenbasiertes Storytelling
+      </ColoredSubline>
+      <DefaultText>
+        <NextChakraLink
+          isExternal
+          color="pink.500"
+          href="https://correlaid.org/"
+        >
+          CorrelAid <ExternalLinkIcon mx="2px" />
+        </NextChakraLink>{" "}
+        ist ein gemeinnütziges Netzwerk von Data Scientists, die die Welt durch
+        Data Science zum Positiven verändern wollen. Ziel der Zusammenarbeit mit
+        unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden und
+        Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der
+        Gründung des Bundestages gesprochen haben.
+      </DefaultText>
+      <ColoredSubline as="h2" backgroundColor="pink.500">
+        Über Natural language Processing zu geschichtlichen Erkenntnissen
+      </ColoredSubline>
+      <DefaultText>
+        Im Sommer 2020 haben sich 8 ehrenamtliche Data Scientists mit dem
+        Datensatz auseinandergesetzt. Untersucht wurde inwiefern sich Debatten
+        im Bundestag verändert haben und ob Diskursverschiebungungen in
+        geschichtlichen Zusammenhängen stehen.
+      </DefaultText>
+      <DefaultText>
+        In der Arbeit mit dem Datensatz hat sich das Team folgende Ziele
+        gesetzt:
+      </DefaultText>
+      <OrderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
+        <DefaultListItem>mehr über angewandtes NLP erfahren</DefaultListItem>
+        <DefaultListItem>
+          kreative Wege finden, um die Daten zu analysieren und zu visualisieren
+        </DefaultListItem>
+      </OrderedList>
+
+      <DefaultText>
+        Das genaue Ziel, d. H. der Fokus der Analyse, wurde innerhalb der beiden
+        Untergruppen entwickelt. Das Ergebnis sollte sich primär nicht auf ein
+        politikwissenschaftlichen Ansatz konzentrieren, sondern interessante
+        oder unterhaltsame Muster in der Historie finden, die eine Geschichte
+        erzählen wie sich Politik und Gesellschaft im Laufe der Jahre verändert
+        haben.
+        <br />
+        <b>
+          Auf der CorrelCon-Tagung im November wurde bereits ein Ergebnis
+          vorgestellt:
+        </b>
+      </DefaultText>
+      <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
+        <YoutubeVideo url="https://www.youtube-nocookie.com/embed/bJBkZQ1xeA0" />
+      </Flex>
+    </SlideWrapper>
+  );
+};
+
+export const Slide2: React.FC = () => {
+  return (
     <SlideWrapper imagePath="/analysen/background_zdf.jpg">
       <DefaultHeadline size="s">ZDFHeute</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
@@ -46,7 +107,7 @@ export const Slide1: React.FC = () => {
       <DefaultText>
         Das Team hinter ZDFheute untersuchte die Plenarprotokolle des Deutschen
         Bundestages auf Basis unseres Datensatzes und ermittelte inwiefern sich
-        Politiker_Innen des Bundestages seit dem Jahr 1949 mit dem Stichwort
+        Politiker:innen des Bundestages seit dem Jahr 1949 mit dem Stichwort
         “Pandemie” auseinandergesetzt haben.
       </DefaultText>
       <ColoredSubline as="h3" backgroundColor="pink.500">
@@ -74,7 +135,7 @@ export const Slide1: React.FC = () => {
   );
 };
 
-export const Slide2: React.FC = () => {
+export const Slide3: React.FC = () => {
   return (
     <SlideWrapper imagePath="/analysen/background_ccc.jpg">
       <DefaultHeadline size="s">Chaos Computer Club</DefaultHeadline>
@@ -88,7 +149,7 @@ export const Slide2: React.FC = () => {
         kam, wie die Daten aufbereitet wurden und wie man auf die Daten
         zugreifen kann. Zusätzlich zeigen die Beiden anhand der Themenfelder
         Datenschutz und Klimawandel, wie der Bundestag sich mit diesen Themen
-        historisch auseinander gesetzt hat und welche Politiker_Innen und
+        historisch auseinander gesetzt hat und welche Politiker:innen und
         Parteien die Themen besonders (un-)interessant fanden.
       </DefaultText>
       <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
@@ -97,7 +158,8 @@ export const Slide2: React.FC = () => {
     </SlideWrapper>
   );
 };
-export const Slide3: React.FC = () => {
+
+export const Slide4: React.FC = () => {
   return (
     <SlideWrapper imagePath="/analysen/background_fom.jpg">
       <DefaultHeadline size="s">Akademische Forschungsarbeiten</DefaultHeadline>
@@ -189,67 +251,6 @@ export const Slide3: React.FC = () => {
       >
         Zum Paper
       </NextButtonLink>
-    </SlideWrapper>
-  );
-};
-
-export const Slide4: React.FC = () => {
-  return (
-    <SlideWrapper imagePath="/analysen/background_correlaid.jpg">
-      <DefaultHeadline size="s">CorrelAid</DefaultHeadline>
-      <ColoredSubline as="h3" backgroundColor="pink.500">
-        Datenbasiertes Storytelling
-      </ColoredSubline>
-      <DefaultText>
-        <NextChakraLink
-          isExternal
-          color="pink.500"
-          href="https://correlaid.org/"
-        >
-          CorrelAid <ExternalLinkIcon mx="2px" />
-        </NextChakraLink>{" "}
-        ist ein gemeinnütziges Netzwerk von Data Scientists, die die Welt durch
-        Data Science zum Positiven verändern wollen. Ziel der Zusammenarbeit mit
-        unserem Projekt ist es, NLP-Techniken auf den Datensatz anzuwenden und
-        Einblicke zu gewinnen, worüber die deutschen Abgeordneten seit der
-        Gründung des Bundestages gesprochen haben.
-      </DefaultText>
-      <ColoredSubline as="h2" backgroundColor="pink.500">
-        Über Natural language Processing zu geschichtlichen Erkenntnissen
-      </ColoredSubline>
-      <DefaultText>
-        Im Sommer 2020 haben sich 8 ehrenamtliche Data Scientists mit dem
-        Datensatz auseinandergesetzt. Untersucht wurde inwiefern sich Debatten
-        im Bundestag verändert haben und ob Diskursverschiebungungen in
-        geschichtlichen Zusammenhängen stehen.
-      </DefaultText>
-      <DefaultText>
-        In der Arbeit mit dem Datensatz hat sich das Team folgende Ziele
-        gesetzt:
-      </DefaultText>
-      <OrderedList marginLeft={{ base: 10, md: 14, lg: 20, xl: 28 }}>
-        <DefaultListItem>mehr über angewandtes NLP erfahren</DefaultListItem>
-        <DefaultListItem>
-          kreative Wege finden, um die Daten zu analysieren und zu visualisieren
-        </DefaultListItem>
-      </OrderedList>
-
-      <DefaultText>
-        Das genaue Ziel, d. H. der Fokus der Analyse, wurde innerhalb der beiden
-        Untergruppen entwickelt. Das Ergebnis sollte sich primär nicht auf ein
-        politikwissenschaftlichen Ansatz konzentrieren, sondern interessante
-        oder unterhaltsame Muster in der Historie finden, die eine Geschichte
-        erzählen wie sich Politik und Gesellschaft im Laufe der Jahre verändert
-        haben.
-        <br />
-        <b>
-          Auf der CorrelCon-Tagung im November wurde bereits ein Ergebnis
-          vorgestellt:
-        </b>
-      </DefaultText>
-      <Flex justifyContent="center" paddingTop={{ base: 0, md: 4, lg: 10 }}>
-        <YoutubeVideo url="https://www.youtube-nocookie.com/embed/bJBkZQ1xeA0" />
-      </Flex>
     </SlideWrapper>
   );
 };
