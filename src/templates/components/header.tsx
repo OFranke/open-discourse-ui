@@ -123,7 +123,7 @@ export const Header: React.FC = () => {
                         marginLeft="0"
                         style={{ marginLeft: 0 }}
                         key={version}
-                        href={`/dokumentation/${version}`}
+                        href={`https://open-discourse.github.io/open-discourse-documentation/${version}/index.html`}
                       >
                         <MenuItem marginLeft="0" style={{ marginLeft: 0 }}>
                           {version}

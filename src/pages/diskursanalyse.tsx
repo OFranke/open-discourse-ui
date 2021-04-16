@@ -115,40 +115,38 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
             <NextChakraLink
               _hover={{ textDecoration: "none" }}
-              href="/diskursanalyse?filters=%5B%7B%22filterId%22%3A%22799st%22%2C%22color%22%3A%22%23212529%22%2C%22actor%22%3A%22party_0%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22a8f14%22%2C%22color%22%3A%22%23ff0a54%22%2C%22actor%22%3A%22party_1%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22cl2m3%22%2C%22color%22%3A%22%23ffed00%22%2C%22actor%22%3A%22party_2%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%22mmyfd%22%2C%22color%22%3A%22%2346962b%22%2C%22actor%22%3A%22party_3%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%2C%7B%22filterId%22%3A%222w9x0%22%2C%22color%22%3A%22%23dadaeb%22%2C%22actor%22%3A%22party_4%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_37%22%7D%5D"
+              href="/diskursanalyse?filters=%5B%7B%22filterId%22%3A%222i6ly%22%2C%22color%22%3A%22%23FBB6CE%22%2C%22actor%22%3Anull%2C%22age%22%3A%22age_0%22%2C%22state%22%3Anull%2C%22gender%22%3A%22gender_1%22%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_6%22%7D%2C%7B%22filterId%22%3A%22gr6gj%22%2C%22color%22%3A%22%23ED64A6%22%2C%22actor%22%3Anull%2C%22age%22%3A%22age_1%22%2C%22state%22%3Anull%2C%22gender%22%3A%22gender_0%22%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_6%22%7D%5D"
             >
               <Card textAlign="center">
-                <DefaultText>Klimaschutz</DefaultText>
-                <Image
-                  imagePath={"/diskursanalyse/plot-umwelt-und-klimaschutz.jpg"}
-                  imageAlt={"imageAlt"}
-                />
+                <DefaultHeadline size="xs">Klimaschutz</DefaultHeadline>
+                <DefaultText>
+                  Umwelt als Metathema deutlich stärker von jungen Frauen als
+                  von älteren Männern besetzt
+                </DefaultText>
               </Card>
             </NextChakraLink>
             <NextChakraLink
               _hover={{ textDecoration: "none" }}
-              href="/diskursanalyse?filters=%5B%7B%22filterId%22%3A%22a1za6%22%2C%22color%22%3A%22%23212529%22%2C%22topics%22%3A%22topic_72%22%2C%22age%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22actor%22%3A%22politician_11001478%22%2C%22state%22%3Anull%7D%2C%7B%22color%22%3A%22%23ff0a54%22%2C%22filterId%22%3A%22hv48v%22%2C%22actor%22%3A%22politician_11002078%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22color%22%3A%22%23d9d9d9%22%2C%22filterId%22%3A%22fum5p%22%2C%22actor%22%3A%22politician_11001165%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22color%22%3A%22%23fee0d2%22%2C%22filterId%22%3A%22mh3yi%22%2C%22actor%22%3A%22politician_11002007%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%2C%7B%22color%22%3A%22%23fcbba1%22%2C%22filterId%22%3A%22f8rfb%22%2C%22actor%22%3A%22politician_11000246%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_72%22%7D%5D"
+              href="/diskursanalyse?filters=%5B%7B%22filterId%22%3A%22f8rfb%22%2C%22color%22%3A%22%23212529%22%2C%22actor%22%3A%22party_0%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_23%22%7D%2C%7B%22filterId%22%3A%22ei89n%22%2C%22color%22%3A%22%23ff0a54%22%2C%22actor%22%3A%22party_1%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_23%22%7D%2C%7B%22filterId%22%3A%22gyekz%22%2C%22color%22%3A%22%23ffed00%22%2C%22actor%22%3A%22party_2%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_23%22%7D%2C%7B%22color%22%3A%22%23dadaeb%22%2C%22filterId%22%3A%22vo55x%22%2C%22actor%22%3A%22party_4%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_23%22%7D%2C%7B%22color%22%3A%22%2346962b%22%2C%22filterId%22%3A%222i6ly%22%2C%22actor%22%3A%22party_3%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_23%22%7D%5D"
             >
               <Card textAlign="center">
-                <DefaultText>Korruption & Lobbyismus</DefaultText>
-                <Image
-                  imagePath={
-                    "/diskursanalyse/plot-korruption-und-lobbyismus.jpg"
-                  }
-                  imageAlt={"imageAlt"}
-                />
+                <DefaultHeadline size="xs">Datenschutz</DefaultHeadline>
+                <DefaultText>
+                  Thematisierung von Datenschutz nimmt während
+                  Regierungsverantwortung ab
+                </DefaultText>
               </Card>
             </NextChakraLink>
             <NextChakraLink
               _hover={{ textDecoration: "none" }}
-              href="/diskursanalyse?filters=%5B%7B%22filterId%22%3A%22h759c%22%2C%22color%22%3A%22%23212529%22%2C%22actor%22%3A%22party_0%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%2C%7B%22filterId%22%3A%22ow6er%22%2C%22color%22%3A%22%23ff0a54%22%2C%22actor%22%3A%22party_1%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%2C%7B%22filterId%22%3A%22mohuw%22%2C%22color%22%3A%22%23ffed00%22%2C%22actor%22%3A%22party_2%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%2C%7B%22filterId%22%3A%227m2nv%22%2C%22color%22%3A%22%2346962b%22%2C%22actor%22%3A%22party_3%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%2C%7B%22filterId%22%3A%22m40o4%22%2C%22color%22%3A%22%23dadaeb%22%2C%22actor%22%3A%22party_4%22%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3Anull%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_13%22%7D%5D"
+              href="/diskursanalyse?filters=%5B%7B%22filterId%22%3A%222i6ly%22%2C%22color%22%3A%22%23FBB6CE%22%2C%22actor%22%3Anull%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3A%22gender_1%22%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_47%22%7D%2C%7B%22filterId%22%3A%22gr6gj%22%2C%22color%22%3A%22%23ED64A6%22%2C%22actor%22%3Anull%2C%22age%22%3Anull%2C%22state%22%3Anull%2C%22gender%22%3A%22gender_0%22%2C%22job%22%3Anull%2C%22topics%22%3A%22topic_47%22%7D%5D"
             >
               <Card textAlign="center">
-                <DefaultText>Verteidigungspolitik</DefaultText>
-                <Image
-                  imagePath={"/diskursanalyse/plot-verteidigungspolitik.jpg"}
-                  imageAlt={"imageAlt"}
-                />
+                <DefaultHeadline size="xs">Familie</DefaultHeadline>
+                <DefaultText>
+                  Familienangelegenheiten als politisches Thema vorwiegend durch
+                  Frauen getragen
+                </DefaultText>
               </Card>
             </NextChakraLink>
           </SimpleGrid>

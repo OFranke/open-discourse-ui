@@ -24,6 +24,7 @@ import {
 } from "../components/paper-carousel/paper-slides";
 import { useBreakpointValue } from "@chakra-ui/react";
 import { HomeHero } from "../components/home/home-hero";
+import { HomeShowcase } from "../components/home/home-showcase";
 
 const Home: React.FC = () => {
   const showArrows = useBreakpointValue({
@@ -172,6 +173,9 @@ const Home: React.FC = () => {
             Jahrhundert.
           </Quote>
         </DefaultContainer>
+      </Section>
+      <Section>
+        <HomeShowcase />
       </Section>
       <Section>
         <DefaultContainer size="l">
