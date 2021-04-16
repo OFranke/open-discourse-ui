@@ -367,6 +367,11 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             stacked: false,
             // tickSize: 5,
           }}
+          axisTop={{
+            legend: "Relevanz",
+            legendPosition: "start",
+            legendOffset: -30,
+          }}
           axisLeft={{
             format: (value) => `${Number(value)}`,
           }}
