@@ -16,7 +16,7 @@ const envConfig = () => {
       ? "http://localhost:3000/"
       : isPreview
       ? `https://${process.env.VERCEL_GIT_REPO_SLUG}-git-${process.env.VERCEL_GIT_COMMIT_REF}.ofranke.vercel.app`
-      : isProduction
+      : isProd
       ? `https://opendiscourse.de`
       : undefined,
   };
