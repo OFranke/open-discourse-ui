@@ -44,7 +44,8 @@ export const HomeHero = () => {
               Zur Volltextsuche
             </NextButtonLink>
             <NextButtonLink
-              colorScheme="pink"
+              colorScheme="yellow"
+              textColor="white"
               href="/diskursanalyse"
               marginTop={{
                 base: "4",
