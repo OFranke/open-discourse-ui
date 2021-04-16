@@ -56,11 +56,6 @@ export const Question5 = () => {
 
         </DefaultListItem>
       </UnorderedList>
-      <DefaultText>
-        Zusätzlich haben wir alle Politiker*Innen aus dieser Liste entfernt,
-        die unter 30 Reden gehalten haben. Als Ergebnis stehen nun 261
-        Politiker*Innen zur Auswahl.
-      </DefaultText>
     </>
   </FaqAccordionItem>
   );
