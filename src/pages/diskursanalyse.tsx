@@ -12,7 +12,6 @@ import { SimpleGrid } from "@chakra-ui/react";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { Card } from "@bit/limebit.limebit-ui.card";
-import { useRouter } from "next/router";
 import { TopicModellingFaqs } from "../components/topic-modeling/faqs/index";
 
 type Data = {
@@ -61,10 +60,9 @@ const Image: React.FC<ImageProps> = ({ imagePath, imageAlt }) => {
 };
 
 const Page: React.FC<{ data: Data }> = ({ data }) => {
-  const router = useRouter();
-  const title = "Plenarprotokolle des deutschen Bundestages seit 1949";
+  const title = "Diskursanalyse des deutschen Bundestages seit 1949";
   const description =
-    "Open Discourse erleichtert den Zugang zu Protokollen des Bundestages mit einer Suchmaschine für Politiker, Redebeiträge und Fraktionen.";
+    "Open Discourse erleichtert den Zugang zum politischen Diskurs des Bundestages mit einem Tool zur Diskursanalyse der Plenardebatten.";
   return (
     <BaseTemplate>
       <SEO
