@@ -365,13 +365,12 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
             min: 1949,
             max: 2021,
             stacked: false,
-            // tickSize: 5,
           }}
-          axisTop={{
-            legend: "Relevanz",
-            legendPosition: "start",
-            legendOffset: -30,
-          }}
+          // axisTop={{
+          //   legend: "Relevanz",
+          //   legendPosition: "start",
+          //   legendOffset: -30,
+          // }}
           axisLeft={{
             format: (value) => `${Number(value)}`,
           }}

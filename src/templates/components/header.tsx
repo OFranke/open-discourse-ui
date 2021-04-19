@@ -124,6 +124,7 @@ export const Header: React.FC = () => {
                         style={{ marginLeft: 0 }}
                         key={version}
                         href={`https://open-discourse.github.io/open-discourse-documentation/${version}/index.html`}
+                        isExternal
                       >
                         <MenuItem marginLeft="0" style={{ marginLeft: 0 }}>
                           {version}
