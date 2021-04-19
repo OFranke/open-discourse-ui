@@ -141,7 +141,7 @@ const dataReducer = (
     }
     case "pending": {
       return {
-        ...previousState,
+        ...action,
         status: "pending",
       };
     }
@@ -330,152 +330,154 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
         }}
         maxWidth={{ lg: "1218px", xl: "calc(70vw - 32px)" }}
       >
-        <ResponsiveLine
-          margin={{
-            top: legendItemHeight,
-            right: 10,
-            bottom: 50 + state.data.length * legendItemHeight,
-            left: 40,
-          }}
-          data={state.data || []}
-          animate={true}
-          enableSlices={"x"}
-          yFormat=" >-.3f"
-          enablePoints={true}
-          lineWidth={2.5}
-          layers={[
-            "grid",
-            "markers",
-            "axes",
-            "areas",
-            "lines",
-            "mesh",
-            "legends",
-            isMobile ? "legends" : "slices",
-            showAnnotations ? CustomAnnotation : "legends",
-          ]}
-          curve="monotoneX"
-          colors={state.colors}
-          yScale={{
-            type: "linear",
-            stacked: false,
-          }}
-          xScale={{
-            type: "linear",
-            min: 1949,
-            max: 2021,
-            stacked: false,
-          }}
-          // axisTop={{
-          //   legend: "Relevanz",
-          //   legendPosition: "start",
-          //   legendOffset: -30,
-          // }}
-          axisLeft={{
-            format: (value) => `${Number(value)}`,
-          }}
-          legends={[
-            {
-              anchor: "bottom-left",
-              direction: "column",
-              itemWidth: 600,
-              itemHeight: legendItemHeight,
-              translateY: 30 + state.data.length * legendItemHeight,
-            },
-          ]}
-          markers={showMarkers ? state.markers : undefined}
-        />
+        {state.status == "resolved" && state.data.length > 0 && (
+          <>
+            <ResponsiveLine
+              margin={{
+                top: legendItemHeight,
+                right: 10,
+                bottom: 50 + state.data.length * legendItemHeight,
+                left: 40,
+              }}
+              data={state.data || []}
+              animate={true}
+              enableSlices={"x"}
+              yFormat=" >-.3f"
+              enablePoints={true}
+              lineWidth={2.5}
+              layers={[
+                "grid",
+                "markers",
+                "axes",
+                "areas",
+                "lines",
+                "mesh",
+                "legends",
+                isMobile ? "legends" : "slices",
+                showAnnotations ? CustomAnnotation : "legends",
+              ]}
+              curve="monotoneX"
+              colors={state.colors}
+              yScale={{
+                type: "linear",
+                stacked: false,
+              }}
+              xScale={{
+                type: "linear",
+                min: 1949,
+                max: 2021,
+                stacked: false,
+              }}
+              // axisTop={{
+              //   legend: "Relevanz",
+              //   legendPosition: "start",
+              //   legendOffset: -30,
+              // }}
+              axisLeft={{
+                format: (value) => `${Number(value)}`,
+              }}
+              legends={[
+                {
+                  anchor: "bottom-left",
+                  direction: "column",
+                  itemWidth: 600,
+                  itemHeight: legendItemHeight,
+                  translateY: 30 + state.data.length * legendItemHeight,
+                },
+              ]}
+              markers={showMarkers ? state.markers : undefined}
+            />
 
-        <HStack
-          spacing={5}
-          position="absolute"
-          zIndex="1000"
-          marginX="2"
-          // bottom={`${
-          //   state.data.length ? state.data.length * legendItemHeight - 15 : -15
-          // }px`}
-          top={0}
-          right={0}
-          display={{ base: "none", md: "initial" }}
-        >
-          {hasAnnotations && (
-            <Checkbox
-              colorScheme="gray"
-              defaultIsChecked={showAnnotations}
-              onChange={() => setToggleAnnotations(!showAnnotations)}
+            <HStack
+              spacing={5}
+              position="absolute"
+              zIndex="1000"
+              marginX="2"
+              // bottom={`${
+              //   state.data.length ? state.data.length * legendItemHeight - 15 : -15
+              // }px`}
+              top={0}
+              right={0}
+              display={{ base: "none", md: "initial" }}
             >
-              Hinweise Anzeigen
-            </Checkbox>
-          )}
-          {state.markers.length > 0 && (
-            <Checkbox
-              colorScheme="gray"
-              defaultIsChecked={showMarkers}
-              onChange={() => setToggleMarkers(!showMarkers)}
+              {hasAnnotations && (
+                <Checkbox
+                  colorScheme="gray"
+                  defaultIsChecked={showAnnotations}
+                  onChange={() => setToggleAnnotations(!showAnnotations)}
+                >
+                  Hinweise Anzeigen
+                </Checkbox>
+              )}
+              {state.markers.length > 0 && (
+                <Checkbox
+                  colorScheme="gray"
+                  defaultIsChecked={showMarkers}
+                  onChange={() => setToggleMarkers(!showMarkers)}
+                >
+                  Ereignisse Anzeigen
+                </Checkbox>
+              )}
+            </HStack>
+            <Box
+              position="absolute"
+              zIndex="2"
+              bottom={{
+                base: "unset",
+                md: `${
+                  state.data.length
+                    ? state.data.length * legendItemHeight - 50
+                    : -50
+                }px`,
+              }}
+              right={{ base: "unset", md: 0 }}
+              left={{ base: 0, md: "unset" }}
+              top={{ base: "-10px", md: "unset" }}
+              textAlign="center"
+              display={{ base: "inline-flex", md: "initial" }}
+              alignItems={{ base: "center", md: "initial" }}
             >
-              Ereignisse Anzeigen
-            </Checkbox>
-          )}
-        </HStack>
-        {state.data.length > 0 && (
-          <Box
-            position="absolute"
-            zIndex="2"
-            bottom={{
-              base: "unset",
-              md: `${
-                state.data.length
-                  ? state.data.length * legendItemHeight - 50
-                  : -50
-              }px`,
-            }}
-            right={{ base: "unset", md: 0 }}
-            left={{ base: 0, md: "unset" }}
-            top={{ base: "-10px", md: "unset" }}
-            textAlign="center"
-            display={{ base: "inline-flex", md: "initial" }}
-            alignItems={{ base: "center", md: "initial" }}
-          >
-            <DefaultText
-              as="label"
-              fontSize={{ base: "14px" }}
-              marginBottom={0}
-            >
-              Diese Analyse teilen
-            </DefaultText>
-            <Box>
-              <IconButton
-                onClick={handleTwitterButtonClick}
-                justifyContent={"center"}
-                fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
-                variant="ghost"
-                aria-label="GitHub"
-                icon={<FaTwitter color="#1DA1F2" />}
-                marginX="2"
-                disabled={state.status == "resolved" ? false : true}
-              />
-              <IconButton
-                onClick={handleFacebookButtonClick}
-                justifyContent={"center"}
-                fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
-                variant="ghost"
-                aria-label="GitHub"
-                icon={<FaFacebookSquare color="#4267B2" />}
-                marginX="2"
-                disabled={state.status == "resolved" ? false : true}
-              />
-              <CopyButton
-                copyCallback={handleCopyButtonClick}
-                justifyContent={"center"}
-                fontSize={{ base: "xl", md: "xl", lg: "2xl", xl: "4xl" }}
-                variant="ghost"
-                aria-label="Link zum Teilen kopieren"
-                icon={<CopyIcon />}
-                marginX="2"
-                disabled={state.status == "resolved" ? false : true}
-              />
+              <DefaultText
+                as="label"
+                fontSize={{ base: "14px" }}
+                marginBottom={0}
+              >
+                Diese Analyse teilen
+              </DefaultText>
+              <Box>
+                <IconButton
+                  onClick={handleTwitterButtonClick}
+                  justifyContent={"center"}
+                  fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
+                  variant="ghost"
+                  aria-label="GitHub"
+                  icon={<FaTwitter color="#1DA1F2" />}
+                  marginX="2"
+                  disabled={state.status == "resolved" ? false : true}
+                />
+                <IconButton
+                  onClick={handleFacebookButtonClick}
+                  justifyContent={"center"}
+                  fontSize={{ base: "2xl", md: "2xl", lg: "3xl", xl: "4xl" }}
+                  variant="ghost"
+                  aria-label="GitHub"
+                  icon={<FaFacebookSquare color="#4267B2" />}
+                  marginX="2"
+                  disabled={state.status == "resolved" ? false : true}
+                />
+                <CopyButton
+                  copyCallback={handleCopyButtonClick}
+                  justifyContent={"center"}
+                  fontSize={{ base: "xl", md: "xl", lg: "2xl", xl: "4xl" }}
+                  variant="ghost"
+                  aria-label="Link zum Teilen kopieren"
+                  icon={<CopyIcon />}
+                  marginX="2"
+                  disabled={state.status == "resolved" ? false : true}
+                />
+              </Box>
             </Box>
-          </Box>
+          </>
         )}
       </Flex>
       <Flex
