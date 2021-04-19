@@ -491,5 +491,3 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
     </Flex>
   );
 };
-
-export default TopicLineGraph;
