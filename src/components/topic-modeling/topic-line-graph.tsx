@@ -420,7 +420,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
         {state.data.length > 0 && (
           <Box
             position="absolute"
-            zIndex="1000"
+            zIndex="2"
             bottom={{
               base: "unset",
               md: `${
