@@ -112,22 +112,6 @@ export const ContactForm: React.FC = () => {
               Instagram
             </DefaultText>
           </NextButtonLink>
-          {/* <ButtonLink
-            href="https://www.instagram.com/opendiscourse.de/"
-            justifyContent="left"
-            colorScheme="pink"
-            rightIcon={undefined}
-            fontSize={{ base: "lg", md: "xl", xl: "4xl" }}
-            leftIcon={<FaFacebookSquare />}
-          >
-            <DefaultText
-              fontSize={{ base: "md", md: "md", xl: "2xl" }}
-              fontWeight="bold"
-              margin="0"
-            >
-              Facebook
-            </DefaultText>
-          </ButtonLink> */}
           <NextButtonLink
             href="https://twitter.com/OpenDiscourseDE"
             justifyContent="left"

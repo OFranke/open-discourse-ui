@@ -21,7 +21,7 @@ export const HomeHero = () => {
           display="flex"
           flexDirection="column"
         >
-          <DefaultHeadline size="m" as="h1" width={{ sm: "50%" }}>
+          <DefaultHeadline size="m" as="h2" width={{ sm: "50%" }}>
             Analyse von Plenarprotokollen für Mensch und Maschine
           </DefaultHeadline>
           <Box>

@@ -1,80 +1,11 @@
 import { Card } from "@bit/limebit.limebit-ui.card";
-import { Flex, useBreakpointValue, Text, Box, chakra } from "@chakra-ui/react";
-import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
+import { Box, chakra } from "@chakra-ui/react";
 import React from "react";
-import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-
-interface DescriptionProps {
-  description: string;
-  descriptionHighlight: string;
-}
-const Description: React.FC<DescriptionProps> = ({
-  description,
-  descriptionHighlight,
-}) => {
-  const paddingY = {
-    base: "2",
-    sm: "4",
-    md: "5",
-    lg: "0",
-    xl: "0",
-  };
-
-  const descriptionSize = {
-    base: "sm",
-    sm: "xl",
-    md: "xl",
-    lg: "xl",
-    xl: "2xl",
-  };
-
-  return (
-    <Box>
-      <DefaultText paddingY={paddingY} fontSize={descriptionSize}>
-        {description}
-      </DefaultText>
-      <DefaultText
-        textTransform="uppercase"
-        color="pink.500"
-        fontWeight="bold"
-        fontSize={descriptionSize}
-      >
-        {descriptionHighlight}
-      </DefaultText>
-    </Box>
-  );
-};
-
-interface HeaderProps {
-  headline: string;
-  subline: string;
-}
-const Header: React.FC<HeaderProps> = ({ subline }) => {
-  const sublineSize = {
-    base: "sm",
-    sm: "xl",
-    md: "2xl",
-    lg: "3xl",
-    xl: "4xl",
-  };
-  return (
-    <Box>
-      <DefaultHeadline
-        size="m"
-        fontFamily="Source Code Pro"
-        textTransform="none"
-        marginBottom="0"
-      >
-        Statistik
-      </DefaultHeadline>
-
-      <Text fontWeight="semibold" fontSize={sublineSize}>
-        {subline}
-      </Text>
-    </Box>
-  );
-};
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import styles from "./styles.module.css";
+import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 interface StatisticImageProps {
   imagePath: string;
   imageAlt: string;
@@ -101,69 +32,109 @@ export const StatisticImage: React.FC<StatisticImageProps> = ({
   );
 };
 
-interface StatisticProps
-  extends DescriptionProps,
-    HeaderProps,
-    StatisticImageProps {
-  imagePosition: "left" | "right";
-}
-
-export const Statistic: React.FC<StatisticProps> = ({
-  headline,
-  subline,
-  description,
-  descriptionHighlight,
-  imagePath,
-  imagePosition,
-  imageAlt,
-}) => {
-  const isDesktop = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
-
+export const Statistic: React.FC = () => {
+  const size = "50px";
   return (
-    <Card>
-      {isDesktop ? (
-        <Flex
-          flexDirection={imagePosition == "right" ? "row-reverse" : "initial"}
-        >
-          <Flex
-            direction="column"
-            paddingRight={imagePosition == "left" ? "4" : "0"}
-            paddingLeft={imagePosition == "right" ? "4" : "0"}
-            width="35%"
-            justifyContent="center"
-          >
-            <Header headline={headline} subline={subline} />
-            <Description
-              description={description}
-              descriptionHighlight={descriptionHighlight}
-            />
-          </Flex>
+    <Box
+      marginX="auto"
+      className={styles.activeSlideStyle}
+      display={{ base: "inline", lg: "block" }}
+    >
+      <Slider
+        infinite={true}
+        slidesToShow={1}
+        swipeToSlide={true}
+        focusOnSelect={true}
+        speed={1000}
+        arrows={true}
+        dots={true}
+        prevArrow={
           <Box
-            width={{ md: "100%" }}
-            backgroundImage="linear-gradient(135deg, rgba(229,229,229,1) 0%, rgba(255,255,255,1) 100%)"
-          >
-            <StatisticImage imagePath={imagePath} imageAlt={imageAlt} />
-          </Box>
-        </Flex>
-      ) : (
-        <Flex direction="column">
-          <Header headline={headline} subline={subline} />{" "}
-          <Box
-            width={{ md: "100%" }}
-            backgroundImage="linear-gradient(135deg, rgba(229,229,229,1) 0%, rgba(255,255,255,1) 100%)"
-            marginX="-8px"
-          >
-            <StatisticImage imagePath={imagePath} imageAlt={imageAlt} />
-          </Box>
-          <Description
-            description={description}
-            descriptionHighlight={descriptionHighlight}
+            _before={{ fontSize: size }}
+            zIndex="200"
+            height={size}
+            width={size}
+            position="absolute"
+            top={"50%"}
+            left="5px"
           />
-        </Flex>
-      )}
-    </Card>
+        }
+        nextArrow={
+          <Box
+            _before={{ fontSize: size }}
+            color="blue"
+            zIndex="200"
+            height={size}
+            width={size}
+            position="absolute"
+            top={"50%"}
+            right="5px"
+          />
+        }
+        responsive={[
+          {
+            breakpoint: 1024,
+            settings: {
+              arrows: false,
+            },
+          },
+        ]}
+      >
+        <DefaultContainer size={"l"}>
+          <Card
+            backgroundColor="white"
+            marginX={{ base: 2, lg: "14" }}
+            marginY={{
+              base: "4",
+              sm: "14",
+              md: "20",
+              lg: "20",
+              xl: "32",
+            }}
+          >
+            <StatisticImage
+              imagePath={"/statistics/datenschutz_graph.png"}
+              imageAlt={`Grafik: "Relevanz des Themas Datenschutz seit 1948 aus LDA Topic Modelling mit 250 Topics"`}
+            />
+          </Card>
+        </DefaultContainer>
+        <DefaultContainer size={"l"}>
+          <Card
+            backgroundColor="white"
+            marginX={{ base: 2, lg: "14" }}
+            marginY={{
+              base: "4",
+              sm: "14",
+              md: "20",
+              lg: "20",
+              xl: "32",
+            }}
+          >
+            <StatisticImage
+              imagePath={"/statistics/fluchen_graph.png"}
+              imageAlt={`Grafik: "Fluchen im Deutschen Bundestag: Mitte Rechts, Mitte Links und Durschnitt der Parteien."`}
+            />
+          </Card>
+        </DefaultContainer>
+        <DefaultContainer size={"l"}>
+          <Card
+            backgroundColor="white"
+            marginX={{ base: 2, lg: "14" }}
+            marginY={{
+              base: "4",
+              sm: "14",
+              md: "20",
+              lg: "20",
+              xl: "32",
+            }}
+          >
+            <StatisticImage
+              imagePath={"/statistics/klimawandel_graph.png"}
+              imageAlt={`Grafik: "Relevanz des Themas Klimawandel seit 1949 aus LDA Topic Modelling mit 250 Topics"`}
+            />
+          </Card>
+        </DefaultContainer>
+      </Slider>
+    </Box>
   );
 };
