@@ -313,6 +313,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           Wählen Sie unten das erste Thema für Ihre Analyse
         </DefaultText>
       )}
+      
       <Flex
         filter={state.status == "pending" ? "blur(4px)" : undefined}
         id={graphWrapperId}

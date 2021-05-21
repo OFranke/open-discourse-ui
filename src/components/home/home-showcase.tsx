@@ -37,92 +37,94 @@ export const HomeShowcase = () => {
   backgroundHeight.base = "100%";
   backgroundHeight.sm = "100%";
   return (
-    <BackgroundImage
-      relativePathFromImageDir="/home_header.jpg"
-      height={backgroundHeight}
+    <Flex
+      width="100%"
+      height="100%"
+      alignItems="center"
+      paddingY={{ base: 10, md: "unset" }}
+      marginY={{
+        base: "8",
+        sm: "14",
+        md: "20",
+        lg: "20",
+        xl: "32",
+      }}
     >
-      <Flex
-        width="100%"
-        height="100%"
-        background="rgba(0, 0, 0, 0.6)"
-        alignItems="center"
-        paddingY={{ base: 10, md: "unset" }}
-      >
-        <DefaultContainer size="l">
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-            <Card
-              width={{ base: "100%" }}
-              background="white"
-              display="flex"
-              justifyContent="space-around"
-              flexDirection="column"
-            >
-              <DefaultHeadline size="xs" as="h2">
-                Wer hat was gesagt?
-              </DefaultHeadline>
-              <DefaultText>
-                Nutzen Sie unsere Volltextsuche, um gezielt in den
-                Plenarprotkollen zu Recherchieren
-              </DefaultText>
-              <Image
-                imagePath="/home/volltextsuche.jpg"
-                imageAlt="Volltextsuche für alle Debatten im Bundesttag seit 1949"
-              />
-              <Box textAlign="right">
-                <NextButtonLink
-                  colorScheme="pink"
-                  href="/volltextsuche"
-                  marginTop={{
-                    base: "4",
-                    md: "4",
-                    lg: "6",
-                    xl: "8",
-                  }}
-                >
-                  Zur Volltextsuche
-                </NextButtonLink>
-              </Box>
-            </Card>
-            {/* <Spacer marginTop={{ base: "5", md: "unset" }} /> */}
-            <Card
-              width={{ base: "100%" }}
-              background="white"
-              display="flex"
-              justifyContent="space-around"
-              flexDirection="column"
-            >
-              <DefaultHeadline size="xs" as="h2">
-                Worüber wurde gesprochen?
-              </DefaultHeadline>
-              <DefaultText>
-                Nutzen Sie unsere Themenanalyse, um zu untersuchen, über welche
-                Themen gesprochen wurde
-              </DefaultText>
-              {/* <DefaultText>
+      <DefaultContainer size="l">
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <Card
+            width={{ base: "100%" }}
+            background="white"
+            display="flex"
+            justifyContent="space-around"
+            flexDirection="column"
+          >
+            <DefaultHeadline size="xs" as="h2">
+              Wer hat was gesagt?
+            </DefaultHeadline>
+            <DefaultText>
+              Nutzen Sie unsere Volltextsuche, um gezielt in den
+              Plenarprotkollen zu Recherchieren
+            </DefaultText>
+            <Image
+              imagePath="/home/volltextsuche.jpg"
+              imageAlt="Volltextsuche für alle Debatten im Bundesttag seit 1949"
+            />
+            <Box textAlign="right">
+              <NextButtonLink
+                colorScheme="pink"
+                href="/volltextsuche"
+                marginTop={{
+                  base: "4",
+                  md: "4",
+                  lg: "6",
+                  xl: "8",
+                }}
+              >
+                Zur Volltextsuche
+              </NextButtonLink>
+            </Box>
+          </Card>
+          {/* <Spacer marginTop={{ base: "5", md: "unset" }} /> */}
+          <Card
+            width={{ base: "100%" }}
+            background="white"
+            display="flex"
+            justifyContent="space-around"
+            flexDirection="column"
+          >
+            <DefaultHeadline size="xs" as="h2">
+              Worüber wurde gesprochen?
+            </DefaultHeadline>
+            <DefaultText>
+              Nutzen Sie unsere Themenanalyse, um zu untersuchen, über welche
+              Themen gesprochen wurde
+            </DefaultText>
+            {/* <DefaultText>
               Analysieren Sie, wie relevant Themen waren
             </DefaultText> */}
-              <Image
-                imagePath="/home/diskursanalyse.jpg"
-                imageAlt="Volltextsuche für alle Debatten im Bundesttag seit 1949"
-              />
-              <Box textAlign="right">
-                <NextButtonLink
-                  colorScheme="pink"
-                  href="/diskursanalyse"
-                  marginTop={{
-                    base: "4",
-                    md: "4",
-                    lg: "6",
-                    xl: "8",
-                  }}
-                >
-                  Zur Diskursanalyse
-                </NextButtonLink>
-              </Box>
-            </Card>
-          </SimpleGrid>
-        </DefaultContainer>
-      </Flex>
-    </BackgroundImage>
+            <Image
+              imagePath="/home/diskursanalyse.jpg"
+              imageAlt="Volltextsuche für alle Debatten im Bundesttag seit 1949"
+            />
+            <Box textAlign="right">
+              <NextButtonLink
+                colorScheme="yellow"
+                textColor="white"
+                href="/diskursanalyse"
+                marginTop={{
+                  base: "4",
+                  md: "4",
+                  lg: "6",
+                  xl: "8",
+                }}
+              >
+                Zur Diskursanalyse
+              </NextButtonLink>
+            </Box>
+          </Card>
+        </SimpleGrid>
+      </DefaultContainer>
+    </Flex>
   );
 };

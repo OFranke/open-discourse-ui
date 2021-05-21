@@ -1,0 +1,34 @@
+.activeSlideStyle :global .slick-current .activeBorder {
+  content: '""';
+  display: "inline-block";
+  width: "100%";
+  border-bottom: 4px solid #ec5f91 !important;
+}
+
+@media screen and (min-width: 1440px) {
+  .activeSlideStyle :global .slick-track {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.shadowed {
+  position: relative;
+}
+
+.activeSlideStyle :global .slick-arrow::before {
+  color: #eb558a;
+}
+
+.shadowed::after {
+  border-radius: 0 0 300px 300px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  content: "";
+  display: block;
+  height: 350px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
