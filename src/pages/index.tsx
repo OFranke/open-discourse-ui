@@ -44,6 +44,7 @@ const Home: React.FC = () => {
       <Section>
         <HomeHero />
       </Section>
+
       <Section display="flex" flexDirection="column">
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h1">
@@ -53,6 +54,7 @@ const Home: React.FC = () => {
           <ColoredSubline as="h2" backgroundColor="pink.500">
             Wie Data Science den Weg zu politischem Diskurs demokratisiert
           </ColoredSubline>
+
           <DefaultText>
             Open Discourse hat die Plenarprotokolle des deutschen Bundestages
             seit 1949 aufgebrochen und analysierbar gemacht - und zwar für
@@ -60,6 +62,8 @@ const Home: React.FC = () => {
             und die Recherche in den über 800.000 Redebeiträgen der letzten 70
             Jahre.
           </DefaultText>
+          <HomeShowcase />
+
           <DefaultText>
             Die Datenbank hinter Open Discourse ist die erste granulare,
             umfassende und maschinenlesbare Aufbereitung jedes jemals
@@ -145,24 +149,6 @@ const Home: React.FC = () => {
             jetzt den gesamten Datensatz für ihre eigene Forschung herunterladen
             und auf Muster untersuchen.
           </DefaultText>
-          <DefaultText>
-            Nutzen Sie unsere Volltextsuche, um den politischen Diskurs im
-            Bundestag nachzuverfolgen und zu untersuchen oder downloaden Sie den
-            Datensatz, um eigene umfassende Analysen der Sprache und Reaktionen
-            des Bundestags von 1949 bis heute durchzuführen.
-          </DefaultText>
-          <NextButtonLink
-            colorScheme="pink"
-            href="/volltextsuche"
-            marginTop={{
-              base: "4",
-              md: "4",
-              lg: "6",
-              xl: "8",
-            }}
-          >
-            Volltextsuche
-          </NextButtonLink>
         </DefaultContainer>
       </Section>
       <Section background="pink.500" color="white">
@@ -174,9 +160,7 @@ const Home: React.FC = () => {
           </Quote>
         </DefaultContainer>
       </Section>
-      <Section>
-        <HomeShowcase />
-      </Section>
+
       <Section>
         <DefaultContainer size="l">
           <Tagline>Welches Potenzial steckt in den Daten?</Tagline>
@@ -189,25 +173,15 @@ const Home: React.FC = () => {
           </DefaultText>
           <DefaultText>
             Hier werden Ihnen bald noch mehr Analysen von uns und von anderen
-            Personen zeigen können - wir bitten um noch ewas Gedult.
+            Personen zeigen können - wir bitten um noch etwas Geduld.
           </DefaultText>
         </DefaultContainer>
       </Section>
       <Section>
         <DefaultContainer size="l">
-          <Stack spacing={{ base: "10", md: "20", lg: "32" }}>
-            <ConditionallyRender client>
-              <Statistic
-                headline="Auswertung"
-                subline="Wer kommt zu Wort – Männer oder Frauen?"
-                description="Anlässlich des internationalen Frauentages 2020 haben wir untersucht, wie viele Redebeiträge der einzelnen Parteien eigentlich von Frauen kamen."
-                descriptionHighlight="Für mehr Transparenz des politischen Diskurses!"
-                imagePath="/statistics/wer_kommt_zu_wort.png"
-                imagePosition="right"
-                imageAlt="Statistik"
-              />
-            </ConditionallyRender>
-          </Stack>
+          <ConditionallyRender client>
+            <Statistic />
+          </ConditionallyRender>
         </DefaultContainer>
       </Section>
       <Section background="pink.500" color="white">
