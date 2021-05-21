@@ -29,7 +29,7 @@ const Home: React.FC = () => {
       />
       <Section>
         <BackgroundImage
-          relativePathFromImageDir="/methodik/header_methodik.png"
+          relativePathFromImageDir="/methodik/header_methodik.jpg"
           height="60vh"
         />
       </Section>
