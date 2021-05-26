@@ -10,7 +10,6 @@ jobs:
         with:
           urls: |
             https://open-discourse-ui-git-develop.ofranke.vercel.app/
-            https://open-discourse-ui-git-develop.ofranke.vercel.app/methodik
             https://open-discourse-ui-git-develop.ofranke.vercel.app/volltextsuche
             https://open-discourse-ui-git-develop.ofranke.vercel.app/analysen
             https://open-discourse-ui-git-develop.ofranke.vercel.app/ueber-uns

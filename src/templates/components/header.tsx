@@ -21,7 +21,7 @@ import { useTheme } from "@emotion/react";
 import { NavItem } from "./nav-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
-const availableDocVersions = ["1.0.0"];
+const availableDocVersions = ["1.0.0", "1.1.0"];
 
 export const Header: React.FC = () => {
   const [show, setShow] = useState(false);
