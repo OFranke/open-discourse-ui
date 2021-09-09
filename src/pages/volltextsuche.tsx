@@ -39,7 +39,7 @@ const Search: React.FC = () => {
             somit in den Redebeiträgen der Politiker:innen zielgerichtet
             stöbern.
           </DefaultText>
-          <Callout calloutText="Aktuell werden nur die 100 ersten Suchergebnisse ausgegeben, um sicherzustellen, dass unsere Datenbank alle Suchanfragen beantworten kann. Wir beabsichtigen dieses Limit zeitnah zu erhöhen, um die Recherche in den Daten noch weiter zu vereinfachen." />
+          <Callout calloutText="Aktuell werden nur die 200 ersten Suchergebnisse ausgegeben, um sicherzustellen, dass unsere Datenbank alle Suchanfragen beantworten kann. Wir beabsichtigen dieses Limit zeitnah zu erhöhen, um die Recherche in den Daten noch weiter zu vereinfachen." />
           <DefaultText>
             In Übereinstimmung mit Ihren Filtereinstellungen werden Ihnen die
             relevantesten Redebeiträge angezeigt. In der Spalte “Rede” können
