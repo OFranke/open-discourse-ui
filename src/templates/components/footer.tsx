@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
             marginBottom="0"
             textAlign={{ base: "center", sm: "left" }}
           >
-            © 2020 Limebit GmbH
+            © 2021 Limebit GmbH
           </DefaultText>
         </Flex>
       </DefaultContainer>
