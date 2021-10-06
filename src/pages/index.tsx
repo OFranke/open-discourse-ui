@@ -1,6 +1,6 @@
 import React from "react";
 import { BaseTemplate } from "../templates/base-template";
-import { Stack, Box, UnorderedList, chakra } from "@chakra-ui/react";
+import { Stack, Box, UnorderedList, chakra, Flex } from "@chakra-ui/react";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { Section } from "@bit/limebit.limebit-ui.section";
@@ -25,6 +25,7 @@ import {
 import { useBreakpointValue } from "@chakra-ui/react";
 import { HomeHero } from "../components/home/home-hero";
 import { HomeShowcase } from "../components/home/home-showcase";
+import { YoutubeVideo } from "../components/youtube-video";
 
 const Home: React.FC = () => {
   const showArrows = useBreakpointValue({
@@ -110,6 +111,23 @@ const Home: React.FC = () => {
               ></AnimatedCountUp>
             </Box>
           </Stack>
+        </DefaultContainer>
+      </Section>
+      <Section>
+        <DefaultContainer size="l">
+          <DefaultHeadline
+            size="s"
+            maxWidth={{ base: "100%", lg: "70%", xl: "100%" }}
+          >
+            Open Dicsourse bei der re:publica
+          </DefaultHeadline>
+          <ColoredSubline backgroundColor="pink.500">
+            Was ist Open Discourse genau? Anja und Jakob haben bei der
+            Re:publica 2021 unser Projekt vorgestellt.
+          </ColoredSubline>
+          <Flex justifyContent="center">
+            <YoutubeVideo url="https://www.youtube-nocookie.com/embed/J4ciqTTinpQ" />
+          </Flex>
         </DefaultContainer>
       </Section>
       <Section>
