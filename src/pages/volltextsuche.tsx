@@ -6,13 +6,8 @@ import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { Callout } from "../components/callout";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import React from "react";
 import SEO from "../components/seo";
-import { BackgroundImage } from "../components/background-image";
-import { TopicModelling } from "../components/topic-modeling/index";
-import { TopicLineGraph } from "../components/topic-modeling/topic-line-graph";
 
 const Search: React.FC = () => {
   return (
