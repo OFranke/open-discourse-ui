@@ -136,6 +136,8 @@ export const ContactForm: React.FC = () => {
           <form onSubmit={handleOnSubmit}>
             <FormControl id="name" marginBottom="5" isRequired>
               <Input
+                id="name"
+                name="name"
                 onChange={handleOnChange}
                 variant="unstyled"
                 type="text"
@@ -149,6 +151,8 @@ export const ContactForm: React.FC = () => {
             </FormControl>
             <FormControl id="email" name="_replyto" isRequired>
               <Input
+                id="email"
+                name="_replyto"
                 onChange={handleOnChange}
                 variant="unstyled"
                 type="email"
