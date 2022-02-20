@@ -343,7 +343,7 @@ const Home: React.FC = () => {
           </DefaultText>
           <NextButtonLink
             colorScheme="pink"
-            href="/methodik"
+            href="/daten-und-methodik"
             marginTop={{
               base: "4",
               md: "4",
@@ -351,7 +351,7 @@ const Home: React.FC = () => {
               xl: "8",
             }}
           >
-            Methodik
+            Daten & Methodik
           </NextButtonLink>
         </DefaultContainer>
       </Section>
