@@ -180,8 +180,8 @@ export const getCleanedFilterValuesFromUrlParams = (
           return;
         });
       }
-    } catch (e) {
-      console.log("Unexpected error when parsing URL parameters", e.message);
+    } catch (_e) {
+      console.log("Unexpected error when parsing URL parameters");
     }
   }
   return returnFilters;
