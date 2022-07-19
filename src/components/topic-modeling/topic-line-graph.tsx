@@ -6,7 +6,7 @@ import {
   IconButton,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import ReactAnnotation from "react-annotation";
+import { AnnotationLabel } from "react-annotation";
 
 import { CustomLayerProps, ResponsiveLine } from "@nivo/line";
 import { useEffect, useReducer } from "react";
@@ -43,8 +43,6 @@ import { actorFilterOptions } from "./helpers/filters";
 import { Box } from "@chakra-ui/react";
 import { CopyIcon } from "@chakra-ui/icons";
 import { CopyButton } from "../copy-button";
-
-const { AnnotationLabel } = ReactAnnotation;
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
