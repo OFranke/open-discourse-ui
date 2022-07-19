@@ -65,5 +65,8 @@
     "svg-sprite-loader": "5.0.0",
     "typescript": "4.6.3",
     "webp-loader": "0.6.0"
+  },
+  "engines": {
+    "node": ">16.x"
   }
 }
