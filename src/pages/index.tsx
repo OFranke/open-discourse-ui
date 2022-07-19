@@ -216,7 +216,7 @@ const Home: React.FC = () => {
         paddingTop={{ base: 4, xl: 10 }}
       >
         <DefaultContainer size="l">
-          <DefaultHeadline size="s" as="h1">
+          <DefaultHeadline size="s" as="h2">
             Die Open Discourse Daten für Forschung, Journalismus und Civil
             Science
           </DefaultHeadline>
