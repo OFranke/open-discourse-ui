@@ -15,12 +15,14 @@ export const SEO: React.FC<SeoProps> = ({
   additionalMetaTags,
   ...nextSeoProps
 }) => {
-  if (!process.env.NEXT_PUBLIC_HOST_URL) {
-    throw new Error("environment variable NEXT_PUBLIC_HOST_URL not found.");
+  if (!process.env.NEXT_PUBLIC_VERCEL_URL) {
+    throw new Error("environment variable NEXT_PUBLIC_VERCEL_URL not found.");
   }
 
-  const canonicalUrl = new URL(canonicalRoute, process.env.NEXT_PUBLIC_HOST_URL)
-    .href;
+  const canonicalUrl = new URL(
+    canonicalRoute,
+    process.env.NEXT_PUBLIC_VERCEL_URL
+  ).href;
   const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
   const tags: MetaTag[] = [
     { name: "twitter:site", content: "@OpenDiscourseDE" },
@@ -29,7 +31,8 @@ export const SEO: React.FC<SeoProps> = ({
     { property: "og:type", content: "website" },
     {
       property: "og:site_name",
-      content: process.env.NEXT_PUBLIC_HOST_URL ?? "https://opendiscourse.de/",
+      content:
+        process.env.NEXT_PUBLIC_VERCEL_URL ?? "https://opendiscourse.de/",
     },
     { property: "og:title", content: title },
     { property: "og:description", content: description },

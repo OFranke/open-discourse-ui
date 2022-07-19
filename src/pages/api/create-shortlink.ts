@@ -26,11 +26,12 @@ const generateImage = async ({
   selector,
   queryObject,
 }: ScreenshotApiParams): Promise<string> => {
-  if (!process.env.NEXT_PUBLIC_HOST_URL) {
-    throw new Error("environment variable NEXT_PUBLIC_HOST_URL not found.");
+  if (!process.env.NEXT_PUBLIC_VERCEL_URL) {
+    throw new Error("environment variable NEXT_PUBLIC_VERCEL_URL not found.");
   }
 
-  const canonicalUrl = new URL(urlPath, process.env.NEXT_PUBLIC_HOST_URL).href;
+  const canonicalUrl = new URL(urlPath, process.env.NEXT_PUBLIC_VERCEL_URL)
+    .href;
   const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
 
   const urlEncodedFiltersParam = queryString.stringify({
@@ -74,7 +75,7 @@ export default async (
 
   const url = new URL(
     `diskursanalyse?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`,
-    process.env.NEXT_PUBLIC_HOST_URL
+    process.env.NEXT_PUBLIC_VERCEL_URL
   ).href;
 
   const shareUrlResponse: CreateShortlinkApiResponse = await fetch(
@@ -99,7 +100,7 @@ export default async (
 
   const shortUrl = new URL(
     path.join("l", shareUrlResponse.shortCode),
-    process.env.NEXT_PUBLIC_HOST_URL
+    process.env.NEXT_PUBLIC_VERCEL_URL
   ).href;
 
   return res.status(200).json({ ...shareUrlResponse, shortUrl });
