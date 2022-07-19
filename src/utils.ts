@@ -7,5 +7,5 @@ export const getRequiredEnvVar = (envVarName: string): string => {
 };
 
 export const getDeploymentUrl = (): string => {
-  return new URL(`https://${getRequiredEnvVar("NEXT_PUBLIC_VERCEL_URL")}`).href;
+  return new URL(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}`).href;
 };
