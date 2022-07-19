@@ -375,12 +375,10 @@ const Home: React.FC = () => {
         </DefaultContainer>
       </Section>
       <Section>
-        <Image
-          src={"/images/methodik/reichstagsgebäude_wiese.jpg"}
-          alt={"Wiese vor dem Reichstagsgebäude in Berlin"}
-          layout="fill"
-          width={5677}
-          height={3785}
+        <BackgroundImage
+          imagePath={"/images/methodik/reichstagsgebäude_wiese.jpg"}
+          altText={"Wiese vor dem Reichstagsgebäude in Berlin"}
+          height="60vh"
         />
       </Section>
       {/* <Section>
