@@ -16,7 +16,7 @@ export const SEO: React.FC<SeoProps> = ({
   ...nextSeoProps
 }) => {
   if (!process.env.NEXT_PUBLIC_HOST_URL) {
-    throw new Error("environment variable HOST_URL not found.");
+    throw new Error("environment variable NEXT_PUBLIC_HOST_URL not found.");
   }
 
   const canonicalUrl = new URL(canonicalRoute, process.env.NEXT_PUBLIC_HOST_URL)
@@ -29,7 +29,7 @@ export const SEO: React.FC<SeoProps> = ({
     { property: "og:type", content: "website" },
     {
       property: "og:site_name",
-      content: process.env.HOST_URL ?? "https://opendiscourse.de/",
+      content: process.env.NEXT_PUBLIC_HOST_URL ?? "https://opendiscourse.de/",
     },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
