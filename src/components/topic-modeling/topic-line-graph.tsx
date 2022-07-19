@@ -1,17 +1,14 @@
 import {
-  Button,
   Checkbox,
   Flex,
   FlexProps,
   HStack,
   IconButton,
   useBreakpointValue,
-  useClipboard,
 } from "@chakra-ui/react";
+import ReactAnnotation from "react-annotation";
 
-import { AnnotationLabel } from "react-annotation";
-
-import { CustomLayerProps, Line, ResponsiveLine } from "@nivo/line";
+import { CustomLayerProps, ResponsiveLine } from "@nivo/line";
 import { useEffect, useReducer } from "react";
 import {
   Annotation,
@@ -43,10 +40,11 @@ import { topicFilterOptions, jobFilterOptions } from "./helpers/filters";
 import { useState } from "react";
 import { CartesianMarkerProps } from "@nivo/core";
 import { actorFilterOptions } from "./helpers/filters";
-import { containerSizes } from "@bit/limebit.limebit-ui.default-container";
 import { Box } from "@chakra-ui/react";
 import { CopyIcon } from "@chakra-ui/icons";
 import { CopyButton } from "../copy-button";
+
+const { AnnotationLabel } = ReactAnnotation;
 
 interface TopicReducerAction {
   action: "pending" | "idle" | "resolved" | "rejected";
@@ -313,7 +311,7 @@ export const TopicLineGraph: React.FC<FlexProps> = ({ ...flexProps }) => {
           Wählen Sie unten das erste Thema für Ihre Analyse
         </DefaultText>
       )}
-      
+
       <Flex
         filter={state.status == "pending" ? "blur(4px)" : undefined}
         id={graphWrapperId}
