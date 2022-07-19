@@ -42,6 +42,7 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
           lg: "220px",
           xl: "260px",
         }}
+        height="100px"
       >
         <Image
           src={imagePath}
