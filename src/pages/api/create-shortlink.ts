@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import queryString from "query-string";
 import * as path from "path";
+import { getDeploymentUrl } from "../../utils";
 export interface CreateShortlinkApiResponse {
   shortUrl: string;
   longUrl: string;
@@ -26,12 +27,9 @@ const generateImage = async ({
   selector,
   queryObject,
 }: ScreenshotApiParams): Promise<string> => {
-  if (!process.env.NEXT_PUBLIC_VERCEL_URL) {
-    throw new Error("environment variable NEXT_PUBLIC_VERCEL_URL not found.");
-  }
+  const deploymentUrl = getDeploymentUrl();
 
-  const canonicalUrl = new URL(urlPath, process.env.NEXT_PUBLIC_VERCEL_URL)
-    .href;
+  const canonicalUrl = new URL(urlPath, deploymentUrl).href;
   const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
 
   const urlEncodedFiltersParam = queryString.stringify({
@@ -73,9 +71,11 @@ export default async (
     queryObject,
   });
 
+  const deploymentUrl = getDeploymentUrl();
+
   const url = new URL(
     `diskursanalyse?imgUrl=${shareImageUrl}&${urlEncodedFiltersParam}`,
-    process.env.NEXT_PUBLIC_VERCEL_URL
+    deploymentUrl
   ).href;
 
   const shareUrlResponse: CreateShortlinkApiResponse = await fetch(
@@ -100,7 +100,7 @@ export default async (
 
   const shortUrl = new URL(
     path.join("l", shareUrlResponse.shortCode),
-    process.env.NEXT_PUBLIC_VERCEL_URL
+    deploymentUrl
   ).href;
 
   return res.status(200).json({ ...shareUrlResponse, shortUrl });

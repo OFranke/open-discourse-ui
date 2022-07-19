@@ -2,6 +2,7 @@ import React from "react";
 import { NextSeo, NextSeoProps } from "next-seo";
 import { siteConfig } from "../site-config";
 import { MetaTag } from "next-seo/lib/types";
+import { getDeploymentUrl } from "../utils";
 
 interface SeoProps extends NextSeoProps {
   title: string;
@@ -15,14 +16,9 @@ export const SEO: React.FC<SeoProps> = ({
   additionalMetaTags,
   ...nextSeoProps
 }) => {
-  if (!process.env.NEXT_PUBLIC_VERCEL_URL) {
-    throw new Error("environment variable NEXT_PUBLIC_VERCEL_URL not found.");
-  }
+  const deploymentUrl = getDeploymentUrl();
 
-  const canonicalUrl = new URL(
-    canonicalRoute,
-    process.env.NEXT_PUBLIC_VERCEL_URL
-  ).href;
+  const canonicalUrl = new URL(canonicalRoute, deploymentUrl).href;
   const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
   const tags: MetaTag[] = [
     { name: "twitter:site", content: "@OpenDiscourseDE" },
@@ -31,8 +27,7 @@ export const SEO: React.FC<SeoProps> = ({
     { property: "og:type", content: "website" },
     {
       property: "og:site_name",
-      content:
-        process.env.NEXT_PUBLIC_VERCEL_URL ?? "https://opendiscourse.de/",
+      content: deploymentUrl,
     },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
