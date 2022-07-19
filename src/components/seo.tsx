@@ -1,6 +1,7 @@
 import React from "react";
 import { NextSeo, NextSeoProps } from "next-seo";
 import { siteConfig } from "../site-config";
+import { MetaTag } from "next-seo/lib/types";
 
 interface SeoProps extends NextSeoProps {
   title: string;
@@ -21,12 +22,15 @@ export const SEO: React.FC<SeoProps> = ({
   const canonicalUrl = new URL(canonicalRoute, process.env.NEXT_PUBLIC_HOST_URL)
     .href;
   const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
-  const tags = [
+  const tags: MetaTag[] = [
     { name: "twitter:site", content: "@OpenDiscourseDE" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
     { property: "og:type", content: "website" },
-    { property: "og:site_name", content: process.env.HOST_URL },
+    {
+      property: "og:site_name",
+      content: process.env.HOST_URL ?? "https://opendiscourse.de/",
+    },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:url", content: canonicalUrlWithoutTrailingSlash },
