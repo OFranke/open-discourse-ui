@@ -34,7 +34,7 @@
     "d3-shape": "2.0.0",
     "duplicate-package-checker-webpack-plugin": "3.0.0",
     "framer-motion": "2.9.4",
-    "next": "^10.0.3",
+    "next": "12.1.4",
     "next-compose-plugins": "2.2.1",
     "next-optimized-images": "2.6.2",
     "next-seo": "4.17.0",
@@ -63,7 +63,7 @@
     "responsive-loader": "2.2.0",
     "sharp": "0.26.2",
     "svg-sprite-loader": "5.0.0",
-    "typescript": "4.0.5",
+    "typescript": "4.6.3",
     "webp-loader": "0.6.0"
   }
 }

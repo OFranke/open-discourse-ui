@@ -26,6 +26,7 @@ import { useBreakpointValue } from "@chakra-ui/react";
 import { HomeHero } from "../components/home/home-hero";
 import { HomeShowcase } from "../components/home/home-showcase";
 import { YoutubeVideo } from "../components/youtube-video";
+import Image from "next/image";
 
 const Home: React.FC = () => {
   const showArrows = useBreakpointValue({
@@ -33,8 +34,6 @@ const Home: React.FC = () => {
     lg: true,
   });
 
-  const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
-  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=png`);
   return (
     <BaseTemplate>
       <SEO
@@ -307,19 +306,13 @@ const Home: React.FC = () => {
             Data Science trifft auf Plenarprotokolle
           </ColoredSubline>
           <Box marginBottom={{ base: 5, md: 10, lg: 10 }}>
-            <picture>
-              <source
-                srcSet={multipleSizesRegexWebp.srcSet}
-                type="image/webp"
-              />
-              <source srcSet={multipleSizesRegex.srcSet} type="image/png" />
-              <chakra.img
-                alt="Mustererkennung"
-                src={multipleSizesRegex.src}
-                objectFit="contain"
-                loading="lazy"
-              />
-            </picture>
+            <Image
+              src={"/images/regex_erkennung.png"}
+              alt={`Mustererkennung`}
+              layout="intrinsic"
+              width={1100}
+              height={550}
+            />
           </Box>
           <DefaultText>
             Wir haben mit verschiedenen Methoden der Informatik und

@@ -20,6 +20,7 @@ import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { useTheme } from "@emotion/react";
 import { NavItem } from "./nav-item";
 import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
+import Image from "next/image";
 
 const availableDocVersions = ["1.0.0", "1.1.0"];
 
@@ -46,29 +47,22 @@ export const Header: React.FC = () => {
           width="100%"
         >
           <Flex align="center" mr={5}>
-            <NextChakraLink href={"/"}>
-              <picture>
-                <source
-                  srcSet={require(`../../../public/images/logos/open_discourse.png?resize&size=240&format=webp`)}
-                  type="image/webp"
-                />
-                <source
-                  srcSet={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
-                  type="image/png"
-                />
-                <chakra.img
-                  width={{
-                    base: "120px",
-                    sm: "120px",
-                    md: "150px",
-                    lg: "150px",
-                    xl: "240px",
-                  }}
-                  alt={"Open Discourse Logo"}
-                  src={require(`../../../public/images/logos/open_discourse.png?resize&size=240`)}
-                  loading="lazy"
-                />
-              </picture>
+            <NextChakraLink
+              href={"/"}
+              width={{
+                base: "120px",
+                md: "150px",
+                xl: "240px",
+              }}
+            >
+              <Image
+                src={"/images/logos/open_discourse.png"}
+                alt={"Open Discourse Logo"}
+                layout="responsive"
+                width={240}
+                height={77}
+                priority
+              />
             </NextChakraLink>
           </Flex>
 

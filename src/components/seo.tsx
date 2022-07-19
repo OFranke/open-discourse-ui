@@ -14,11 +14,12 @@ export const SEO: React.FC<SeoProps> = ({
   additionalMetaTags,
   ...nextSeoProps
 }) => {
-  if (!process.env.HOST_URL) {
+  if (!process.env.NEXT_PUBLIC_HOST_URL) {
     throw new Error("environment variable HOST_URL not found.");
   }
 
-  const canonicalUrl = new URL(canonicalRoute, process.env.HOST_URL).href;
+  const canonicalUrl = new URL(canonicalRoute, process.env.NEXT_PUBLIC_HOST_URL)
+    .href;
   const canonicalUrlWithoutTrailingSlash = canonicalUrl.replace(/\/$/, "");
   const tags = [
     { name: "twitter:site", content: "@OpenDiscourseDE" },
