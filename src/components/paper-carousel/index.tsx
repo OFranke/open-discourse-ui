@@ -34,6 +34,7 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
         boxShadow="rgba(0, 0, 0, 0.1) 0px 0px 20px 5px, rgba(0, 0, 0, 0.2) 0px 0px 1px 0px;"
         rounded="md"
         padding="2"
+        justifyContent={"center"}
         width={{
           base: "100px",
           sm: "120px",
@@ -45,9 +46,10 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
         <Image
           src={imagePath}
           alt={imageAlt}
-          // width={width}
+          width={width}
           height={height}
-          layout="fill"
+          layout="intrinsic"
+          // objectFit="fill"
         />
       </Flex>
     </Box>
@@ -141,26 +143,26 @@ export const PaperCarousel: React.FC<PaperCarouselProps> = ({
           <NavigationSlide
             imagePath="/images/logos/correlaid_logo.svg"
             imageAlt="Correlaid Logo"
-            width={515}
-            height={645}
+            width={100}
+            height={100}
           />
           <NavigationSlide
             imagePath="/images/logos/zdf_heute_logo.png"
             imageAlt="ZDF Heute Logo"
-            width={400}
-            height={400}
+            width={100}
+            height={100}
           />
           <NavigationSlide
             imagePath="/images/logos/ccc_logo.svg"
             imageAlt="Chaos Computer Club Logo"
-            width={930}
-            height={676}
+            width={137.5}
+            height={100}
           />
           <NavigationSlide
             imagePath="/images/logos/akademische_forschung_logo.svg"
             imageAlt="Akademische Forschung Logo"
-            width={1280}
-            height={944}
+            width={135.5}
+            height={100}
           />
         </Slider>
       </Box>
