@@ -5,7 +5,7 @@ import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-import { UnorderedList, Flex, chakra } from "@chakra-ui/react";
+import { UnorderedList } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import React from "react";
@@ -16,6 +16,10 @@ import styles from "./styles.module.css";
 import { BackgroundImage } from "../components/background-image";
 import Image from "next/image";
 
+import headerImage from "/public/images/methodik/header_methodik.jpg";
+import sectionImage from "/public/images/methodik/reichstagsgebäude_wiese.jpg";
+
+console.log("headerImage", headerImage);
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
@@ -26,7 +30,7 @@ const Home: React.FC = () => {
       />
       <Section>
         <BackgroundImage
-          imagePath="/images/methodik/header_methodik.jpg"
+          imagePath={headerImage}
           altText="Fotokollage mit Abgeordneten am Redner:innenpult und Redeinhalten."
           height="60vh"
         />
@@ -376,18 +380,11 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <BackgroundImage
-          imagePath={"/images/methodik/reichstagsgebäude_wiese.jpg"}
+          imagePath={sectionImage}
           altText={"Wiese vor dem Reichstagsgebäude in Berlin"}
           height="60vh"
         />
       </Section>
-      {/* <Section>
-        <DefaultContainer size="l">
-          <DefaultHeadline size="s">
-            Darstellung des Gesamtprozesses
-          </DefaultHeadline>
-        </DefaultContainer>
-      </Section> */}
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s">

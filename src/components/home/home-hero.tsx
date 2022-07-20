@@ -5,10 +5,12 @@ import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import React from "react";
 import { BackgroundImage } from "../background-image";
 
+import heroImage from "/public/images/home_header.jpg";
+
 export const HomeHero = () => {
   return (
     <BackgroundImage
-      imagePath={"/images/home_header.jpg"}
+      imagePath={heroImage}
       altText="Fotokollage mit Programmiercode, Bundestag, Antiken Statuen und einer Person, die eine Rede hält"
     >
       <Flex

@@ -12,21 +12,26 @@ import { InnerContainer, SlideContainer } from "./utils";
 import { BackgroundImage } from "../background-image";
 import DefaultContainer from "@bit/limebit.limebit-ui.default-container";
 import Section from "@bit/limebit.limebit-ui.section";
+import { StaticImageData } from "next/future/image";
 
+import corellaidImage from "/public/images/analysen/background_correlaid.jpg";
+import zdfImage from "/public/images/analysen/background_zdf.jpg";
+import cccImage from "/public/images/analysen/background_ccc.jpg";
+import fomImage from "/public/images/analysen/background_fom.jpg";
 interface SliderWrapper {
   children: React.ReactNode;
-  imagePath: string;
+  image: StaticImageData;
   altText: string;
 }
 
 const SlideWrapper: React.FC<SliderWrapper> = ({
   children,
-  imagePath,
+  image,
   altText,
 }) => {
   return (
     <SlideContainer>
-      <BackgroundImage imagePath={imagePath} altText={altText} height="60vh" />
+      <BackgroundImage imagePath={image} altText={altText} height="60vh" />
       <DefaultContainer size="l" zIndex="20">
         <InnerContainer>
           <Section as="div">{children}</Section>
@@ -39,7 +44,7 @@ const SlideWrapper: React.FC<SliderWrapper> = ({
 export const Slide1: React.FC = () => {
   return (
     <SlideWrapper
-      imagePath="/images/analysen/background_correlaid.jpg"
+      image={corellaidImage}
       altText="Illustrierendes Foto aus dem Bundestagsgebäude bei Nacht."
     >
       <DefaultHeadline size="s">CorrelAid</DefaultHeadline>
@@ -103,7 +108,7 @@ export const Slide1: React.FC = () => {
 export const Slide2: React.FC = () => {
   return (
     <SlideWrapper
-      imagePath="/images/analysen/background_zdf.jpg"
+      image={zdfImage}
       altText="Bild des Redner:innenpultes aus dem Plenarsaal des Bundestages."
     >
       <DefaultHeadline size="s">ZDFHeute</DefaultHeadline>
@@ -149,7 +154,7 @@ export const Slide2: React.FC = () => {
 export const Slide3: React.FC = () => {
   return (
     <SlideWrapper
-      imagePath="/images/analysen/background_ccc.jpg"
+      image={cccImage}
       altText="Illustrierendes Bild eines Legosteins auf dem ein Bild mit einem Computer klebt."
     >
       <DefaultHeadline size="s">Chaos Computer Club</DefaultHeadline>
@@ -176,7 +181,7 @@ export const Slide3: React.FC = () => {
 export const Slide4: React.FC = () => {
   return (
     <SlideWrapper
-      imagePath="/images/analysen/background_fom.jpg"
+      image={fomImage}
       altText="Bild eines Regierungsgebäudes mit einer Deutschland Fahne."
     >
       <DefaultHeadline size="s">Akademische Forschungsarbeiten</DefaultHeadline>
