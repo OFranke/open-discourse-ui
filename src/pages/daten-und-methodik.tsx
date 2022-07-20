@@ -1,5 +1,5 @@
 import { BaseTemplate } from "../templates/base-template";
-import SEO from "../components/seo";
+import { SEO } from "../components/seo";
 import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";

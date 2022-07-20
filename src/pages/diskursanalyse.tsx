@@ -4,7 +4,7 @@ import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 
 import React from "react";
-import SEO from "../components/seo";
+import { SEO } from "../components/seo";
 import { TopicModelling } from "../components/topic-modeling/index";
 import { TopicLineGraph } from "../components/topic-modeling/topic-line-graph";
 import { GetServerSideProps } from "next";
