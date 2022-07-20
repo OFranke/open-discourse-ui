@@ -19,7 +19,6 @@ import Image from "next/image";
 import headerImage from "/public/images/methodik/header_methodik.jpg";
 import sectionImage from "/public/images/methodik/reichstagsgebäude_wiese.jpg";
 
-console.log("headerImage", headerImage);
 const Home: React.FC = () => {
   return (
     <BaseTemplate>
