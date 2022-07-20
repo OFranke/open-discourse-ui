@@ -7,8 +7,8 @@ export const getRequiredEnvVar = (envVarName: string): string => {
 };
 
 export const getDeploymentUrl = (): string => {
-  if (process.env.VERCEL_ENV !== "production") {
-    return new URL(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}`).href;
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "production") {
+    return new URL(`https://opendiscourse.de`).href;
   }
-  return new URL(`https://opendiscourse.de`).href;
+  return new URL(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}`).href;
 };
