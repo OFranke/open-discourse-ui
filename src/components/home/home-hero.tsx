@@ -7,13 +7,17 @@ import { BackgroundImage } from "../background-image";
 
 export const HomeHero = () => {
   return (
-    <BackgroundImage relativePathFromImageDir={"/home_header.jpg"}>
+    <BackgroundImage
+      imagePath={"/images/home_header.jpg"}
+      altText="Fotokollage mit Programmiercode, Bundestag, Antiken Statuen und einer Person, die eine Rede hält"
+    >
       <Flex
         width="100%"
         height="100%"
         background="rgba(0, 0, 0, 0.6)"
         color="transparent"
         alignItems="center"
+        zIndex={1}
       >
         <DefaultContainer
           size="xl"

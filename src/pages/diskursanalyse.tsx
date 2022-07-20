@@ -34,31 +34,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-import { chakra } from "@chakra-ui/react";
-
-interface ImageProps {
-  imagePath: string;
-  imageAlt: string;
-}
-const Image: React.FC<ImageProps> = ({ imagePath, imageAlt }) => {
-  const multipleSizesWebp = require(`../../public/images${imagePath}?resize&sizes[]=320&sizes[]=640&format=webp`);
-  const multipleSizes = require(`../../public/images${imagePath}?resize&sizes[]=320&sizes[]=640&format=jpg`);
-  return (
-    <picture>
-      <source srcSet={multipleSizesWebp.srcSet} type="image/webp" />
-      <source srcSet={multipleSizes.srcSet} type="image/jpg" />
-      <chakra.img
-        alt={imageAlt}
-        src={multipleSizes.src}
-        width="100%"
-        height="100%"
-        objectFit="contain"
-        loading="lazy"
-      />
-    </picture>
-  );
-};
-
 const Page: React.FC<{ data: Data }> = ({ data }) => {
   const title = "Diskursanalyse des deutschen Bundestages seit 1949";
   const description =

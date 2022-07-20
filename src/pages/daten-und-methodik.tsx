@@ -14,12 +14,9 @@ import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 import { DefaultListItem } from "../components/default-list-item";
 import styles from "./styles.module.css";
 import { BackgroundImage } from "../components/background-image";
+import Image from "next/image";
 
 const Home: React.FC = () => {
-  const multipleSizesRegexWebp = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
-  const multipleSizesRegex = require(`../../public/images/regex_erkennung.png?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=png`);
-  const multipleSizesBundestagWebp = require(`../../public/images/methodik/reichstagsgebäude_wiese.jpg?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=webp`);
-  const multipleSizesBundestag = require(`../../public/images/methodik/reichstagsgebäude_wiese.jpg?resize&sizes[]=480&sizes[]=768&sizes[]=1024&sizes[]=1440&sizes[]=1920&sizes[]=2560&format=jpg`);
   return (
     <BaseTemplate>
       <SEO
@@ -29,7 +26,8 @@ const Home: React.FC = () => {
       />
       <Section>
         <BackgroundImage
-          relativePathFromImageDir="/methodik/header_methodik.jpg"
+          imagePath="/images/methodik/header_methodik.jpg"
+          altText="Fotokollage mit Abgeordneten am Redner:innenpult und Redeinhalten."
           height="60vh"
         />
       </Section>
@@ -263,16 +261,13 @@ const Home: React.FC = () => {
             Learning etc. auf die Daten anwenden, um Fragen zu beantworten, die
             bisher nicht (ohne großen Aufwand) beantwortbar waren.
           </DefaultText>
-          <picture>
-            <source srcSet={multipleSizesRegexWebp.srcSet} type="image/webp" />
-            <source srcSet={multipleSizesRegex.srcSet} type="image/png" />
-            <chakra.img
-              alt="Mustererkennung"
-              src={multipleSizesRegex.src}
-              objectFit="contain"
-              loading="lazy"
-            />
-          </picture>
+          <Image
+            src={"/images/regex_erkennung.png"}
+            alt={"Mustererkennung"}
+            layout="intrinsic"
+            width={1100}
+            height={550}
+          />
         </DefaultContainer>
       </Section>
       <Section>
@@ -380,21 +375,11 @@ const Home: React.FC = () => {
         </DefaultContainer>
       </Section>
       <Section>
-        <picture>
-          <source
-            srcSet={multipleSizesBundestagWebp.srcSet}
-            type="image/webp"
-          />
-          <source srcSet={multipleSizesBundestag.srcSet} type="image/jpg" />
-          <chakra.img
-            alt="imageAlt"
-            src={multipleSizesBundestag.src}
-            width="100%"
-            height="100vh"
-            objectFit="cover"
-            loading="lazy"
-          />
-        </picture>
+        <BackgroundImage
+          imagePath={"/images/methodik/reichstagsgebäude_wiese.jpg"}
+          altText={"Wiese vor dem Reichstagsgebäude in Berlin"}
+          height="60vh"
+        />
       </Section>
       {/* <Section>
         <DefaultContainer size="l">

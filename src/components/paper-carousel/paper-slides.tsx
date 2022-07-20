@@ -16,12 +16,17 @@ import Section from "@bit/limebit.limebit-ui.section";
 interface SliderWrapper {
   children: React.ReactNode;
   imagePath: string;
+  altText: string;
 }
 
-const SlideWrapper: React.FC<SliderWrapper> = ({ children, imagePath }) => {
+const SlideWrapper: React.FC<SliderWrapper> = ({
+  children,
+  imagePath,
+  altText,
+}) => {
   return (
     <SlideContainer>
-      <BackgroundImage relativePathFromImageDir={imagePath} height="60vh" />
+      <BackgroundImage imagePath={imagePath} altText={altText} height="60vh" />
       <DefaultContainer size="l" zIndex="20">
         <InnerContainer>
           <Section as="div">{children}</Section>
@@ -33,7 +38,10 @@ const SlideWrapper: React.FC<SliderWrapper> = ({ children, imagePath }) => {
 
 export const Slide1: React.FC = () => {
   return (
-    <SlideWrapper imagePath="/analysen/background_correlaid.jpg">
+    <SlideWrapper
+      imagePath="/images/analysen/background_correlaid.jpg"
+      altText="Illustrierendes Foto aus dem Bundestagsgebäude bei Nacht."
+    >
       <DefaultHeadline size="s">CorrelAid</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
         Datenbasiertes Storytelling
@@ -94,7 +102,10 @@ export const Slide1: React.FC = () => {
 
 export const Slide2: React.FC = () => {
   return (
-    <SlideWrapper imagePath="/analysen/background_zdf.jpg">
+    <SlideWrapper
+      imagePath="/images/analysen/background_zdf.jpg"
+      altText="Bild des Redner:innenpultes aus dem Plenarsaal des Bundestages."
+    >
       <DefaultHeadline size="s">ZDFHeute</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
         Datenjournalismus zum Stichwort “Pandemie”
@@ -137,7 +148,10 @@ export const Slide2: React.FC = () => {
 
 export const Slide3: React.FC = () => {
   return (
-    <SlideWrapper imagePath="/analysen/background_ccc.jpg">
+    <SlideWrapper
+      imagePath="/images/analysen/background_ccc.jpg"
+      altText="Illustrierendes Bild eines Legosteins auf dem ein Bild mit einem Computer klebt."
+    >
       <DefaultHeadline size="s">Chaos Computer Club</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
         Open Discourse beim rC3 – der Remote Chaos Experience
@@ -161,7 +175,10 @@ export const Slide3: React.FC = () => {
 
 export const Slide4: React.FC = () => {
   return (
-    <SlideWrapper imagePath="/analysen/background_fom.jpg">
+    <SlideWrapper
+      imagePath="/images/analysen/background_fom.jpg"
+      altText="Bild eines Regierungsgebäudes mit einer Deutschland Fahne."
+    >
       <DefaultHeadline size="s">Akademische Forschungsarbeiten</DefaultHeadline>
       <ColoredSubline as="h3" backgroundColor="pink.500">
         Eignung für die Verwendung in Universitätsprojekten

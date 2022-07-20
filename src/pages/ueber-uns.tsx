@@ -10,29 +10,23 @@ import { ContactForm } from "../components/contact-form";
 import SEO from "../components/seo";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { SimpleGrid, Box, chakra } from "@chakra-ui/react";
+import { SimpleGrid, Box } from "@chakra-ui/react";
+import Image from "next/image";
 
 interface TeamMemberProps {
   src: string;
   name: string;
 }
 const TeamMember: React.FC<TeamMemberProps> = ({ src, name }) => {
-  const multipleSizesWebp = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=webp`);
-  const multipleSizes = require(`../../public${src}?resize&sizes[]=200&sizes[]=300&sizes[]=500&format=png`);
   return (
     <Box textAlign="center">
-      <picture>
-        <source srcSet={multipleSizesWebp.srcSet} type="image/webp" />
-        <source srcSet={multipleSizes.srcSet} type="image/png" />
-        <chakra.img
-          alt={`Comic Karikatur von ${name}`}
-          src={multipleSizes.src}
-          width="100%"
-          height="100%"
-          objectFit="contain"
-          loading="lazy"
-        />
-      </picture>
+      <Image
+        src={src}
+        alt={name}
+        layout="intrinsic"
+        width={1417}
+        height={1890}
+      />
       <DefaultText as="span">{name}</DefaultText>
     </Box>
   );

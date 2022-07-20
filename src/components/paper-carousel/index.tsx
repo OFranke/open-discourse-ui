@@ -8,14 +8,19 @@ import { useState, useEffect } from "react";
 import { chakra, ResponsiveValue } from "@chakra-ui/react";
 import * as CSS from "csstype";
 import { containerSizes } from "@bit/limebit.limebit-ui.default-container";
+import Image from "next/image";
 
 interface NavigationSlideProps extends FlexProps {
   imagePath: string;
   imageAlt: string;
+  width: number;
+  height: number;
 }
 const NavigationSlide: React.FC<NavigationSlideProps> = ({
   imagePath,
   imageAlt,
+  width,
+  height,
 }) => {
   return (
     <Box
@@ -29,30 +34,24 @@ const NavigationSlide: React.FC<NavigationSlideProps> = ({
         boxShadow="rgba(0, 0, 0, 0.1) 0px 0px 20px 5px, rgba(0, 0, 0, 0.2) 0px 0px 1px 0px;"
         rounded="md"
         padding="2"
+        justifyContent={"center"}
+        width={{
+          base: "100px",
+          sm: "120px",
+          md: "180px",
+          lg: "220px",
+          xl: "260px",
+        }}
+        height="100px"
       >
-        <picture>
-          <source
-            srcSet={require(`../../../public/images${imagePath}?resize&size=480&format=webp`)}
-            type="image/webp"
-          />
-          <source
-            srcSet={require(`../../../public/images${imagePath}?resize&size=480&format=png`)}
-            type="image/png"
-          />
-          <chakra.img
-            width={{
-              base: "100px",
-              sm: "120px",
-              md: "180px",
-              lg: "220px",
-              xl: "260px",
-            }}
-            height="100px"
-            alt={imageAlt}
-            src={require(`../../../public/images${imagePath}`)}
-            objectFit="contain"
-          />
-        </picture>
+        <Image
+          src={imagePath}
+          alt={imageAlt}
+          width={width}
+          height={height}
+          layout="intrinsic"
+          // objectFit="fill"
+        />
       </Flex>
     </Box>
   );
@@ -143,20 +142,28 @@ export const PaperCarousel: React.FC<PaperCarouselProps> = ({
           ]}
         >
           <NavigationSlide
-            imagePath="/logos/correlaid_logo.svg"
+            imagePath="/images/logos/correlaid_logo.svg"
             imageAlt="Correlaid Logo"
+            width={100}
+            height={100}
           />
           <NavigationSlide
-            imagePath="/logos/zdf_heute_logo.png"
+            imagePath="/images/logos/zdf_heute_logo.png"
             imageAlt="ZDF Heute Logo"
+            width={100}
+            height={100}
           />
           <NavigationSlide
-            imagePath="/logos/ccc_logo.svg"
+            imagePath="/images/logos/ccc_logo.svg"
             imageAlt="Chaos Computer Club Logo"
+            width={137.5}
+            height={100}
           />
           <NavigationSlide
-            imagePath="/logos/akademische_forschung_logo.svg"
+            imagePath="/images/logos/akademische_forschung_logo.svg"
             imageAlt="Akademische Forschung Logo"
+            width={135.5}
+            height={100}
           />
         </Slider>
       </Box>
