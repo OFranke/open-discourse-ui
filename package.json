@@ -48,7 +48,8 @@
     "react-player": "2.7.2",
     "react-share": "4.3.1",
     "react-slick": "0.27.13",
-    "slick-carousel": "1.8.1"
+    "slick-carousel": "1.8.1",
+    "tiny-invariant": "1.2.0"
   },
   "devDependencies": {
     "@types/d3-shape": "2.0.0",

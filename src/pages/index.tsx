@@ -9,7 +9,7 @@ import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { AnimatedCountUp } from "../components/animated-count-up";
 import { Statistic } from "../components/statistic/index";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
-import SEO from "../components/seo";
+import { SEO } from "../components/seo";
 import { Tagline } from "@bit/limebit.limebit-ui.tagline";
 import { NextButtonLink } from "@bit/limebit.limebit-ui.next-button-link";
 import ConditionallyRender from "../components/conditionally-render";
