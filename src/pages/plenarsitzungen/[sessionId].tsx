@@ -8,23 +8,8 @@ import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { BaseTemplate } from "../../templates/base-template";
 import { SEO } from "../../components/seo";
 import invariant from "tiny-invariant";
-import { Faction } from "../../components/full-text-search/search-form";
 import { convertPosition } from "../../components/full-text-search/result-table";
-
-type Speech = {
-  id: string;
-  session: string;
-  electoralTerm: string;
-  firstName: string;
-  lastName: string;
-  politicianId: string;
-  speechContent: string;
-  factionId: string;
-  documentUrl: string;
-  positionShort: string;
-  positionLong: string;
-  date: string;
-};
+import { Faction, Speech } from "../../types/types";
 
 type Data = {
   session: Speech[];

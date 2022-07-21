@@ -8,12 +8,8 @@ import { SEO } from "../../components/seo";
 import { GetServerSideProps } from "next";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
+import { Session } from "../../types/types";
 
-type Session = {
-  electoralTerm: string;
-  session: string;
-  date: string;
-};
 type Data = {
   sessions: Session[];
 };
@@ -22,6 +18,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const sessionResponse = await fetch(
     `https://api.opendiscourse.de:5300/sessions`
   ).then((res) => res.json());
+
+  if (!sessionResponse?.data?.sessionIds?.length) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       sessions: sessionResponse.data.sessionIds,

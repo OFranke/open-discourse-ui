@@ -1,17 +1,8 @@
 import { useEffect, useReducer } from "react";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
 import { TopicFilters } from "./topic-filters";
-import { AddIcon, CloseIcon } from "@chakra-ui/icons";
-import {
-  IconButton,
-  Flex,
-  Stack,
-  Box,
-  BoxProps,
-  Tooltip,
-  Button,
-} from "@chakra-ui/react";
-import { Card } from "@bit/limebit.limebit-ui.card";
+import { AddIcon } from "@chakra-ui/icons";
+import { Stack, Box, BoxProps, Tooltip } from "@chakra-ui/react";
 import queryString from "query-string";
 import { useRouter } from "next/router";
 import { getCleanedFilterValuesFromUrlParams } from "./helpers/utils";
