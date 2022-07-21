@@ -1,34 +1,35 @@
-import { BaseTemplate } from "../templates/base-template";
+import { BaseTemplate } from "../../templates/base-template";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 
 import React from "react";
-import { SEO } from "../components/seo";
+import { SEO } from "../../components/seo";
 import { GetServerSideProps } from "next";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
+import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 
+type Session = {
+  electoralTerm: string;
+  session: string;
+  date: string;
+};
 type Data = {
-  test: string;
-  imgUrl: string | null;
+  sessions: Session[];
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const imgUrl = context?.query?.imgUrl;
-
-  const data: Data = {
-    test: "hello ssr",
-    imgUrl: typeof imgUrl == "string" ? decodeURIComponent(imgUrl) : null,
-  };
-
+  const sessionResponse = await fetch(
+    `https://api.opendiscourse.de:5300/sessions`
+  ).then((res) => res.json());
   return {
     props: {
-      data,
+      sessions: sessionResponse.data.sessionIds,
     },
   };
 };
 
-const Page: React.FC<{ data: Data }> = ({ data }) => {
+const Page: React.FC<Data> = ({ sessions }) => {
   const title = "Diskursanalyse des deutschen Bundestages seit 1949";
   const description =
     "Open Discourse erleichtert den Zugang zum politischen Diskurs des Bundestages mit einem Tool zur Diskursanalyse der Plenardebatten.";
@@ -47,10 +48,22 @@ const Page: React.FC<{ data: Data }> = ({ data }) => {
             Plenarsitzungen
           </DefaultHeadline>
           <DefaultText>
-            Analysieren Sie selbst, über welche Themen der deutsche Bundestag
-            seit 1949 spricht. Wählen Sie aus 73 Themen und filtern Sie die
-            Sprecher:innen nach Geschlecht, Alter, Partei und mehr.
+            Hier finden Sie eine Übersicht aller Plenarsitzungen des deutschen
+            Bundestags seit 1949.
           </DefaultText>
+          {sessions.map((session) => {
+            const key = `${session.electoralTerm}-${session.session}`;
+            return (
+              <div key={key}>
+                <NextChakraLink
+                  color="pink.500"
+                  href={`/plenarsitzungen/${encodeURIComponent(key)}`}
+                >
+                  {new Date(session.date).toLocaleDateString()}
+                </NextChakraLink>
+              </div>
+            );
+          })}
         </DefaultContainer>
       </Section>
     </BaseTemplate>

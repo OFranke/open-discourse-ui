@@ -7,7 +7,7 @@ import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { Callout } from "../components/callout";
 import React from "react";
-import SEO from "../components/seo";
+import { SEO } from "../components/seo";
 
 const Search: React.FC = () => {
   return (

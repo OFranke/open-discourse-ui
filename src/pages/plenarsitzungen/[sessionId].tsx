@@ -10,7 +10,6 @@ import { SEO } from "../../components/seo";
 import invariant from "tiny-invariant";
 import { Faction } from "../../components/full-text-search/search-form";
 import { convertPosition } from "../../components/full-text-search/result-table";
-import { getSessionResponse, getFactionsResponse } from "../../data.server";
 
 type Speech = {
   id: string;
@@ -33,33 +32,44 @@ type Data = {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const electoralTerm = context.query.electoralTerm as string;
-  const session = context.query.session as string;
-  invariant(electoralTerm, "Expected electoralTerm");
-  invariant(session, "Expected session");
-  // const sessionPromise = fetch(
-  //   `https://api.opendiscourse.de:5300/session?electoralTerm=${encodeURIComponent(
-  //     electoralTerm
-  //   )}&session=${encodeURIComponent(session)}`
-  // ).then((res) => res.json());
+  const sessionId = context.query.sessionId as string;
+  invariant(sessionId, "Expected sessionId");
+  const [electoralTerm, session] = sessionId.split("-");
+  if (!electoralTerm || !session) {
+    return {
+      notFound: true,
+    };
+  }
 
-  // const factionsPromise = fetch(
-  //   "https://api.opendiscourse.de:5300/factions"
-  // ).then((res) => res.json());
-  // // const result = getSessionResponse;
+  const sessionPromise = fetch(
+    `https://api.opendiscourse.de:5300/session?electoralTerm=${encodeURIComponent(
+      electoralTerm
+    )}&session=${encodeURIComponent(session)}`
+  ).then((res) => res.json());
 
-  // const [sessionResult, factionsResult] = await Promise.all([
-  //   sessionPromise,
-  //   factionsPromise,
-  // ]);
+  const factionsPromise = fetch(
+    "https://api.opendiscourse.de:5300/factions"
+  ).then((res) => res.json());
+  // const result = getSessionResponse;
+
+  const [sessionResult, factionsResult] = await Promise.all([
+    sessionPromise,
+    factionsPromise,
+  ]);
+
+  if (
+    !sessionResult?.data?.speeches?.length ||
+    !factionsResult?.data?.factions
+  ) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
-      // session: sessionResult.data.speeches,
-      // factions: factionsResult.data.factions,
-
-      session: getSessionResponse.data.speeches,
-      factions: getFactionsResponse.data.factions,
+      session: sessionResult.data.speeches,
+      factions: factionsResult.data.factions,
     },
   };
 };
