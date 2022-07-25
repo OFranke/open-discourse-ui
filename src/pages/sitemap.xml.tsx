@@ -33,8 +33,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
                 `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
               ).href
             }</loc>
-            <lastmod>2022-07-20T10:00:00+01:00</lastmod>
-            <changefreq>weekly</changefreq>
+            <lastmod>2022-07-27T10:00:00+01:00</lastmod>
+            <changefreq>monthly</changefreq>
           </url>
         `;
       })
@@ -60,8 +60,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
                 `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
               ).href
             }</loc>
-            <lastmod>2022-07-20T10:00:00+01:00</lastmod>
-            <changefreq>weekly</changefreq>
+            <lastmod>2022-07-27T10:00:00+01:00</lastmod>
+            <changefreq>monthly</changefreq>
           </url>
         `;
       })
