@@ -12,6 +12,7 @@ import { convertPosition } from "../../components/full-text-search/result-table"
 import { Faction, Speech } from "../../types/types";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { Callout } from "../../components/callout";
 
 type Data = {
   session: Speech[];
@@ -84,9 +85,15 @@ const Page: React.FC<Data> = ({ session, factions }) => {
     );
   };
 
-  const title = "Diskursanalyse des deutschen Bundestages seit 1949";
-  const description =
-    "Open Discourse erleichtert den Zugang zum politischen Diskurs des Bundestages mit einem Tool zur Diskursanalyse der Plenardebatten.";
+  const title = `Plenarsitzung im Deutschen Bundestag am ${new Date(
+    session[0].date
+  ).toLocaleDateString()}`;
+  const description = `Protokoll der ${session[0].session}. Plenarsitzung der ${
+    session[0].electoralTerm
+  }. Wahlperiode im Deutschen Bundestag am ${new Date(
+    session[0].date
+  ).toLocaleDateString()}.`;
+  ("Open Discourse erleichtert den Zugang zum politischen Diskurs des Bundestages mit einem Tool zur Diskursanalyse der Plenardebatten.");
   return (
     <BaseTemplate>
       <SEO
@@ -112,6 +119,7 @@ const Page: React.FC<Data> = ({ session, factions }) => {
               Zum Plenarprotokoll
             </NextChakraLink>
           </div>
+          <Callout calloutText="NOTICE! The speech content variable only contains the actual spoken words of the respective politician. Any kind of interjection or reaction from the plenum is deleted from the speech content variable and replaced by a positional ID in the format of ({ID}). This positional ID can be used to link each speech with every contribution during the speech. The contributions can be found in the two Contributions Tables. Furthermore the positional ID represents the exact order and position a contribution occurred and hence can be used to reassemble the original structure of the speeches and interjections/contributions." />
           {session.map((speech) => {
             const translatedPosition = convertPosition(speech.positionShort);
             const translatedFaction = factions.find(
