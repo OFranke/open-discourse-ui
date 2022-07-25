@@ -127,7 +127,9 @@ const Page: React.FC<Data> = ({ session, factions }) => {
                     {translatedPosition ?? speech.positionShort}){" "}
                   </DefaultHeadline>
                   <div className="text-gray-600">
-                    Politiker ID: {speech.politicianId}
+                    {speech.politicianId === "-1"
+                      ? null
+                      : `Politiker ID: ${speech.politicianId}`}
                     {translatedFaction?.id == "-1"
                       ? null
                       : `, Fraktion: ${translatedFaction?.fullName} (${translatedFaction?.abbreviation})`}
