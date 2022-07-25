@@ -39,9 +39,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 };
 
 const Page: React.FC<Data> = ({ sessions }) => {
-  const title = "Diskursanalyse des deutschen Bundestages seit 1949";
+  const title = "Plenarsitzungen im deutschen Bundestag seit 1949.";
   const description =
-    "Open Discourse erleichtert den Zugang zum politischen Diskurs des Bundestages mit einem Tool zur Diskursanalyse der Plenardebatten.";
+    "Übersicht über alle Protokolle der Plenarsitzungen im deutschen Bundestag seit 1949.";
 
   const renderedElectoralTerms = new Set<string>();
   return (
