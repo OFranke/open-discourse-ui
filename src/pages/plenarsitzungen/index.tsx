@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   // max age 1 week, max stale 1 day
   res.setHeader(
     "Cache-Control",
-    "public, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=86400"
+    "public, s-maxage=86400, stale-while-revalidate=86400, stale-if-error=86400"
   );
 
   const sessionResponse = await fetch(

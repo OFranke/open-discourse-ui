@@ -18,7 +18,14 @@ type Data = {
   factions: Faction[];
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  res,
+  ...context
+}) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=86400"
+  );
   const sessionId = context.query.sessionId as string;
   invariant(sessionId, "Expected sessionId");
   const [electoralTerm, session] = sessionId.split("-");
