@@ -4,6 +4,11 @@ import { Session } from "../types/types";
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   if (res) {
+    res.setHeader(
+      "Cache-Control",
+      "public, s-maxage=86400, stale-while-revalidate=86400, stale-if-error=86400"
+    );
+
     const sessionResponse = await fetch(
       `https://api.opendiscourse.de:5300/sessions`
     ).then((res) => res.json());
