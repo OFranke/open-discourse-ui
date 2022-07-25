@@ -42,6 +42,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       "diskursanalyse",
       "ueber-uns",
       "volltextsuche",
+      "plenarsitzungen",
     ];
     const pages = `
     ${routes

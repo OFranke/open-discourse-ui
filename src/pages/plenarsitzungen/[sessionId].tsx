@@ -10,6 +10,8 @@ import { SEO } from "../../components/seo";
 import invariant from "tiny-invariant";
 import { convertPosition } from "../../components/full-text-search/result-table";
 import { Faction, Speech } from "../../types/types";
+import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 type Data = {
   session: Speech[];
@@ -60,8 +62,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Page: React.FC<Data> = ({ session, factions }) => {
-  console.log("data", session);
-
   const factionColors = [
     { key: "0", color: "#009ee0" },
     { key: "3", color: "#46962b" },
@@ -91,10 +91,20 @@ const Page: React.FC<Data> = ({ session, factions }) => {
         marginTop={{ base: "8", sm: "14", md: "20", lg: "20", xl: "32" }}
       >
         <DefaultContainer size="l">
-          <DefaultHeadline size="s" as="h1">
-            Plenarsitzung im Deutschen Bundestag am{" "}
-            {new Date(session[0].date).toLocaleDateString()}
-          </DefaultHeadline>
+          <div className="mb-10">
+            <DefaultHeadline size="s" as="h1" marginBottom={1}>
+              Plenarsitzung im Deutschen Bundestag am{" "}
+              {new Date(session[0].date).toLocaleDateString()}
+            </DefaultHeadline>
+            <NextChakraLink
+              color="pink.500"
+              href={session[0].documentUrl}
+              isExternal
+            >
+              <ArrowForwardIcon mr="1" />
+              Zum Plenarprotokoll
+            </NextChakraLink>
+          </div>
           {session.map((speech) => {
             const translatedPosition = convertPosition(speech.positionShort);
             const translatedFaction = factions.find(

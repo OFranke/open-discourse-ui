@@ -11,6 +11,8 @@ export interface SearchResultRow {
   positionShort: string;
   speechContent: string;
   abbreviation: string;
+  electoralTerm: string;
+  session: string;
 }
 
 interface Error {

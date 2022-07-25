@@ -46,9 +46,13 @@ const Home: React.FC = () => {
             Bundestag öffentlich verhandeln soll.
           </ColoredSubline>
           <DefaultText>
-            Seit 1949 wird für jede Plenarsitzung ein stenografischer Bericht
-            angefertigt, der jedes gesagte Wort der Sitzung dokumentiert. Diese
-            Protokolle liegen als txt-, xml-, oder pdf-Dokumente auf den{" "}
+            Seit 1949 wird für jede{" "}
+            <NextChakraLink color="pink.500" href="/plenarsitzungen">
+              Plenarsitzung
+            </NextChakraLink>{" "}
+            ein stenografischer Bericht angefertigt, der jedes gesagte Wort der
+            Sitzung dokumentiert. Diese Protokolle liegen als txt-, xml-, oder
+            pdf-Dokumente auf den{" "}
             <NextChakraLink
               color="pink.500"
               href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
@@ -131,10 +135,13 @@ const Home: React.FC = () => {
             Inhalte miteinander verknüpft wurden.
           </ColoredSubline>
           <DefaultText>
-            Das Open Discourse Korpus besteht aus den Plenarprotokollen, die für
-            jede Parlamentssitzung des Deutschen Bundestages erstellt werden.
-            Diese Berichte dokumentieren jede Rede im Parlament sowie jede
-            Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
+            Das Open Discourse Korpus besteht aus den{" "}
+            <NextChakraLink color="pink.500" href="/plenarsitzungen">
+              Plenarprotokollen
+            </NextChakraLink>
+            , die für jede Parlamentssitzung des Deutschen Bundestages erstellt
+            werden. Diese Berichte dokumentieren jede Rede im Parlament sowie
+            jede Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
             Applaus usw.) der Politker:innen, die während der Reden stattfanden.
             Insgesamt besteht das Korpus aus über 200 Millionen Tokens aus fast
             900.000 Reden in mehr als 4.000 verarbeiteten Protokollen. Das Open

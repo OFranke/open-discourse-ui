@@ -87,8 +87,7 @@ export const ResultTable = ({ data }: ResultTableProps) => {
         if (row.values.documentUrl) {
           return (
             <NextChakraLink
-              href={row.values.documentUrl}
-              isExternal
+              href={`/plenarsitzungen/${row.values.electoralTerm}-${row.values.session}`}
               fontWeight="bold"
             >
               Protokoll

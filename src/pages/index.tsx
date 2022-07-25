@@ -56,7 +56,10 @@ const Home: React.FC = () => {
           </ColoredSubline>
 
           <DefaultText>
-            Open Discourse hat die Plenarprotokolle des deutschen Bundestages
+            Open Discourse hat die{" "}
+            <NextChakraLink color="pink.500" href="/plenarsitzungen">
+              Plenarprotokolle des deutschen Bundestages
+            </NextChakraLink>{" "}
             seit 1949 aufgebrochen und analysierbar gemacht - und zwar für
             Mensch und Maschine. Die Plattform ermöglicht erstmals den Zugang
             und die Recherche in den über 800.000 Redebeiträgen der letzten 70
