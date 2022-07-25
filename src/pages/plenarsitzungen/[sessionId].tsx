@@ -105,7 +105,7 @@ const Page: React.FC<Data> = ({ session }) => {
               Zum Plenarprotokoll
             </NextChakraLink>
           </div>
-          <Callout calloutText="NOTICE! The speech content variable only contains the actual spoken words of the respective politician. Any kind of interjection or reaction from the plenum is deleted from the speech content variable and replaced by a positional ID in the format of ({ID}). This positional ID can be used to link each speech with every contribution during the speech. The contributions can be found in the two Contributions Tables. Furthermore the positional ID represents the exact order and position a contribution occurred and hence can be used to reassemble the original structure of the speeches and interjections/contributions." />
+          <Callout calloutText="Der Redeinhalt enthält nur die tatsächlich gesprochenen Worte des jeweiligen Politikers. Jede Art von Zwischenruf oder Reaktion aus dem Plenum wird aus dem Redeinhalt gelöscht und durch eine Positions-ID im Format ({ID}) ersetzt." />
           {session.map((speech) => {
             const translatedPosition = convertPosition(speech.positionShort);
             const factionColor = convertFactionColor(speech.factionId);
