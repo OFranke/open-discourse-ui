@@ -36,26 +36,13 @@ export const getServerSideProps: GetServerSideProps = async ({
     };
   }
 
-  const sessionPromise = fetch(
+  const sessionResult = await fetch(
     `https://api.opendiscourse.de:5300/session?electoralTerm=${encodeURIComponent(
       electoralTerm
     )}&session=${encodeURIComponent(session)}`
   ).then((res) => res.json());
 
-  const factionsPromise = fetch(
-    "https://api.opendiscourse.de:5300/factions"
-  ).then((res) => res.json());
-  // const result = getSessionResponse;
-
-  const [sessionResult, factionsResult] = await Promise.all([
-    sessionPromise,
-    factionsPromise,
-  ]);
-
-  if (
-    !sessionResult?.data?.speeches?.length ||
-    !factionsResult?.data?.factions
-  ) {
+  if (!sessionResult?.data?.speeches?.length) {
     return {
       notFound: true,
     };
@@ -64,12 +51,11 @@ export const getServerSideProps: GetServerSideProps = async ({
   return {
     props: {
       session: sessionResult.data.speeches,
-      factions: factionsResult.data.factions,
     },
   };
 };
 
-const Page: React.FC<Data> = ({ session, factions }) => {
+const Page: React.FC<Data> = ({ session }) => {
   const factionColors = [
     { key: "0", color: "#009ee0" },
     { key: "3", color: "#46962b" },
@@ -122,25 +108,22 @@ const Page: React.FC<Data> = ({ session, factions }) => {
           <Callout calloutText="NOTICE! The speech content variable only contains the actual spoken words of the respective politician. Any kind of interjection or reaction from the plenum is deleted from the speech content variable and replaced by a positional ID in the format of ({ID}). This positional ID can be used to link each speech with every contribution during the speech. The contributions can be found in the two Contributions Tables. Furthermore the positional ID represents the exact order and position a contribution occurred and hence can be used to reassemble the original structure of the speeches and interjections/contributions." />
           {session.map((speech) => {
             const translatedPosition = convertPosition(speech.positionShort);
-            const translatedFaction = factions.find(
-              (faction) => faction.id === speech.factionId
-            );
             const factionColor = convertFactionColor(speech.factionId);
 
             return (
               <div key={speech.id} className="mb-20">
                 <div className="mb-6">
                   <DefaultHeadline size="xs" as="h3" marginBottom={1}>
-                    {speech.firstName} {speech.lastName} (
-                    {translatedPosition ?? speech.positionShort}){" "}
+                    {speech.academicTitle} {speech.firstName} {speech.lastName}{" "}
+                    ({translatedPosition ?? speech.positionShort}){" "}
                   </DefaultHeadline>
                   <div className="text-gray-600">
                     {speech.politicianId === "-1"
                       ? null
                       : `Politiker ID: ${speech.politicianId}`}
-                    {translatedFaction?.id == "-1"
+                    {speech.factionId == "-1"
                       ? null
-                      : `, Fraktion: ${translatedFaction?.fullName} (${translatedFaction?.abbreviation})`}
+                      : `, Fraktion: ${speech.factionFullName} (${speech.factionAbbreviation})`}
                   </div>
                 </div>
                 <DefaultText

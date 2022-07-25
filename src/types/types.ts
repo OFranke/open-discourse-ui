@@ -10,9 +10,12 @@ export type Speech = {
   electoralTerm: string;
   firstName: string;
   lastName: string;
+  academicTitle: string;
   politicianId: string;
   speechContent: string;
   factionId: string;
+  factionFullName: string;
+  factionAbbreviation: string;
   documentUrl: string;
   positionShort: string;
   positionLong: string;
