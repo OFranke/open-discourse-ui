@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import React from "react";
 import { Session } from "../types/types";
+import { getDeploymentUrl } from "../utils";
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   if (res) {
@@ -30,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
                 `/plenarsitzungen/${encodeURIComponent(
                   session.electoralTerm
                 )}-${encodeURIComponent(session.session)}`,
-                `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+                `${getDeploymentUrl()}`
               ).href
             }</loc>
             <lastmod>2022-07-27T10:00:00+01:00</lastmod>
