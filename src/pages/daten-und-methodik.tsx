@@ -1,11 +1,11 @@
 import { BaseTemplate } from "../templates/base-template";
-import SEO from "../components/seo";
+import { SEO } from "../components/seo";
 import { Section } from "@bit/limebit.limebit-ui.section";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
 import { DefaultHeadline } from "@bit/limebit.limebit-ui.default-headline";
 import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
-import { UnorderedList, Flex, chakra } from "@chakra-ui/react";
+import { UnorderedList } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import React from "react";
@@ -15,6 +15,9 @@ import { DefaultListItem } from "../components/default-list-item";
 import styles from "./styles.module.css";
 import { BackgroundImage } from "../components/background-image";
 import Image from "next/image";
+
+import headerImage from "/public/images/methodik/header_methodik.jpg";
+import sectionImage from "/public/images/methodik/reichstagsgebäude_wiese.jpg";
 
 const Home: React.FC = () => {
   return (
@@ -26,7 +29,7 @@ const Home: React.FC = () => {
       />
       <Section>
         <BackgroundImage
-          imagePath="/images/methodik/header_methodik.jpg"
+          imagePath={headerImage}
           altText="Fotokollage mit Abgeordneten am Redner:innenpult und Redeinhalten."
           height="60vh"
         />
@@ -43,9 +46,13 @@ const Home: React.FC = () => {
             Bundestag öffentlich verhandeln soll.
           </ColoredSubline>
           <DefaultText>
-            Seit 1949 wird für jede Plenarsitzung ein stenografischer Bericht
-            angefertigt, der jedes gesagte Wort der Sitzung dokumentiert. Diese
-            Protokolle liegen als txt-, xml-, oder pdf-Dokumente auf den{" "}
+            Seit 1949 wird für jede{" "}
+            <NextChakraLink color="pink.500" href="/plenarsitzungen">
+              Plenarsitzung
+            </NextChakraLink>{" "}
+            ein stenografischer Bericht angefertigt, der jedes gesagte Wort der
+            Sitzung dokumentiert. Diese Protokolle liegen als txt-, xml-, oder
+            pdf-Dokumente auf den{" "}
             <NextChakraLink
               color="pink.500"
               href="https://www.bundestag.de/dokumente/protokolle/plenarprotokolle"
@@ -128,10 +135,13 @@ const Home: React.FC = () => {
             Inhalte miteinander verknüpft wurden.
           </ColoredSubline>
           <DefaultText>
-            Das Open Discourse Korpus besteht aus den Plenarprotokollen, die für
-            jede Parlamentssitzung des Deutschen Bundestages erstellt werden.
-            Diese Berichte dokumentieren jede Rede im Parlament sowie jede
-            Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
+            Das Open Discourse Korpus besteht aus den{" "}
+            <NextChakraLink color="pink.500" href="/plenarsitzungen">
+              Plenarprotokollen
+            </NextChakraLink>
+            , die für jede Parlamentssitzung des Deutschen Bundestages erstellt
+            werden. Diese Berichte dokumentieren jede Rede im Parlament sowie
+            jede Einmischung und andere Arten von Beiträgen (Lachen, Heiterkeit,
             Applaus usw.) der Politker:innen, die während der Reden stattfanden.
             Insgesamt besteht das Korpus aus über 200 Millionen Tokens aus fast
             900.000 Reden in mehr als 4.000 verarbeiteten Protokollen. Das Open
@@ -376,18 +386,11 @@ const Home: React.FC = () => {
       </Section>
       <Section>
         <BackgroundImage
-          imagePath={"/images/methodik/reichstagsgebäude_wiese.jpg"}
+          imagePath={sectionImage}
           altText={"Wiese vor dem Reichstagsgebäude in Berlin"}
           height="60vh"
         />
       </Section>
-      {/* <Section>
-        <DefaultContainer size="l">
-          <DefaultHeadline size="s">
-            Darstellung des Gesamtprozesses
-          </DefaultHeadline>
-        </DefaultContainer>
-      </Section> */}
       <Section>
         <DefaultContainer size="l">
           <DefaultHeadline size="s">

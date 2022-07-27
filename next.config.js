@@ -22,6 +22,7 @@ const nextConfig = {
     });
     return config;
   },
+  experimental: { images: { allowFutureImage: true } },
 };
 
 module.exports = withPlugins([], nextConfig);

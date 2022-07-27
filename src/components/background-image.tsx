@@ -1,9 +1,9 @@
 import { Flex, FlexProps, Box } from "@chakra-ui/react";
 import DefaultText from "@bit/limebit.limebit-ui.default-text";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/future/image";
 
 export interface BackgroundImageProps extends FlexProps {
-  imagePath: string;
+  imagePath: StaticImageData;
   altText: string;
   imageAuthor?: string;
   backgroundPosition?: string;
@@ -45,13 +45,15 @@ export const BackgroundImage: React.FC<BackgroundImageProps> = ({
       }
       {...flexProps}
     >
-      <Image
-        src={imagePath}
-        alt={altText}
-        layout="fill"
-        objectFit="cover"
-        priority={imagePriority}
-      />
+      <div className="absolute w-full h-full">
+        <Image
+          className="object-cover w-full h-full"
+          src={imagePath}
+          alt={altText}
+          sizes="640 750 828 1080 1200 1920 2048 2560"
+          priority={imagePriority}
+        />
+      </div>
       {imageAuthor && (
         <Box position="absolute" top="0" right="0" paddingRight={2}>
           <DefaultText

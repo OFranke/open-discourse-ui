@@ -39,18 +39,13 @@ export const SpeechModal = ({ isOpen, onClose, data }: SpeechModalProps) => {
 
           <ModalBody>
             <Text mb="5" color="pink.500" fontWeight="bold">
-              {data.documentUrl && (
-                <>
-                  <NextChakraLink
-                    color="pink.500"
-                    href={data.documentUrl}
-                    isExternal
-                  >
-                    <ArrowForwardIcon mr="1" />
-                    Zum Plenarprotokoll
-                  </NextChakraLink>
-                </>
-              )}
+              <NextChakraLink
+                color="pink.500"
+                href={`/plenarsitzungen/${data.electoralTerm}-${data.session}`}
+              >
+                <ArrowForwardIcon mr="1" />
+                Zum Plenarprotokoll
+              </NextChakraLink>
             </Text>
             <Text fontWeight="bold">
               {data.firstName} {data.lastName} ({data.abbreviation})

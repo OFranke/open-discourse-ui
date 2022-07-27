@@ -9,18 +9,7 @@ import {
   DefaultSelectInput,
 } from "./custom-inputs";
 import { DefaultButton } from "@bit/limebit.limebit-ui.default-button";
-
-export interface Faction {
-  id: string;
-  fullName: string;
-  abbreviation: string;
-}
-
-export interface Politician {
-  id: string;
-  firstName: string;
-  lastName: string;
-}
+import { Faction, Politician } from "../../types/types";
 
 export const positions = [
   { key: "Member of Parliament", label: "Mitglied des Bundestages" },

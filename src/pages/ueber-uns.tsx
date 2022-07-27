@@ -7,7 +7,7 @@ import { ColoredSubline } from "@bit/limebit.limebit-ui.colored-subline";
 import { Quote } from "@bit/limebit.limebit-ui.quote";
 import { DefaultText } from "@bit/limebit.limebit-ui.default-text";
 import { ContactForm } from "../components/contact-form";
-import SEO from "../components/seo";
+import { SEO } from "../components/seo";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { SimpleGrid, Box } from "@chakra-ui/react";

@@ -42,3 +42,10 @@ https://github.com/iamvishnusankar/next-sitemap
 - Nivo Storybook: https://nivo.rocks/storybook/?path=/story/line--custom-tooltip
 - Nivo API for server side image generation: https://github.com/plouc/nivo-api
 - Example how to export PNG: https://github.com/plouc/nivo/issues/698
+
+## TODOS:
+
+- /plenarsitzungen --> Zeigt alle Sitzungen + Verlinkung zu /plenarsitungen?session=12&electoralTerm=12
+- /plenarsitungen/sitzung?session=12&electoralTerm=12 --> Zeigt komplette Sitzung, Redebeiträge farblich markiert nach Fraktion (wenn möglich), Verlinkt zu /politiker/politicianId
+- /politiker --> Zeigt alle Politiker
+- /poliker/politicianId --> zeigt Details über Politiker + alle Fraktionen, in denen der Politiker tätig war
