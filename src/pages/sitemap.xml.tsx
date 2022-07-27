@@ -56,10 +56,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
         return `
           <url>
             <loc>${
-              new URL(
-                `${encodeURIComponent(route)}`,
-                `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-              ).href
+              new URL(`${encodeURIComponent(route)}`, `${getDeploymentUrl()}`)
+                .href
             }</loc>
             <lastmod>2022-07-27T10:00:00+01:00</lastmod>
             <changefreq>monthly</changefreq>
