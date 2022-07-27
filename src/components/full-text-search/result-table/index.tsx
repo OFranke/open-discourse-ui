@@ -12,7 +12,7 @@ interface ResultTableProps {
 }
 
 interface Row {
-  values: SearchResultRow;
+  original: SearchResultRow;
 }
 
 type SelectedState = { [id: number]: boolean };
@@ -44,16 +44,16 @@ export const ResultTable = ({ data }: ResultTableProps) => {
       Header: "Herunterladen",
       accessor: "downloadId",
       Cell: ({ row }: { row: Row }) => {
-        if (row.values.downloadId || row.values.downloadId === 0) {
+        if (row.original.downloadId || row.original.downloadId === 0) {
           return (
             <Checkbox
               colorScheme="pink"
               borderColor="pink.500"
-              isChecked={selected[row.values.downloadId]}
+              isChecked={selected[row.original.downloadId]}
               onChange={() => {
                 dispatchSelected({
                   action: "toggleSingle",
-                  id: row.values.downloadId,
+                  id: row.original.downloadId,
                 });
               }}
             />
@@ -74,8 +74,10 @@ export const ResultTable = ({ data }: ResultTableProps) => {
       Header: "Date",
       accessor: "date",
       Cell: ({ row }: { row: Row }) => {
-        if (row.values.date) {
-          return <Text>{new Date(row.values.date).toLocaleDateString()}</Text>;
+        if (row.original.date) {
+          return (
+            <Text>{new Date(row.original.date).toLocaleDateString()}</Text>
+          );
         }
         return null;
       },
@@ -84,10 +86,10 @@ export const ResultTable = ({ data }: ResultTableProps) => {
       Header: "Url",
       accessor: "documentUrl",
       Cell: ({ row }: { row: Row }) => {
-        if (row.values.documentUrl) {
+        if (row.original.documentUrl) {
           return (
             <NextChakraLink
-              href={`/plenarsitzungen/${row.values.electoralTerm}-${row.values.session}`}
+              href={`/plenarsitzungen/${row.original.electoralTerm}-${row.original.session}`}
               fontWeight="bold"
             >
               Protokoll
@@ -102,14 +104,14 @@ export const ResultTable = ({ data }: ResultTableProps) => {
       accessor: "speechContent",
       Cell: ({ row }: { row: Row }) => {
         const { isOpen, onOpen, onClose } = useDisclosure();
-        if (row.values.speechContent || row.values.speechContent === "") {
+        if (row.original.speechContent || row.original.speechContent === "") {
           return (
             <>
               <Link as="button" onClick={onOpen} fontWeight="bold">
                 anzeigen
               </Link>
               <SpeechModal
-                data={row.values}
+                data={row.original}
                 isOpen={isOpen}
                 onClose={onClose}
               />
