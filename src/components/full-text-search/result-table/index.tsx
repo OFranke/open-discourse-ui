@@ -1,5 +1,6 @@
 import { Link, Text, useDisclosure, Checkbox, Flex } from "@chakra-ui/react";
 import { ReactTable } from "@bit/limebit.chakra-ui-recipes.react-table";
+import type { Column } from "react-table";
 import React, { useReducer } from "react";
 import { SearchResultRow } from "../hooks/use-manage-data";
 import { DownloadButton } from "./download-button";
@@ -9,10 +10,6 @@ import { NextChakraLink } from "@bit/limebit.limebit-ui.next-chakra-link";
 
 interface ResultTableProps {
   data: SearchResultRow[];
-}
-
-interface Row {
-  original: SearchResultRow;
 }
 
 type SelectedState = { [id: number]: boolean };
@@ -39,11 +36,11 @@ export const ResultTable = ({ data }: ResultTableProps) => {
     Object.fromEntries(data.map((element) => [element.downloadId, false]))
   );
 
-  const columns = [
+  const columns: Column<SearchResultRow>[] = [
     {
       Header: "Herunterladen",
       accessor: "downloadId",
-      Cell: ({ row }: { row: Row }) => {
+      Cell: ({ row }) => {
         if (row.original.downloadId || row.original.downloadId === 0) {
           return (
             <Checkbox
@@ -73,7 +70,7 @@ export const ResultTable = ({ data }: ResultTableProps) => {
     {
       Header: "Date",
       accessor: "date",
-      Cell: ({ row }: { row: Row }) => {
+      Cell: ({ row }) => {
         if (row.original.date) {
           return (
             <Text>{new Date(row.original.date).toLocaleDateString()}</Text>
@@ -85,7 +82,7 @@ export const ResultTable = ({ data }: ResultTableProps) => {
     {
       Header: "Url",
       accessor: "documentUrl",
-      Cell: ({ row }: { row: Row }) => {
+      Cell: ({ row }) => {
         if (row.original.documentUrl) {
           return (
             <NextChakraLink
@@ -102,7 +99,7 @@ export const ResultTable = ({ data }: ResultTableProps) => {
     {
       Header: "Rede",
       accessor: "speechContent",
-      Cell: ({ row }: { row: Row }) => {
+      Cell: ({ row }) => {
         const { isOpen, onOpen, onClose } = useDisclosure();
         if (row.original.speechContent || row.original.speechContent === "") {
           return (
