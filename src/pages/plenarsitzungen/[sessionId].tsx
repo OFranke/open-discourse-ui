@@ -79,13 +79,12 @@ const Page: React.FC<Data> = ({ session }) => {
   }. Wahlperiode im Deutschen Bundestag am ${new Date(
     session[0].date
   ).toLocaleDateString()}.`;
-  ("Open Discourse erleichtert den Zugang zum politischen Diskurs des Bundestages mit einem Tool zur Diskursanalyse der Plenardebatten.");
   return (
     <BaseTemplate>
       <SEO
         title={title}
         description={description}
-        canonicalRoute="/plenarsitzungen"
+        canonicalRoute={`/plenarsitzungen/${session[0].electoralTerm}-${session[0].session}`}
       />
       <Section
         marginTop={{ base: "8", sm: "14", md: "20", lg: "20", xl: "32" }}
