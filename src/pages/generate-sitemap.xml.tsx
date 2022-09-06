@@ -23,23 +23,22 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
     const sessions = `
     ${sessionsData
-      .map((session) => {
-        return `
+        .map((session) => {
+          return `
           <url>
-            <loc>${
-              new URL(
-                `/plenarsitzungen/${encodeURIComponent(
-                  session.electoralTerm
-                )}-${encodeURIComponent(session.session)}`,
-                `${getDeploymentUrl()}`
-              ).href
+            <loc>${new URL(
+            `/plenarsitzungen/${encodeURIComponent(
+              session.electoralTerm
+            )}-${encodeURIComponent(session.session)}`,
+            `${getDeploymentUrl()}`
+          ).href
             }</loc>
             <lastmod>2022-07-27T10:00:00+01:00</lastmod>
             <changefreq>monthly</changefreq>
           </url>
         `;
-      })
-      .join("")}
+        })
+        .join("")}
 `;
 
     const routes = [
@@ -52,19 +51,18 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     ];
     const pages = `
     ${routes
-      .map((route) => {
-        return `
+        .map((route) => {
+          return `
           <url>
-            <loc>${
-              new URL(`${encodeURIComponent(route)}`, `${getDeploymentUrl()}`)
-                .href
+            <loc>${new URL(`${encodeURIComponent(route)}`, `${getDeploymentUrl()}`)
+              .href
             }</loc>
             <lastmod>2022-07-27T10:00:00+01:00</lastmod>
             <changefreq>monthly</changefreq>
           </url>
         `;
-      })
-      .join("")}
+        })
+        .join("")}
 `;
 
     const content = `<?xml version="1.0" encoding="UTF-8"?>
