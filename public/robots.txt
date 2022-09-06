@@ -1,0 +1,3 @@
+Sitemap: https://opendiscourse.de/sitemap.xml
+User-agent: *
+Disallow:
