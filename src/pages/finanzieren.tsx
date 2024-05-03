@@ -10,40 +10,23 @@ import { ContactForm } from "../components/contact-form";
 import { SEO } from "../components/seo";
 import NextChakraLink from "@bit/limebit.limebit-ui.next-chakra-link";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { SimpleGrid, Box } from "@chakra-ui/react";
+import { Box, UnorderedList } from "@chakra-ui/react";
 import Image from "next/image";
+import { DefaultListItem } from "../components/default-list-item";
 
-interface TeamMemberProps {
-  src: string;
-  name: string;
-}
-const TeamMember: React.FC<TeamMemberProps> = ({ src, name }) => {
-  return (
-    <Box textAlign="center">
-      <Image
-        src={src}
-        alt={name}
-        layout="intrinsic"
-        width={1417}
-        height={1890}
-      />
-      <DefaultText as="span">{name}</DefaultText>
-    </Box>
-  );
-};
-const Home: React.FC = () => {
+const Finance: React.FC = () => {
   return (
     <BaseTemplate>
       <SEO
-        title="Unser Beitrag zur Demokratie"
-        description="Das Team hinter dem gemeinnützigen Projekt engagiert sich für den erleichterten Zugang zu politischen Debatten und Themen auf Basis modernster Technologien."
-        canonicalRoute="ueber-uns"
+        title="Open Discourse Finanzieren"
+        description="Helfen Sie, Open Discourse zur finanzieren, um die Plattform zu betreiben und weiter zu entwickeln."
+        canonicalRoute="finanzieren"
       />
 
       <Section paddingTop={{ base: 4, xl: 10 }}>
         <DefaultContainer size="l">
           <DefaultHeadline size="s" as="h1">
-            Das Team hinter Open Discourse
+            Open Discourse Finanzieren
           </DefaultHeadline>
           <ColoredSubline backgroundColor="pink.500">
             Die Plattform ist unser Beitrag zur Demokratisierung des Zugangs zu
@@ -71,6 +54,54 @@ const Home: React.FC = () => {
             analysieren.
           </DefaultText>
           <DefaultText>
+            Um Open Discourse weiterzuentwickeln und zu betreiben, sind wir auf
+            finanzielle Mittel angewiesen. Wir freuen uns über Ihre finanzielle
+            Unterstützung:
+          </DefaultText>
+          <UnorderedList>
+            <DefaultListItem>
+              Monatlich über:{" "}
+              <NextChakraLink
+                color="pink.500"
+                href="https://www.patreon.com/opendiscourse"
+                isExternal
+              >
+                Patreon <ExternalLinkIcon mx="2px" />
+              </NextChakraLink>
+            </DefaultListItem>
+            <DefaultListItem>
+              Monatlich oder einmalig:{" "}
+              <NextChakraLink
+                color="pink.500"
+                href="https://github.com/sponsors/open-discourse"
+                isExternal
+              >
+                GitHub Sponsorships <ExternalLinkIcon mx="2px" />
+              </NextChakraLink>
+            </DefaultListItem>
+            <DefaultListItem>
+              <DefaultText>
+                <strong>Limebit GmbH</strong>
+                <br />
+                IBAN: DE34 4306 0967 1019 1891 00
+                <br />
+                BIC: GENODEM1GLS
+                <br />
+                Verwendungszweck: Open Discourse Finanzierung
+              </DefaultText>
+            </DefaultListItem>
+          </UnorderedList>
+
+          <DefaultText>
+            Hinweis: Da wir trotz allem gesellschaftlichen Engagement ein
+            privatwirtschaftliches Unternehmen sind, sind die Gelder, die Sie
+            uns zukommen lassen keine steuerrechtlich absetzbaren Spenden. Bei
+            Bedarf stellen wir Ihnen aber gerne ein Dokument mit einer
+            Bestätigung ihrer Überweisung aus. Wenden Sie sich dazu bitte per
+            E-Mail an: <b>zwischenruf@opendiscourse.de</b>.
+          </DefaultText>
+
+          <DefaultText>
             Wenn Sie von weiteren Updates und Projekten rund um Open Discourse
             erfahren wollen, tragen Sie sich gern in{" "}
             <NextChakraLink
@@ -82,35 +113,16 @@ const Home: React.FC = () => {
             </NextChakraLink>{" "}
             ein.
           </DefaultText>
+          <DefaultText>
+            Wenn Sie wissen möchten, wer am Projekt mitgewirkt hat, erfahren Sie{" "}
+            <NextChakraLink color="pink.500" href="/ueber-uns">
+              hier mehr über unser Team
+            </NextChakraLink>
+            .
+          </DefaultText>
         </DefaultContainer>
       </Section>
-      <Section>
-        <DefaultContainer size="s">
-          <SimpleGrid columns={{ base: 3, md: 3, lg: 3 }} spacing="10">
-            <TeamMember src={"/images/karikaturen/anja.png"} name="Anja" />
-            <TeamMember
-              src={"/images/karikaturen/fabrizio.png"}
-              name="Fabrizio"
-            />
-            <TeamMember
-              src={"/images/karikaturen/florian.png"}
-              name="Florian"
-            />
-            <TeamMember src={"/images/karikaturen/jakob.png"} name="Jakob" />
-            <TeamMember src={"/images/karikaturen/judith.png"} name="Judith" />
-            <TeamMember
-              src={"/images/karikaturen/konstantin.png"}
-              name="Konstantin"
-            />
-            <TeamMember src={"/images/karikaturen/oliver.png"} name="Oliver" />
-            <TeamMember
-              src={"/images/karikaturen/philipp.png"}
-              name="Philipp"
-            />
-            <TeamMember src={"/images/karikaturen/stella.png"} name="Stella" />
-          </SimpleGrid>
-        </DefaultContainer>
-      </Section>
+
       <Section background="pink.500" color="white">
         <DefaultContainer size="s">
           <Quote>
@@ -129,4 +141,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Finance;

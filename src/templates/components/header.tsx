@@ -4,16 +4,15 @@ import {
   Box,
   IconButton,
   Stack,
-  chakra,
   MenuButton,
-  Button,
   Menu,
   MenuItem,
   MenuList,
   Badge,
 } from "@chakra-ui/react";
+import { FaHandHoldingUsd } from "react-icons/fa";
 
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaHeart } from "react-icons/fa";
 
 import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { DefaultContainer } from "@bit/limebit.limebit-ui.default-container";
@@ -90,8 +89,8 @@ export const Header: React.FC = () => {
               href="/volltextsuche"
               underlineColor={theme.colors.pink[500]}
             >
-              <Badge marginRight="3" colorScheme="pink">
-                Neu
+              <Badge marginRight="2" padding={1} colorScheme="pink">
+                <FaHeart className="h-4 w-4 inline" />
               </Badge>
               Volltextsuche
             </NavItem>
@@ -99,8 +98,8 @@ export const Header: React.FC = () => {
               href="/diskursanalyse"
               underlineColor={theme.additionalColors.yellow}
             >
-              <Badge marginRight="3" colorScheme="yellow">
-                Neu
+              <Badge marginRight="2" padding={1} colorScheme="yellow">
+                <FaHeart className="h-4 w-4 inline" />
               </Badge>
               Diskursanalyse
             </NavItem>
@@ -131,6 +130,15 @@ export const Header: React.FC = () => {
             </NavItem>
             <NavItem href="/ueber-uns" underlineColor={theme.colors.pink[500]}>
               Über uns
+            </NavItem>
+            <NavItem
+              href="/finanzieren"
+              underlineColor={theme.additionalColors.yellow}
+            >
+              <Badge marginRight="2" padding={1} colorScheme="yellow">
+                <FaHandHoldingUsd className="h-4 w-4 inline" />
+              </Badge>
+              Finanzieren
             </NavItem>
             <Box>
               <NextChakraLink
