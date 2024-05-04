@@ -42,7 +42,7 @@ const generateImage = async ({
     url: screenshotUrl,
   });
   const response = await fetch(
-    `https://api.opendiscourse.de:5300/screenshot?${urlEncodedFetchParams}`
+    `https://api.opendiscourse.de:5300/screenshots?${urlEncodedFetchParams}`
   );
 
   const result: GenerateImageResponse = await response.json();
